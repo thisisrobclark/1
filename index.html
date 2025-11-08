@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Reels Analytics Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .upload-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .upload-area {
+            border: 3px dashed #667eea;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .upload-area:hover {
+            background: #f8f9ff;
+            border-color: #764ba2;
+        }
+
+        .upload-area.dragover {
+            background: #f0f2ff;
+            border-color: #764ba2;
+        }
+
+        .upload-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-card .value {
+            color: #667eea;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .data-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+
+        .data-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            overflow-x: auto;
+            display: block;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #eee;
+            transition: background 0.2s;
+        }
+
+        tbody tr:hover {
+            background: #f8f9ff;
+        }
+
+        .chart-container {
+            margin-top: 20px;
+            height: 300px;
+            position: relative;
+        }
+
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            height: 100%;
+            gap: 5px;
+        }
+
+        .bar {
+            flex: 1;
+            background: linear-gradient(to top, #667eea, #764ba2);
+            border-radius: 5px 5px 0 0;
+            position: relative;
+            min-width: 20px;
+            transition: transform 0.2s;
+        }
+
+        .bar:hover {
+            transform: scaleY(1.05);
+            opacity: 0.8;
+        }
+
+        .bar-label {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-45deg);
+            font-size: 0.7em;
+            white-space: nowrap;
+            transform-origin: top left;
+        }
+
+        .bar-value {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .error-message {
+            background: #ff4757;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .success-message {
+            background: #2ed573;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Instagram Reels Analytics</h1>
+            <p>Upload your CSV file to analyze your Reels performance</p>
+        </div>
+
+        <div class="upload-section">
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📁</div>
+                <h3>Drop your CSV file here or click to browse</h3>
+                <p style="color: #888; margin-top: 10px;">Supports CSV files with Reels analytics data</p>
+                <input type="file" id="fileInput" accept=".csv">
+                <button class="btn" onclick="document.getElementById('fileInput').click()">Choose File</button>
+            </div>
+        </div>
+
+        <div id="errorMessage" class="error-message"></div>
+
+        <div id="statsSection" class="hidden">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Reels</h3>
+                    <div class="value" id="totalReels">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Views</h3>
+                    <div class="value" id="totalViews">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Likes</h3>
+                    <div class="value" id="totalLikes">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Avg Engagement</h3>
+                    <div class="value" id="avgEngagement">0%</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Reach</h3>
+                    <div class="value" id="totalReach">0</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="chartSection" class="data-section hidden">
+            <h2>📈 Views by Reel</h2>
+            <div class="chart-container">
+                <div class="bar-chart" id="barChart"></div>
+            </div>
+        </div>
+
+        <div id="tableSection" class="data-section hidden">
+            <h2>📋 Detailed Analytics</h2>
+            <table id="dataTable">
+                <thead>
+                    <tr id="tableHeader"></tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let analyticsData = [];
+
+        // File upload handlers
+        const fileInput = document.getElementById('fileInput');
+        const uploadArea = document.getElementById('uploadArea');
+
+        fileInput.addEventListener('change', handleFileSelect);
+        uploadArea.addEventListener('click', () => fileInput.click());
+        uploadArea.addEventListener('dragover', handleDragOver);
+        uploadArea.addEventListener('dragleave', handleDragLeave);
+        uploadArea.addEventListener('drop', handleDrop);
+
+        function handleDragOver(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            uploadArea.classList.add('dragover');
+        }
+
+        function handleDragLeave(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            uploadArea.classList.remove('dragover');
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            uploadArea.classList.remove('dragover');
+
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                fileInput.files = files;
+                handleFileSelect({ target: { files: files } });
+            }
+        }
+
+        function handleFileSelect(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            if (!file.name.endsWith('.csv')) {
+                showError('Please upload a CSV file');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                try {
+                    parseCSV(event.target.result);
+                    displayData();
+                    hideError();
+                } catch (error) {
+                    showError('Error parsing CSV file: ' + error.message);
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function parseCSV(text) {
+            const lines = text.trim().split('\n');
+            const headers = lines[0].split(',').map(h => h.trim());
+
+            analyticsData = [];
+            for (let i = 1; i < lines.length; i++) {
+                const values = parseCSVLine(lines[i]);
+                const row = {};
+                headers.forEach((header, index) => {
+                    row[header] = values[index] ? values[index].trim() : '';
+                });
+                analyticsData.push(row);
+            }
+        }
+
+        function parseCSVLine(line) {
+            const result = [];
+            let current = '';
+            let inQuotes = false;
+
+            for (let i = 0; i < line.length; i++) {
+                const char = line[i];
+
+                if (char === '"') {
+                    inQuotes = !inQuotes;
+                } else if (char === ',' && !inQuotes) {
+                    result.push(current);
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            result.push(current);
+            return result;
+        }
+
+        function displayData() {
+            displayStats();
+            displayChart();
+            displayTable();
+
+            document.getElementById('statsSection').classList.remove('hidden');
+            document.getElementById('chartSection').classList.remove('hidden');
+            document.getElementById('tableSection').classList.remove('hidden');
+        }
+
+        function displayStats() {
+            const totalReels = analyticsData.length;
+            const totalViews = analyticsData.reduce((sum, row) => sum + parseNumber(row['Views']), 0);
+            const totalLikes = analyticsData.reduce((sum, row) => sum + parseNumber(row['Likes']), 0);
+            const totalReach = analyticsData.reduce((sum, row) => sum + parseNumber(row['Reach']), 0);
+            const avgEngagement = analyticsData.reduce((sum, row) => sum + parseFloat(row['Engagement Rate'] || 0), 0) / totalReels;
+
+            document.getElementById('totalReels').textContent = formatNumber(totalReels);
+            document.getElementById('totalViews').textContent = formatNumber(totalViews);
+            document.getElementById('totalLikes').textContent = formatNumber(totalLikes);
+            document.getElementById('totalReach').textContent = formatNumber(totalReach);
+            document.getElementById('avgEngagement').textContent = avgEngagement.toFixed(1) + '%';
+        }
+
+        function displayChart() {
+            const chartContainer = document.getElementById('barChart');
+            chartContainer.innerHTML = '';
+
+            const maxViews = Math.max(...analyticsData.map(row => parseNumber(row['Views'])));
+
+            analyticsData.slice(0, 10).forEach(row => {
+                const views = parseNumber(row['Views']);
+                const height = (views / maxViews) * 100;
+
+                const bar = document.createElement('div');
+                bar.className = 'bar';
+                bar.style.height = height + '%';
+                bar.title = `${row['Title']}: ${formatNumber(views)} views`;
+
+                const label = document.createElement('div');
+                label.className = 'bar-label';
+                label.textContent = row['Title'] ? row['Title'].substring(0, 15) : 'Reel';
+
+                const value = document.createElement('div');
+                value.className = 'bar-value';
+                value.textContent = formatNumber(views);
+
+                bar.appendChild(label);
+                bar.appendChild(value);
+                chartContainer.appendChild(bar);
+            });
+        }
+
+        function displayTable() {
+            const table = document.getElementById('dataTable');
+            const header = document.getElementById('tableHeader');
+            const body = document.getElementById('tableBody');
+
+            // Clear existing content
+            header.innerHTML = '';
+            body.innerHTML = '';
+
+            // Create header
+            if (analyticsData.length > 0) {
+                const headers = Object.keys(analyticsData[0]);
+                headers.forEach(headerText => {
+                    const th = document.createElement('th');
+                    th.textContent = headerText;
+                    header.appendChild(th);
+                });
+
+                // Create rows
+                analyticsData.forEach(row => {
+                    const tr = document.createElement('tr');
+                    headers.forEach(header => {
+                        const td = document.createElement('td');
+                        td.textContent = row[header];
+                        tr.appendChild(td);
+                    });
+                    body.appendChild(tr);
+                });
+            }
+        }
+
+        function parseNumber(str) {
+            return parseInt(str.replace(/,/g, '')) || 0;
+        }
+
+        function formatNumber(num) {
+            if (num >= 1000000) {
+                return (num / 1000000).toFixed(1) + 'M';
+            } else if (num >= 1000) {
+                return (num / 1000).toFixed(1) + 'K';
+            }
+            return num.toString();
+        }
+
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+        }
+
+        function hideError() {
+            document.getElementById('errorMessage').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
