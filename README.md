@@ -1,8 +1,18 @@
-# Instagram Reels Analytics App
+# Web Tools Collection
+
+A collection of simple, useful web applications.
+
+## 📱 Instagram Reels Analytics App
 
 A simple, lightweight web application for analyzing Instagram Reels performance from CSV files.
 
-## Features
+## 🎬 YouTube Transcript Extractor
+
+A tool to extract and display transcripts from YouTube videos.
+
+---
+
+## 📱 Instagram Reels Analytics - Features
 
 - 📊 Upload and parse CSV files containing Instagram Reels analytics
 - 📈 Visual bar chart showing views by Reel
@@ -16,7 +26,7 @@ A simple, lightweight web application for analyzing Instagram Reels performance 
 - 🎨 Beautiful, responsive UI with gradient design
 - 🚀 No installation required - runs directly in your browser
 
-## How to Use
+### How to Use Instagram Reels Analytics
 
 1. **Open the App**
    - Simply open `index.html` in any modern web browser (Chrome, Firefox, Safari, Edge)
@@ -73,15 +83,108 @@ Note: Instagram's native export format may vary. You might need to adjust column
 - **Browser Support**: Works in all modern browsers
 - **File Processing**: Client-side only (your data never leaves your computer)
 
-## Files Included
-
-- `index.html` - Main application file
-- `sample-reels-analytics.csv` - Sample data for testing
-- `README.md` - This file
-
-## Privacy
+### Privacy
 
 All data processing happens locally in your browser. No data is sent to any server, ensuring your analytics remain completely private.
+
+---
+
+## 🎬 YouTube Transcript Extractor - Features
+
+- 🎥 Extract transcripts from any YouTube video
+- ⏱️ Display timestamps with each transcript line
+- 📊 Statistics: total lines, word count, and video duration
+- 📋 Copy transcript to clipboard
+- 🎨 Beautiful, responsive UI with gradient design
+- 🚀 Fast and easy to use
+
+### How to Use YouTube Transcript Extractor
+
+#### Prerequisites
+
+Before using the YouTube Transcript Extractor, you need to have Node.js installed on your system.
+
+1. **Install Node.js** (if not already installed)
+   - Download from [nodejs.org](https://nodejs.org/)
+   - Verify installation: `node --version`
+
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the Server**
+   ```bash
+   npm start
+   ```
+
+   The server will start on `http://localhost:3000`
+
+4. **Open the App**
+   - Open `youtube-transcript.html` in your web browser
+   - Or navigate to the file directly
+
+5. **Extract a Transcript**
+   - Paste a YouTube URL (e.g., `https://www.youtube.com/watch?v=dQw4w9WgXcQ`)
+   - Or just enter the video ID (e.g., `dQw4w9WgXcQ`)
+   - Click "Get Transcript"
+   - View the transcript with timestamps
+   - Copy to clipboard if needed
+
+### Requirements
+
+- Node.js (v14 or higher recommended)
+- Modern web browser (Chrome, Firefox, Safari, Edge)
+- Internet connection (to fetch transcripts from YouTube)
+
+### Important Notes
+
+- The video must have captions/transcripts available
+- Auto-generated transcripts are supported
+- Some videos may have transcripts disabled by the uploader
+- The server must be running for the web interface to work
+
+### Technical Details
+
+- **Backend**: Node.js with Express
+- **Frontend**: Pure HTML5, CSS3, and vanilla JavaScript
+- **Dependencies**:
+  - express - Web server framework
+  - cors - Enable cross-origin requests
+  - youtube-transcript - Fetch YouTube transcripts
+- **API Endpoint**: `GET /transcript/:videoId`
+
+### Troubleshooting
+
+**"Failed to fetch transcript"**
+- Make sure the server is running (`npm start`)
+- Check that the video has captions available
+- Verify the video ID is correct
+
+**"No transcript found"**
+- The video may not have captions enabled
+- Try a different video that you know has subtitles
+
+**Server won't start**
+- Make sure you ran `npm install` first
+- Check that port 3000 is not already in use
+- Try a different port by setting the PORT environment variable: `PORT=3001 npm start`
+
+---
+
+## Files Included
+
+### Instagram Reels Analytics
+- `index.html` - Main application file
+- `sample-reels-analytics.csv` - Sample data for testing
+
+### YouTube Transcript Extractor
+- `youtube-transcript.html` - Frontend interface
+- `server.js` - Backend API server
+- `package.json` - Node.js dependencies
+
+### Documentation
+- `README.md` - This file
 
 ## License
 
