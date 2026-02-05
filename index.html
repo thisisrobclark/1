@@ -46,7 +46,7 @@
             --font-heading: 'Playfair Display', Georgia, serif;
             --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --max-width: 1200px;
-            --section-padding: 120px;
+            --section-padding: 80px;
             --transition: all 0.3s ease;
         }
 
@@ -265,16 +265,15 @@
             display: flex;
             align-items: center;
             position: relative;
-            overflow: visible;
+            overflow: hidden;
             padding-top: 80px;
             padding-bottom: 0;
-            z-index: 2;
         }
 
         .hero-bg {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1510 50%, #0a0a0a 100%);
+            background: var(--color-bg-dark);
             z-index: 0;
         }
 
@@ -422,7 +421,7 @@
             display: flex;
             justify-content: center;
             align-items: flex-end;
-            z-index: 5;
+            z-index: 1;
         }
 
         .hero-headshot-container {
@@ -430,6 +429,7 @@
             width: 480px;
             height: 620px;
             overflow: visible;
+            background: transparent;
         }
 
         .hero-headshot-container img {
@@ -474,7 +474,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #171717 0%, #1f1a14 100%);
+            background: transparent;
         }
 
         .hero-headshot-fallback .initials {
@@ -491,6 +491,39 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-top: 16px;
+        }
+
+        /* Floating social media icons around hero photo */
+        .hero-social-icons {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-social-icon {
+            position: absolute;
+            opacity: 0;
+            animation: floatIcon 4s ease-in-out infinite;
+        }
+
+        .hero-social-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Individual icon positions — scattered around the figure */
+        .hero-social-icon.icon-youtube    { width: 52px; top: 8%;  right: -35%; opacity: 0.35; animation-delay: 0s; }
+        .hero-social-icon.icon-instagram  { width: 44px; top: 25%; right: -55%; opacity: 0.28; animation-delay: 0.7s; }
+        .hero-social-icon.icon-tiktok     { width: 38px; top: 5%;  left: -30%;  opacity: 0.22; animation-delay: 1.4s; }
+        .hero-social-icon.icon-facebook   { width: 42px; top: 40%; left: -50%;  opacity: 0.15; animation-delay: 2.1s; }
+        .hero-social-icon.icon-x          { width: 36px; top: 55%; right: -45%; opacity: 0.25; animation-delay: 0.4s; }
+        .hero-social-icon.icon-linkedin   { width: 40px; bottom: 35%; left: -40%;  opacity: 0.12; animation-delay: 1.8s; }
+        .hero-social-icon.icon-messenger  { width: 34px; top: 18%; left: -55%;  opacity: 0.10; animation-delay: 2.5s; }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
         .hero-stats {
@@ -552,8 +585,8 @@
         /* Hero-specific divider: overlaps with hero and transitions to light */
         .divider-hero {
             position: relative;
-            z-index: 1;
-            margin-top: -120px;
+            z-index: 3;
+            margin-top: -60px;
             background: transparent;
         }
 
@@ -572,7 +605,7 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 56px;
         }
 
         .section-label {
@@ -616,15 +649,17 @@
            LOGO CAROUSEL (LIGHT SECTION)
            ======================================== */
         .logos-section {
-            padding: 60px 0;
+            padding: 40px 0;
             background: var(--color-bg-cream);
             overflow: hidden;
         }
 
         /* ---- As Featured In (press bar) ---- */
         .press-bar {
-            padding: 48px 0 40px;
+            padding: 36px 0 28px;
             background: var(--color-bg-cream);
+            position: relative;
+            z-index: 2;
         }
 
         .press-bar-label {
@@ -1467,7 +1502,7 @@
            ======================================== */
         @media (max-width: 1024px) {
             :root {
-                --section-padding: 80px;
+                --section-padding: 60px;
             }
 
             .hero .container {
@@ -1574,7 +1609,7 @@
 
         @media (max-width: 768px) {
             :root {
-                --section-padding: 60px;
+                --section-padding: 48px;
             }
 
             .nav-links {
@@ -1607,6 +1642,10 @@
             .hero-headshot-container {
                 width: 300px;
                 height: 400px;
+            }
+
+            .hero-social-icons {
+                display: none;
             }
 
             .divider-hero {
@@ -1762,6 +1801,37 @@
                     <div class="hero-headshot-fallback" style="display:none;">
                         <div class="initials">RC</div>
                         <div class="photo-label">Your Photo Here</div>
+                    </div>
+                    <!-- Floating social media icons -->
+                    <div class="hero-social-icons">
+                        <!-- YouTube -->
+                        <div class="hero-social-icon icon-youtube">
+                            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="12" fill="#FF0000" fill-opacity="0.9"/><path d="M19 15l12 9-12 9V15z" fill="#fff"/></svg>
+                        </div>
+                        <!-- Instagram -->
+                        <div class="hero-social-icon icon-instagram">
+                            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ig" x1="0" y1="48" x2="48" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#FD5"/><stop offset=".5" stop-color="#FF543E"/><stop offset="1" stop-color="#C837AB"/></linearGradient></defs><rect width="48" height="48" rx="12" fill="url(#ig)"/><circle cx="24" cy="24" r="8" stroke="#fff" stroke-width="3" fill="none"/><circle cx="35" cy="13" r="2.5" fill="#fff"/></svg>
+                        </div>
+                        <!-- TikTok -->
+                        <div class="hero-social-icon icon-tiktok">
+                            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="12" fill="#010101"/><path d="M30 12c0 4 3 6 6 6v5c-3 0-5-1-6-2v10a9 9 0 1 1-9-9v5a4 4 0 1 0 4 4V12h5z" fill="#fff"/></svg>
+                        </div>
+                        <!-- Facebook -->
+                        <div class="hero-social-icon icon-facebook">
+                            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="24" fill="#1877F2"/><path d="M27 25h4l1-5h-5v-3c0-1.4.7-3 3-3h2V9s-2-.3-3.5-.3C24.6 8.7 22 11.1 22 15.5V20h-4v5h4v13h5V25z" fill="#fff"/></svg>
+                        </div>
+                        <!-- X (Twitter) -->
+                        <div class="hero-social-icon icon-x">
+                            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="12" fill="#000"/><path d="M28.2 22.3L36 13h-2.5l-6 7.8L21.8 13H14l8.3 12.1L14 35h2.5l6.5-8.4 5.5 8.4H36l-7.8-12.7zm-2.3 2.7l-.8-1-5.8-8.4h2.6l4.8 6.8.8 1 6.2 8.9h-2.6l-5.2-7.3z" fill="#fff"/></svg>
+                        </div>
+                        <!-- LinkedIn -->
+                        <div class="hero-social-icon icon-linkedin">
+                            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="8" fill="#0A66C2"/><path d="M14 20h4v14h-4V20zm2-6a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zm6 6h4v2c1-1.5 2.8-2.5 5-2.5 4.5 0 5 3 5 7v7.5h-4V28c0-2-.4-3.5-2.5-3.5-2.4 0-3.5 1.8-3.5 3.8V34h-4V20z" fill="#fff"/></svg>
+                        </div>
+                        <!-- Messenger -->
+                        <div class="hero-social-icon icon-messenger">
+                            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ms" x1="0" y1="48" x2="48" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#0099FF"/><stop offset="1" stop-color="#A033FF"/></linearGradient></defs><rect width="48" height="48" rx="24" fill="url(#ms)"/><path d="M24 10c-8 0-14 5.7-14 13.5 0 4 1.7 7.3 4.5 9.7V39l5.2-2.8c1.3.4 2.8.6 4.3.6 8 0 14-5.7 14-13.5S32 10 24 10zm1.5 18l-3.5-3.8-7 3.8 7.7-8 3.5 3.8 7-3.8-7.7 8z" fill="#fff"/></svg>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1927,9 +1997,9 @@
             <div class="keynotes-grid">
                 <div class="keynote-card fade-in fade-in-delay-1">
                     <div class="keynote-number">01</div>
-                    <h3 class="keynote-title">Attention &amp; Visibility in a Distracted World</h3>
+                    <h3 class="keynote-title">Higher Education</h3>
                     <p class="keynote-description">
-                        The world is noisier than ever. Rob breaks down how modern attention works, why most organizations are invisible, and the practical shifts that create real visibility &mdash; without gaming algorithms or chasing trends.
+                        How colleges and universities can stop being invisible and win the attention of prospective students through organic content and storytelling.
                     </p>
                     <a href="#contact" class="keynote-link">
                         Book This Topic
@@ -1938,9 +2008,9 @@
                 </div>
                 <div class="keynote-card fade-in fade-in-delay-2">
                     <div class="keynote-number">02</div>
-                    <h3 class="keynote-title">Organic Social Media Growth &amp; Storytelling</h3>
+                    <h3 class="keynote-title">Faith-Based Organizations</h3>
                     <p class="keynote-description">
-                        With 5 billion views from purely organic content, Rob shares the storytelling principles and content strategies that actually drive growth. What to post, how to tell the story, and how to make content work.
+                        How churches, ministries, and faith-based nonprofits can engage the modern world with clarity, conviction, and compelling content.
                     </p>
                     <a href="#contact" class="keynote-link">
                         Book This Topic
@@ -1949,33 +2019,9 @@
                 </div>
                 <div class="keynote-card fade-in fade-in-delay-3">
                     <div class="keynote-number">03</div>
-                    <h3 class="keynote-title">Building Trust &amp; Influence Through Content</h3>
+                    <h3 class="keynote-title">Disrupting with Social Media</h3>
                     <p class="keynote-description">
-                        Trust is the real currency of the internet. Rob shows how to build genuine influence through content that connects, converts, and lasts &mdash; moving beyond vanity metrics to real-world impact.
-                    </p>
-                    <a href="#contact" class="keynote-link">
-                        Book This Topic
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
-                </div>
-            </div>
-            <div class="keynotes-bottom-row">
-                <div class="keynote-card fade-in fade-in-delay-4">
-                    <div class="keynote-number">04</div>
-                    <h3 class="keynote-title">How Institutions Can Stop Being Invisible</h3>
-                    <p class="keynote-description">
-                        Colleges, churches, and nonprofits are often doing incredible work that nobody sees. Rob delivers a roadmap for institutions to clarify their message, show up where people actually are, and become impossible to ignore.
-                    </p>
-                    <a href="#contact" class="keynote-link">
-                        Book This Topic
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
-                </div>
-                <div class="keynote-card fade-in fade-in-delay-5">
-                    <div class="keynote-number">05</div>
-                    <h3 class="keynote-title">Faith, Ethics &amp; Stewardship of Influence</h3>
-                    <p class="keynote-description">
-                        Rob speaks on how Christians and leaders of faith can engage the modern world with clarity and conviction. A talk about why influence is responsibility, how excellence is the entry point to impact, and what it means to steward attention well.
+                        How businesses of any size can use social media to disrupt even the biggest competitors in their industry without spending a dollar on ads.
                     </p>
                     <a href="#contact" class="keynote-link">
                         Book This Topic
