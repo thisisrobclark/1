@@ -85,8 +85,6 @@
 
         /* ========================================
            SECTION BACKGROUND SYSTEM
-           Dark sections: deep charcoal gradients
-           Light sections: warm cream / off-white
            ======================================== */
         .section-dark {
             background: linear-gradient(180deg, #0d0d0d 0%, #0a0a0a 40%, #0e0e0e 100%);
@@ -118,7 +116,6 @@
             color: var(--color-text-on-light);
         }
 
-        /* Light section overrides for text elements */
         .section-light .section-subtitle,
         .section-light-alt .section-subtitle,
         .section-light-warm .section-subtitle {
@@ -233,7 +230,6 @@
             display: none !important;
         }
 
-        /* Mobile Nav */
         .nav-toggle {
             display: none;
             flex-direction: column;
@@ -402,7 +398,6 @@
             transform: translateY(-2px);
         }
 
-        /* Button variants for light sections */
         .section-light .btn-secondary,
         .section-light-alt .btn-secondary,
         .section-light-warm .btn-secondary {
@@ -417,6 +412,9 @@
             color: var(--color-accent-dark);
         }
 
+        /* ========================================
+           HERO HEADSHOT
+           ======================================== */
         .hero-image {
             position: relative;
             display: flex;
@@ -424,17 +422,54 @@
             align-items: center;
         }
 
-        .hero-image-wrapper {
+        .hero-headshot-container {
             position: relative;
             width: 450px;
             height: 550px;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            background: var(--color-bg-dark-mid);
-            border: 1px solid var(--color-border-dark);
         }
 
-        .hero-image-placeholder {
+        .hero-headshot-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 15%;
+            display: block;
+        }
+
+        /* Multi-layer gradient to blend photo into dark bg */
+        .hero-headshot-container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                /* Bottom fade - strongest */
+                linear-gradient(to top, var(--color-bg-dark) 0%, rgba(10,10,10,0.7) 15%, transparent 40%),
+                /* Left edge fade */
+                linear-gradient(to right, var(--color-bg-dark) 0%, transparent 15%),
+                /* Right edge fade */
+                linear-gradient(to left, var(--color-bg-dark) 0%, transparent 15%),
+                /* Top edge fade */
+                linear-gradient(to bottom, rgba(10,10,10,0.6) 0%, transparent 15%),
+                /* Overall vignette */
+                radial-gradient(ellipse at center 30%, transparent 55%, rgba(10,10,10,0.8) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Subtle gold accent glow behind the photo */
+        .hero-headshot-container::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, rgba(212,168,67,0.15) 0%, transparent 30%, transparent 70%, rgba(212,168,67,0.1) 100%);
+            border-radius: 12px;
+            z-index: -1;
+        }
+
+        /* Fallback placeholder if image hasn't been added yet */
+        .hero-headshot-fallback {
             width: 100%;
             height: 100%;
             display: flex;
@@ -442,10 +477,9 @@
             align-items: center;
             justify-content: center;
             background: linear-gradient(135deg, #171717 0%, #1f1a14 100%);
-            position: relative;
         }
 
-        .hero-image-placeholder .initials {
+        .hero-headshot-fallback .initials {
             font-family: var(--font-heading);
             font-size: 6rem;
             font-weight: 800;
@@ -453,25 +487,12 @@
             opacity: 0.3;
         }
 
-        .hero-image-placeholder .photo-label {
+        .hero-headshot-fallback .photo-label {
             font-size: 0.75rem;
             color: var(--color-text-muted-on-dark);
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-top: 16px;
-        }
-
-        .hero-image-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: -12px;
-            bottom: -12px;
-            border: 1px solid var(--color-accent);
-            border-radius: 8px;
-            z-index: -1;
-            opacity: 0.3;
         }
 
         .hero-stats {
@@ -552,13 +573,14 @@
         }
 
         /* ========================================
-           LOGOS / WORKED WITH (LIGHT SECTION)
+           LOGO CAROUSEL (LIGHT SECTION)
            ======================================== */
         .logos-section {
             padding: 60px 0;
             background: var(--color-bg-cream);
             border-top: 1px solid var(--color-border-cream);
             border-bottom: 1px solid var(--color-border-cream);
+            overflow: hidden;
         }
 
         .logos-label {
@@ -571,28 +593,90 @@
             margin-bottom: 40px;
         }
 
-        .logos-grid {
+        .logo-carousel {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        /* Fade edges of carousel */
+        .logo-carousel::before,
+        .logo-carousel::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 120px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .logo-carousel::before {
+            left: 0;
+            background: linear-gradient(to right, var(--color-bg-cream), transparent);
+        }
+
+        .logo-carousel::after {
+            right: 0;
+            background: linear-gradient(to left, var(--color-bg-cream), transparent);
+        }
+
+        .logo-carousel-track {
+            display: flex;
+            align-items: center;
+            animation: logoScroll 60s linear infinite;
+            width: max-content;
+        }
+
+        .logo-carousel-track:hover {
+            animation-play-state: paused;
+        }
+
+        .logo-slide {
+            flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 60px;
-            flex-wrap: wrap;
+            padding: 0 40px;
+            height: 60px;
         }
 
-        .logo-item {
+        .logo-slide img {
+            height: 36px;
+            width: auto;
+            max-width: 120px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.45;
+            transition: all 0.4s ease;
+        }
+
+        .logo-slide img:hover {
+            filter: grayscale(0%);
+            opacity: 0.85;
+        }
+
+        /* Text-based logo fallback */
+        .logo-slide .logo-text {
             font-family: var(--font-heading);
-            font-size: 1.2rem;
+            font-size: 0.95rem;
             font-weight: 700;
             color: var(--color-text-on-light);
-            opacity: 0.35;
+            opacity: 0.3;
             letter-spacing: 2px;
             text-transform: uppercase;
-            transition: var(--transition);
+            white-space: nowrap;
+            transition: all 0.4s ease;
         }
 
-        .logo-item:hover {
-            opacity: 0.7;
+        .logo-slide .logo-text:hover {
+            opacity: 0.6;
             color: var(--color-accent-dark);
+        }
+
+        @keyframes logoScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         /* ========================================
@@ -614,12 +698,6 @@
         }
 
         .message-quote .highlight {
-            color: var(--color-accent);
-        }
-
-        .section-dark .message-quote .highlight,
-        .section-dark-gradient .message-quote .highlight,
-        .section-dark-warm .message-quote .highlight {
             color: var(--color-accent);
         }
 
@@ -681,15 +759,30 @@
             overflow: hidden;
         }
 
-        .section-dark .about-image-wrapper {
-            background: linear-gradient(135deg, #171717 0%, #1f1a14 100%);
-            border: 1px solid var(--color-border-dark);
-        }
-
-        .section-light .about-image-wrapper,
-        .section-light-warm .about-image-wrapper {
+        .section-light .about-image-wrapper {
             background: linear-gradient(135deg, #e8e0d2 0%, #d9d0c0 100%);
             border: 1px solid var(--color-border-cream);
+        }
+
+        .about-headshot {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 15%;
+        }
+
+        /* Gradient overlay to blend headshot into cream bg */
+        .section-light .about-image-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(to top, var(--color-bg-cream) 0%, rgba(245,240,232,0.5) 10%, transparent 35%),
+                linear-gradient(to right, var(--color-bg-cream) 0%, transparent 10%),
+                linear-gradient(to left, var(--color-bg-cream) 0%, transparent 10%),
+                radial-gradient(ellipse at center 30%, transparent 60%, rgba(245,240,232,0.6) 100%);
+            pointer-events: none;
+            z-index: 1;
         }
 
         .about-image-placeholder {
@@ -705,12 +798,6 @@
             font-family: var(--font-heading);
             font-size: 5rem;
             font-weight: 800;
-            color: var(--color-accent);
-            opacity: 0.2;
-        }
-
-        .section-light .about-image-placeholder .initials,
-        .section-light-warm .about-image-placeholder .initials {
             color: var(--color-accent-dark);
             opacity: 0.25;
         }
@@ -734,10 +821,6 @@
             margin-bottom: 20px;
         }
 
-        .section-dark .about-text {
-            color: var(--color-text-secondary-on-dark);
-        }
-
         .section-light .about-text,
         .section-light-warm .about-text {
             color: var(--color-text-secondary-on-light);
@@ -757,12 +840,6 @@
             font-size: 0.8rem;
             font-weight: 500;
             letter-spacing: 0.5px;
-        }
-
-        .section-dark .credential-tag {
-            background: rgba(212, 168, 67, 0.08);
-            border: 1px solid rgba(212, 168, 67, 0.15);
-            color: var(--color-accent);
         }
 
         .section-light .credential-tag,
@@ -791,34 +868,19 @@
         }
 
         .section-dark .keynote-card,
-        .section-dark-gradient .keynote-card,
-        .section-dark-warm .keynote-card {
+        .section-dark-gradient .keynote-card {
             background: var(--color-bg-card-dark);
             border: 1px solid var(--color-border-dark);
         }
 
-        .section-light .keynote-card,
-        .section-light-warm .keynote-card {
-            background: #ffffff;
-            border: 1px solid var(--color-border-cream);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
-        }
-
         .keynote-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
         }
 
         .section-dark .keynote-card:hover,
         .section-dark-gradient .keynote-card:hover {
             border-color: var(--color-accent);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        .section-light .keynote-card:hover,
-        .section-light-warm .keynote-card:hover {
-            border-color: var(--color-accent-dark);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
         }
 
         .keynote-card::before {
@@ -847,12 +909,6 @@
             margin-bottom: 20px;
         }
 
-        .section-light .keynote-number,
-        .section-light-warm .keynote-number {
-            color: var(--color-accent-dark);
-            opacity: 0.12;
-        }
-
         .keynote-title {
             font-family: var(--font-heading);
             font-size: 1.4rem;
@@ -872,11 +928,6 @@
             color: var(--color-text-secondary-on-dark);
         }
 
-        .section-light .keynote-description,
-        .section-light-warm .keynote-description {
-            color: var(--color-text-secondary-on-light);
-        }
-
         .keynote-link {
             font-size: 0.8rem;
             font-weight: 600;
@@ -886,11 +937,6 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-        }
-
-        .section-light .keynote-link,
-        .section-light-warm .keynote-link {
-            color: var(--color-accent-dark);
         }
 
         .keynote-link:hover {
@@ -903,7 +949,6 @@
             transition: var(--transition);
         }
 
-        /* Bottom row centered for 5-item grid */
         .keynotes-bottom-row {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -934,204 +979,23 @@
             width: 100%;
             aspect-ratio: 2/3;
             border-radius: 6px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 32px 24px;
+            overflow: hidden;
             margin-bottom: 24px;
             position: relative;
-            overflow: hidden;
             transition: var(--transition);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
         }
 
         .book-card:hover .book-cover {
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
             transform: scale(1.02);
         }
 
-        /* 4 Billion Views - Blue cover */
-        .book-cover-blue {
-            background: linear-gradient(180deg, #4a8fd4 0%, #3a75b5 40%, #2d5f94 100%);
-            border: none;
-        }
-
-        .book-cover-blue .book-cover-title {
-            font-family: var(--font-heading);
-            font-size: 1rem;
-            font-weight: 800;
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            line-height: 1.2;
-        }
-
-        .book-cover-blue .book-cover-title .views-number {
+        .book-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
-            font-size: 2.4rem;
-            letter-spacing: 0;
-            margin-bottom: 4px;
-        }
-
-        .book-cover-blue .book-cover-title .views-word {
-            display: block;
-            font-size: 2.8rem;
-            color: var(--color-accent);
-            letter-spacing: 3px;
-            margin-bottom: 16px;
-        }
-
-        .book-cover-blue .book-cover-icon {
-            width: 70px;
-            height: 90px;
-            border: 2px solid rgba(255, 255, 255, 0.7);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 16px 0;
-        }
-
-        .book-cover-blue .book-cover-icon svg {
-            width: 32px;
-            height: 32px;
-            color: #ffffff;
-        }
-
-        .book-cover-blue .book-cover-author {
-            font-family: var(--font-heading);
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-top: 16px;
-        }
-
-        .book-cover-blue .book-cover-sub {
-            font-size: 0.6rem;
-            font-weight: 700;
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-top: 8px;
-            padding-top: 8px;
-            border-top: 2px solid #2d5f94;
-            line-height: 1.4;
-        }
-
-        /* Attention Gap - Black/Gold cover */
-        .book-cover-dark {
-            background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 40%, #0a0a0a 100%);
-            border: 1px solid #333;
-        }
-
-        .book-cover-dark .book-cover-title {
-            font-family: var(--font-heading);
-            font-weight: 800;
-            text-transform: uppercase;
-            line-height: 0.95;
-            text-align: center;
-        }
-
-        .book-cover-dark .book-cover-title .attention-word {
-            display: block;
-            font-size: 2.2rem;
-            color: #ffffff;
-            letter-spacing: 3px;
-        }
-
-        .book-cover-dark .book-cover-title .gap-word {
-            display: block;
-            font-size: 3.5rem;
-            color: var(--color-accent);
-            letter-spacing: 8px;
-            margin-bottom: 16px;
-        }
-
-        .book-cover-dark .book-cover-tagline {
-            font-family: var(--font-heading);
-            font-size: 0.6rem;
-            font-weight: 700;
-            color: var(--color-accent);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-align: center;
-            line-height: 1.6;
-        }
-
-        .book-cover-dark .book-cover-authors {
-            font-size: 0.6rem;
-            font-weight: 600;
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-top: auto;
-            padding-top: 20px;
-        }
-
-        /* Growing Your Influence - Black/Gold cover */
-        .book-cover-influence {
-            background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 50%, #0a0a0a 100%);
-            border: 1px solid #333;
-        }
-
-        .book-cover-influence .book-cover-title {
-            font-family: var(--font-heading);
-            font-weight: 800;
-            text-transform: uppercase;
-            line-height: 0.95;
-            text-align: center;
-        }
-
-        .book-cover-influence .book-cover-title .growing-word {
-            display: block;
-            font-size: 2rem;
-            color: #ffffff;
-            letter-spacing: 2px;
-        }
-
-        .book-cover-influence .book-cover-title .your-word {
-            display: block;
-            font-size: 2.2rem;
-            color: var(--color-accent);
-            letter-spacing: 2px;
-            font-style: italic;
-        }
-
-        .book-cover-influence .book-cover-title .influence-word {
-            display: block;
-            font-size: 2rem;
-            color: #ffffff;
-            letter-spacing: 2px;
-            margin-bottom: 16px;
-        }
-
-        .book-cover-influence .book-cover-tagline {
-            font-size: 0.6rem;
-            font-weight: 500;
-            color: var(--color-text-secondary-on-dark);
-            text-align: center;
-            line-height: 1.6;
-        }
-
-        .book-cover-influence .book-cover-author {
-            font-family: var(--font-heading);
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-top: auto;
-            padding-top: 16px;
-        }
-
-        .book-cover-influence .book-cover-sub {
-            font-size: 0.55rem;
-            font-weight: 500;
-            color: var(--color-accent);
-            letter-spacing: 1px;
-            margin-top: 4px;
         }
 
         .book-title {
@@ -1143,11 +1007,6 @@
 
         .book-meta {
             font-size: 0.85rem;
-        }
-
-        .section-dark .book-meta,
-        .section-dark-gradient .book-meta {
-            color: var(--color-text-muted-on-dark);
         }
 
         .section-light .book-meta,
@@ -1174,12 +1033,6 @@
             border: 1px dashed var(--color-border-dark-light);
         }
 
-        .section-light .testimonials-placeholder-box,
-        .section-light-warm .testimonials-placeholder-box {
-            background: #ffffff;
-            border: 1px dashed var(--color-border-cream);
-        }
-
         .testimonials-placeholder-box .placeholder-icon {
             width: 60px;
             height: 60px;
@@ -1193,12 +1046,6 @@
         .section-dark .testimonials-placeholder-box .placeholder-icon {
             background: rgba(212, 168, 67, 0.1);
             border: 1px solid rgba(212, 168, 67, 0.2);
-        }
-
-        .section-light .testimonials-placeholder-box .placeholder-icon,
-        .section-light-warm .testimonials-placeholder-box .placeholder-icon {
-            background: rgba(184, 145, 46, 0.08);
-            border: 1px solid rgba(184, 145, 46, 0.15);
         }
 
         .testimonials-placeholder-box .placeholder-icon svg {
@@ -1223,39 +1070,12 @@
             color: var(--color-text-muted-on-dark);
         }
 
-        .section-light .testimonials-placeholder-box p,
-        .section-light-warm .testimonials-placeholder-box p {
-            color: var(--color-text-muted-on-light);
-        }
-
         /* ========================================
            CTA SECTION
            ======================================== */
         .cta-section {
             position: relative;
             overflow: hidden;
-        }
-
-        .cta-section.section-dark-warm::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(212, 168, 67, 0.05) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .cta-section.section-dark-warm::after {
-            content: '';
-            position: absolute;
-            bottom: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(212, 168, 67, 0.05) 0%, transparent 70%);
-            border-radius: 50%;
         }
 
         .cta-content {
@@ -1310,11 +1130,6 @@
             color: var(--color-text-secondary-on-dark);
         }
 
-        .section-light .newsletter-content p,
-        .section-light-warm .newsletter-content p {
-            color: var(--color-text-secondary-on-light);
-        }
-
         .newsletter-form {
             display: flex;
             gap: 12px;
@@ -1341,18 +1156,6 @@
 
         .section-dark .newsletter-form input::placeholder {
             color: var(--color-text-muted-on-dark);
-        }
-
-        .section-light .newsletter-form input,
-        .section-light-warm .newsletter-form input {
-            background: #ffffff;
-            border: 1px solid var(--color-border-cream);
-            color: var(--color-text-on-light);
-        }
-
-        .section-light .newsletter-form input::placeholder,
-        .section-light-warm .newsletter-form input::placeholder {
-            color: var(--color-text-muted-on-light);
         }
 
         .newsletter-form input:focus {
@@ -1516,19 +1319,6 @@
         .fade-in-delay-5 { transition-delay: 0.5s; }
 
         /* ========================================
-           SECTION DIVIDERS
-           ======================================== */
-        .section-divider-dark-to-light {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--color-border-cream), transparent);
-        }
-
-        .section-divider-light-to-dark {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--color-border-dark), transparent);
-        }
-
-        /* ========================================
            RESPONSIVE DESIGN
            ======================================== */
         @media (max-width: 1024px) {
@@ -1560,7 +1350,7 @@
                 justify-content: center;
             }
 
-            .hero-image-wrapper {
+            .hero-headshot-container {
                 width: 350px;
                 height: 430px;
                 margin: 0 auto;
@@ -1654,7 +1444,7 @@
                 font-size: 2.4rem;
             }
 
-            .hero-image-wrapper {
+            .hero-headshot-container {
                 width: 280px;
                 height: 350px;
             }
@@ -1704,8 +1494,17 @@
                 align-items: center;
             }
 
-            .logos-grid {
-                gap: 30px;
+            .logo-slide {
+                padding: 0 24px;
+            }
+
+            .logo-slide img {
+                height: 28px;
+            }
+
+            .logo-carousel::before,
+            .logo-carousel::after {
+                width: 60px;
             }
         }
 
@@ -1727,26 +1526,6 @@
                 font-size: 0.8rem;
                 width: 100%;
                 justify-content: center;
-            }
-
-            .book-cover-dark .book-cover-title .attention-word {
-                font-size: 1.6rem;
-            }
-            .book-cover-dark .book-cover-title .gap-word {
-                font-size: 2.4rem;
-            }
-            .book-cover-blue .book-cover-title .views-number {
-                font-size: 1.8rem;
-            }
-            .book-cover-blue .book-cover-title .views-word {
-                font-size: 2rem;
-            }
-            .book-cover-influence .book-cover-title .growing-word,
-            .book-cover-influence .book-cover-title .influence-word {
-                font-size: 1.5rem;
-            }
-            .book-cover-influence .book-cover-title .your-word {
-                font-size: 1.7rem;
             }
         }
     </style>
@@ -1810,8 +1589,9 @@
                 </div>
             </div>
             <div class="hero-image">
-                <div class="hero-image-wrapper">
-                    <div class="hero-image-placeholder">
+                <div class="hero-headshot-container">
+                    <img src="images/headshot.jpg" alt="Rob Clark" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="hero-headshot-fallback" style="display:none;">
                         <div class="initials">RC</div>
                         <div class="photo-label">Your Photo Here</div>
                     </div>
@@ -1820,16 +1600,49 @@
         </div>
     </section>
 
-    <!-- ========== LOGOS / WORKED WITH (LIGHT) ========== -->
+    <!-- ========== BRAND LOGOS CAROUSEL (LIGHT) ========== -->
     <div class="logos-section">
         <div class="container">
-            <p class="logos-label">Worked with Leading Brands</p>
-            <div class="logos-grid">
-                <span class="logo-item">Walmart</span>
-                <span class="logo-item">Warner Bros</span>
-                <span class="logo-item">Capital One</span>
-                <span class="logo-item">Samsung</span>
-                <span class="logo-item">General Mills</span>
+            <p class="logos-label">Brand Influencer for Leading Brands</p>
+        </div>
+        <div class="logo-carousel">
+            <div class="logo-carousel-track" id="logoTrack">
+                <!-- First set -->
+                <div class="logo-slide"><img src="https://logo.clearbit.com/walmart.com?size=200" alt="Walmart" onerror="this.outerHTML='<span class=\'logo-text\'>Walmart</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/warnerbros.com?size=200" alt="Warner Brothers" onerror="this.outerHTML='<span class=\'logo-text\'>Warner Bros</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/capitalone.com?size=200" alt="Capital One" onerror="this.outerHTML='<span class=\'logo-text\'>Capital One</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/samsung.com?size=200" alt="Samsung" onerror="this.outerHTML='<span class=\'logo-text\'>Samsung</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/generalmills.com?size=200" alt="General Mills" onerror="this.outerHTML='<span class=\'logo-text\'>General Mills</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/oreo.com?size=200" alt="Oreo" onerror="this.outerHTML='<span class=\'logo-text\'>Oreo</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/pillsbury.com?size=200" alt="Pillsbury" onerror="this.outerHTML='<span class=\'logo-text\'>Pillsbury</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/goalrilla.com?size=200" alt="Goalrilla" onerror="this.outerHTML='<span class=\'logo-text\'>Goalrilla</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/nba.com?size=200" alt="Toronto Raptors" onerror="this.outerHTML='<span class=\'logo-text\'>Toronto Raptors</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/samsclub.com?size=200" alt="Sam's Club" onerror="this.outerHTML='<span class=\'logo-text\'>Sam\'s Club</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/nerf.com?size=200" alt="Nerf" onerror="this.outerHTML='<span class=\'logo-text\'>Nerf</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/papamurphys.com?size=200" alt="Papa Murphy's" onerror="this.outerHTML='<span class=\'logo-text\'>Papa Murphy\'s</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/adcouncil.org?size=200" alt="Ad Council" onerror="this.outerHTML='<span class=\'logo-text\'>Ad Council</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/aloha.com?size=200" alt="Aloha" onerror="this.outerHTML='<span class=\'logo-text\'>Aloha</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/tropicana.com?size=200" alt="Tropicana" onerror="this.outerHTML='<span class=\'logo-text\'>Tropicana</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/hasbro.com?size=200" alt="Hasbro" onerror="this.outerHTML='<span class=\'logo-text\'>Hasbro</span>'"></div>
+                <div class="logo-slide"><span class="logo-text">Lincoln Library &amp; Museum</span></div>
+                <!-- Duplicate set for seamless loop -->
+                <div class="logo-slide"><img src="https://logo.clearbit.com/walmart.com?size=200" alt="Walmart" onerror="this.outerHTML='<span class=\'logo-text\'>Walmart</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/warnerbros.com?size=200" alt="Warner Brothers" onerror="this.outerHTML='<span class=\'logo-text\'>Warner Bros</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/capitalone.com?size=200" alt="Capital One" onerror="this.outerHTML='<span class=\'logo-text\'>Capital One</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/samsung.com?size=200" alt="Samsung" onerror="this.outerHTML='<span class=\'logo-text\'>Samsung</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/generalmills.com?size=200" alt="General Mills" onerror="this.outerHTML='<span class=\'logo-text\'>General Mills</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/oreo.com?size=200" alt="Oreo" onerror="this.outerHTML='<span class=\'logo-text\'>Oreo</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/pillsbury.com?size=200" alt="Pillsbury" onerror="this.outerHTML='<span class=\'logo-text\'>Pillsbury</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/goalrilla.com?size=200" alt="Goalrilla" onerror="this.outerHTML='<span class=\'logo-text\'>Goalrilla</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/nba.com?size=200" alt="Toronto Raptors" onerror="this.outerHTML='<span class=\'logo-text\'>Toronto Raptors</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/samsclub.com?size=200" alt="Sam's Club" onerror="this.outerHTML='<span class=\'logo-text\'>Sam\'s Club</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/nerf.com?size=200" alt="Nerf" onerror="this.outerHTML='<span class=\'logo-text\'>Nerf</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/papamurphys.com?size=200" alt="Papa Murphy's" onerror="this.outerHTML='<span class=\'logo-text\'>Papa Murphy\'s</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/adcouncil.org?size=200" alt="Ad Council" onerror="this.outerHTML='<span class=\'logo-text\'>Ad Council</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/aloha.com?size=200" alt="Aloha" onerror="this.outerHTML='<span class=\'logo-text\'>Aloha</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/tropicana.com?size=200" alt="Tropicana" onerror="this.outerHTML='<span class=\'logo-text\'>Tropicana</span>'"></div>
+                <div class="logo-slide"><img src="https://logo.clearbit.com/hasbro.com?size=200" alt="Hasbro" onerror="this.outerHTML='<span class=\'logo-text\'>Hasbro</span>'"></div>
+                <div class="logo-slide"><span class="logo-text">Lincoln Library &amp; Museum</span></div>
             </div>
         </div>
     </div>
@@ -1851,7 +1664,8 @@
         <div class="container">
             <div class="about-grid">
                 <div class="about-image-wrapper fade-in">
-                    <div class="about-image-placeholder">
+                    <img class="about-headshot" src="images/headshot.jpg" alt="Rob Clark" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="about-image-placeholder" style="display:none;">
                         <div class="initials">RC</div>
                     </div>
                 </div>
@@ -1967,52 +1781,28 @@
                 </p>
             </div>
             <div class="books-grid">
-                <!-- Book 1: 4 Billion Views -->
+                <!-- Book 1: Attention Gap -->
                 <div class="book-card fade-in fade-in-delay-1">
-                    <div class="book-cover book-cover-blue">
-                        <div class="book-cover-title">
-                            <span class="views-number">4 BILLION</span>
-                            <span class="views-word">VIEWS</span>
-                        </div>
-                        <div class="book-cover-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                        </div>
-                        <div class="book-cover-author">Rob Clark</div>
-                        <div class="book-cover-sub">How We Built a Social<br>Media Brand from Scratch</div>
+                    <div class="book-cover">
+                        <img src="images/attention-gap.jpg" alt="Attention Gap: Why Great Schools Stay Invisible and How To Fix It by Chris Rapozo and Rob Clark">
+                    </div>
+                    <h3 class="book-title">Attention Gap</h3>
+                    <p class="book-meta">Why Great Schools Stay Invisible &amp; How to Fix It</p>
+                </div>
+
+                <!-- Book 2: 4 Billion Views -->
+                <div class="book-card fade-in fade-in-delay-2">
+                    <div class="book-cover">
+                        <img src="images/4-billion-views.jpg" alt="4 Billion Views: How We Built a Social Media Brand from Scratch by Rob Clark">
                     </div>
                     <h3 class="book-title">4 Billion Views</h3>
                     <p class="book-meta">How We Built a Social Media Brand from Scratch</p>
                 </div>
 
-                <!-- Book 2: Attention Gap -->
-                <div class="book-card fade-in fade-in-delay-2">
-                    <div class="book-cover book-cover-dark">
-                        <div class="book-cover-title">
-                            <span class="attention-word">ATTENTION</span>
-                            <span class="gap-word">GAP</span>
-                        </div>
-                        <div class="book-cover-tagline">
-                            Why Great Schools<br>Stay Invisible<br>and How to Fix It
-                        </div>
-                        <div class="book-cover-authors">Chris Rapozo&ensp;|&ensp;Rob Clark</div>
-                    </div>
-                    <h3 class="book-title">Attention Gap</h3>
-                    <p class="book-meta">Co-authored with Chris Rapozo</p>
-                </div>
-
                 <!-- Book 3: Growing Your Influence -->
                 <div class="book-card fade-in fade-in-delay-3">
-                    <div class="book-cover book-cover-influence">
-                        <div class="book-cover-title">
-                            <span class="growing-word">GROWING</span>
-                            <span class="your-word">YOUR</span>
-                            <span class="influence-word">INFLUENCE</span>
-                        </div>
-                        <div class="book-cover-tagline">
-                            Social Media Strategies<br>for a New Generation
-                        </div>
-                        <div class="book-cover-author">Rob Clark</div>
-                        <div class="book-cover-sub">4.5 Billion Views Across Social Platforms</div>
+                    <div class="book-cover">
+                        <img src="images/growing-your-influence.jpg" alt="Growing Your Influence: Social Media Strategies for a New Generation by Rob Clark">
                     </div>
                     <h3 class="book-title">Growing Your Influence</h3>
                     <p class="book-meta">Social Media Strategies for a New Generation</p>
@@ -2159,7 +1949,6 @@
             document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
         });
 
-        // Close mobile nav on link click
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navToggle.classList.remove('active');
