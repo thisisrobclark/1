@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donald Miller | Keynote Speaker for Business Leaders</title>
-    <meta name="description" content="Donald Miller is a keynote speaker for business leaders, CEO of StoryBrand and Business Made Simple, and author of ten bestselling books.">
+    <title>Rob Clark | Speaker, Strategist &amp; Creator</title>
+    <meta name="description" content="Rob Clark is a speaker, strategist, and creator. Founder of That Tall Family with 5 billion+ views and 4 million+ followers. Author, consultant, and founder of TTF Media.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -19,10 +19,13 @@
         }
 
         :root {
-            --color-bg: #0a0a0a;
-            --color-bg-secondary: #111111;
-            --color-bg-tertiary: #1a1a1a;
-            --color-bg-card: #141414;
+            --color-bg-dark: #0a0a0a;
+            --color-bg-medium: #111111;
+            --color-bg-light: #171717;
+            --color-bg-warm: #14120f;
+            --color-bg-accent-tint: #13110e;
+            --color-bg-card: #1a1a1a;
+            --color-bg-card-light: #1e1e1e;
             --color-accent: #d4a843;
             --color-accent-hover: #e8bf5a;
             --color-accent-dark: #b8912e;
@@ -45,7 +48,7 @@
 
         body {
             font-family: var(--font-body);
-            background-color: var(--color-bg);
+            background-color: var(--color-bg-dark);
             color: var(--color-text);
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
@@ -69,6 +72,33 @@
             max-width: var(--max-width);
             margin: 0 auto;
             padding: 0 24px;
+        }
+
+        /* ========================================
+           ALTERNATING SECTION BACKGROUNDS
+           ======================================== */
+        .bg-dark {
+            background: var(--color-bg-dark);
+        }
+
+        .bg-medium {
+            background: var(--color-bg-medium);
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .bg-light {
+            background: var(--color-bg-light);
+        }
+
+        .bg-warm {
+            background: linear-gradient(135deg, var(--color-bg-warm) 0%, var(--color-bg-dark) 50%, var(--color-bg-warm) 100%);
+        }
+
+        .bg-accent-subtle {
+            background: linear-gradient(180deg, var(--color-bg-accent-tint) 0%, var(--color-bg-dark) 100%);
+            border-top: 1px solid rgba(212, 168, 67, 0.08);
+            border-bottom: 1px solid rgba(212, 168, 67, 0.08);
         }
 
         /* ========================================
@@ -148,7 +178,7 @@
 
         .nav-cta {
             background: var(--color-accent) !important;
-            color: var(--color-bg) !important;
+            color: var(--color-bg-dark) !important;
             padding: 10px 24px;
             border-radius: 4px;
             font-weight: 600;
@@ -293,7 +323,7 @@
             gap: 10px;
             padding: 16px 36px;
             background: var(--color-accent);
-            color: var(--color-bg);
+            color: var(--color-bg-dark);
             font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -346,7 +376,7 @@
             height: 550px;
             border-radius: 8px;
             overflow: hidden;
-            background: var(--color-bg-tertiary);
+            background: var(--color-bg-light);
             border: 1px solid var(--color-border);
         }
 
@@ -357,7 +387,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--color-bg-tertiary) 0%, #1f1a14 100%);
+            background: linear-gradient(135deg, var(--color-bg-light) 0%, #1f1a14 100%);
             position: relative;
         }
 
@@ -470,12 +500,6 @@
         /* ========================================
            QUOTE / MESSAGE SECTION
            ======================================== */
-        .message-section {
-            background: var(--color-bg-secondary);
-            border-top: 1px solid var(--color-border);
-            border-bottom: 1px solid var(--color-border);
-        }
-
         .message-content {
             text-align: center;
             max-width: 800px;
@@ -532,7 +556,7 @@
             height: 500px;
             border-radius: 8px;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--color-bg-tertiary) 0%, #1f1a14 100%);
+            background: linear-gradient(135deg, var(--color-bg-light) 0%, #1f1a14 100%);
             border: 1px solid var(--color-border);
         }
 
@@ -595,16 +619,15 @@
         /* ========================================
            KEYNOTES SECTION
            ======================================== */
-        .keynotes-section {
-            background: var(--color-bg-secondary);
-            border-top: 1px solid var(--color-border);
-            border-bottom: 1px solid var(--color-border);
-        }
-
         .keynotes-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
+            justify-items: center;
+        }
+
+        .keynotes-grid .keynote-card:nth-child(n+4) {
+            max-width: 100%;
         }
 
         .keynote-card {
@@ -685,12 +708,21 @@
             transition: var(--transition);
         }
 
+        /* Bottom row centered for 5-item grid */
+        .keynotes-bottom-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            max-width: 780px;
+            margin: 32px auto 0;
+        }
+
         /* ========================================
            BOOKS SECTION
            ======================================== */
         .books-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 32px;
         }
 
@@ -706,7 +738,7 @@
         .book-cover {
             width: 100%;
             height: 320px;
-            background: linear-gradient(135deg, var(--color-bg-tertiary) 0%, #1c1815 100%);
+            background: linear-gradient(135deg, var(--color-bg-light) 0%, #1c1815 100%);
             border-radius: 6px;
             border: 1px solid var(--color-border);
             display: flex;
@@ -763,38 +795,24 @@
         }
 
         /* ========================================
-           SPEAKING FORMATS SECTION
+           TESTIMONIALS SECTION
            ======================================== */
-        .formats-section {
-            background: var(--color-bg-secondary);
-            border-top: 1px solid var(--color-border);
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .formats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-        }
-
-        .format-card {
-            background: var(--color-bg-card);
-            border: 1px solid var(--color-border);
-            border-radius: 8px;
-            padding: 48px 36px;
+        .testimonials-placeholder {
             text-align: center;
-            transition: var(--transition);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .format-card:hover {
-            border-color: var(--color-accent);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        .testimonials-placeholder-box {
+            background: var(--color-bg-card);
+            border: 1px dashed var(--color-border-light);
+            border-radius: 12px;
+            padding: 60px 40px;
         }
 
-        .format-icon {
-            width: 64px;
-            height: 64px;
+        .testimonials-placeholder-box .placeholder-icon {
+            width: 60px;
+            height: 60px;
             background: rgba(212, 168, 67, 0.1);
             border: 1px solid rgba(212, 168, 67, 0.2);
             border-radius: 50%;
@@ -804,90 +822,24 @@
             margin: 0 auto 24px;
         }
 
-        .format-icon svg {
+        .testimonials-placeholder-box .placeholder-icon svg {
             width: 28px;
             height: 28px;
             color: var(--color-accent);
         }
 
-        .format-title {
+        .testimonials-placeholder-box h3 {
             font-family: var(--font-heading);
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 12px;
+            color: var(--color-text);
         }
 
-        .format-description {
-            font-size: 0.95rem;
-            color: var(--color-text-secondary);
-            line-height: 1.8;
-        }
-
-        /* ========================================
-           TESTIMONIALS SECTION
-           ======================================== */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-        }
-
-        .testimonial-card {
-            background: var(--color-bg-card);
-            border: 1px solid var(--color-border);
-            border-radius: 8px;
-            padding: 40px 32px;
-            position: relative;
-        }
-
-        .testimonial-card::before {
-            content: '\201C';
-            font-family: var(--font-heading);
-            font-size: 4rem;
-            color: var(--color-accent);
-            opacity: 0.2;
-            position: absolute;
-            top: 16px;
-            left: 28px;
-            line-height: 1;
-        }
-
-        .testimonial-text {
+        .testimonials-placeholder-box p {
             font-size: 1rem;
-            color: var(--color-text-secondary);
-            line-height: 1.8;
-            margin-bottom: 24px;
-            padding-top: 20px;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .testimonial-avatar {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: rgba(212, 168, 67, 0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 0.85rem;
-            color: var(--color-accent);
-        }
-
-        .testimonial-name {
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .testimonial-role {
-            font-size: 0.8rem;
             color: var(--color-text-muted);
+            line-height: 1.8;
         }
 
         /* ========================================
@@ -895,6 +847,8 @@
            ======================================== */
         .logos-section {
             padding: 60px 0;
+            background: var(--color-bg-medium);
+            border-top: 1px solid var(--color-border);
             border-bottom: 1px solid var(--color-border);
         }
 
@@ -989,10 +943,7 @@
            NEWSLETTER SECTION
            ======================================== */
         .newsletter-section {
-            background: var(--color-bg-secondary);
             padding: 80px 0;
-            border-top: 1px solid var(--color-border);
-            border-bottom: 1px solid var(--color-border);
         }
 
         .newsletter-content {
@@ -1045,7 +996,7 @@
         .newsletter-form button {
             padding: 14px 28px;
             background: var(--color-accent);
-            color: var(--color-bg);
+            color: var(--color-bg-dark);
             font-family: var(--font-body);
             font-size: 0.8rem;
             font-weight: 700;
@@ -1067,7 +1018,8 @@
            ======================================== */
         .footer {
             padding: 80px 0 40px;
-            background: var(--color-bg);
+            background: var(--color-bg-dark);
+            border-top: 1px solid var(--color-border);
         }
 
         .footer-top {
@@ -1194,6 +1146,7 @@
         .fade-in-delay-2 { transition-delay: 0.2s; }
         .fade-in-delay-3 { transition-delay: 0.3s; }
         .fade-in-delay-4 { transition-delay: 0.4s; }
+        .fade-in-delay-5 { transition-delay: 0.5s; }
 
         /* ========================================
            RESPONSIVE DESIGN
@@ -1267,16 +1220,19 @@
                 width: fit-content;
             }
 
-            .keynotes-grid,
-            .formats-grid,
-            .testimonials-grid {
+            .keynotes-grid {
                 grid-template-columns: 1fr;
                 max-width: 500px;
                 margin: 0 auto;
             }
 
+            .keynotes-bottom-row {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+
             .books-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr);
             }
 
             .footer-top {
@@ -1341,12 +1297,14 @@
             }
 
             .books-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
                 gap: 20px;
+                max-width: 300px;
+                margin: 0 auto;
             }
 
             .book-cover {
-                height: 240px;
+                height: 280px;
             }
 
             .newsletter-form {
@@ -1401,14 +1359,13 @@
     <!-- ========== NAVIGATION ========== -->
     <nav class="nav" id="nav">
         <div class="container">
-            <a href="#" class="nav-logo">DONALD <span>MILLER</span></a>
+            <a href="#" class="nav-logo">ROB <span>CLARK</span></a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
-                <li><a href="#keynotes">Keynotes</a></li>
+                <li><a href="#speaking">Speaking</a></li>
                 <li><a href="#books">Books</a></li>
-                <li><a href="#formats">Formats</a></li>
-                <li><a href="#testimonials">Praise</a></li>
-                <li><a href="#contact" class="nav-cta">Book Donald</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact" class="nav-cta">Book Rob</a></li>
             </ul>
             <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                 <span></span>
@@ -1418,108 +1375,111 @@
         </div>
     </nav>
 
-    <!-- ========== HERO SECTION ========== -->
+    <!-- ========== HERO SECTION (dark bg) ========== -->
     <section class="hero" id="hero">
         <div class="hero-bg"></div>
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge">Keynote Speaker</div>
+                <div class="hero-badge">Speaker &amp; Strategist</div>
                 <h1>
-                    Helping Leaders
-                    <span class="accent">Grow Their Business</span>
+                    Attention Is the
+                    <span class="accent">New Currency</span>
                 </h1>
                 <p class="hero-subtitle">
-                    When you clarify your message, customers engage. But if your message is confusing, customers ignore you. Donald Miller helps business leaders clarify their message so their companies grow.
+                    In a distracted world, visibility is everything. Rob Clark helps creators, businesses, and institutions clarify their message, capture attention, and turn content into real growth.
                 </p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn-primary">
-                        Book a Keynote
+                        Book Rob to Speak
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </a>
-                    <a href="#keynotes" class="btn-secondary">
-                        Explore Keynotes
+                    <a href="#speaking" class="btn-secondary">
+                        Speaking Topics
                     </a>
                 </div>
                 <div class="hero-stats">
                     <div class="hero-stat">
-                        <div class="number">10+</div>
+                        <div class="number">5B+</div>
+                        <div class="label">Views Generated</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="number">4M+</div>
+                        <div class="label">Followers</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="number">3</div>
                         <div class="label">Books Published</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="number">900K+</div>
-                        <div class="label">Leaders Inspired</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="number">1 Year+</div>
-                        <div class="label">NYT Bestseller List</div>
                     </div>
                 </div>
             </div>
             <div class="hero-image">
                 <div class="hero-image-wrapper">
                     <div class="hero-image-placeholder">
-                        <div class="initials">DM</div>
-                        <div class="photo-label">Speaker Photo</div>
+                        <div class="initials">RC</div>
+                        <div class="photo-label">Your Photo Here</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== LOGOS / AS SEEN IN ========== -->
+    <!-- ========== LOGOS / WORKED WITH (medium bg) ========== -->
     <div class="logos-section">
         <div class="container">
-            <p class="logos-label">Trusted by Leading Organizations</p>
+            <p class="logos-label">Worked with Leading Brands</p>
             <div class="logos-grid">
-                <span class="logo-item">Forbes</span>
-                <span class="logo-item">Inc.</span>
-                <span class="logo-item">Fast Company</span>
-                <span class="logo-item">Entrpnr</span>
-                <span class="logo-item">NYT</span>
-                <span class="logo-item">Success</span>
+                <span class="logo-item">Walmart</span>
+                <span class="logo-item">Warner Bros</span>
+                <span class="logo-item">Capital One</span>
+                <span class="logo-item">Samsung</span>
+                <span class="logo-item">General Mills</span>
             </div>
         </div>
     </div>
 
-    <!-- ========== QUOTE / MESSAGE ========== -->
-    <section class="message-section">
+    <!-- ========== QUOTE / MESSAGE (light bg) ========== -->
+    <section class="bg-light">
         <div class="container">
             <div class="message-content fade-in">
                 <p class="message-quote">
-                    If you confuse, you'll <span class="highlight">lose.</span> The key to growing your business is to <span class="highlight">clarify your message.</span>
+                    Attention is <span class="highlight">stewardship.</span> Influence is <span class="highlight">responsibility.</span> And excellence is the entry point to <span class="highlight">impact.</span>
                 </p>
-                <p class="message-attribution">&mdash; Donald Miller</p>
+                <p class="message-attribution">&mdash; Rob Clark</p>
             </div>
         </div>
     </section>
 
-    <!-- ========== ABOUT SECTION ========== -->
-    <section id="about">
+    <!-- ========== ABOUT SECTION (dark bg) ========== -->
+    <section class="bg-dark" id="about">
         <div class="container">
             <div class="about-grid">
                 <div class="about-image-wrapper fade-in">
                     <div class="about-image-placeholder">
-                        <div class="initials">DM</div>
+                        <div class="initials">RC</div>
                     </div>
                 </div>
                 <div class="about-content">
-                    <div class="section-label">About Donald</div>
-                    <h2 class="section-title fade-in">CEO, Author &amp;<br>Keynote Speaker</h2>
+                    <div class="section-label">About Rob</div>
+                    <h2 class="section-title fade-in">Creator, Strategist<br>&amp; Entrepreneur</h2>
                     <p class="about-text fade-in">
-                        Donald Miller is the CEO of StoryBrand, Business Made Simple, and Coach Builder. He is a favorite speaker at every event he headlines, delivering entertaining, inspiring, and practical advice that helps business leaders grow their revenue.
+                        Rob Clark is a creator, strategist, and entrepreneur focused on attention, storytelling, and growth in a distracted world. He is best known as the founder and face of <strong>That Tall Family</strong>, one of the largest family-friendly brands on social media &mdash; generating over <strong>5 billion views</strong> and building an audience of more than <strong>4 million followers</strong> across TikTok, Instagram, YouTube, and Facebook through organic content only.
                     </p>
                     <p class="about-text fade-in">
-                        He is the author of ten books including <em>Building a StoryBrand 2.0</em>, <em>Marketing Made Simple</em>, and <em>How to Grow Your Small Business</em>. Collectively, his books have spent more than a year on the New York Times Bestsellers list.
+                        Professionally, Rob helps creators, businesses, colleges, churches, and nonprofits clarify their message and turn social media into real visibility, trust, and opportunity through consulting, speaking, content strategy, and hands-on execution under <strong>TTF Media</strong>.
+                    </p>
+                    <p class="about-text fade-in">
+                        Rob is also an author. His books focus on influence, attention, leadership, and culture &mdash; especially how Christians and institutions can engage the modern world with clarity and conviction. His work blends real-world results with faith, ethics, and long-term thinking.
                     </p>
                     <div class="about-credentials fade-in">
-                        <span class="credential-tag">CEO of StoryBrand</span>
-                        <span class="credential-tag">Business Made Simple</span>
-                        <span class="credential-tag">Coach Builder</span>
-                        <span class="credential-tag">10x Author</span>
-                        <span class="credential-tag">NYT Bestseller</span>
+                        <span class="credential-tag">Founder, That Tall Family</span>
+                        <span class="credential-tag">TTF Media</span>
+                        <span class="credential-tag">5B+ Views</span>
+                        <span class="credential-tag">Author</span>
+                        <span class="credential-tag">Speaker</span>
+                        <span class="credential-tag">Content Strategist</span>
                     </div>
                     <a href="#contact" class="btn-primary fade-in">
-                        Get in Touch
+                        Work with Rob
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </a>
                 </div>
@@ -1527,47 +1487,71 @@
         </div>
     </section>
 
-    <!-- ========== KEYNOTES SECTION ========== -->
-    <section class="keynotes-section" id="keynotes">
+    <!-- ========== SPEAKING TOPICS (medium bg) ========== -->
+    <section class="bg-medium" id="speaking">
         <div class="container">
             <div class="section-header">
-                <div class="section-label">Keynote Presentations</div>
-                <h2 class="section-title fade-in">Speaking Topics</h2>
+                <div class="section-label">Speaking Topics</div>
+                <h2 class="section-title fade-in">What Rob Speaks About</h2>
                 <p class="section-subtitle fade-in">
-                    Donald delivers powerful, practical keynotes that help business leaders clarify their message and grow their companies.
+                    Rob brings practical, proven strategies from building one of the largest family brands on social media. No theory &mdash; just what actually works.
                 </p>
             </div>
             <div class="keynotes-grid">
                 <div class="keynote-card fade-in fade-in-delay-1">
                     <div class="keynote-number">01</div>
-                    <h3 class="keynote-title">Clarify Your Message</h3>
+                    <h3 class="keynote-title">Attention &amp; Visibility in a Distracted World</h3>
                     <p class="keynote-description">
-                        In this keynote, Donald walks your audience through the StoryBrand Framework and helps them understand how to invite customers into a story. Based on the bestselling book <em>Building a StoryBrand</em>, which has inspired over 900,000 business leaders worldwide.
+                        The world is noisier than ever. Rob breaks down how modern attention works, why most organizations are invisible, and the practical shifts that create real visibility &mdash; without gaming algorithms or chasing trends.
                     </p>
                     <a href="#contact" class="keynote-link">
-                        Book This Keynote
+                        Book This Topic
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </a>
                 </div>
                 <div class="keynote-card fade-in fade-in-delay-2">
                     <div class="keynote-number">02</div>
-                    <h3 class="keynote-title">How to Grow Your Small Business</h3>
+                    <h3 class="keynote-title">Organic Social Media Growth &amp; Storytelling</h3>
                     <p class="keynote-description">
-                        Your business works like an airplane. The cockpit is leadership, the engines are marketing and sales, the wings are your products, and the fuel tanks are cash flow. Learn to manage all 6 parts so your business flies far and fast.
+                        With 5 billion views from purely organic content, Rob shares the storytelling principles and content strategies that actually drive growth. What to post, how to tell the story, and how to make content work.
                     </p>
                     <a href="#contact" class="keynote-link">
-                        Book This Keynote
+                        Book This Topic
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </a>
                 </div>
                 <div class="keynote-card fade-in fade-in-delay-3">
                     <div class="keynote-number">03</div>
-                    <h3 class="keynote-title">Invite Customers Into a Story</h3>
+                    <h3 class="keynote-title">Building Trust &amp; Influence Through Content</h3>
                     <p class="keynote-description">
-                        Learn to make the customer the hero and enjoy sales conversations in which you invite customers into a story. Donald walks through a 5-step process that transforms how you approach every customer interaction.
+                        Trust is the real currency of the internet. Rob shows how to build genuine influence through content that connects, converts, and lasts &mdash; moving beyond vanity metrics to real-world impact.
                     </p>
                     <a href="#contact" class="keynote-link">
-                        Book This Keynote
+                        Book This Topic
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="keynotes-bottom-row">
+                <div class="keynote-card fade-in fade-in-delay-4">
+                    <div class="keynote-number">04</div>
+                    <h3 class="keynote-title">How Institutions Can Stop Being Invisible</h3>
+                    <p class="keynote-description">
+                        Colleges, churches, and nonprofits are often doing incredible work that nobody sees. Rob delivers a roadmap for institutions to clarify their message, show up where people actually are, and become impossible to ignore.
+                    </p>
+                    <a href="#contact" class="keynote-link">
+                        Book This Topic
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+                <div class="keynote-card fade-in fade-in-delay-5">
+                    <div class="keynote-number">05</div>
+                    <h3 class="keynote-title">Faith, Ethics &amp; Stewardship of Influence</h3>
+                    <p class="keynote-description">
+                        Rob speaks on how Christians and leaders of faith can engage the modern world with clarity and conviction. A talk about why influence is responsibility, how excellence is the entry point to impact, and what it means to steward attention well.
+                    </p>
+                    <a href="#contact" class="keynote-link">
+                        Book This Topic
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </a>
                 </div>
@@ -1575,176 +1559,96 @@
         </div>
     </section>
 
-    <!-- ========== BOOKS SECTION ========== -->
-    <section id="books">
+    <!-- ========== BOOKS SECTION (accent-subtle bg) ========== -->
+    <section class="bg-accent-subtle" id="books">
         <div class="container">
             <div class="section-header">
                 <div class="section-label">Published Works</div>
-                <h2 class="section-title fade-in">Bestselling Books</h2>
+                <h2 class="section-title fade-in">Books by Rob Clark</h2>
                 <p class="section-subtitle fade-in">
-                    Collectively spending more than a year on the New York Times Bestsellers list, Donald's books have helped millions of business leaders grow.
+                    Rob's books explore influence, attention, leadership, and culture &mdash; blending real-world results with faith, ethics, and long-term thinking.
                 </p>
             </div>
             <div class="books-grid">
                 <div class="book-card fade-in fade-in-delay-1">
                     <div class="book-cover">
                         <svg class="book-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                        <div class="book-cover-title">Building a StoryBrand 2.0</div>
-                        <div class="book-cover-subtitle">Bestseller</div>
+                        <div class="book-cover-title">Attention Gap</div>
+                        <div class="book-cover-subtitle">Co-authored with Chris Rapozo</div>
                     </div>
-                    <h3 class="book-title">Building a StoryBrand 2.0</h3>
-                    <p class="book-meta">NYT Bestseller</p>
+                    <h3 class="book-title">Attention Gap</h3>
+                    <p class="book-meta">Why Great Schools Stay Invisible &amp; How to Fix It</p>
                 </div>
                 <div class="book-card fade-in fade-in-delay-2">
                     <div class="book-cover">
                         <svg class="book-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                        <div class="book-cover-title">Marketing Made Simple</div>
-                        <div class="book-cover-subtitle">Bestseller</div>
+                        <div class="book-cover-title">4 Billion Views</div>
+                        <div class="book-cover-subtitle">Rob Clark</div>
                     </div>
-                    <h3 class="book-title">Marketing Made Simple</h3>
-                    <p class="book-meta">Wall Street Journal Bestseller</p>
+                    <h3 class="book-title">4 Billion Views</h3>
+                    <p class="book-meta">Rob Clark</p>
                 </div>
                 <div class="book-card fade-in fade-in-delay-3">
                     <div class="book-cover">
                         <svg class="book-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                        <div class="book-cover-title">How to Grow Your Small Business</div>
-                        <div class="book-cover-subtitle">Bestseller</div>
+                        <div class="book-cover-title">Growing Your Influence</div>
+                        <div class="book-cover-subtitle">Rob Clark</div>
                     </div>
-                    <h3 class="book-title">How to Grow Your Small Business</h3>
-                    <p class="book-meta">Business Bestseller</p>
-                </div>
-                <div class="book-card fade-in fade-in-delay-4">
-                    <div class="book-cover">
-                        <svg class="book-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                        <div class="book-cover-title">Business Made Simple</div>
-                        <div class="book-cover-subtitle">Bestseller</div>
-                    </div>
-                    <h3 class="book-title">Business Made Simple</h3>
-                    <p class="book-meta">Wall Street Journal Bestseller</p>
+                    <h3 class="book-title">Growing Your Influence</h3>
+                    <p class="book-meta">Rob Clark</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== SPEAKING FORMATS ========== -->
-    <section class="formats-section" id="formats">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">Engagement Options</div>
-                <h2 class="section-title fade-in">Speaking Formats</h2>
-                <p class="section-subtitle fade-in">
-                    Choose the format that works best for your event. Donald is available for in-person, virtual, and pre-recorded engagements.
-                </p>
-            </div>
-            <div class="formats-grid">
-                <div class="format-card fade-in fade-in-delay-1">
-                    <div class="format-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
-                    <h3 class="format-title">In-Person</h3>
-                    <p class="format-description">
-                        Donald flies in to speak to your audience live. Experience the full energy and impact of a Donald Miller keynote in person at your event or conference.
-                    </p>
-                </div>
-                <div class="format-card fade-in fade-in-delay-2">
-                    <div class="format-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                    </div>
-                    <h3 class="format-title">Virtual</h3>
-                    <p class="format-description">
-                        Donald comes to you live from his studio in Nashville, TN. Perfect for remote events, webinars, and virtual conferences with interactive Q&amp;A.
-                    </p>
-                </div>
-                <div class="format-card fade-in fade-in-delay-3">
-                    <div class="format-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-                    </div>
-                    <h3 class="format-title">Pre-Recorded</h3>
-                    <p class="format-description">
-                        Donald addresses your specific audience in a pre-recorded message. A tailored, high-quality keynote presentation delivered on your schedule.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== TESTIMONIALS ========== -->
-    <section id="testimonials">
+    <!-- ========== TESTIMONIALS (medium bg) ========== -->
+    <section class="bg-medium" id="testimonials">
         <div class="container">
             <div class="section-header">
                 <div class="section-label">What People Say</div>
-                <h2 class="section-title fade-in">Event Organizer Praise</h2>
+                <h2 class="section-title fade-in">Testimonials</h2>
                 <p class="section-subtitle fade-in">
-                    Donald Miller is consistently rated as a favorite speaker at every event he headlines.
+                    Rob is brought in by organizations not because he knows theory, but because he has built something visible at scale &mdash; in public.
                 </p>
             </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card fade-in fade-in-delay-1">
-                    <p class="testimonial-text">
-                        "Donald Miller was the highlight of our entire conference. His practical framework gave our audience tools they could use immediately. The feedback was overwhelmingly positive."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">JR</div>
-                        <div>
-                            <div class="testimonial-name">James Richardson</div>
-                            <div class="testimonial-role">Conference Director</div>
-                        </div>
+            <div class="testimonials-placeholder fade-in">
+                <div class="testimonials-placeholder-box">
+                    <div class="placeholder-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                     </div>
-                </div>
-                <div class="testimonial-card fade-in fade-in-delay-2">
-                    <p class="testimonial-text">
-                        "The StoryBrand Framework changed how we communicate with customers. Since implementing what Donald taught, we've seen a significant increase in customer engagement and sales."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">SC</div>
-                        <div>
-                            <div class="testimonial-name">Sarah Chen</div>
-                            <div class="testimonial-role">CEO, Tech Startup</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card fade-in fade-in-delay-3">
-                    <p class="testimonial-text">
-                        "Donald doesn't just inspire &mdash; he equips. Every attendee walked away with a clear action plan. He's the kind of speaker who makes event organizers look like geniuses."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">MP</div>
-                        <div>
-                            <div class="testimonial-name">Michael Park</div>
-                            <div class="testimonial-role">Event Producer</div>
-                        </div>
-                    </div>
+                    <h3>Testimonials Coming Soon</h3>
+                    <p>Real feedback from event organizers, college presidents, church leaders, and brand partners. Check back soon for stories from organizations Rob has worked with.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== CTA SECTION ========== -->
+    <!-- ========== CTA SECTION (warm gradient bg) ========== -->
     <section class="cta-section" id="contact">
         <div class="container">
             <div class="cta-content">
-                <div class="section-label">Ready to Book?</div>
-                <h2 class="section-title fade-in">Bring Donald Miller<br>to Your Next Event</h2>
+                <div class="section-label">Let's Work Together</div>
+                <h2 class="section-title fade-in">Book Rob for Speaking<br>or Consulting</h2>
                 <p class="section-subtitle fade-in">
-                    Small business owners are desperate for entertaining, inspiring, and practical advice that will help them grow their revenue. Let Donald deliver exactly that.
+                    Whether you need a keynote speaker who has built something real at scale, or a strategist to help your organization stop being invisible &mdash; Rob delivers practical, proven results.
                 </p>
                 <div class="cta-buttons fade-in">
-                    <a href="mailto:booking@donaldmiller.com" class="btn-primary">
-                        Request Booking Info
+                    <a href="#" class="btn-primary">
+                        Book Rob to Speak
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </a>
-                    <a href="#keynotes" class="btn-secondary">View Keynotes</a>
+                    <a href="#" class="btn-secondary">TTF Media</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== NEWSLETTER ========== -->
-    <section class="newsletter-section">
+    <!-- ========== NEWSLETTER (light bg) ========== -->
+    <section class="newsletter-section bg-light">
         <div class="container">
             <div class="newsletter-content fade-in">
                 <h3>Stay Connected</h3>
-                <p>Get weekly insights on business growth, marketing, and leadership from Donald Miller.</p>
+                <p>Get insights on attention, storytelling, content strategy, and building influence from Rob Clark.</p>
                 <form class="newsletter-form" onsubmit="handleNewsletter(event)">
                     <input type="email" placeholder="Enter your email" required>
                     <button type="submit">Subscribe</button>
@@ -1753,25 +1657,25 @@
         </div>
     </section>
 
-    <!-- ========== FOOTER ========== -->
+    <!-- ========== FOOTER (dark bg) ========== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <a href="#" class="nav-logo">DONALD <span>MILLER</span></a>
-                    <p>Keynote speaker, bestselling author, and CEO of StoryBrand, Business Made Simple, and Coach Builder. Helping business leaders clarify their message so their companies grow.</p>
+                    <a href="#" class="nav-logo">ROB <span>CLARK</span></a>
+                    <p>Creator, strategist, speaker, and author. Founder of That Tall Family and TTF Media. Helping people and organizations capture attention and turn it into lasting impact.</p>
                     <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="TikTok">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+                        </a>
                         <a href="#" class="social-link" aria-label="Instagram">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="0.5"/></svg>
                         </a>
-                        <a href="#" class="social-link" aria-label="Twitter">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
-                        </a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                        </a>
                         <a href="#" class="social-link" aria-label="YouTube">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                         </a>
                     </div>
                 </div>
@@ -1779,31 +1683,28 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#about">About</a></li>
-                        <li><a href="#keynotes">Keynotes</a></li>
+                        <li><a href="#speaking">Speaking</a></li>
                         <li><a href="#books">Books</a></li>
-                        <li><a href="#contact">Book Donald</a></li>
+                        <li><a href="#contact">Book Rob</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>Companies</h4>
+                    <h4>Brands</h4>
                     <ul>
-                        <li><a href="#">StoryBrand</a></li>
-                        <li><a href="#">Business Made Simple</a></li>
-                        <li><a href="#">Coach Builder</a></li>
+                        <li><a href="#">That Tall Family</a></li>
+                        <li><a href="#">TTF Media</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h4>Resources</h4>
                     <ul>
-                        <li><a href="#">Podcast</a></li>
                         <li><a href="#">Blog</a></li>
-                        <li><a href="#">Free Resources</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Donald Miller. All rights reserved.</p>
+                <p>&copy; 2026 Rob Clark. All rights reserved.</p>
                 <div class="footer-bottom-links">
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
