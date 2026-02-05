@@ -19,21 +19,30 @@
         }
 
         :root {
+            /* Dark palette */
             --color-bg-dark: #0a0a0a;
-            --color-bg-medium: #111111;
-            --color-bg-light: #171717;
-            --color-bg-warm: #14120f;
-            --color-bg-accent-tint: #13110e;
-            --color-bg-card: #1a1a1a;
-            --color-bg-card-light: #1e1e1e;
+            --color-bg-dark-mid: #111111;
+            --color-bg-card-dark: #1a1a1a;
+            --color-border-dark: #2a2a2a;
+            --color-border-dark-light: #333333;
+            /* Light / cream palette */
+            --color-bg-cream: #f5f0e8;
+            --color-bg-cream-alt: #ece5d8;
+            --color-bg-card-light: #ebe4d6;
+            --color-border-cream: #d9d0c0;
+            /* Accent */
             --color-accent: #d4a843;
             --color-accent-hover: #e8bf5a;
             --color-accent-dark: #b8912e;
-            --color-text: #ffffff;
-            --color-text-secondary: #a0a0a0;
-            --color-text-muted: #666666;
-            --color-border: #2a2a2a;
-            --color-border-light: #333333;
+            /* Text on dark */
+            --color-text-on-dark: #ffffff;
+            --color-text-secondary-on-dark: #a0a0a0;
+            --color-text-muted-on-dark: #666666;
+            /* Text on light */
+            --color-text-on-light: #1a1a1a;
+            --color-text-secondary-on-light: #4a4a4a;
+            --color-text-muted-on-light: #888888;
+            /* Fonts */
             --font-heading: 'Playfair Display', Georgia, serif;
             --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --max-width: 1200px;
@@ -49,7 +58,7 @@
         body {
             font-family: var(--font-body);
             background-color: var(--color-bg-dark);
-            color: var(--color-text);
+            color: var(--color-text-on-dark);
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -75,30 +84,60 @@
         }
 
         /* ========================================
-           ALTERNATING SECTION BACKGROUNDS
+           SECTION BACKGROUND SYSTEM
+           Dark sections: deep charcoal gradients
+           Light sections: warm cream / off-white
            ======================================== */
-        .bg-dark {
-            background: var(--color-bg-dark);
+        .section-dark {
+            background: linear-gradient(180deg, #0d0d0d 0%, #0a0a0a 40%, #0e0e0e 100%);
+            color: var(--color-text-on-dark);
         }
 
-        .bg-medium {
-            background: var(--color-bg-medium);
-            border-top: 1px solid var(--color-border);
-            border-bottom: 1px solid var(--color-border);
+        .section-dark-gradient {
+            background: linear-gradient(135deg, #0a0a0a 0%, #14120f 40%, #0d0b08 70%, #0a0a0a 100%);
+            color: var(--color-text-on-dark);
         }
 
-        .bg-light {
-            background: var(--color-bg-light);
+        .section-dark-warm {
+            background: linear-gradient(180deg, #100e0a 0%, #0a0a0a 50%, #0f0d09 100%);
+            color: var(--color-text-on-dark);
         }
 
-        .bg-warm {
-            background: linear-gradient(135deg, var(--color-bg-warm) 0%, var(--color-bg-dark) 50%, var(--color-bg-warm) 100%);
+        .section-light {
+            background: var(--color-bg-cream);
+            color: var(--color-text-on-light);
         }
 
-        .bg-accent-subtle {
-            background: linear-gradient(180deg, var(--color-bg-accent-tint) 0%, var(--color-bg-dark) 100%);
-            border-top: 1px solid rgba(212, 168, 67, 0.08);
-            border-bottom: 1px solid rgba(212, 168, 67, 0.08);
+        .section-light-alt {
+            background: var(--color-bg-cream-alt);
+            color: var(--color-text-on-light);
+        }
+
+        .section-light-warm {
+            background: linear-gradient(180deg, #f5f0e8 0%, #efe8db 50%, #f5f0e8 100%);
+            color: var(--color-text-on-light);
+        }
+
+        /* Light section overrides for text elements */
+        .section-light .section-subtitle,
+        .section-light-alt .section-subtitle,
+        .section-light-warm .section-subtitle {
+            color: var(--color-text-secondary-on-light);
+        }
+
+        .section-light .section-label,
+        .section-light-alt .section-label,
+        .section-light-warm .section-label {
+            color: var(--color-accent-dark);
+        }
+
+        .section-light .section-label::before,
+        .section-light .section-label::after,
+        .section-light-alt .section-label::before,
+        .section-light-alt .section-label::after,
+        .section-light-warm .section-label::before,
+        .section-light-warm .section-label::after {
+            background: var(--color-accent-dark);
         }
 
         /* ========================================
@@ -120,7 +159,7 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             padding: 14px 0;
-            border-bottom: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border-dark);
         }
 
         .nav .container {
@@ -134,7 +173,7 @@
             font-size: 1.5rem;
             font-weight: 700;
             letter-spacing: 1px;
-            color: var(--color-text);
+            color: var(--color-text-on-dark);
         }
 
         .nav-logo span {
@@ -153,7 +192,7 @@
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: var(--color-text-secondary);
+            color: var(--color-text-secondary-on-dark);
             position: relative;
         }
 
@@ -206,7 +245,7 @@
         .nav-toggle span {
             width: 24px;
             height: 2px;
-            background: var(--color-text);
+            background: var(--color-text-on-dark);
             transition: var(--transition);
         }
 
@@ -295,7 +334,7 @@
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 24px;
-            color: var(--color-text);
+            color: var(--color-text-on-dark);
         }
 
         .hero h1 .accent {
@@ -305,7 +344,7 @@
 
         .hero-subtitle {
             font-size: 1.15rem;
-            color: var(--color-text-secondary);
+            color: var(--color-text-secondary-on-dark);
             line-height: 1.8;
             margin-bottom: 40px;
             max-width: 500px;
@@ -346,12 +385,12 @@
             gap: 10px;
             padding: 16px 36px;
             background: transparent;
-            color: var(--color-text);
+            color: var(--color-text-on-dark);
             font-size: 0.85rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            border: 1px solid var(--color-border-light);
+            border: 1px solid var(--color-border-dark-light);
             border-radius: 4px;
             cursor: pointer;
             transition: var(--transition);
@@ -361,6 +400,21 @@
             border-color: var(--color-accent);
             color: var(--color-accent);
             transform: translateY(-2px);
+        }
+
+        /* Button variants for light sections */
+        .section-light .btn-secondary,
+        .section-light-alt .btn-secondary,
+        .section-light-warm .btn-secondary {
+            color: var(--color-text-on-light);
+            border-color: var(--color-border-cream);
+        }
+
+        .section-light .btn-secondary:hover,
+        .section-light-alt .btn-secondary:hover,
+        .section-light-warm .btn-secondary:hover {
+            border-color: var(--color-accent-dark);
+            color: var(--color-accent-dark);
         }
 
         .hero-image {
@@ -376,8 +430,8 @@
             height: 550px;
             border-radius: 8px;
             overflow: hidden;
-            background: var(--color-bg-light);
-            border: 1px solid var(--color-border);
+            background: var(--color-bg-dark-mid);
+            border: 1px solid var(--color-border-dark);
         }
 
         .hero-image-placeholder {
@@ -387,7 +441,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--color-bg-light) 0%, #1f1a14 100%);
+            background: linear-gradient(135deg, #171717 0%, #1f1a14 100%);
             position: relative;
         }
 
@@ -401,7 +455,7 @@
 
         .hero-image-placeholder .photo-label {
             font-size: 0.75rem;
-            color: var(--color-text-muted);
+            color: var(--color-text-muted-on-dark);
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-top: 16px;
@@ -425,7 +479,7 @@
             gap: 40px;
             margin-top: 60px;
             padding-top: 40px;
-            border-top: 1px solid var(--color-border);
+            border-top: 1px solid var(--color-border-dark);
         }
 
         .hero-stat {
@@ -442,7 +496,7 @@
 
         .hero-stat .label {
             font-size: 0.75rem;
-            color: var(--color-text-muted);
+            color: var(--color-text-muted-on-dark);
             text-transform: uppercase;
             letter-spacing: 1.5px;
             margin-top: 8px;
@@ -491,10 +545,54 @@
 
         .section-subtitle {
             font-size: 1.1rem;
-            color: var(--color-text-secondary);
+            color: var(--color-text-secondary-on-dark);
             max-width: 600px;
             margin: 0 auto;
             line-height: 1.8;
+        }
+
+        /* ========================================
+           LOGOS / WORKED WITH (LIGHT SECTION)
+           ======================================== */
+        .logos-section {
+            padding: 60px 0;
+            background: var(--color-bg-cream);
+            border-top: 1px solid var(--color-border-cream);
+            border-bottom: 1px solid var(--color-border-cream);
+        }
+
+        .logos-label {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--color-text-muted-on-light);
+            margin-bottom: 40px;
+        }
+
+        .logos-grid {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .logo-item {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--color-text-on-light);
+            opacity: 0.35;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        .logo-item:hover {
+            opacity: 0.7;
+            color: var(--color-accent-dark);
         }
 
         /* ========================================
@@ -511,13 +609,23 @@
             font-size: 2.4rem;
             font-weight: 600;
             line-height: 1.4;
-            color: var(--color-text);
             margin-bottom: 24px;
             position: relative;
         }
 
         .message-quote .highlight {
             color: var(--color-accent);
+        }
+
+        .section-dark .message-quote .highlight,
+        .section-dark-gradient .message-quote .highlight,
+        .section-dark-warm .message-quote .highlight {
+            color: var(--color-accent);
+        }
+
+        .section-light .message-quote .highlight,
+        .section-light-warm .message-quote .highlight {
+            color: var(--color-accent-dark);
         }
 
         .message-quote::before {
@@ -533,11 +641,26 @@
             line-height: 1;
         }
 
+        .section-light .message-quote::before,
+        .section-light-warm .message-quote::before {
+            color: var(--color-accent-dark);
+            opacity: 0.15;
+        }
+
         .message-attribution {
             font-size: 0.85rem;
-            color: var(--color-text-muted);
             text-transform: uppercase;
             letter-spacing: 2px;
+        }
+
+        .section-dark .message-attribution,
+        .section-dark-gradient .message-attribution {
+            color: var(--color-text-muted-on-dark);
+        }
+
+        .section-light .message-attribution,
+        .section-light-warm .message-attribution {
+            color: var(--color-text-muted-on-light);
         }
 
         /* ========================================
@@ -556,8 +679,17 @@
             height: 500px;
             border-radius: 8px;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--color-bg-light) 0%, #1f1a14 100%);
-            border: 1px solid var(--color-border);
+        }
+
+        .section-dark .about-image-wrapper {
+            background: linear-gradient(135deg, #171717 0%, #1f1a14 100%);
+            border: 1px solid var(--color-border-dark);
+        }
+
+        .section-light .about-image-wrapper,
+        .section-light-warm .about-image-wrapper {
+            background: linear-gradient(135deg, #e8e0d2 0%, #d9d0c0 100%);
+            border: 1px solid var(--color-border-cream);
         }
 
         .about-image-placeholder {
@@ -577,6 +709,12 @@
             opacity: 0.2;
         }
 
+        .section-light .about-image-placeholder .initials,
+        .section-light-warm .about-image-placeholder .initials {
+            color: var(--color-accent-dark);
+            opacity: 0.25;
+        }
+
         .about-content .section-label {
             justify-content: flex-start;
         }
@@ -592,9 +730,17 @@
 
         .about-text {
             font-size: 1.05rem;
-            color: var(--color-text-secondary);
             line-height: 1.9;
             margin-bottom: 20px;
+        }
+
+        .section-dark .about-text {
+            color: var(--color-text-secondary-on-dark);
+        }
+
+        .section-light .about-text,
+        .section-light-warm .about-text {
+            color: var(--color-text-secondary-on-light);
         }
 
         .about-credentials {
@@ -607,17 +753,27 @@
 
         .credential-tag {
             padding: 8px 18px;
-            background: rgba(212, 168, 67, 0.08);
-            border: 1px solid rgba(212, 168, 67, 0.15);
             border-radius: 50px;
             font-size: 0.8rem;
             font-weight: 500;
-            color: var(--color-accent);
             letter-spacing: 0.5px;
         }
 
+        .section-dark .credential-tag {
+            background: rgba(212, 168, 67, 0.08);
+            border: 1px solid rgba(212, 168, 67, 0.15);
+            color: var(--color-accent);
+        }
+
+        .section-light .credential-tag,
+        .section-light-warm .credential-tag {
+            background: rgba(184, 145, 46, 0.1);
+            border: 1px solid rgba(184, 145, 46, 0.2);
+            color: var(--color-accent-dark);
+        }
+
         /* ========================================
-           KEYNOTES SECTION
+           KEYNOTES / SPEAKING SECTION
            ======================================== */
         .keynotes-grid {
             display: grid;
@@ -626,13 +782,7 @@
             justify-items: center;
         }
 
-        .keynotes-grid .keynote-card:nth-child(n+4) {
-            max-width: 100%;
-        }
-
         .keynote-card {
-            background: var(--color-bg-card);
-            border: 1px solid var(--color-border);
             border-radius: 8px;
             padding: 48px 36px;
             transition: var(--transition);
@@ -640,10 +790,35 @@
             overflow: hidden;
         }
 
+        .section-dark .keynote-card,
+        .section-dark-gradient .keynote-card,
+        .section-dark-warm .keynote-card {
+            background: var(--color-bg-card-dark);
+            border: 1px solid var(--color-border-dark);
+        }
+
+        .section-light .keynote-card,
+        .section-light-warm .keynote-card {
+            background: #ffffff;
+            border: 1px solid var(--color-border-cream);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+        }
+
         .keynote-card:hover {
-            border-color: var(--color-accent);
             transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-dark .keynote-card:hover,
+        .section-dark-gradient .keynote-card:hover {
+            border-color: var(--color-accent);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-light .keynote-card:hover,
+        .section-light-warm .keynote-card:hover {
+            border-color: var(--color-accent-dark);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
         }
 
         .keynote-card::before {
@@ -672,6 +847,12 @@
             margin-bottom: 20px;
         }
 
+        .section-light .keynote-number,
+        .section-light-warm .keynote-number {
+            color: var(--color-accent-dark);
+            opacity: 0.12;
+        }
+
         .keynote-title {
             font-family: var(--font-heading);
             font-size: 1.4rem;
@@ -682,9 +863,18 @@
 
         .keynote-description {
             font-size: 0.95rem;
-            color: var(--color-text-secondary);
             line-height: 1.8;
             margin-bottom: 24px;
+        }
+
+        .section-dark .keynote-description,
+        .section-dark-gradient .keynote-description {
+            color: var(--color-text-secondary-on-dark);
+        }
+
+        .section-light .keynote-description,
+        .section-light-warm .keynote-description {
+            color: var(--color-text-secondary-on-light);
         }
 
         .keynote-link {
@@ -696,6 +886,11 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+        }
+
+        .section-light .keynote-link,
+        .section-light-warm .keynote-link {
+            color: var(--color-accent-dark);
         }
 
         .keynote-link:hover {
@@ -723,7 +918,7 @@
         .books-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
+            gap: 48px;
         }
 
         .book-card {
@@ -737,61 +932,227 @@
 
         .book-cover {
             width: 100%;
-            height: 320px;
-            background: linear-gradient(135deg, var(--color-bg-light) 0%, #1c1815 100%);
+            aspect-ratio: 2/3;
             border-radius: 6px;
-            border: 1px solid var(--color-border);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 24px;
-            margin-bottom: 20px;
+            padding: 32px 24px;
+            margin-bottom: 24px;
             position: relative;
             overflow: hidden;
             transition: var(--transition);
         }
 
         .book-card:hover .book-cover {
-            border-color: var(--color-accent);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            transform: scale(1.02);
         }
 
-        .book-cover .book-icon {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 16px;
-            color: var(--color-accent);
-            opacity: 0.6;
+        /* 4 Billion Views - Blue cover */
+        .book-cover-blue {
+            background: linear-gradient(180deg, #4a8fd4 0%, #3a75b5 40%, #2d5f94 100%);
+            border: none;
         }
 
-        .book-cover-title {
+        .book-cover-blue .book-cover-title {
             font-family: var(--font-heading);
-            font-size: 1.1rem;
-            font-weight: 700;
-            line-height: 1.3;
-            color: var(--color-text);
-            text-align: center;
+            font-size: 1rem;
+            font-weight: 800;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.2;
         }
 
-        .book-cover-subtitle {
-            font-size: 0.75rem;
+        .book-cover-blue .book-cover-title .views-number {
+            display: block;
+            font-size: 2.4rem;
+            letter-spacing: 0;
+            margin-bottom: 4px;
+        }
+
+        .book-cover-blue .book-cover-title .views-word {
+            display: block;
+            font-size: 2.8rem;
             color: var(--color-accent);
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+        }
+
+        .book-cover-blue .book-cover-icon {
+            width: 70px;
+            height: 90px;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 16px 0;
+        }
+
+        .book-cover-blue .book-cover-icon svg {
+            width: 32px;
+            height: 32px;
+            color: #ffffff;
+        }
+
+        .book-cover-blue .book-cover-author {
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-top: 16px;
+        }
+
+        .book-cover-blue .book-cover-sub {
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: #ffffff;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             margin-top: 8px;
+            padding-top: 8px;
+            border-top: 2px solid #2d5f94;
+            line-height: 1.4;
+        }
+
+        /* Attention Gap - Black/Gold cover */
+        .book-cover-dark {
+            background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 40%, #0a0a0a 100%);
+            border: 1px solid #333;
+        }
+
+        .book-cover-dark .book-cover-title {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 0.95;
+            text-align: center;
+        }
+
+        .book-cover-dark .book-cover-title .attention-word {
+            display: block;
+            font-size: 2.2rem;
+            color: #ffffff;
+            letter-spacing: 3px;
+        }
+
+        .book-cover-dark .book-cover-title .gap-word {
+            display: block;
+            font-size: 3.5rem;
+            color: var(--color-accent);
+            letter-spacing: 8px;
+            margin-bottom: 16px;
+        }
+
+        .book-cover-dark .book-cover-tagline {
+            font-family: var(--font-heading);
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .book-cover-dark .book-cover-authors {
+            font-size: 0.6rem;
+            font-weight: 600;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-top: auto;
+            padding-top: 20px;
+        }
+
+        /* Growing Your Influence - Black/Gold cover */
+        .book-cover-influence {
+            background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 50%, #0a0a0a 100%);
+            border: 1px solid #333;
+        }
+
+        .book-cover-influence .book-cover-title {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 0.95;
+            text-align: center;
+        }
+
+        .book-cover-influence .book-cover-title .growing-word {
+            display: block;
+            font-size: 2rem;
+            color: #ffffff;
+            letter-spacing: 2px;
+        }
+
+        .book-cover-influence .book-cover-title .your-word {
+            display: block;
+            font-size: 2.2rem;
+            color: var(--color-accent);
+            letter-spacing: 2px;
+            font-style: italic;
+        }
+
+        .book-cover-influence .book-cover-title .influence-word {
+            display: block;
+            font-size: 2rem;
+            color: #ffffff;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .book-cover-influence .book-cover-tagline {
+            font-size: 0.6rem;
+            font-weight: 500;
+            color: var(--color-text-secondary-on-dark);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .book-cover-influence .book-cover-author {
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-top: auto;
+            padding-top: 16px;
+        }
+
+        .book-cover-influence .book-cover-sub {
+            font-size: 0.55rem;
+            font-weight: 500;
+            color: var(--color-accent);
+            letter-spacing: 1px;
+            margin-top: 4px;
         }
 
         .book-title {
             font-family: var(--font-heading);
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 600;
             margin-bottom: 6px;
         }
 
         .book-meta {
-            font-size: 0.8rem;
-            color: var(--color-text-muted);
+            font-size: 0.85rem;
+        }
+
+        .section-dark .book-meta,
+        .section-dark-gradient .book-meta {
+            color: var(--color-text-muted-on-dark);
+        }
+
+        .section-light .book-meta,
+        .section-light-warm .book-meta {
+            color: var(--color-text-muted-on-light);
         }
 
         /* ========================================
@@ -804,22 +1165,40 @@
         }
 
         .testimonials-placeholder-box {
-            background: var(--color-bg-card);
-            border: 1px dashed var(--color-border-light);
             border-radius: 12px;
             padding: 60px 40px;
+        }
+
+        .section-dark .testimonials-placeholder-box {
+            background: var(--color-bg-card-dark);
+            border: 1px dashed var(--color-border-dark-light);
+        }
+
+        .section-light .testimonials-placeholder-box,
+        .section-light-warm .testimonials-placeholder-box {
+            background: #ffffff;
+            border: 1px dashed var(--color-border-cream);
         }
 
         .testimonials-placeholder-box .placeholder-icon {
             width: 60px;
             height: 60px;
-            background: rgba(212, 168, 67, 0.1);
-            border: 1px solid rgba(212, 168, 67, 0.2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 24px;
+        }
+
+        .section-dark .testimonials-placeholder-box .placeholder-icon {
+            background: rgba(212, 168, 67, 0.1);
+            border: 1px solid rgba(212, 168, 67, 0.2);
+        }
+
+        .section-light .testimonials-placeholder-box .placeholder-icon,
+        .section-light-warm .testimonials-placeholder-box .placeholder-icon {
+            background: rgba(184, 145, 46, 0.08);
+            border: 1px solid rgba(184, 145, 46, 0.15);
         }
 
         .testimonials-placeholder-box .placeholder-icon svg {
@@ -833,69 +1212,31 @@
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 12px;
-            color: var(--color-text);
         }
 
         .testimonials-placeholder-box p {
             font-size: 1rem;
-            color: var(--color-text-muted);
             line-height: 1.8;
         }
 
-        /* ========================================
-           AS SEEN / LOGOS SECTION
-           ======================================== */
-        .logos-section {
-            padding: 60px 0;
-            background: var(--color-bg-medium);
-            border-top: 1px solid var(--color-border);
-            border-bottom: 1px solid var(--color-border);
+        .section-dark .testimonials-placeholder-box p {
+            color: var(--color-text-muted-on-dark);
         }
 
-        .logos-label {
-            text-align: center;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--color-text-muted);
-            margin-bottom: 40px;
-        }
-
-        .logos-grid {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 60px;
-            flex-wrap: wrap;
-        }
-
-        .logo-item {
-            font-family: var(--font-heading);
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--color-text-muted);
-            opacity: 0.4;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: var(--transition);
-        }
-
-        .logo-item:hover {
-            opacity: 0.7;
-            color: var(--color-accent);
+        .section-light .testimonials-placeholder-box p,
+        .section-light-warm .testimonials-placeholder-box p {
+            color: var(--color-text-muted-on-light);
         }
 
         /* ========================================
            CTA SECTION
            ======================================== */
         .cta-section {
-            background: linear-gradient(135deg, #1a1510 0%, #0a0a0a 50%, #1a1510 100%);
             position: relative;
             overflow: hidden;
         }
 
-        .cta-section::before {
+        .cta-section.section-dark-warm::before {
             content: '';
             position: absolute;
             top: -50%;
@@ -906,7 +1247,7 @@
             border-radius: 50%;
         }
 
-        .cta-section::after {
+        .cta-section.section-dark-warm::after {
             content: '';
             position: absolute;
             bottom: -50%;
@@ -960,9 +1301,18 @@
         }
 
         .newsletter-content p {
-            color: var(--color-text-secondary);
             margin-bottom: 32px;
             font-size: 1rem;
+        }
+
+        .section-dark .newsletter-content p,
+        .section-dark-gradient .newsletter-content p {
+            color: var(--color-text-secondary-on-dark);
+        }
+
+        .section-light .newsletter-content p,
+        .section-light-warm .newsletter-content p {
+            color: var(--color-text-secondary-on-light);
         }
 
         .newsletter-form {
@@ -975,18 +1325,34 @@
         .newsletter-form input {
             flex: 1;
             padding: 14px 20px;
-            background: var(--color-bg-card);
-            border: 1px solid var(--color-border);
             border-radius: 4px;
-            color: var(--color-text);
             font-family: var(--font-body);
             font-size: 0.9rem;
             outline: none;
             transition: var(--transition);
         }
 
-        .newsletter-form input::placeholder {
-            color: var(--color-text-muted);
+        .section-dark .newsletter-form input,
+        .section-dark-gradient .newsletter-form input {
+            background: var(--color-bg-card-dark);
+            border: 1px solid var(--color-border-dark);
+            color: var(--color-text-on-dark);
+        }
+
+        .section-dark .newsletter-form input::placeholder {
+            color: var(--color-text-muted-on-dark);
+        }
+
+        .section-light .newsletter-form input,
+        .section-light-warm .newsletter-form input {
+            background: #ffffff;
+            border: 1px solid var(--color-border-cream);
+            color: var(--color-text-on-light);
+        }
+
+        .section-light .newsletter-form input::placeholder,
+        .section-light-warm .newsletter-form input::placeholder {
+            color: var(--color-text-muted-on-light);
         }
 
         .newsletter-form input:focus {
@@ -1019,7 +1385,8 @@
         .footer {
             padding: 80px 0 40px;
             background: var(--color-bg-dark);
-            border-top: 1px solid var(--color-border);
+            color: var(--color-text-on-dark);
+            border-top: 1px solid var(--color-border-dark);
         }
 
         .footer-top {
@@ -1027,7 +1394,7 @@
             grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 60px;
             padding-bottom: 60px;
-            border-bottom: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border-dark);
         }
 
         .footer-brand {
@@ -1041,7 +1408,7 @@
 
         .footer-brand p {
             font-size: 0.9rem;
-            color: var(--color-text-secondary);
+            color: var(--color-text-secondary-on-dark);
             line-height: 1.8;
         }
 
@@ -1050,7 +1417,7 @@
             font-size: 1rem;
             font-weight: 700;
             margin-bottom: 20px;
-            color: var(--color-text);
+            color: var(--color-text-on-dark);
         }
 
         .footer-column ul {
@@ -1062,7 +1429,7 @@
 
         .footer-column a {
             font-size: 0.9rem;
-            color: var(--color-text-secondary);
+            color: var(--color-text-secondary-on-dark);
         }
 
         .footer-column a:hover {
@@ -1078,7 +1445,7 @@
         .social-link {
             width: 40px;
             height: 40px;
-            border: 1px solid var(--color-border);
+            border: 1px solid var(--color-border-dark);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1094,7 +1461,7 @@
         .social-link svg {
             width: 16px;
             height: 16px;
-            color: var(--color-text-secondary);
+            color: var(--color-text-secondary-on-dark);
             transition: var(--transition);
         }
 
@@ -1111,7 +1478,7 @@
 
         .footer-bottom p {
             font-size: 0.8rem;
-            color: var(--color-text-muted);
+            color: var(--color-text-muted-on-dark);
         }
 
         .footer-bottom-links {
@@ -1121,7 +1488,7 @@
 
         .footer-bottom-links a {
             font-size: 0.8rem;
-            color: var(--color-text-muted);
+            color: var(--color-text-muted-on-dark);
         }
 
         .footer-bottom-links a:hover {
@@ -1147,6 +1514,19 @@
         .fade-in-delay-3 { transition-delay: 0.3s; }
         .fade-in-delay-4 { transition-delay: 0.4s; }
         .fade-in-delay-5 { transition-delay: 0.5s; }
+
+        /* ========================================
+           SECTION DIVIDERS
+           ======================================== */
+        .section-divider-dark-to-light {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--color-border-cream), transparent);
+        }
+
+        .section-divider-light-to-dark {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--color-border-dark), transparent);
+        }
 
         /* ========================================
            RESPONSIVE DESIGN
@@ -1233,6 +1613,7 @@
 
             .books-grid {
                 grid-template-columns: repeat(3, 1fr);
+                gap: 24px;
             }
 
             .footer-top {
@@ -1298,13 +1679,9 @@
 
             .books-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
-                max-width: 300px;
+                gap: 32px;
+                max-width: 280px;
                 margin: 0 auto;
-            }
-
-            .book-cover {
-                height: 280px;
             }
 
             .newsletter-form {
@@ -1351,6 +1728,26 @@
                 width: 100%;
                 justify-content: center;
             }
+
+            .book-cover-dark .book-cover-title .attention-word {
+                font-size: 1.6rem;
+            }
+            .book-cover-dark .book-cover-title .gap-word {
+                font-size: 2.4rem;
+            }
+            .book-cover-blue .book-cover-title .views-number {
+                font-size: 1.8rem;
+            }
+            .book-cover-blue .book-cover-title .views-word {
+                font-size: 2rem;
+            }
+            .book-cover-influence .book-cover-title .growing-word,
+            .book-cover-influence .book-cover-title .influence-word {
+                font-size: 1.5rem;
+            }
+            .book-cover-influence .book-cover-title .your-word {
+                font-size: 1.7rem;
+            }
         }
     </style>
 </head>
@@ -1375,7 +1772,7 @@
         </div>
     </nav>
 
-    <!-- ========== HERO SECTION (dark bg) ========== -->
+    <!-- ========== HERO SECTION (DARK) ========== -->
     <section class="hero" id="hero">
         <div class="hero-bg"></div>
         <div class="container">
@@ -1423,7 +1820,7 @@
         </div>
     </section>
 
-    <!-- ========== LOGOS / WORKED WITH (medium bg) ========== -->
+    <!-- ========== LOGOS / WORKED WITH (LIGHT) ========== -->
     <div class="logos-section">
         <div class="container">
             <p class="logos-label">Worked with Leading Brands</p>
@@ -1437,8 +1834,8 @@
         </div>
     </div>
 
-    <!-- ========== QUOTE / MESSAGE (light bg) ========== -->
-    <section class="bg-light">
+    <!-- ========== QUOTE / MESSAGE (DARK) ========== -->
+    <section class="section-dark-gradient">
         <div class="container">
             <div class="message-content fade-in">
                 <p class="message-quote">
@@ -1449,8 +1846,8 @@
         </div>
     </section>
 
-    <!-- ========== ABOUT SECTION (dark bg) ========== -->
-    <section class="bg-dark" id="about">
+    <!-- ========== ABOUT SECTION (LIGHT / CREAM) ========== -->
+    <section class="section-light" id="about">
         <div class="container">
             <div class="about-grid">
                 <div class="about-image-wrapper fade-in">
@@ -1487,8 +1884,8 @@
         </div>
     </section>
 
-    <!-- ========== SPEAKING TOPICS (medium bg) ========== -->
-    <section class="bg-medium" id="speaking">
+    <!-- ========== SPEAKING TOPICS (DARK) ========== -->
+    <section class="section-dark-gradient" id="speaking">
         <div class="container">
             <div class="section-header">
                 <div class="section-label">Speaking Topics</div>
@@ -1559,8 +1956,8 @@
         </div>
     </section>
 
-    <!-- ========== BOOKS SECTION (accent-subtle bg) ========== -->
-    <section class="bg-accent-subtle" id="books">
+    <!-- ========== BOOKS SECTION (LIGHT / CREAM) ========== -->
+    <section class="section-light-warm" id="books">
         <div class="container">
             <div class="section-header">
                 <div class="section-label">Published Works</div>
@@ -1570,39 +1967,62 @@
                 </p>
             </div>
             <div class="books-grid">
+                <!-- Book 1: 4 Billion Views -->
                 <div class="book-card fade-in fade-in-delay-1">
-                    <div class="book-cover">
-                        <svg class="book-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                        <div class="book-cover-title">Attention Gap</div>
-                        <div class="book-cover-subtitle">Co-authored with Chris Rapozo</div>
-                    </div>
-                    <h3 class="book-title">Attention Gap</h3>
-                    <p class="book-meta">Why Great Schools Stay Invisible &amp; How to Fix It</p>
-                </div>
-                <div class="book-card fade-in fade-in-delay-2">
-                    <div class="book-cover">
-                        <svg class="book-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                        <div class="book-cover-title">4 Billion Views</div>
-                        <div class="book-cover-subtitle">Rob Clark</div>
+                    <div class="book-cover book-cover-blue">
+                        <div class="book-cover-title">
+                            <span class="views-number">4 BILLION</span>
+                            <span class="views-word">VIEWS</span>
+                        </div>
+                        <div class="book-cover-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                        </div>
+                        <div class="book-cover-author">Rob Clark</div>
+                        <div class="book-cover-sub">How We Built a Social<br>Media Brand from Scratch</div>
                     </div>
                     <h3 class="book-title">4 Billion Views</h3>
-                    <p class="book-meta">Rob Clark</p>
+                    <p class="book-meta">How We Built a Social Media Brand from Scratch</p>
                 </div>
+
+                <!-- Book 2: Attention Gap -->
+                <div class="book-card fade-in fade-in-delay-2">
+                    <div class="book-cover book-cover-dark">
+                        <div class="book-cover-title">
+                            <span class="attention-word">ATTENTION</span>
+                            <span class="gap-word">GAP</span>
+                        </div>
+                        <div class="book-cover-tagline">
+                            Why Great Schools<br>Stay Invisible<br>and How to Fix It
+                        </div>
+                        <div class="book-cover-authors">Chris Rapozo&ensp;|&ensp;Rob Clark</div>
+                    </div>
+                    <h3 class="book-title">Attention Gap</h3>
+                    <p class="book-meta">Co-authored with Chris Rapozo</p>
+                </div>
+
+                <!-- Book 3: Growing Your Influence -->
                 <div class="book-card fade-in fade-in-delay-3">
-                    <div class="book-cover">
-                        <svg class="book-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                        <div class="book-cover-title">Growing Your Influence</div>
-                        <div class="book-cover-subtitle">Rob Clark</div>
+                    <div class="book-cover book-cover-influence">
+                        <div class="book-cover-title">
+                            <span class="growing-word">GROWING</span>
+                            <span class="your-word">YOUR</span>
+                            <span class="influence-word">INFLUENCE</span>
+                        </div>
+                        <div class="book-cover-tagline">
+                            Social Media Strategies<br>for a New Generation
+                        </div>
+                        <div class="book-cover-author">Rob Clark</div>
+                        <div class="book-cover-sub">4.5 Billion Views Across Social Platforms</div>
                     </div>
                     <h3 class="book-title">Growing Your Influence</h3>
-                    <p class="book-meta">Rob Clark</p>
+                    <p class="book-meta">Social Media Strategies for a New Generation</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== TESTIMONIALS (medium bg) ========== -->
-    <section class="bg-medium" id="testimonials">
+    <!-- ========== TESTIMONIALS (DARK) ========== -->
+    <section class="section-dark" id="testimonials">
         <div class="container">
             <div class="section-header">
                 <div class="section-label">What People Say</div>
@@ -1623,8 +2043,8 @@
         </div>
     </section>
 
-    <!-- ========== CTA SECTION (warm gradient bg) ========== -->
-    <section class="cta-section" id="contact">
+    <!-- ========== CTA SECTION (LIGHT / CREAM) ========== -->
+    <section class="cta-section section-light-warm" id="contact">
         <div class="container">
             <div class="cta-content">
                 <div class="section-label">Let's Work Together</div>
@@ -1643,8 +2063,8 @@
         </div>
     </section>
 
-    <!-- ========== NEWSLETTER (light bg) ========== -->
-    <section class="newsletter-section bg-light">
+    <!-- ========== NEWSLETTER (DARK) ========== -->
+    <section class="newsletter-section section-dark-gradient">
         <div class="container">
             <div class="newsletter-content fade-in">
                 <h3>Stay Connected</h3>
@@ -1657,7 +2077,7 @@
         </div>
     </section>
 
-    <!-- ========== FOOTER (dark bg) ========== -->
+    <!-- ========== FOOTER (DARK) ========== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-top">
