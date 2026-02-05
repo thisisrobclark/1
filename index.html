@@ -265,8 +265,10 @@
             display: flex;
             align-items: center;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
             padding-top: 80px;
+            padding-bottom: 0;
+            z-index: 2;
         }
 
         .hero-bg {
@@ -420,59 +422,48 @@
             display: flex;
             justify-content: center;
             align-items: flex-end;
+            z-index: 5;
         }
 
         .hero-headshot-container {
             position: relative;
             width: 480px;
-            height: 600px;
-            overflow: hidden;
+            height: 620px;
+            overflow: visible;
         }
 
         .hero-headshot-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 10%;
+            object-position: center top;
             display: block;
-            filter: saturate(0.3) brightness(1.05) contrast(1.1);
         }
 
-        /* Gold/warm duotone tint overlay */
-        .hero-headshot-container::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                180deg,
-                rgba(212, 168, 67, 0.12) 0%,
-                rgba(184, 145, 46, 0.18) 40%,
-                rgba(212, 168, 67, 0.08) 70%,
-                transparent 100%
-            );
-            mix-blend-mode: color;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        /* Edge fades — bottom dissolve into page, sides transparent */
+        /* Bottom gradient fade — dissolves into the dark page */
         .hero-headshot-container::after {
             content: '';
             position: absolute;
-            inset: 0;
-            background:
-                /* Bottom: strong fade dissolving into the dark bg */
-                linear-gradient(to top, var(--color-bg-dark) 0%, rgba(10,10,10,0.95) 8%, rgba(10,10,10,0.6) 20%, transparent 45%),
-                /* Left edge: soft dissolve */
-                linear-gradient(to right, var(--color-bg-dark) 0%, rgba(10,10,10,0.4) 8%, transparent 25%),
-                /* Right edge: soft dissolve */
-                linear-gradient(to left, var(--color-bg-dark) 0%, rgba(10,10,10,0.4) 8%, transparent 25%),
-                /* Top: subtle fade */
-                linear-gradient(to bottom, rgba(10,10,10,0.5) 0%, transparent 12%),
-                /* Vignette to kill blue corners */
-                radial-gradient(ellipse at center 25%, transparent 45%, rgba(10,10,10,0.85) 100%);
+            bottom: 0;
+            left: -20%;
+            right: -20%;
+            height: 45%;
+            background: linear-gradient(to top, var(--color-bg-dark) 0%, rgba(10,10,10,0.85) 25%, rgba(10,10,10,0.4) 55%, transparent 100%);
             pointer-events: none;
             z-index: 3;
+        }
+
+        /* Subtle warm glow behind the figure */
+        .hero-headshot-container::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: -30%;
+            right: -30%;
+            bottom: -10%;
+            background: radial-gradient(ellipse at center 40%, rgba(212,168,67,0.06) 0%, transparent 65%);
+            pointer-events: none;
+            z-index: -1;
         }
 
         /* Fallback placeholder if image hasn't been added yet */
@@ -531,10 +522,52 @@
         }
 
         /* ========================================
+           CURVED SECTION DIVIDERS
+           ======================================== */
+        .section-divider {
+            position: relative;
+            width: 100%;
+            line-height: 0;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .section-divider svg {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /* Dark → Light (gold curve on cream fill) */
+        .divider-dark-to-light {
+            margin-top: -1px;
+            background: var(--color-bg-dark);
+        }
+
+        /* Light → Dark (gold curve on dark fill) */
+        .divider-light-to-dark {
+            margin-top: -1px;
+        }
+
+        /* Hero-specific divider: overlaps with hero and transitions to light */
+        .divider-hero {
+            position: relative;
+            z-index: 1;
+            margin-top: -120px;
+            background: transparent;
+        }
+
+        .divider-hero svg {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========================================
            SECTION STYLES
            ======================================== */
         section {
             padding: var(--section-padding) 0;
+            position: relative;
         }
 
         .section-header {
@@ -585,8 +618,6 @@
         .logos-section {
             padding: 60px 0;
             background: var(--color-bg-cream);
-            border-top: 1px solid var(--color-border-cream);
-            border-bottom: 1px solid var(--color-border-cream);
             overflow: hidden;
         }
 
@@ -594,7 +625,6 @@
         .press-bar {
             padding: 48px 0 40px;
             background: var(--color-bg-cream);
-            border-top: 1px solid var(--color-border-cream);
         }
 
         .press-bar-label {
@@ -1304,7 +1334,6 @@
             padding: 80px 0 40px;
             background: var(--color-bg-dark);
             color: var(--color-text-on-dark);
-            border-top: 1px solid var(--color-border-dark);
         }
 
         .footer-top {
@@ -1466,9 +1495,13 @@
             }
 
             .hero-headshot-container {
-                width: 360px;
-                height: 460px;
+                width: 380px;
+                height: 480px;
                 margin: 0 auto;
+            }
+
+            .divider-hero {
+                margin-top: -80px;
             }
 
             .hero-stats {
@@ -1573,7 +1606,15 @@
 
             .hero-headshot-container {
                 width: 300px;
-                height: 380px;
+                height: 400px;
+            }
+
+            .divider-hero {
+                margin-top: -60px;
+            }
+
+            .section-divider svg {
+                height: 40px;
             }
 
             .hero-stats {
@@ -1717,7 +1758,7 @@
             </div>
             <div class="hero-image">
                 <div class="hero-headshot-container">
-                    <img src="images/headshot.jpg" alt="Rob Clark" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="images/headshot.png" alt="Rob Clark" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="hero-headshot-fallback" style="display:none;">
                         <div class="initials">RC</div>
                         <div class="photo-label">Your Photo Here</div>
@@ -1726,6 +1767,15 @@
             </div>
         </div>
     </section>
+
+    <!-- Curved divider: Hero (dark) → Press bar (cream) -->
+    <div class="section-divider divider-hero">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,40 Q360,80 720,55 Q1080,30 1440,60 L1440,0 Z" fill="#0a0a0a"/>
+            <path d="M0,40 Q360,80 720,55 Q1080,30 1440,60 L1440,80 L0,80 Z" fill="#f5f0e8"/>
+            <path d="M0,40 Q360,80 720,55 Q1080,30 1440,60" fill="none" stroke="#d4a843" stroke-width="2" stroke-opacity="0.5"/>
+        </svg>
+    </div>
 
     <!-- ========== AS FEATURED IN (LIGHT) ========== -->
     <div class="press-bar">
@@ -1787,6 +1837,15 @@
         </div>
     </div>
 
+    <!-- Curved divider: Logos (cream) → Quote (dark) -->
+    <div class="section-divider divider-light-to-dark">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,30 Q360,70 720,40 Q1080,10 1440,50 L1440,0 Z" fill="#f5f0e8"/>
+            <path d="M0,30 Q360,70 720,40 Q1080,10 1440,50 L1440,70 L0,70 Z" fill="#0a0a0a"/>
+            <path d="M0,30 Q360,70 720,40 Q1080,10 1440,50" fill="none" stroke="#d4a843" stroke-width="2" stroke-opacity="0.4"/>
+        </svg>
+    </div>
+
     <!-- ========== QUOTE / MESSAGE (DARK) ========== -->
     <section class="section-dark-gradient">
         <div class="container">
@@ -1798,6 +1857,15 @@
             </div>
         </div>
     </section>
+
+    <!-- Curved divider: Quote (dark) → About (cream) -->
+    <div class="section-divider divider-dark-to-light" style="background:#0a0a0a;">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,25 Q240,60 480,45 Q720,30 960,50 Q1200,70 1440,35 L1440,0 Z" fill="#0a0a0a"/>
+            <path d="M0,25 Q240,60 480,45 Q720,30 960,50 Q1200,70 1440,35 L1440,70 L0,70 Z" fill="#f5f0e8"/>
+            <path d="M0,25 Q240,60 480,45 Q720,30 960,50 Q1200,70 1440,35" fill="none" stroke="#d4a843" stroke-width="2" stroke-opacity="0.4"/>
+        </svg>
+    </div>
 
     <!-- ========== ABOUT SECTION (LIGHT / CREAM) ========== -->
     <section class="section-light" id="about">
@@ -1836,6 +1904,15 @@
             </div>
         </div>
     </section>
+
+    <!-- Curved divider: About (cream) → Speaking (dark) -->
+    <div class="section-divider divider-light-to-dark">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,35 Q360,5 720,40 Q1080,75 1440,30 L1440,0 Z" fill="#f5f0e8"/>
+            <path d="M0,35 Q360,5 720,40 Q1080,75 1440,30 L1440,70 L0,70 Z" fill="#0a0a0a"/>
+            <path d="M0,35 Q360,5 720,40 Q1080,75 1440,30" fill="none" stroke="#d4a843" stroke-width="2" stroke-opacity="0.4"/>
+        </svg>
+    </div>
 
     <!-- ========== SPEAKING TOPICS (DARK) ========== -->
     <section class="section-dark-gradient" id="speaking">
@@ -1909,6 +1986,15 @@
         </div>
     </section>
 
+    <!-- Curved divider: Speaking (dark) → Books (cream) -->
+    <div class="section-divider divider-dark-to-light" style="background:#0a0a0a;">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,40 Q280,10 560,35 Q840,60 1120,30 Q1300,15 1440,45 L1440,0 Z" fill="#0a0a0a"/>
+            <path d="M0,40 Q280,10 560,35 Q840,60 1120,30 Q1300,15 1440,45 L1440,70 L0,70 Z" fill="#f5f0e8"/>
+            <path d="M0,40 Q280,10 560,35 Q840,60 1120,30 Q1300,15 1440,45" fill="none" stroke="#d4a843" stroke-width="2" stroke-opacity="0.4"/>
+        </svg>
+    </div>
+
     <!-- ========== BOOKS SECTION (LIGHT / CREAM) ========== -->
     <section class="section-light-warm" id="books">
         <div class="container">
@@ -1968,6 +2054,15 @@
         </div>
     </section>
 
+    <!-- Curved divider: Books (cream) → Testimonials (dark) -->
+    <div class="section-divider divider-light-to-dark">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,30 Q360,65 720,35 Q1080,5 1440,40 L1440,0 Z" fill="#f5f0e8"/>
+            <path d="M0,30 Q360,65 720,35 Q1080,5 1440,40 L1440,70 L0,70 Z" fill="#0a0a0a"/>
+            <path d="M0,30 Q360,65 720,35 Q1080,5 1440,40" fill="none" stroke="#d4a843" stroke-width="2" stroke-opacity="0.4"/>
+        </svg>
+    </div>
+
     <!-- ========== TESTIMONIALS (DARK) ========== -->
     <section class="section-dark" id="testimonials">
         <div class="container">
@@ -1990,6 +2085,15 @@
         </div>
     </section>
 
+    <!-- Curved divider: Testimonials (dark) → CTA (cream) -->
+    <div class="section-divider divider-dark-to-light" style="background:#0a0a0a;">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,45 Q360,15 720,40 Q1080,65 1440,25 L1440,0 Z" fill="#0a0a0a"/>
+            <path d="M0,45 Q360,15 720,40 Q1080,65 1440,25 L1440,70 L0,70 Z" fill="#f5f0e8"/>
+            <path d="M0,45 Q360,15 720,40 Q1080,65 1440,25" fill="none" stroke="#d4a843" stroke-width="2" stroke-opacity="0.4"/>
+        </svg>
+    </div>
+
     <!-- ========== CTA SECTION (LIGHT / CREAM) ========== -->
     <section class="cta-section section-light-warm" id="contact">
         <div class="container">
@@ -2010,6 +2114,15 @@
         </div>
     </section>
 
+    <!-- Curved divider: CTA (cream) → Newsletter (dark) -->
+    <div class="section-divider divider-light-to-dark">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,20 Q240,55 480,40 Q720,25 960,50 Q1200,70 1440,35 L1440,0 Z" fill="#f5f0e8"/>
+            <path d="M0,20 Q240,55 480,40 Q720,25 960,50 Q1200,70 1440,35 L1440,70 L0,70 Z" fill="#0a0a0a"/>
+            <path d="M0,20 Q240,55 480,40 Q720,25 960,50 Q1200,70 1440,35" fill="none" stroke="#d4a843" stroke-width="2" stroke-opacity="0.4"/>
+        </svg>
+    </div>
+
     <!-- ========== NEWSLETTER (DARK) ========== -->
     <section class="newsletter-section section-dark-gradient">
         <div class="container">
@@ -2023,6 +2136,14 @@
             </div>
         </div>
     </section>
+
+    <!-- Subtle gold line divider: Newsletter → Footer -->
+    <div class="section-divider" style="background:#0a0a0a;">
+        <svg viewBox="0 0 1440 30" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="1440" height="30" fill="#0a0a0a"/>
+            <path d="M0,15 Q360,5 720,18 Q1080,28 1440,10" fill="none" stroke="#d4a843" stroke-width="1.5" stroke-opacity="0.25"/>
+        </svg>
+    </div>
 
     <!-- ========== FOOTER (DARK) ========== -->
     <footer class="footer">
