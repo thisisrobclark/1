@@ -583,6 +583,48 @@
             overflow: hidden;
         }
 
+        /* ---- As Featured In (press bar) ---- */
+        .press-bar {
+            padding: 48px 0 40px;
+            background: var(--color-bg-cream);
+            border-top: 1px solid var(--color-border-cream);
+        }
+
+        .press-bar-label {
+            text-align: center;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--color-text-muted-on-light);
+            margin-bottom: 28px;
+        }
+
+        .press-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 48px;
+        }
+
+        .press-logo-link {
+            display: block;
+            opacity: 0.45;
+            transition: opacity 0.3s ease;
+        }
+
+        .press-logo-link:hover {
+            opacity: 0.85;
+        }
+
+        .press-logo-link svg {
+            height: 28px;
+            width: auto;
+            display: block;
+            fill: var(--color-text-on-light);
+        }
+
         .logos-label {
             text-align: center;
             font-size: 0.75rem;
@@ -1044,6 +1086,40 @@
         .section-light .book-meta,
         .section-light-warm .book-meta {
             color: var(--color-text-muted-on-light);
+        }
+
+        .book-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .book-buy-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 16px;
+            padding: 10px 22px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--color-bg-dark);
+            background: var(--color-accent);
+            border-radius: 6px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .book-buy-btn:hover {
+            background: var(--color-accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(212, 168, 67, 0.35);
+        }
+
+        .book-buy-btn svg {
+            width: 14px;
+            height: 14px;
         }
 
         /* ========================================
@@ -1644,6 +1720,19 @@
         </div>
     </section>
 
+    <!-- ========== AS FEATURED IN (LIGHT) ========== -->
+    <div class="press-bar">
+        <div class="container">
+            <p class="press-bar-label">As Featured In</p>
+            <div class="press-logos">
+                <a href="https://www.forbes.com/sites/elainepofeldt/2023/02/27/this-father-of-four-turned-to-youtube-and-tiktok-when-he-needed-to-make-a-living-now-his-family-has-22-million-followers/" target="_blank" rel="noopener noreferrer" class="press-logo-link" aria-label="Forbes">
+                    <svg viewBox="0 0 200 54" xmlns="http://www.w3.org/2000/svg"><path d="M0 1.5h40.2v10.3H13.8v9.5h23.6v10.3H13.8v22.5H0V1.5zm59.4 0c14.8 0 24.2 10.9 24.2 26.3S74.2 54 59.4 54c-14.9 0-24.3-10.9-24.3-26.2S44.5 1.5 59.4 1.5zm0 41.5c7 0 10.3-6.2 10.3-15.2S66.4 12.5 59.4 12.5c-7 0-10.4 6.3-10.4 15.3s3.4 15.2 10.4 15.2zm30.4-41.5h24.9c11 0 18.4 5.5 18.4 16.7 0 7.2-3.5 12.4-9.9 15l12.3 19.4h-15L111 35h-7.4v19.1H89.8V1.5zm14 24.4h7.7c4.7 0 7.8-2.4 7.8-7.3 0-4.5-2.7-6.8-7.5-6.8h-8v14.1zm37.3-24.4h24c11.3 0 18.1 4.8 18.1 14.5 0 5.4-2.3 9.8-6.7 12.3 5.8 2.3 9.4 6.7 9.4 13.5 0 10.6-7.7 16.3-19.7 16.3h-25.1V1.5zm13.8 22.2h7.9c4.1 0 6.5-2.2 6.5-6 0-3.7-2.3-5.8-6.7-5.8h-7.7v11.8zm0 22.2h8.7c4.7 0 7.5-2.4 7.5-6.6 0-4.3-3-6.5-7.7-6.5h-8.5v13.1zM181.6 1.5H200v10.3h-31.6v9h28.2v10.1h-28.2v12.3H200v10.3h-32.2V1.5h13.8z"/></svg>
+                </a>
+                <!-- Add more press logos here -->
+            </div>
+        </div>
+    </div>
+
     <!-- ========== BRAND LOGOS CAROUSEL (LIGHT) ========== -->
     <div class="logos-section">
         <div class="container">
@@ -1826,29 +1915,47 @@
             <div class="books-grid">
                 <!-- Book 1: Attention Gap -->
                 <div class="book-card fade-in fade-in-delay-1">
-                    <div class="book-cover">
-                        <img src="images/attention-gap.jpg" alt="Attention Gap: Why Great Schools Stay Invisible and How To Fix It by Chris Rapozo and Rob Clark">
-                    </div>
+                    <a href="https://a.co/d/0iEp2sgY" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <div class="book-cover">
+                            <img src="images/attention-gap.jpg" alt="Attention Gap: Why Great Schools Stay Invisible and How To Fix It by Chris Rapozo and Rob Clark">
+                        </div>
+                    </a>
                     <h3 class="book-title">Attention Gap</h3>
                     <p class="book-meta">Why Great Schools Stay Invisible &amp; How to Fix It</p>
+                    <a href="https://a.co/d/0iEp2sgY" target="_blank" rel="noopener noreferrer" class="book-buy-btn">
+                        Get the Book
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2"/><path d="M7 7h10v10"/></svg>
+                    </a>
                 </div>
 
                 <!-- Book 2: 4 Billion Views -->
                 <div class="book-card fade-in fade-in-delay-2">
-                    <div class="book-cover">
-                        <img src="images/4-billion-views.jpg" alt="4 Billion Views: How We Built a Social Media Brand from Scratch by Rob Clark">
-                    </div>
+                    <a href="https://a.co/d/0ij4XFy8" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <div class="book-cover">
+                            <img src="images/4-billion-views.jpg" alt="4 Billion Views: How We Built a Social Media Brand from Scratch by Rob Clark">
+                        </div>
+                    </a>
                     <h3 class="book-title">4 Billion Views</h3>
                     <p class="book-meta">How We Built a Social Media Brand from Scratch</p>
+                    <a href="https://a.co/d/0ij4XFy8" target="_blank" rel="noopener noreferrer" class="book-buy-btn">
+                        Get the Book
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2"/><path d="M7 7h10v10"/></svg>
+                    </a>
                 </div>
 
                 <!-- Book 3: Growing Your Influence -->
                 <div class="book-card fade-in fade-in-delay-3">
-                    <div class="book-cover">
-                        <img src="images/growing-your-influence.jpg" alt="Growing Your Influence: Social Media Strategies for a New Generation by Rob Clark">
-                    </div>
+                    <a href="https://a.co/d/0gYqels0" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <div class="book-cover">
+                            <img src="images/growing-your-influence.jpg" alt="Growing Your Influence: Social Media Strategies for a New Generation by Rob Clark">
+                        </div>
+                    </a>
                     <h3 class="book-title">Growing Your Influence</h3>
                     <p class="book-meta">Social Media Strategies for a New Generation</p>
+                    <a href="https://a.co/d/0gYqels0" target="_blank" rel="noopener noreferrer" class="book-buy-btn">
+                        Get the Book
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2"/><path d="M7 7h10v10"/></svg>
+                    </a>
                 </div>
             </div>
         </div>
