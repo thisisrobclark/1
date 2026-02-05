@@ -268,12 +268,13 @@
             overflow: hidden;
             padding-top: 80px;
             padding-bottom: 0;
+            background: #000;
         }
 
         .hero-bg {
             position: absolute;
             inset: 0;
-            background: var(--color-bg-dark);
+            background: #000;
             z-index: 0;
         }
 
@@ -433,11 +434,16 @@
         }
 
         .hero-headshot-container img {
-            width: 100%;
-            height: 100%;
+            width: 110%;
+            height: 110%;
+            margin: -5% 0 0 -5%;
             object-fit: cover;
             object-position: center top;
             display: block;
+            position: relative;
+            z-index: 2;
+            -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 35%, black 50%, transparent 100%);
+            mask-image: radial-gradient(ellipse 75% 70% at 50% 35%, black 50%, transparent 100%);
         }
 
         /* Bottom gradient fade — dissolves into the dark page */
@@ -447,8 +453,8 @@
             bottom: 0;
             left: -20%;
             right: -20%;
-            height: 45%;
-            background: linear-gradient(to top, var(--color-bg-dark) 0%, rgba(10,10,10,0.85) 25%, rgba(10,10,10,0.4) 55%, transparent 100%);
+            height: 50%;
+            background: linear-gradient(to top, #000 0%, rgba(0,0,0,0.9) 20%, rgba(0,0,0,0.4) 50%, transparent 100%);
             pointer-events: none;
             z-index: 3;
         }
@@ -493,37 +499,51 @@
             margin-top: 16px;
         }
 
-        /* Floating social media icons around hero photo */
+        /* Floating social media icons behind hero photo */
         .hero-social-icons {
             position: absolute;
-            inset: 0;
+            inset: -40% -60% -20% -10%;
             pointer-events: none;
-            z-index: 0;
+            z-index: 1;
         }
 
         .hero-social-icon {
             position: absolute;
-            opacity: 0;
-            animation: floatIcon 4s ease-in-out infinite;
+            animation: floatIcon 5s ease-in-out infinite;
         }
 
         .hero-social-icon svg {
             width: 100%;
             height: 100%;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
         }
 
-        /* Individual icon positions — scattered around the figure */
-        .hero-social-icon.icon-youtube    { width: 52px; top: 8%;  right: -35%; opacity: 0.35; animation-delay: 0s; }
-        .hero-social-icon.icon-instagram  { width: 44px; top: 25%; right: -55%; opacity: 0.28; animation-delay: 0.7s; }
-        .hero-social-icon.icon-tiktok     { width: 38px; top: 5%;  left: -30%;  opacity: 0.22; animation-delay: 1.4s; }
-        .hero-social-icon.icon-facebook   { width: 42px; top: 40%; left: -50%;  opacity: 0.15; animation-delay: 2.1s; }
-        .hero-social-icon.icon-x          { width: 36px; top: 55%; right: -45%; opacity: 0.25; animation-delay: 0.4s; }
-        .hero-social-icon.icon-linkedin   { width: 40px; bottom: 35%; left: -40%;  opacity: 0.12; animation-delay: 1.8s; }
-        .hero-social-icon.icon-messenger  { width: 34px; top: 18%; left: -55%;  opacity: 0.10; animation-delay: 2.5s; }
+        /* Primary icons — larger, closer to figure, more visible */
+        .si-1  { width: 56px; top: 5%;   right: 5%;  opacity: 0.55; animation-delay: 0s; }
+        .si-2  { width: 48px; top: 20%;  right: -30%; opacity: 0.50; animation-delay: 0.8s; }
+        .si-3  { width: 44px; top: 8%;   right: -55%; opacity: 0.40; animation-delay: 1.5s; }
+        .si-4  { width: 50px; top: 40%;  right: -45%; opacity: 0.45; animation-delay: 0.3s; }
+        .si-5  { width: 40px; top: 58%;  right: -25%; opacity: 0.48; animation-delay: 2.0s; }
+        .si-6  { width: 46px; top: 55%;  right: -55%; opacity: 0.38; animation-delay: 1.2s; }
+        .si-7  { width: 38px; top: 30%;  right: -15%; opacity: 0.42; animation-delay: 2.4s; }
+
+        /* Duplicate icons — smaller, further out, fill the backdrop */
+        .si-8  { width: 32px; top: -5%;  right: -40%; opacity: 0.30; animation-delay: 3.0s; }
+        .si-9  { width: 28px; top: 15%;  right: -70%; opacity: 0.22; animation-delay: 1.0s; }
+        .si-10 { width: 36px; top: 45%;  right: -70%; opacity: 0.25; animation-delay: 2.8s; }
+        .si-11 { width: 30px; top: 68%;  right: -50%; opacity: 0.28; animation-delay: 0.5s; }
+        .si-12 { width: 26px; top: 72%;  right: -15%; opacity: 0.32; animation-delay: 3.5s; }
+        .si-13 { width: 34px; top: -8%;  right: -15%; opacity: 0.35; animation-delay: 1.8s; }
+        .si-14 { width: 24px; top: 35%;  right: -80%; opacity: 0.18; animation-delay: 2.2s; }
+
+        /* A few on the left edge of the photo — subtle, fading out */
+        .si-15 { width: 30px; top: 10%;  left: 5%;   opacity: 0.20; animation-delay: 3.2s; }
+        .si-16 { width: 26px; top: 50%;  left: -5%;  opacity: 0.15; animation-delay: 0.6s; }
+        .si-17 { width: 22px; top: 30%;  left: -10%; opacity: 0.10; animation-delay: 2.6s; }
 
         @keyframes floatIcon {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(2deg); }
         }
 
         .hero-stats {
@@ -1803,35 +1823,28 @@
                         <div class="photo-label">Your Photo Here</div>
                     </div>
                     <!-- Floating social media icons -->
+                    <!-- Floating social media icons (behind photo) -->
                     <div class="hero-social-icons">
-                        <!-- YouTube -->
-                        <div class="hero-social-icon icon-youtube">
-                            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="12" fill="#FF0000" fill-opacity="0.9"/><path d="M19 15l12 9-12 9V15z" fill="#fff"/></svg>
-                        </div>
-                        <!-- Instagram -->
-                        <div class="hero-social-icon icon-instagram">
-                            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ig" x1="0" y1="48" x2="48" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#FD5"/><stop offset=".5" stop-color="#FF543E"/><stop offset="1" stop-color="#C837AB"/></linearGradient></defs><rect width="48" height="48" rx="12" fill="url(#ig)"/><circle cx="24" cy="24" r="8" stroke="#fff" stroke-width="3" fill="none"/><circle cx="35" cy="13" r="2.5" fill="#fff"/></svg>
-                        </div>
-                        <!-- TikTok -->
-                        <div class="hero-social-icon icon-tiktok">
-                            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="12" fill="#010101"/><path d="M30 12c0 4 3 6 6 6v5c-3 0-5-1-6-2v10a9 9 0 1 1-9-9v5a4 4 0 1 0 4 4V12h5z" fill="#fff"/></svg>
-                        </div>
-                        <!-- Facebook -->
-                        <div class="hero-social-icon icon-facebook">
-                            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="24" fill="#1877F2"/><path d="M27 25h4l1-5h-5v-3c0-1.4.7-3 3-3h2V9s-2-.3-3.5-.3C24.6 8.7 22 11.1 22 15.5V20h-4v5h4v13h5V25z" fill="#fff"/></svg>
-                        </div>
-                        <!-- X (Twitter) -->
-                        <div class="hero-social-icon icon-x">
-                            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="12" fill="#000"/><path d="M28.2 22.3L36 13h-2.5l-6 7.8L21.8 13H14l8.3 12.1L14 35h2.5l6.5-8.4 5.5 8.4H36l-7.8-12.7zm-2.3 2.7l-.8-1-5.8-8.4h2.6l4.8 6.8.8 1 6.2 8.9h-2.6l-5.2-7.3z" fill="#fff"/></svg>
-                        </div>
-                        <!-- LinkedIn -->
-                        <div class="hero-social-icon icon-linkedin">
-                            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="8" fill="#0A66C2"/><path d="M14 20h4v14h-4V20zm2-6a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zm6 6h4v2c1-1.5 2.8-2.5 5-2.5 4.5 0 5 3 5 7v7.5h-4V28c0-2-.4-3.5-2.5-3.5-2.4 0-3.5 1.8-3.5 3.8V34h-4V20z" fill="#fff"/></svg>
-                        </div>
-                        <!-- Messenger -->
-                        <div class="hero-social-icon icon-messenger">
-                            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ms" x1="0" y1="48" x2="48" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#0099FF"/><stop offset="1" stop-color="#A033FF"/></linearGradient></defs><rect width="48" height="48" rx="24" fill="url(#ms)"/><path d="M24 10c-8 0-14 5.7-14 13.5 0 4 1.7 7.3 4.5 9.7V39l5.2-2.8c1.3.4 2.8.6 4.3.6 8 0 14-5.7 14-13.5S32 10 24 10zm1.5 18l-3.5-3.8-7 3.8 7.7-8 3.5 3.8 7-3.8-7.7 8z" fill="#fff"/></svg>
-                        </div>
+                        <!-- Primary ring: large, close, visible -->
+                        <div class="hero-social-icon si-1"><svg viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#FF0000" fill-opacity="0.9"/><path d="M19 15l12 9-12 9V15z" fill="#fff"/></svg></div>
+                        <div class="hero-social-icon si-2"><svg viewBox="0 0 48 48"><defs><linearGradient id="ig1" x1="0" y1="48" x2="48" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#FD5"/><stop offset=".5" stop-color="#FF543E"/><stop offset="1" stop-color="#C837AB"/></linearGradient></defs><rect width="48" height="48" rx="12" fill="url(#ig1)"/><circle cx="24" cy="24" r="8" stroke="#fff" stroke-width="3" fill="none"/><circle cx="35" cy="13" r="2.5" fill="#fff"/></svg></div>
+                        <div class="hero-social-icon si-3"><svg viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#111"/><path d="M30 12c0 4 3 6 6 6v5c-3 0-5-1-6-2v10a9 9 0 1 1-9-9v5a4 4 0 1 0 4 4V12h5z" fill="#fff"/></svg></div>
+                        <div class="hero-social-icon si-4"><svg viewBox="0 0 48 48"><rect width="48" height="48" rx="24" fill="#1877F2"/><path d="M27 25h4l1-5h-5v-3c0-1.4.7-3 3-3h2V9s-2-.3-3.5-.3C24.6 8.7 22 11.1 22 15.5V20h-4v5h4v13h5V25z" fill="#fff"/></svg></div>
+                        <div class="hero-social-icon si-5"><svg viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#1a1a1a"/><path d="M28.2 22.3L36 13h-2.5l-6 7.8L21.8 13H14l8.3 12.1L14 35h2.5l6.5-8.4 5.5 8.4H36l-7.8-12.7zm-2.3 2.7l-.8-1-5.8-8.4h2.6l4.8 6.8.8 1 6.2 8.9h-2.6l-5.2-7.3z" fill="#fff"/></svg></div>
+                        <div class="hero-social-icon si-6"><svg viewBox="0 0 48 48"><rect width="48" height="48" rx="8" fill="#0A66C2"/><path d="M14 20h4v14h-4V20zm2-6a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zm6 6h4v2c1-1.5 2.8-2.5 5-2.5 4.5 0 5 3 5 7v7.5h-4V28c0-2-.4-3.5-2.5-3.5-2.4 0-3.5 1.8-3.5 3.8V34h-4V20z" fill="#fff"/></svg></div>
+                        <div class="hero-social-icon si-7"><svg viewBox="0 0 48 48"><defs><linearGradient id="ms1" x1="0" y1="48" x2="48" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#0099FF"/><stop offset="1" stop-color="#A033FF"/></linearGradient></defs><rect width="48" height="48" rx="24" fill="url(#ms1)"/><path d="M24 10c-8 0-14 5.7-14 13.5 0 4 1.7 7.3 4.5 9.7V39l5.2-2.8c1.3.4 2.8.6 4.3.6 8 0 14-5.7 14-13.5S32 10 24 10zm1.5 18l-3.5-3.8-7 3.8 7.7-8 3.5 3.8 7-3.8-7.7 8z" fill="#fff"/></svg></div>
+                        <!-- Secondary ring: medium, further out -->
+                        <div class="hero-social-icon si-8"><svg viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#FF0000" fill-opacity="0.9"/><path d="M19 15l12 9-12 9V15z" fill="#fff"/></svg></div>
+                        <div class="hero-social-icon si-9"><svg viewBox="0 0 48 48"><defs><linearGradient id="ig2" x1="0" y1="48" x2="48" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#FD5"/><stop offset=".5" stop-color="#FF543E"/><stop offset="1" stop-color="#C837AB"/></linearGradient></defs><rect width="48" height="48" rx="12" fill="url(#ig2)"/><circle cx="24" cy="24" r="8" stroke="#fff" stroke-width="3" fill="none"/><circle cx="35" cy="13" r="2.5" fill="#fff"/></svg></div>
+                        <div class="hero-social-icon si-10"><svg viewBox="0 0 48 48"><rect width="48" height="48" rx="24" fill="#1877F2"/><path d="M27 25h4l1-5h-5v-3c0-1.4.7-3 3-3h2V9s-2-.3-3.5-.3C24.6 8.7 22 11.1 22 15.5V20h-4v5h4v13h5V25z" fill="#fff"/></svg></div>
+                        <div class="hero-social-icon si-11"><svg viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#111"/><path d="M30 12c0 4 3 6 6 6v5c-3 0-5-1-6-2v10a9 9 0 1 1-9-9v5a4 4 0 1 0 4 4V12h5z" fill="#fff"/></svg></div>
+                        <div class="hero-social-icon si-12"><svg viewBox="0 0 48 48"><rect width="48" height="48" rx="8" fill="#0A66C2"/><path d="M14 20h4v14h-4V20zm2-6a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zm6 6h4v2c1-1.5 2.8-2.5 5-2.5 4.5 0 5 3 5 7v7.5h-4V28c0-2-.4-3.5-2.5-3.5-2.4 0-3.5 1.8-3.5 3.8V34h-4V20z" fill="#fff"/></svg></div>
+                        <div class="hero-social-icon si-13"><svg viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#1a1a1a"/><path d="M28.2 22.3L36 13h-2.5l-6 7.8L21.8 13H14l8.3 12.1L14 35h2.5l6.5-8.4 5.5 8.4H36l-7.8-12.7zm-2.3 2.7l-.8-1-5.8-8.4h2.6l4.8 6.8.8 1 6.2 8.9h-2.6l-5.2-7.3z" fill="#fff"/></svg></div>
+                        <div class="hero-social-icon si-14"><svg viewBox="0 0 48 48"><defs><linearGradient id="ms2" x1="0" y1="48" x2="48" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#0099FF"/><stop offset="1" stop-color="#A033FF"/></linearGradient></defs><rect width="48" height="48" rx="24" fill="url(#ms2)"/><path d="M24 10c-8 0-14 5.7-14 13.5 0 4 1.7 7.3 4.5 9.7V39l5.2-2.8c1.3.4 2.8.6 4.3.6 8 0 14-5.7 14-13.5S32 10 24 10zm1.5 18l-3.5-3.8-7 3.8 7.7-8 3.5 3.8 7-3.8-7.7 8z" fill="#fff"/></svg></div>
+                        <!-- Faint left-edge accents -->
+                        <div class="hero-social-icon si-15"><svg viewBox="0 0 48 48"><defs><linearGradient id="ig3" x1="0" y1="48" x2="48" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#FD5"/><stop offset=".5" stop-color="#FF543E"/><stop offset="1" stop-color="#C837AB"/></linearGradient></defs><rect width="48" height="48" rx="12" fill="url(#ig3)"/><circle cx="24" cy="24" r="8" stroke="#fff" stroke-width="3" fill="none"/><circle cx="35" cy="13" r="2.5" fill="#fff"/></svg></div>
+                        <div class="hero-social-icon si-16"><svg viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#FF0000" fill-opacity="0.9"/><path d="M19 15l12 9-12 9V15z" fill="#fff"/></svg></div>
+                        <div class="hero-social-icon si-17"><svg viewBox="0 0 48 48"><rect width="48" height="48" rx="24" fill="#1877F2"/><path d="M27 25h4l1-5h-5v-3c0-1.4.7-3 3-3h2V9s-2-.3-3.5-.3C24.6 8.7 22 11.1 22 15.5V20h-4v5h4v13h5V25z" fill="#fff"/></svg></div>
                     </div>
                 </div>
             </div>
@@ -1841,7 +1854,7 @@
     <!-- Curved divider: Hero (dark) → Press bar (cream) -->
     <div class="section-divider divider-hero">
         <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,0 L0,40 Q360,80 720,55 Q1080,30 1440,60 L1440,0 Z" fill="#0a0a0a"/>
+            <path d="M0,0 L0,40 Q360,80 720,55 Q1080,30 1440,60 L1440,0 Z" fill="#000"/>
             <path d="M0,40 Q360,80 720,55 Q1080,30 1440,60 L1440,80 L0,80 Z" fill="#f5f0e8"/>
             <path d="M0,40 Q360,80 720,55 Q1080,30 1440,60" fill="none" stroke="#d4a843" stroke-width="2" stroke-opacity="0.5"/>
         </svg>
