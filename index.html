@@ -427,23 +427,20 @@
 
         .hero-headshot-container {
             position: relative;
-            width: 480px;
-            height: 620px;
+            width: 520px;
+            height: 650px;
             overflow: visible;
             background: transparent;
         }
 
         .hero-headshot-container img {
-            width: 110%;
-            height: 110%;
-            margin: -5% 0 0 -5%;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             object-position: center top;
             display: block;
             position: relative;
             z-index: 2;
-            -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 35%, black 50%, transparent 100%);
-            mask-image: radial-gradient(ellipse 75% 70% at 50% 35%, black 50%, transparent 100%);
         }
 
         /* Bottom gradient fade — dissolves into the dark page */
@@ -453,8 +450,8 @@
             bottom: 0;
             left: -20%;
             right: -20%;
-            height: 50%;
-            background: linear-gradient(to top, #000 0%, rgba(0,0,0,0.9) 20%, rgba(0,0,0,0.4) 50%, transparent 100%);
+            height: 40%;
+            background: linear-gradient(to top, #000 0%, rgba(0,0,0,0.8) 30%, transparent 100%);
             pointer-events: none;
             z-index: 3;
         }
@@ -500,53 +497,6 @@
         }
 
         /* Floating social media icons — halo arc above head */
-        /* Orbiting social media icons around head */
-        .hero-social-icons {
-            position: absolute;
-            top: 22%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            pointer-events: none;
-            z-index: 4;
-            animation: orbitSpin 30s linear infinite;
-        }
-
-        .hero-social-icon {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 50px;
-            height: 50px;
-            margin: -25px 0 0 -25px;
-        }
-
-        .hero-social-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.6));
-            border-radius: 10px;
-            animation: orbitCounterSpin 30s linear infinite;
-        }
-
-        /* Each icon placed at 72° intervals, translated outward along an elliptical orbit */
-        .si-1 { transform: rotate(0deg)    translateX(220px) translateY(-60px); }
-        .si-2 { transform: rotate(72deg)   translateX(220px) translateY(-60px); }
-        .si-3 { transform: rotate(144deg)  translateX(220px) translateY(-60px); }
-        .si-4 { transform: rotate(216deg)  translateX(220px) translateY(-60px); }
-        .si-5 { transform: rotate(288deg)  translateX(220px) translateY(-60px); }
-
-        @keyframes orbitSpin {
-            from { transform: rotate(0deg); }
-            to   { transform: rotate(360deg); }
-        }
-
-        @keyframes orbitCounterSpin {
-            from { transform: rotate(0deg); }
-            to   { transform: rotate(-360deg); }
-        }
-
         .hero-stats {
             display: flex;
             gap: 40px;
@@ -1665,10 +1615,6 @@
                 height: 400px;
             }
 
-            .hero-social-icons {
-                display: none;
-            }
-
             .divider-hero {
                 margin-top: -60px;
             }
@@ -1818,18 +1764,10 @@
             </div>
             <div class="hero-image">
                 <div class="hero-headshot-container">
-                    <img src="images/headshot.png" alt="Rob Clark" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="images/hero-portrait.png" alt="Rob Clark" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="hero-headshot-fallback" style="display:none;">
                         <div class="initials">RC</div>
                         <div class="photo-label">Your Photo Here</div>
-                    </div>
-                    <!-- Orbiting social media icons around head -->
-                    <div class="hero-social-icons">
-                        <div class="hero-social-icon si-1"><img src="images/facebook-logo.png" alt="Facebook"></div>
-                        <div class="hero-social-icon si-2"><img src="images/youtube-logo.png" alt="YouTube"></div>
-                        <div class="hero-social-icon si-3"><img src="images/instagram-logo.png" alt="Instagram"></div>
-                        <div class="hero-social-icon si-4"><img src="images/linkedin-logo.png" alt="LinkedIn"></div>
-                        <div class="hero-social-icon si-5"><img src="images/tiktok-logo.png" alt="TikTok"></div>
                     </div>
                 </div>
             </div>
