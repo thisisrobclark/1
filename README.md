@@ -1,87 +1,57 @@
-# Instagram Reels Analytics App
+# Donald Miller - Keynote Speaker Website
 
-A simple, lightweight web application for analyzing Instagram Reels performance from CSV files.
+A professional, responsive website clone inspired by [donaldmiller.com](https://www.donaldmiller.com/), built for a keynote speaker and business leader.
 
 ## Features
 
-- 📊 Upload and parse CSV files containing Instagram Reels analytics
-- 📈 Visual bar chart showing views by Reel
-- 📋 Detailed data table with all metrics
-- 🎯 Key performance indicators (KPIs):
-  - Total Reels count
-  - Total Views
-  - Total Likes
-  - Average Engagement Rate
-  - Total Reach
-- 🎨 Beautiful, responsive UI with gradient design
-- 🚀 No installation required - runs directly in your browser
+- Dark theme with gold/yellow accent colors
+- Fully responsive design (desktop, tablet, mobile)
+- Fixed navigation with scroll effect and mobile hamburger menu
+- Smooth scroll animations with Intersection Observer
+- Hero section with stats and call-to-action
+- Trusted logos / "As Seen In" banner
+- Featured quote section
+- About section with credentials
+- Keynote speaking topics (3 cards)
+- Bestselling books showcase (4 books)
+- Speaking formats (In-Person, Virtual, Pre-Recorded)
+- Testimonials from event organizers
+- Call-to-action booking section
+- Newsletter subscription form
+- Full footer with social links and navigation
 
-## How to Use
+## Tech Stack
 
-1. **Open the App**
-   - Simply open `index.html` in any modern web browser (Chrome, Firefox, Safari, Edge)
+- **HTML5** - Semantic markup
+- **CSS3** - Custom properties, Grid, Flexbox, animations
+- **Vanilla JavaScript** - No frameworks or dependencies
+- **Google Fonts** - Inter (body) + Playfair Display (headings)
+- **SVG Icons** - Inline SVG for crisp icons at any size
 
-2. **Upload Your CSV File**
-   - Click the upload area or drag and drop your CSV file
-   - You can use the included `sample-reels-analytics.csv` file to test the app
+## Getting Started
 
-3. **View Your Analytics**
-   - The app will automatically display:
-     - Summary statistics at the top
-     - A bar chart showing views for each Reel
-     - A detailed table with all your data
+Simply open `index.html` in any modern web browser. No build tools, no dependencies, no server required.
 
-## CSV File Format
+## Customization
 
-Your CSV file should include the following columns (in any order):
+To make this your own:
 
-- **Reel ID**: Unique identifier for each Reel
-- **Title**: Reel title or description
-- **Date Posted**: Publication date
-- **Views**: Number of views
-- **Likes**: Number of likes
-- **Comments**: Number of comments
-- **Shares**: Number of shares
-- **Saves**: Number of saves
-- **Reach**: Total reach
-- **Engagement Rate**: Engagement percentage
+1. **Replace content** - Update the text, names, and descriptions throughout `index.html`
+2. **Add your photos** - Replace the placeholder image areas (marked with "DM" initials) with your actual headshot photos
+3. **Update colors** - Modify the CSS custom properties in `:root` to match your brand
+4. **Update links** - Replace `#` placeholder links and the `mailto:` address with your actual URLs
+5. **Add real testimonials** - Replace the sample testimonials with real quotes from your events
 
-### Example CSV Format:
+## Design Details
 
-```csv
-Reel ID,Title,Date Posted,Views,Likes,Comments,Shares,Saves,Reach,Engagement Rate
-R001,Morning Routine Tips,2024-01-15,45230,3421,287,892,1205,38450,12.8
-R002,Quick Recipe: Pasta,2024-01-18,62150,4892,412,1340,2103,51200,14.2
-```
+- **Color Palette**: Dark background (#0a0a0a) with gold accent (#d4a843)
+- **Typography**: Playfair Display for headings, Inter for body text
+- **Layout**: CSS Grid and Flexbox for responsive layouts
+- **Animations**: Scroll-triggered fade-in animations using Intersection Observer API
 
-## Exporting Your Instagram Reels Analytics
+## Browser Support
 
-To get your actual Instagram Reels analytics:
-
-1. Go to Instagram Professional Dashboard
-2. Navigate to Insights
-3. Select the Reels you want to analyze
-4. Export the data to CSV format
-5. Upload the CSV file to this app
-
-Note: Instagram's native export format may vary. You might need to adjust column names to match the expected format.
-
-## Technical Details
-
-- **Technology**: Pure HTML5, CSS3, and vanilla JavaScript
-- **Dependencies**: None! No external libraries required
-- **Browser Support**: Works in all modern browsers
-- **File Processing**: Client-side only (your data never leaves your computer)
-
-## Files Included
-
-- `index.html` - Main application file
-- `sample-reels-analytics.csv` - Sample data for testing
-- `README.md` - This file
-
-## Privacy
-
-All data processing happens locally in your browser. No data is sent to any server, ensuring your analytics remain completely private.
+Works in all modern browsers: Chrome, Firefox, Safari, Edge.
 
 ## License
 
