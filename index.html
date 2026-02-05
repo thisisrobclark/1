@@ -419,14 +419,13 @@
             position: relative;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-end;
         }
 
         .hero-headshot-container {
             position: relative;
-            width: 450px;
-            height: 550px;
-            border-radius: 12px;
+            width: 480px;
+            height: 600px;
             overflow: hidden;
         }
 
@@ -434,38 +433,46 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 15%;
+            object-position: center 10%;
             display: block;
+            filter: saturate(0.3) brightness(1.05) contrast(1.1);
         }
 
-        /* Multi-layer gradient to blend photo into dark bg */
+        /* Gold/warm duotone tint overlay */
+        .hero-headshot-container::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(212, 168, 67, 0.12) 0%,
+                rgba(184, 145, 46, 0.18) 40%,
+                rgba(212, 168, 67, 0.08) 70%,
+                transparent 100%
+            );
+            mix-blend-mode: color;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Edge fades — bottom dissolve into page, sides transparent */
         .hero-headshot-container::after {
             content: '';
             position: absolute;
             inset: 0;
             background:
-                /* Bottom fade - strongest */
-                linear-gradient(to top, var(--color-bg-dark) 0%, rgba(10,10,10,0.7) 15%, transparent 40%),
-                /* Left edge fade */
-                linear-gradient(to right, var(--color-bg-dark) 0%, transparent 15%),
-                /* Right edge fade */
-                linear-gradient(to left, var(--color-bg-dark) 0%, transparent 15%),
-                /* Top edge fade */
-                linear-gradient(to bottom, rgba(10,10,10,0.6) 0%, transparent 15%),
-                /* Overall vignette */
-                radial-gradient(ellipse at center 30%, transparent 55%, rgba(10,10,10,0.8) 100%);
+                /* Bottom: strong fade dissolving into the dark bg */
+                linear-gradient(to top, var(--color-bg-dark) 0%, rgba(10,10,10,0.95) 8%, rgba(10,10,10,0.6) 20%, transparent 45%),
+                /* Left edge: soft dissolve */
+                linear-gradient(to right, var(--color-bg-dark) 0%, rgba(10,10,10,0.4) 8%, transparent 25%),
+                /* Right edge: soft dissolve */
+                linear-gradient(to left, var(--color-bg-dark) 0%, rgba(10,10,10,0.4) 8%, transparent 25%),
+                /* Top: subtle fade */
+                linear-gradient(to bottom, rgba(10,10,10,0.5) 0%, transparent 12%),
+                /* Vignette to kill blue corners */
+                radial-gradient(ellipse at center 25%, transparent 45%, rgba(10,10,10,0.85) 100%);
             pointer-events: none;
-            z-index: 1;
-        }
-
-        /* Subtle gold accent glow behind the photo */
-        .hero-headshot-container::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            background: linear-gradient(135deg, rgba(212,168,67,0.15) 0%, transparent 30%, transparent 70%, rgba(212,168,67,0.1) 100%);
-            border-radius: 12px;
-            z-index: -1;
+            z-index: 3;
         }
 
         /* Fallback placeholder if image hasn't been added yet */
@@ -618,11 +625,11 @@
             opacity: 0.85;
         }
 
-        .press-logo-link svg {
-            height: 28px;
+        .press-logo-link img {
+            height: 32px;
             width: auto;
             display: block;
-            fill: var(--color-text-on-light);
+            opacity: 0.85;
         }
 
         .logos-label {
@@ -1459,8 +1466,8 @@
             }
 
             .hero-headshot-container {
-                width: 350px;
-                height: 430px;
+                width: 360px;
+                height: 460px;
                 margin: 0 auto;
             }
 
@@ -1565,8 +1572,8 @@
             }
 
             .hero-headshot-container {
-                width: 280px;
-                height: 350px;
+                width: 300px;
+                height: 380px;
             }
 
             .hero-stats {
@@ -1726,7 +1733,7 @@
             <p class="press-bar-label">As Featured In</p>
             <div class="press-logos">
                 <a href="https://www.forbes.com/sites/elainepofeldt/2023/02/27/this-father-of-four-turned-to-youtube-and-tiktok-when-he-needed-to-make-a-living-now-his-family-has-22-million-followers/" target="_blank" rel="noopener noreferrer" class="press-logo-link" aria-label="Forbes">
-                    <svg viewBox="0 0 200 54" xmlns="http://www.w3.org/2000/svg"><path d="M0 1.5h40.2v10.3H13.8v9.5h23.6v10.3H13.8v22.5H0V1.5zm59.4 0c14.8 0 24.2 10.9 24.2 26.3S74.2 54 59.4 54c-14.9 0-24.3-10.9-24.3-26.2S44.5 1.5 59.4 1.5zm0 41.5c7 0 10.3-6.2 10.3-15.2S66.4 12.5 59.4 12.5c-7 0-10.4 6.3-10.4 15.3s3.4 15.2 10.4 15.2zm30.4-41.5h24.9c11 0 18.4 5.5 18.4 16.7 0 7.2-3.5 12.4-9.9 15l12.3 19.4h-15L111 35h-7.4v19.1H89.8V1.5zm14 24.4h7.7c4.7 0 7.8-2.4 7.8-7.3 0-4.5-2.7-6.8-7.5-6.8h-8v14.1zm37.3-24.4h24c11.3 0 18.1 4.8 18.1 14.5 0 5.4-2.3 9.8-6.7 12.3 5.8 2.3 9.4 6.7 9.4 13.5 0 10.6-7.7 16.3-19.7 16.3h-25.1V1.5zm13.8 22.2h7.9c4.1 0 6.5-2.2 6.5-6 0-3.7-2.3-5.8-6.7-5.8h-7.7v11.8zm0 22.2h8.7c4.7 0 7.5-2.4 7.5-6.6 0-4.3-3-6.5-7.7-6.5h-8.5v13.1zM181.6 1.5H200v10.3h-31.6v9h28.2v10.1h-28.2v12.3H200v10.3h-32.2V1.5h13.8z"/></svg>
+                    <img src="images/forbeslogo.jpg" alt="Forbes">
                 </a>
                 <!-- Add more press logos here -->
             </div>
