@@ -751,6 +751,38 @@
             align-items: center;
         }
 
+        .about-video-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.12),
+                0 2px 8px rgba(0, 0, 0, 0.08);
+            border: 2px solid rgba(212, 168, 67, 0.3);
+            background: linear-gradient(135deg, #e8e0d2 0%, #d9d0c0 100%);
+        }
+
+        .about-video-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 18px;
+            padding: 2px;
+            background: linear-gradient(135deg, rgba(212,168,67,0.4) 0%, rgba(212,168,67,0.1) 50%, rgba(212,168,67,0.3) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .about-video {
+            width: 100%;
+            display: block;
+            border-radius: 14px;
+        }
+
         .about-image-wrapper {
             position: relative;
             width: 100%;
@@ -1362,7 +1394,19 @@
 
             .about-grid {
                 grid-template-columns: 1fr;
-                gap: 60px;
+                gap: 40px;
+            }
+
+            .about-video-wrapper {
+                border-radius: 12px;
+            }
+
+            .about-video-wrapper::before {
+                border-radius: 14px;
+            }
+
+            .about-video {
+                border-radius: 10px;
             }
 
             .about-content .section-title,
@@ -1663,11 +1707,10 @@
     <section class="section-light" id="about">
         <div class="container">
             <div class="about-grid">
-                <div class="about-image-wrapper fade-in">
-                    <img class="about-headshot" src="images/headshot.jpg" alt="Rob Clark" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="about-image-placeholder" style="display:none;">
-                        <div class="initials">RC</div>
-                    </div>
+                <div class="about-video-wrapper fade-in">
+                    <video class="about-video" autoplay muted loop playsinline>
+                        <source src="robweb.mp4" type="video/mp4">
+                    </video>
                 </div>
                 <div class="about-content">
                     <div class="section-label">About Rob</div>
