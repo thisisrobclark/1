@@ -12,13 +12,6 @@
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
 
-@font-face {
-  font-family: "Playfair Display";
-  font-style: normal;
-  font-weight: 300 900;
-  font-display: swap;
-  src: url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap");
-}
 
 html {
   scroll-behavior: smooth;
