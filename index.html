@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rob Clark | Speaker, Strategist &amp; Creator</title>
-    <meta name="description" content="Rob Clark is a speaker, strategist, and creator. Founder of That Tall Family with 5 billion+ views and 4 million+ followers. Author, consultant, and founder of TTF Media.">
+    <meta name="description" content="Rob Clark is a speaker, strategist, and creator. Founder of That Tall Family with 5 billion+ views and 4 million+ followers. Author and consultant.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -440,6 +440,24 @@
             color: var(--color-accent-dark);
         }
 
+        /* ---- Text Links ---- */
+        .text-link {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: var(--color-accent);
+            text-underline-offset: 3px;
+            transition: var(--transition);
+        }
+
+        .text-link:hover {
+            color: var(--color-accent);
+        }
+
+        .section-light .text-link:hover,
+        .section-light-warm .text-link:hover {
+            color: var(--color-accent-dark);
+        }
+
         /* ========================================
            HERO HEADSHOT
            ======================================== */
@@ -805,6 +823,20 @@
             line-height: 1.4;
             margin-bottom: 24px;
             position: relative;
+        }
+
+        .message-quote.featured-quote {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #ffffff 0%, var(--color-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .message-quote .highlight {
@@ -1343,6 +1375,73 @@
             background: var(--color-accent-hover);
         }
 
+        /* ---- Contact Form ---- */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            color: var(--color-text-on-light);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            border: 2px solid var(--color-border-light);
+            border-radius: 4px;
+            background: #fff;
+            color: var(--color-text-on-light);
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--color-accent-dark);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--color-text-muted-on-light);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form .btn-primary {
+            width: 100%;
+            justify-content: center;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* ========================================
            FOOTER
            ======================================== */
@@ -1659,6 +1758,10 @@
                 font-size: 1.8rem;
             }
 
+            .message-quote.featured-quote {
+                font-size: 2.5rem;
+            }
+
             .books-grid {
                 grid-template-columns: 1fr;
                 gap: 32px;
@@ -1732,7 +1835,6 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#speaking">Speaking</a></li>
                 <li><a href="#books">Books</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact" class="nav-cta">Book Rob</a></li>
             </ul>
             <div class="nav-social">
@@ -1811,21 +1913,7 @@
         <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0,0 L0,40 Q360,80 720,55 Q1080,30 1440,60 L1440,0 Z" fill="#000"/>
             <path d="M0,40 Q360,80 720,55 Q1080,30 1440,60 L1440,80 L0,80 Z" fill="#f5f0e8"/>
-            <path d="M0,40 Q360,80 720,55 Q1080,30 1440,60" fill="none" stroke="#d4a843" stroke-width="2" stroke-opacity="0.5"/>
         </svg>
-    </div>
-
-    <!-- ========== AS FEATURED IN (LIGHT) ========== -->
-    <div class="press-bar">
-        <div class="container">
-            <p class="press-bar-label">As Featured In</p>
-            <div class="press-logos">
-                <a href="https://www.forbes.com/sites/elainepofeldt/2023/02/27/this-father-of-four-turned-to-youtube-and-tiktok-when-he-needed-to-make-a-living-now-his-family-has-22-million-followers/" target="_blank" rel="noopener noreferrer" class="press-logo-link" aria-label="Forbes">
-                    <img src="images/forbeslogo.jpg" alt="Forbes">
-                </a>
-                <!-- Add more press logos here -->
-            </div>
-        </div>
     </div>
 
     <!-- ========== BRAND LOGOS CAROUSEL (LIGHT) ========== -->
@@ -1876,7 +1964,6 @@
         <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0,0 L0,30 Q360,70 720,40 Q1080,10 1440,50 L1440,0 Z" fill="#f5f0e8"/>
             <path d="M0,30 Q360,70 720,40 Q1080,10 1440,50 L1440,70 L0,70 Z" fill="#0a0a0a"/>
-            <path d="M0,30 Q360,70 720,40 Q1080,10 1440,50" fill="none" stroke="#d4a843" stroke-width="2" stroke-opacity="0.4"/>
         </svg>
     </div>
 
@@ -1884,8 +1971,8 @@
     <section class="section-dark-gradient">
         <div class="container">
             <div class="message-content fade-in">
-                <p class="message-quote">
-                    One video can change everything, but you don&rsquo;t know which video &mdash; so you have to embrace that <span class="highlight">quantity leads to quality.</span>
+                <p class="message-quote featured-quote">
+                    One video can change everything.
                 </p>
             </div>
         </div>
@@ -1896,7 +1983,6 @@
         <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0,0 L0,25 Q240,60 480,45 Q720,30 960,50 Q1200,70 1440,35 L1440,0 Z" fill="#0a0a0a"/>
             <path d="M0,25 Q240,60 480,45 Q720,30 960,50 Q1200,70 1440,35 L1440,70 L0,70 Z" fill="#f5f0e8"/>
-            <path d="M0,25 Q240,60 480,45 Q720,30 960,50 Q1200,70 1440,35" fill="none" stroke="#d4a843" stroke-width="2" stroke-opacity="0.4"/>
         </svg>
     </div>
 
@@ -1912,19 +1998,11 @@
                 <div class="about-content">
                     <h2 class="section-title fade-in">Creator, Strategist<br>&amp; Entrepreneur</h2>
                     <p class="about-text fade-in">
-                        Rob Clark is a creator, strategist, and entrepreneur focused on attention, storytelling, and growth in a distracted world. He is best known as the founder and face of <strong>That Tall Family</strong>, one of the largest family-friendly brands on social media &mdash; generating over <strong>5 billion views</strong> and building an audience of more than <strong>4 million followers</strong> across TikTok, Instagram, YouTube, and Facebook through organic content only.
+                        Rob Clark is a creator, strategist, and entrepreneur focused on attention, storytelling, and growth in a distracted world. He is best known as the founder and face of <a href="https://thatttallfamily.com" target="_blank" rel="noopener noreferrer" class="text-link"><strong>That Tall Family</strong></a>, one of the largest family-friendly brands on social media &mdash; generating over <strong>5 billion views</strong> and building an audience of more than <strong>4 million followers</strong> across TikTok, Instagram, YouTube, and Facebook through organic content only.
                     </p>
                     <p class="about-text fade-in">
-                        Professionally, Rob helps creators, businesses, colleges, churches, and nonprofits clarify their message and turn social media into real visibility, trust, and opportunity through consulting, speaking, content strategy, and hands-on execution under <strong>TTF Media</strong>.
+                        Professionally, Rob helps brands clarify their message and turn social media into real visibility, trust, and opportunity through consulting, speaking, content strategy, and hands-on execution.
                     </p>
-                    <div class="about-credentials fade-in">
-                        <span class="credential-tag">Founder, That Tall Family</span>
-                        <span class="credential-tag">TTF Media</span>
-                        <span class="credential-tag">5B+ Views</span>
-                        <span class="credential-tag">Author</span>
-                        <span class="credential-tag">Speaker</span>
-                        <span class="credential-tag">Content Strategist</span>
-                    </div>
                     <a href="#contact" class="btn-primary fade-in">
                         Work with Rob
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -1939,7 +2017,6 @@
         <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0,0 L0,35 Q360,5 720,40 Q1080,75 1440,30 L1440,0 Z" fill="#f5f0e8"/>
             <path d="M0,35 Q360,5 720,40 Q1080,75 1440,30 L1440,70 L0,70 Z" fill="#0a0a0a"/>
-            <path d="M0,35 Q360,5 720,40 Q1080,75 1440,30" fill="none" stroke="#d4a843" stroke-width="2" stroke-opacity="0.4"/>
         </svg>
     </div>
 
@@ -1996,7 +2073,6 @@
         <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0,0 L0,40 Q280,10 560,35 Q840,60 1120,30 Q1300,15 1440,45 L1440,0 Z" fill="#0a0a0a"/>
             <path d="M0,40 Q280,10 560,35 Q840,60 1120,30 Q1300,15 1440,45 L1440,70 L0,70 Z" fill="#f5f0e8"/>
-            <path d="M0,40 Q280,10 560,35 Q840,60 1120,30 Q1300,15 1440,45" fill="none" stroke="#d4a843" stroke-width="2" stroke-opacity="0.4"/>
         </svg>
     </div>
 
@@ -2059,62 +2135,39 @@
         </div>
     </section>
 
-    <!-- Curved divider: Books (cream) → Testimonials (dark) -->
-    <div class="section-divider divider-light-to-dark">
-        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,0 L0,30 Q360,65 720,35 Q1080,5 1440,40 L1440,0 Z" fill="#f5f0e8"/>
-            <path d="M0,30 Q360,65 720,35 Q1080,5 1440,40 L1440,70 L0,70 Z" fill="#0a0a0a"/>
-            <path d="M0,30 Q360,65 720,35 Q1080,5 1440,40" fill="none" stroke="#d4a843" stroke-width="2" stroke-opacity="0.4"/>
-        </svg>
-    </div>
-
-    <!-- ========== TESTIMONIALS (DARK) ========== -->
-    <section class="section-dark" id="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">What People Say</div>
-                <h2 class="section-title fade-in">Testimonials</h2>
-                <p class="section-subtitle fade-in">
-                    Rob is brought in by organizations not because he knows theory, but because he has built something visible at scale &mdash; in public.
-                </p>
-            </div>
-            <div class="testimonials-placeholder fade-in">
-                <div class="testimonials-placeholder-box">
-                    <div class="placeholder-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                    </div>
-                    <h3>Testimonials Coming Soon</h3>
-                    <p>Real feedback from event organizers, college presidents, church leaders, and brand partners. Check back soon for stories from organizations Rob has worked with.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Curved divider: Testimonials (dark) → CTA (cream) -->
-    <div class="section-divider divider-dark-to-light" style="background:#0a0a0a;">
-        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,0 L0,45 Q360,15 720,40 Q1080,65 1440,25 L1440,0 Z" fill="#0a0a0a"/>
-            <path d="M0,45 Q360,15 720,40 Q1080,65 1440,25 L1440,70 L0,70 Z" fill="#f5f0e8"/>
-            <path d="M0,45 Q360,15 720,40 Q1080,65 1440,25" fill="none" stroke="#d4a843" stroke-width="2" stroke-opacity="0.4"/>
-        </svg>
-    </div>
-
     <!-- ========== CTA SECTION (LIGHT / CREAM) ========== -->
     <section class="cta-section section-light-warm" id="contact">
         <div class="container">
             <div class="cta-content">
                 <div class="section-label">Let's Work Together</div>
-                <h2 class="section-title fade-in">Book Rob for Speaking<br>or Consulting</h2>
+                <h2 class="section-title fade-in">Hire Rob for Speaking</h2>
                 <p class="section-subtitle fade-in">
                     Whether you need a keynote speaker who has built something real at scale, or a strategist to help your organization stop being invisible &mdash; Rob delivers practical, proven results.
                 </p>
-                <div class="cta-buttons fade-in">
-                    <a href="#" class="btn-primary">
-                        Book Rob to Speak
+                <form class="contact-form fade-in" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact-name">Name</label>
+                            <input type="text" id="contact-name" name="name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email</label>
+                            <input type="email" id="contact-email" name="email" placeholder="your@email.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-organization">Organization</label>
+                        <input type="text" id="contact-organization" name="organization" placeholder="Company, university, church, etc.">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" name="message" rows="4" placeholder="Tell us about your event or project..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        Send Message
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
-                    <a href="#" class="btn-secondary">TTF Media</a>
-                </div>
+                    </button>
+                </form>
             </div>
         </div>
     </section>
@@ -2124,7 +2177,6 @@
         <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0,0 L0,20 Q240,55 480,40 Q720,25 960,50 Q1200,70 1440,35 L1440,0 Z" fill="#f5f0e8"/>
             <path d="M0,20 Q240,55 480,40 Q720,25 960,50 Q1200,70 1440,35 L1440,70 L0,70 Z" fill="#0a0a0a"/>
-            <path d="M0,20 Q240,55 480,40 Q720,25 960,50 Q1200,70 1440,35" fill="none" stroke="#d4a843" stroke-width="2" stroke-opacity="0.4"/>
         </svg>
     </div>
 
@@ -2134,8 +2186,8 @@
             <div class="newsletter-content fade-in">
                 <h3>Stay Connected</h3>
                 <p>Get insights on attention, storytelling, content strategy, and building influence from Rob Clark.</p>
-                <form class="newsletter-form" onsubmit="handleNewsletter(event)">
-                    <input type="email" placeholder="Enter your email" required>
+                <form class="newsletter-form" action="https://formspree.io/f/YOUR_NEWSLETTER_FORM_ID" method="POST">
+                    <input type="email" name="email" placeholder="Enter your email" required>
                     <button type="submit">Subscribe</button>
                 </form>
             </div>
@@ -2146,7 +2198,6 @@
     <div class="section-divider" style="background:#0a0a0a;">
         <svg viewBox="0 0 1440 30" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="1440" height="30" fill="#0a0a0a"/>
-            <path d="M0,15 Q360,5 720,18 Q1080,28 1440,10" fill="none" stroke="#d4a843" stroke-width="1.5" stroke-opacity="0.25"/>
         </svg>
     </div>
 
@@ -2156,7 +2207,7 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <a href="#" class="nav-logo">ROB <span>CLARK</span></a>
-                    <p>Creator, strategist, speaker, and author. Founder of That Tall Family and TTF Media. Helping people and organizations capture attention and turn it into lasting impact.</p>
+                    <p>Creator, strategist, speaker, and author. Founder of <a href="https://thattallfamily.com" target="_blank" rel="noopener noreferrer">That Tall Family</a>. Helping people and organizations capture attention and turn it into lasting impact.</p>
                     <div class="footer-social">
                         <a href="https://www.instagram.com/thattallfamily/" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="0.5"/></svg>
@@ -2187,8 +2238,7 @@
                 <div class="footer-column">
                     <h4>Brands</h4>
                     <ul>
-                        <li><a href="#">That Tall Family</a></li>
-                        <li><a href="#">TTF Media</a></li>
+                        <li><a href="https://thattallfamily.com" target="_blank" rel="noopener noreferrer">That Tall Family</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
