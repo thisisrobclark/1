@@ -3,32 +3,33 @@
 import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
-import { mirrorImages } from "@/lib/images";
+import ParallaxImage from "@/components/ParallaxImage";
+import { mirrorImages, galleryImages } from "@/lib/images";
 
 const products = [
   {
-    name: 'Lumi\u00e8re Round 30"',
-    spec: '30" Diameter \u00b7 LED Backlit',
+    name: 'Lumière Round 30"',
+    spec: '30" Diameter · LED Backlit',
   },
   {
-    name: "Atelier Rectangle 36\u00d728",
-    spec: '36" \u00d7 28" \u00b7 Dimmable',
+    name: "Atelier Rectangle 36×28",
+    spec: '36" × 28" · Dimmable',
   },
   {
-    name: "Provence Oval 24\u00d736",
-    spec: '24" \u00d7 36" \u00b7 Anti-Fog',
+    name: "Provence Oval 24×36",
+    spec: '24" × 36" · Anti-Fog',
   },
   {
-    name: "Monaco Arch 26\u00d738",
-    spec: '26" \u00d7 38" \u00b7 Touch Sensor',
+    name: "Monaco Arch 26×38",
+    spec: '26" × 38" · Touch Sensor',
   },
   {
     name: 'Riviera Square 28"',
-    spec: '28" \u00d7 28" \u00b7 RGB Color',
+    spec: '28" × 28" · RGB Color',
   },
   {
-    name: "Ch\u00e2teau Full Length 22\u00d760",
-    spec: '22" \u00d7 60" \u00b7 Motion Activated',
+    name: "Château Full Length 22×60",
+    spec: '22" × 60" · Motion Activated',
   },
 ];
 
@@ -54,104 +55,108 @@ export default function MirrorsPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative h-[70vh] w-full">
-        <Image
-          src={mirrorImages.hero}
-          alt="YUDU Back Lit Mirrors"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl text-white uppercase tracking-[0.2em] font-[family-name:var(--font-playfair)]">
-            Mirrors
-          </h1>
-          <p className="text-white/70 text-sm uppercase tracking-widest">
-            Back Lit Mirror Collection
+      <ParallaxImage src={mirrorImages.hero} alt="YUDU Back Lit Mirrors" height="80vh">
+        <h1
+          className="text-5xl md:text-7xl text-white font-light uppercase tracking-[0.2em]"
+          style={{ fontFamily: "var(--font-serif)" }}
+        >
+          MIRRORS
+        </h1>
+        <p className="text-sm text-white/70 uppercase tracking-[0.3em] mt-4">
+          Back Lit Mirror Collection
+        </p>
+      </ParallaxImage>
+
+      {/* Intro */}
+      <section className="section-white py-[120px] text-center">
+        <ScrollReveal>
+          <div className="divider mx-auto mb-10" />
+          <h2
+            className="text-2xl md:text-3xl lg:text-4xl font-light uppercase tracking-[0.15em]"
+            style={{ fontFamily: "var(--font-serif)" }}
+          >
+            ILLUMINATE YOUR SPACE
+          </h2>
+          <p className="font-light text-[#6b6b6b] max-w-2xl mx-auto text-lg leading-[1.8] mt-8">
+            Our curated collection of back-lit mirrors transforms any bathroom
+            or vanity into a luminous sanctuary. Each mirror features
+            energy-efficient LED illumination with adjustable color temperature,
+            blending artful design with everyday function.
           </p>
+        </ScrollReveal>
+      </section>
+
+      {/* Product Collection */}
+      <section className="fade-to-cream py-[100px]">
+        <p className="text-xs uppercase tracking-[0.3em] text-[#9a948a] text-center mb-20">
+          BACK LIT MIRROR COLLECTION
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 max-w-[1200px] mx-auto px-8">
+          {products.map((product, index) => (
+            <ScrollReveal key={product.name} delay={index * 100}>
+              <div className="img-zoom">
+                <div className="relative aspect-[3/4]">
+                  <Image
+                    src={mirrorImages.products[index]}
+                    alt={product.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+              <p className="text-xs uppercase tracking-[0.2em] mt-6">
+                {product.name}
+              </p>
+              <p className="text-[#9a948a] text-xs mt-1">{product.spec}</p>
+            </ScrollReveal>
+          ))}
         </div>
       </section>
 
-      {/* Intro */}
-      <ScrollReveal>
-        <section className="py-24 px-6 text-center">
-          <div className="divider mx-auto mb-8" />
-          <h2 className="text-2xl md:text-3xl uppercase tracking-[0.15em] font-[family-name:var(--font-playfair)] mb-6">
-            Illuminate Your Space
-          </h2>
-          <p className="font-light text-[#6b6b6b] max-w-2xl mx-auto leading-relaxed">
-            Our curated collection of back-lit mirrors transforms any bathroom
-            or vanity into a luminous sanctuary. Each mirror features
-            energy-efficient LED illumination with adjustable color temperature.
-          </p>
-        </section>
-      </ScrollReveal>
-
-      {/* Product Collection */}
-      <ScrollReveal>
-        <section className="pb-32">
-          <p className="text-xs uppercase tracking-widest text-center mb-16">
-            Back Lit Mirror Collection
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-8 md:px-16 lg:px-24">
-            {products.map((product, index) => (
-              <div key={product.name}>
-                <div className="img-zoom">
-                  <div className="relative aspect-[3/4]">
-                    <Image
-                      src={mirrorImages.products[index]}
-                      alt={product.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-                <p className="uppercase text-xs tracking-widest mt-4">
-                  {product.name}
-                </p>
-                <p className="text-[#6b6b6b] text-xs mt-1">{product.spec}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-      </ScrollReveal>
+      {/* Breather */}
+      <ParallaxImage src={galleryImages[1]} alt="Luxury interior" height="45vh" />
 
       {/* Features */}
-      <ScrollReveal>
-        <section className="bg-[#f7f5f2] py-24 px-6">
-          <h2 className="text-2xl md:text-3xl uppercase tracking-[0.15em] font-[family-name:var(--font-playfair)] text-center mb-16">
-            Crafted Details
+      <section className="section-cream py-[100px]">
+        <ScrollReveal>
+          <h2
+            className="text-2xl font-light uppercase tracking-[0.15em] text-center mb-16"
+            style={{ fontFamily: "var(--font-serif)" }}
+          >
+            CRAFTED DETAILS
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-[900px] mx-auto px-8">
             {features.map((feature) => (
               <div key={feature.title} className="text-center">
-                <h3 className="uppercase text-xs tracking-widest mb-3">
+                <h3 className="text-xs uppercase tracking-[0.25em] mb-4">
                   {feature.title}
                 </h3>
-                <p className="text-[#6b6b6b] text-sm font-light">
+                <p className="text-[#6b6b6b] text-sm font-light leading-relaxed">
                   {feature.description}
                 </p>
               </div>
             ))}
           </div>
-        </section>
-      </ScrollReveal>
+        </ScrollReveal>
+      </section>
 
-      {/* Bottom CTA */}
-      <ScrollReveal>
-        <section className="py-24 text-center">
-          <h2 className="text-2xl md:text-3xl uppercase tracking-[0.15em] font-[family-name:var(--font-playfair)] mb-10">
-            Transform Your Space
+      {/* CTA */}
+      <section className="fade-cream-to-white py-[120px] text-center">
+        <ScrollReveal>
+          <h2
+            className="text-3xl font-light"
+            style={{ fontFamily: "var(--font-serif)" }}
+          >
+            TRANSFORM YOUR SPACE
           </h2>
           <Link
             href="/contact"
-            className="inline-block border border-foreground px-10 py-4 uppercase tracking-widest text-xs hover:bg-foreground hover:text-white transition-all duration-300"
+            className="border border-[#1a1a1a] px-12 py-5 text-xs uppercase tracking-[0.25em] hover:bg-[#1a1a1a] hover:text-white transition-all duration-500 inline-block mt-12"
           >
             Request a Consultation
           </Link>
-        </section>
-      </ScrollReveal>
+        </ScrollReveal>
+      </section>
     </div>
   );
 }

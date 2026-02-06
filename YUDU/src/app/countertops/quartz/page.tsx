@@ -3,7 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
-import { countertopImages } from "@/lib/images";
+import ParallaxImage from "@/components/ParallaxImage";
+import { countertopImages, galleryImages } from "@/lib/images";
 
 const groundZeroProducts = [
   { name: "Calacatta Classique", image: countertopImages.quartz[0] },
@@ -21,49 +22,38 @@ export default function QuartzPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative h-[70vh] w-full">
-        <Image
-          src={countertopImages.hero}
-          alt="Quartz Collection"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <h1
-            className="text-4xl md:text-5xl lg:text-6xl text-white uppercase tracking-[0.2em] font-[family-name:var(--font-playfair)]"
-          >
-            Quartz Collection
-          </h1>
-        </div>
-      </section>
+      <ParallaxImage src={countertopImages.hero} alt="Quartz Collection" height="80vh">
+        <h1
+          className="text-5xl md:text-7xl text-white uppercase tracking-[0.2em] font-light"
+          style={{ fontFamily: "var(--font-serif)" }}
+        >
+          Quartz Collection
+        </h1>
+        <p className="text-sm text-white/70 uppercase tracking-[0.2em] mt-4">
+          Engineered Perfection, Infinite Possibility
+        </p>
+      </ParallaxImage>
 
       {/* Intro */}
-      <ScrollReveal>
-        <section className="py-24 px-6 text-center">
-          <h2 className="text-2xl font-[family-name:var(--font-playfair)] mb-6">
-            Engineered Perfection, Infinite Possibility
-          </h2>
-          <p className="font-light text-muted max-w-2xl mx-auto leading-relaxed">
+      <section className="section-white py-[120px] px-6 text-center">
+        <ScrollReveal>
+          <div className="divider mx-auto mb-10 max-w-[60px]" />
+          <p className="font-light text-[#9a948a] max-w-2xl mx-auto leading-relaxed text-base">
             Where cutting-edge engineering meets the allure of natural stone, quartz
             delivers uncompromising beauty without sacrifice. Non-porous, stain-resistant,
             and available in an extraordinary range of patterns, it offers the
             refined aesthetic of marble with the enduring performance modern living demands.
           </p>
-        </section>
-      </ScrollReveal>
+        </ScrollReveal>
+      </section>
 
       {/* Ground Zero */}
-      <ScrollReveal>
-        <section className="px-6 md:px-12 lg:px-24 pb-24">
-          <div className="flex items-center gap-6 mb-12">
-            <span className="text-xs uppercase tracking-widest text-muted whitespace-nowrap">
-              Ground Zero
-            </span>
-            <div className="divider flex-grow" />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <section className="fade-to-cream py-[100px] px-6 md:px-12 lg:px-24">
+        <ScrollReveal>
+          <p className="text-xs uppercase tracking-[0.3em] text-[#9a948a] mb-16 text-center">
+            Ground Zero
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
             {groundZeroProducts.map((product) => (
               <div key={product.name}>
                 <div className="relative aspect-[4/3] img-zoom">
@@ -74,25 +64,25 @@ export default function QuartzPage() {
                     className="object-cover"
                   />
                 </div>
-                <p className="mt-4 text-sm tracking-wide font-light">
+                <p className="text-xs uppercase tracking-[0.2em] mt-6 font-light">
                   {product.name}
                 </p>
               </div>
             ))}
           </div>
-        </section>
-      </ScrollReveal>
+        </ScrollReveal>
+      </section>
+
+      {/* Breather */}
+      <ParallaxImage src={galleryImages[9]} alt="Luxury interior" height="45vh" />
 
       {/* Level 1 */}
-      <ScrollReveal>
-        <section className="px-6 md:px-12 lg:px-24 pb-32">
-          <div className="flex items-center gap-6 mb-12">
-            <span className="text-xs uppercase tracking-widest text-muted whitespace-nowrap">
-              Level 1
-            </span>
-            <div className="divider flex-grow" />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <section className="section-cream py-[100px] px-6 md:px-12 lg:px-24">
+        <ScrollReveal>
+          <p className="text-xs uppercase tracking-[0.3em] text-[#9a948a] mb-16 text-center">
+            Level 1
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
             {levelOneProducts.map((product) => (
               <div key={product.name}>
                 <div className="relative aspect-[4/3] img-zoom">
@@ -103,29 +93,32 @@ export default function QuartzPage() {
                     className="object-cover"
                   />
                 </div>
-                <p className="mt-4 text-sm tracking-wide font-light">
+                <p className="text-xs uppercase tracking-[0.2em] mt-6 font-light">
                   {product.name}
                 </p>
               </div>
             ))}
           </div>
-        </section>
-      </ScrollReveal>
+        </ScrollReveal>
+      </section>
 
       {/* CTA */}
-      <ScrollReveal>
-        <section className="py-24 text-center border-t border-border">
-          <p className="text-xs uppercase tracking-widest text-muted mb-8">
+      <section className="fade-cream-to-white py-[100px] px-6 text-center">
+        <ScrollReveal>
+          <p
+            className="text-2xl font-light mb-10"
+            style={{ fontFamily: "var(--font-serif)" }}
+          >
             Begin Your Project
           </p>
           <Link
             href="/contact"
-            className="inline-block text-sm uppercase tracking-[0.15em] border-b border-foreground pb-1 hover:opacity-60 transition-opacity"
+            className="inline-block text-xs uppercase tracking-[0.2em] border-b border-current pb-1 hover:opacity-60 transition-opacity"
           >
             Request a Consultation
           </Link>
-        </section>
-      </ScrollReveal>
+        </ScrollReveal>
+      </section>
     </div>
   );
 }

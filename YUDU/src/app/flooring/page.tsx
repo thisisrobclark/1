@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import ParallaxImage from "@/components/ParallaxImage";
 import { flooringImages } from "@/lib/images";
 
 const collections = [
@@ -27,60 +28,77 @@ export default function FlooringPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative h-[70vh] w-full">
-        <Image
-          src={flooringImages.hero}
-          alt="Flooring"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl text-white uppercase tracking-[0.2em] font-[family-name:var(--font-playfair)]">
-            Flooring
-          </h1>
-        </div>
+      <ParallaxImage src={flooringImages.hero} alt="Flooring" height="80vh">
+        <h1
+          className="text-5xl md:text-7xl text-white font-light uppercase tracking-[0.2em]"
+          style={{ fontFamily: "var(--font-serif)" }}
+        >
+          Flooring
+        </h1>
+      </ParallaxImage>
+
+      {/* Intro */}
+      <section className="section-white py-[120px] px-6 text-center">
+        <ScrollReveal>
+          <div className="max-w-2xl mx-auto">
+            <div className="w-12 h-px bg-[#1a1a1a]/30 mx-auto mb-10" />
+            <p
+              className="font-light text-[#6b6b6b] leading-[1.9] text-base"
+              style={{ fontFamily: "var(--font-serif)" }}
+            >
+              The foundation of every extraordinary interior begins underfoot.
+              Our curated flooring collections bring together the world&apos;s
+              finest hardwoods, engineered innovations, and luxury vinyl &mdash;
+              each selected for its beauty, durability, and ability to transform
+              a room into an experience.
+            </p>
+          </div>
+        </ScrollReveal>
       </section>
 
-      {/* Collections */}
-      <ScrollReveal>
-        <section className="px-6 md:px-12 lg:px-24 py-32">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {collections.map((collection) => (
-              <Link key={collection.title} href={collection.href} className="group">
-                <div className="relative aspect-[3/4] img-zoom">
+      {/* Three-Column Editorial Grid */}
+      <section className="fade-to-cream py-[100px] px-6 md:px-12 lg:px-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+          {collections.map((collection, i) => (
+            <ScrollReveal key={collection.title} delay={i * 150}>
+              <Link href={collection.href} className="group block">
+                <div className="relative aspect-[3/4] overflow-hidden img-zoom">
                   <Image
                     src={collection.image}
                     alt={collection.title}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-black/30 transition-opacity group-hover:bg-black/40" />
-                  <div className="absolute inset-0 flex items-end justify-center pb-12">
-                    <h2 className="text-lg text-white uppercase tracking-[0.15em] font-[family-name:var(--font-playfair)]">
-                      {collection.title}
-                    </h2>
-                  </div>
                 </div>
+                <p
+                  className="mt-6 text-xs uppercase tracking-[0.2em] text-[#1a1a1a] font-light text-center"
+                  style={{ fontFamily: "var(--font-serif)" }}
+                >
+                  {collection.title}
+                </p>
               </Link>
-            ))}
-          </div>
-        </section>
-      </ScrollReveal>
+            </ScrollReveal>
+          ))}
+        </div>
+      </section>
 
-      {/* Editorial Text */}
-      <ScrollReveal>
-        <section className="py-24 px-6 text-center">
-          <p className="font-light text-[#6b6b6b] max-w-2xl mx-auto leading-relaxed">
-            The foundation of every extraordinary interior begins underfoot.
-            Our curated flooring collections bring together the world&apos;s
-            finest hardwoods, engineered innovations, and luxury vinyl &mdash;
-            each selected for its beauty, durability, and ability to transform
-            a room into an experience.
+      {/* CTA */}
+      <section className="fade-cream-to-white py-[100px] px-6 text-center">
+        <ScrollReveal>
+          <p
+            className="text-xs uppercase tracking-[0.25em] text-[#6b6b6b] mb-8"
+            style={{ fontFamily: "var(--font-serif)" }}
+          >
+            Begin Your Project
           </p>
-        </section>
-      </ScrollReveal>
+          <Link
+            href="/contact"
+            className="inline-block border border-[#1a1a1a] px-12 py-5 text-xs uppercase tracking-[0.25em] hover:bg-[#1a1a1a] hover:text-white transition-all duration-500"
+          >
+            Get in Touch
+          </Link>
+        </ScrollReveal>
+      </section>
     </div>
   );
 }
