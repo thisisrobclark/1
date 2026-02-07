@@ -6,8 +6,8 @@ import ScrollReveal from "@/components/ScrollReveal";
 import ParallaxImage from "@/components/ParallaxImage";
 import { tileImages } from "@/lib/images";
 
-const porcelainThumb = "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80";
-const ceramicThumb = "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80";
+const porcelainThumb = "/images/heroes/tilehero.jpg";
+const ceramicThumb = "/images/heroes/tilehero.jpg";
 
 export default function TilePage() {
   return (

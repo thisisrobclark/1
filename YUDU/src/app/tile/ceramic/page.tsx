@@ -6,13 +6,13 @@ import ScrollReveal from "@/components/ScrollReveal";
 import ParallaxImage from "@/components/ParallaxImage";
 import { tileImages, catalogs } from "@/lib/images";
 
-const ceramicThumb = "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80";
+const tileThumb = "/images/heroes/tilehero.jpg";
 
 const products = [
-  { name: "Zellige Blanc", spec: '4" \u00d7 4" \u00b7 Handmade \u00b7 Glossy', image: ceramicThumb },
-  { name: "Heritage Subway", spec: '3" \u00d7 12" \u00b7 Crackle Glaze', image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80" },
-  { name: "Artisan Hex", spec: '6" Hexagon \u00b7 Matte \u00b7 Handpainted', image: "https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=800&q=80" },
-  { name: "Terra Cotto", spec: '8" \u00d7 8" \u00b7 Natural Clay \u00b7 Matte', image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=80" },
+  { name: "Zellige Blanc", spec: '4" \u00d7 4" \u00b7 Handmade \u00b7 Glossy', image: tileThumb },
+  { name: "Heritage Subway", spec: '3" \u00d7 12" \u00b7 Crackle Glaze', image: tileThumb },
+  { name: "Artisan Hex", spec: '6" Hexagon \u00b7 Matte \u00b7 Handpainted', image: tileThumb },
+  { name: "Terra Cotto", spec: '8" \u00d7 8" \u00b7 Natural Clay \u00b7 Matte', image: tileThumb },
 ];
 
 export default function CeramicTilePage() {

@@ -5,22 +5,25 @@ const CT = "/images/4. Countertops";
 const VN = "/images/1. Vinyl/Vinyl Picture";
 const SPC = "/images/spc-products";
 
-// Placeholder for products without uploaded photos
+// Placeholder for products without uploaded photos (use hero images)
 const PH = {
-  granite: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80",
-  quartz: "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=800&q=80",
-  sink: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=80",
-  sinkAlt: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80",
-  mirror: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80",
-  mirrorAlt: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+  granite: "/images/heroes/countertophero.jpg",
+  quartz: "/images/heroes/countertophero.jpg",
+  sink: "/images/heroes/sinkhero.jpg",
+  sinkAlt: "/images/heroes/sinkhero.jpg",
+  mirror: "/images/heroes/mirrorhero.jpg",
+  mirrorAlt: "/images/heroes/mirrorhero.jpg",
 };
 
-// ─── Hero / lifestyle images (Unsplash for cinematic full-bleed shots) ───
+// ─── Hero images (local, from uploaded hero photos) ───
+const HEROES = "/images/heroes";
+
 export const heroImages = [
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80",
-  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80",
-  "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1920&q=80",
-  "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1920&q=80",
+  `${HEROES}/countertophero.jpg`,
+  `${HEROES}/sinkhero.jpg`,
+  `${HEROES}/tilehero.jpg`,
+  `${HEROES}/flooringhero.jpg`,
+  `${HEROES}/mirrorhero.jpg`,
 ];
 
 // ═══════════════════════════════════════════════════════════════
@@ -255,47 +258,40 @@ export const catalogs = {
 };
 
 // ═══════════════════════════════════════════════════════════════
-// CATEGORY HERO & LIFESTYLE IMAGES (Unsplash)
+// CATEGORY HERO IMAGES (local hero photos)
 // ═══════════════════════════════════════════════════════════════
 export const categoryImages = {
-  countertops: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80",
-  sinks: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=80",
-  tile: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80",
-  flooring: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80",
-  mirrors: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80",
+  countertops: `${HEROES}/countertophero.jpg`,
+  sinks: `${HEROES}/sinkhero.jpg`,
+  tile: `${HEROES}/tilehero.jpg`,
+  flooring: `${HEROES}/flooringhero.jpg`,
+  mirrors: `${HEROES}/mirrorhero.jpg`,
 };
 
 export const countertopImages = {
-  hero: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&q=80",
+  hero: `${HEROES}/countertophero.jpg`,
 };
 
 export const sinkImages = {
-  hero: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1920&q=80",
+  hero: `${HEROES}/sinkhero.jpg`,
 };
 
 export const tileImages = {
-  hero: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1920&q=80",
+  hero: `${HEROES}/tilehero.jpg`,
 };
 
 export const mirrorHeroImages = {
-  hero: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80",
+  hero: `${HEROES}/mirrorhero.jpg`,
 };
 
 export const galleryImages = [
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
-  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
-  "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80",
-  "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&q=80",
-  "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80",
-  "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1200&q=80",
-  "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80",
-  "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=1200&q=80",
-  "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1200&q=80",
-  "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1200&q=80",
-  "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=1200&q=80",
-  "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1200&q=80",
+  `${HEROES}/countertophero.jpg`,
+  `${HEROES}/sinkhero.jpg`,
+  `${HEROES}/tilehero.jpg`,
+  `${HEROES}/flooringhero.jpg`,
+  `${HEROES}/mirrorhero.jpg`,
 ];
 
 // ─── Vinyl hero/lifestyle images ───
-export const flooringHeroImage = `${VN}/Stillwater.png`;
+export const flooringHeroImage = `${HEROES}/flooringhero.jpg`;
 export const flooringLifestyle = `${VN}/White Oak.png`;

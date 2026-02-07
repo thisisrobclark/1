@@ -6,13 +6,13 @@ import ScrollReveal from "@/components/ScrollReveal";
 import ParallaxImage from "@/components/ParallaxImage";
 import { tileImages, catalogs } from "@/lib/images";
 
-const porcelainThumb = "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80";
+const tileThumb = "/images/heroes/tilehero.jpg";
 
 const products = [
-  { name: "Carrara Vein", spec: '24" \u00d7 48" \u00b7 Matte \u00b7 Rectified', image: porcelainThumb },
-  { name: "Calacatta Gold", spec: '32" \u00d7 32" \u00b7 Polished \u00b7 Rectified', image: "https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?w=800&q=80" },
-  { name: "Pietra Grey", spec: '24" \u00d7 24" \u00b7 Honed \u00b7 Through-Body', image: "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=800&q=80" },
-  { name: "Statuario White", spec: '12" \u00d7 24" \u00b7 Polished \u00b7 Rectified', image: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?w=800&q=80" },
+  { name: "Carrara Vein", spec: '24" \u00d7 48" \u00b7 Matte \u00b7 Rectified', image: tileThumb },
+  { name: "Calacatta Gold", spec: '32" \u00d7 32" \u00b7 Polished \u00b7 Rectified', image: tileThumb },
+  { name: "Pietra Grey", spec: '24" \u00d7 24" \u00b7 Honed \u00b7 Through-Body', image: tileThumb },
+  { name: "Statuario White", spec: '12" \u00d7 24" \u00b7 Polished \u00b7 Rectified', image: tileThumb },
 ];
 
 export default function PorcelainPage() {
