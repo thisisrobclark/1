@@ -3,7 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
-import { tileImages } from "@/lib/images";
+import ParallaxImage from "@/components/ParallaxImage";
+import { tileImages, galleryImages } from "@/lib/images";
 
 const products = [
   { name: "Zellige Blanc", image: tileImages.ceramic[0] },
@@ -16,42 +17,37 @@ export default function CeramicTilePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative h-[70vh] w-full">
-        <Image
-          src={tileImages.hero}
-          alt="YUDU ceramic tile"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="font-[family-name:var(--font-playfair)] text-4xl md:text-6xl text-white tracking-luxury uppercase text-center px-6">
-            Ceramic Tile Collection
-          </h1>
+      <ParallaxImage src={tileImages.hero} alt="YUDU ceramic tile" height="80vh">
+        <h1
+          className="text-5xl md:text-7xl text-white font-light uppercase tracking-[0.2em] mb-4"
+          style={{ fontFamily: "var(--font-serif)" }}
+        >
+          Ceramic Tile
+        </h1>
+        <p className="text-white/80 text-lg md:text-xl tracking-[0.15em] uppercase font-light">
+          Handcrafted Character
+        </p>
+      </ParallaxImage>
+
+      {/* Intro */}
+      <section className="section-white py-[120px]">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <ScrollReveal>
+            <div className="divider mx-auto mb-10" />
+            <p className="text-[#6b6b6b] leading-relaxed text-lg">
+              Every ceramic tile carries the subtle imperfections and depth of color
+              that only handcrafted processes can achieve. From the shimmering undulations
+              of traditional zellige to the clean geometry of heritage subway,
+              these tiles bring soul and texture to walls, backsplashes, and beyond.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* Intro */}
-      <ScrollReveal>
-        <section className="max-w-3xl mx-auto px-6 py-24 text-center">
-          <div className="divider mx-auto mb-10" />
-          <h2 className="font-[family-name:var(--font-playfair)] text-2xl md:text-3xl tracking-luxury uppercase mb-8">
-            Handcrafted Character
-          </h2>
-          <p className="text-[#6b6b6b] leading-relaxed text-lg">
-            Every ceramic tile carries the subtle imperfections and depth of color
-            that only handcrafted processes can achieve. From the shimmering undulations
-            of traditional zellige to the clean geometry of heritage subway,
-            these tiles bring soul and texture to walls, backsplashes, and beyond.
-          </p>
-        </section>
-      </ScrollReveal>
-
       {/* Product Grid */}
-      <ScrollReveal>
-        <section className="max-w-7xl mx-auto px-6 pb-32">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <section className="fade-to-cream py-[100px]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
             {products.map((product, index) => (
               <ScrollReveal key={product.name} delay={index * 120}>
                 <div className="group">
@@ -63,37 +59,48 @@ export default function CeramicTilePage() {
                       className="object-cover"
                     />
                   </div>
-                  <h3 className="font-[family-name:var(--font-playfair)] text-lg tracking-luxury uppercase mt-6 mb-1">
+                  <p
+                    className="text-xs uppercase tracking-[0.2em] mt-6"
+                    style={{ fontFamily: "var(--font-serif)" }}
+                  >
                     {product.name}
-                  </h3>
-                  <p className="text-[#6b6b6b] text-sm tracking-wide">
+                  </p>
+                  <p className="text-[#9a948a] text-xs mt-1">
                     Ceramic
                   </p>
                 </div>
               </ScrollReveal>
             ))}
           </div>
-        </section>
-      </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Breather */}
+      <ParallaxImage src={galleryImages[10]} alt="Luxury interior" height="45vh" />
 
       {/* CTA */}
-      <ScrollReveal>
-        <section className="max-w-3xl mx-auto px-6 pb-32 text-center">
-          <div className="divider mx-auto mb-10" />
-          <h3 className="font-[family-name:var(--font-playfair)] text-xl md:text-2xl tracking-luxury uppercase mb-6">
-            Begin Your Project
-          </h3>
-          <p className="text-[#6b6b6b] leading-relaxed mb-10">
-            Our tile specialists are ready to help you select the perfect surface.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block border border-foreground px-10 py-4 text-sm tracking-widest uppercase hover:bg-foreground hover:text-background transition-colors duration-500"
-          >
-            Contact Us
-          </Link>
-        </section>
-      </ScrollReveal>
+      <section className="fade-cream-to-white py-[100px]">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <ScrollReveal>
+            <div className="divider mx-auto mb-10" />
+            <h3
+              className="text-xl md:text-2xl text-[#2a2a2a] uppercase tracking-[0.15em] mb-6"
+              style={{ fontFamily: "var(--font-serif)" }}
+            >
+              Begin Your Project
+            </h3>
+            <p className="text-[#6b6b6b] leading-relaxed mb-10">
+              Our tile specialists are ready to help you select the perfect surface.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-block border border-[#2a2a2a] px-10 py-4 text-sm tracking-widest uppercase hover:bg-[#2a2a2a] hover:text-white transition-colors duration-500"
+            >
+              Contact Us
+            </Link>
+          </ScrollReveal>
+        </div>
+      </section>
     </>
   );
 }
