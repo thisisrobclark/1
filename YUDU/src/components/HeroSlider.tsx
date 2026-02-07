@@ -88,12 +88,15 @@ export default function HeroSlider({ images, title, subtitle }: HeroSliderProps)
       <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-6">
         <h1
           className="text-center text-4xl font-light uppercase tracking-[0.25em] text-white sm:text-5xl md:text-6xl lg:text-7xl"
-          style={{ fontFamily: "var(--font-serif)" }}
+          style={{ fontFamily: "var(--font-heading)" }}
         >
           {title}
         </h1>
         {subtitle && (
-          <p className="mt-8 text-center text-xs font-light uppercase tracking-[0.35em] text-white/70 md:text-sm">
+          <p
+            className="mt-8 text-center text-xs font-light uppercase tracking-[0.35em] text-white/70 md:text-sm"
+            style={{ fontFamily: "var(--font-accent)" }}
+          >
             {subtitle}
           </p>
         )}
@@ -101,12 +104,15 @@ export default function HeroSlider({ images, title, subtitle }: HeroSliderProps)
 
       <div className="absolute bottom-12 left-1/2 z-20 -translate-x-1/2">
         <div className="flex flex-col items-center gap-4">
-          <span className="text-[9px] font-light uppercase tracking-[0.4em] text-white/40">
+          <span
+            className="text-[9px] font-light uppercase tracking-[0.4em] text-white/40"
+            style={{ fontFamily: "var(--font-accent)" }}
+          >
             Scroll
           </span>
           <div className="relative h-16 w-px overflow-hidden bg-white/15">
             <div
-              className="absolute left-0 top-0 h-full w-full bg-white/50"
+              className="absolute left-0 top-0 h-full w-full bg-[#cbae83]"
               style={{
                 animation: "scrollLine 2.5s cubic-bezier(0.76, 0, 0.24, 1) infinite",
               }}

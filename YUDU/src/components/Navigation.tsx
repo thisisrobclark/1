@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import YuduLogo from "@/components/YuduLogo";
 
 interface DropdownItem {
   label: string;
@@ -58,7 +59,6 @@ export default function Navigation() {
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = "hidden";
@@ -78,10 +78,13 @@ export default function Navigation() {
     <>
       <nav className="fixed top-0 left-0 right-0 z-50">
         {/* Top Utility Bar */}
-        <div className="bg-[#f5f5f5] border-b border-[#e8e8e8]">
+        <div className="bg-[#faf8f5] border-b border-[#e0dcd6]">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-16">
             <div className="flex items-center justify-center h-[28px]">
-              <span className="text-[10px] uppercase tracking-[0.25em] font-light text-[#999] select-none">
+              <span
+                className="text-[10px] uppercase tracking-[0.25em] font-light text-[#908d88] select-none"
+                style={{ fontFamily: "var(--font-accent)" }}
+              >
                 Complimentary Design Consultation &nbsp;&mdash;&nbsp; Free
                 Shipping on All Orders
               </span>
@@ -90,11 +93,11 @@ export default function Navigation() {
         </div>
 
         {/* Main Nav Bar */}
-        <div className="bg-white border-b border-[#e8e8e8]">
+        <div className="bg-white border-b border-[#e0dcd6]">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-16">
             {/* Logo Row */}
             <div className="flex items-center justify-center h-[60px] relative">
-              {/* Mobile Hamburger — left side */}
+              {/* Mobile Hamburger */}
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
                 className="lg:hidden absolute left-0 top-1/2 -translate-y-1/2 w-6 h-4 flex flex-col justify-between"
@@ -118,12 +121,8 @@ export default function Navigation() {
               </button>
 
               {/* Centered Logo */}
-              <Link
-                href="/"
-                className="uppercase text-[16px] tracking-[0.4em] text-[#333]"
-                style={{ fontFamily: "var(--font-serif, 'Times New Roman', serif)", fontWeight: 300 }}
-              >
-                YUDU
+              <Link href="/" aria-label="YUDU Products Home">
+                <YuduLogo height={36} color="#333" />
               </Link>
             </div>
 
@@ -140,7 +139,8 @@ export default function Navigation() {
                 >
                   <Link
                     href={item.href}
-                    className="text-[11px] uppercase tracking-[0.2em] font-light text-[#666] transition-colors duration-200 hover:text-[#333]"
+                    className="text-[11px] uppercase tracking-[0.2em] font-light text-[#908d88] transition-colors duration-200 hover:text-[#b38041]"
+                    style={{ fontFamily: "var(--font-accent)" }}
                   >
                     {item.label}
                   </Link>
@@ -156,7 +156,7 @@ export default function Navigation() {
             item.dropdown && (
               <div
                 key={item.label}
-                className={`absolute left-0 right-0 bg-white border-t border-[#e8e8e8] transition-all duration-200 ease-in-out ${
+                className={`absolute left-0 right-0 bg-white border-t border-[#e0dcd6] transition-all duration-200 ease-in-out ${
                   activeDropdown === item.label
                     ? "opacity-100 visible"
                     : "opacity-0 invisible pointer-events-none"
@@ -170,7 +170,8 @@ export default function Navigation() {
                       <Link
                         key={sub.href}
                         href={sub.href}
-                        className="text-[11px] uppercase tracking-[0.15em] font-light text-[#888] hover:text-[#333] transition-colors duration-200"
+                        className="text-[11px] uppercase tracking-[0.15em] font-light text-[#908d88] hover:text-[#b38041] transition-colors duration-200"
+                        style={{ fontFamily: "var(--font-accent)" }}
                       >
                         {sub.label}
                       </Link>
@@ -182,7 +183,7 @@ export default function Navigation() {
         )}
       </nav>
 
-      {/* Spacer to offset fixed nav height (utility bar 28px + main bar 60px + links row ~28px) */}
+      {/* Spacer */}
       <div className="h-[88px] lg:h-[116px]" />
 
       {/* Mobile Fullscreen Overlay */}
@@ -194,14 +195,13 @@ export default function Navigation() {
         }`}
       >
         <div className="flex flex-col items-center justify-center h-full px-8 overflow-y-auto">
-          {/* Mobile Logo */}
           <Link
             href="/"
             onClick={() => setMobileOpen(false)}
-            className="uppercase text-[16px] tracking-[0.4em] text-[#333] mb-12"
-            style={{ fontFamily: "var(--font-serif, 'Times New Roman', serif)", fontWeight: 300 }}
+            className="mb-12"
+            aria-label="YUDU Products Home"
           >
-            YUDU
+            <YuduLogo height={36} color="#333" />
           </Link>
 
           <div className="flex flex-col items-center gap-1">
@@ -210,7 +210,8 @@ export default function Navigation() {
                 {item.dropdown ? (
                   <button
                     onClick={() => toggleMobileDropdown(item.label)}
-                    className="uppercase tracking-[0.2em] text-[11px] font-light text-[#666] py-3 px-4 transition-colors duration-200 hover:text-[#333]"
+                    className="uppercase tracking-[0.2em] text-[11px] font-light text-[#908d88] py-3 px-4 transition-colors duration-200 hover:text-[#b38041]"
+                    style={{ fontFamily: "var(--font-accent)" }}
                   >
                     {item.label}
                     <span
@@ -237,13 +238,13 @@ export default function Navigation() {
                   <Link
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className="block uppercase tracking-[0.2em] text-[11px] font-light text-[#666] py-3 px-4 transition-colors duration-200 hover:text-[#333]"
+                    className="block uppercase tracking-[0.2em] text-[11px] font-light text-[#908d88] py-3 px-4 transition-colors duration-200 hover:text-[#b38041]"
+                    style={{ fontFamily: "var(--font-accent)" }}
                   >
                     {item.label}
                   </Link>
                 )}
 
-                {/* Mobile Dropdown Items */}
                 {item.dropdown && (
                   <div
                     className={`overflow-hidden transition-all duration-400 ease-in-out ${
@@ -258,7 +259,8 @@ export default function Navigation() {
                           key={sub.href}
                           href={sub.href}
                           onClick={() => setMobileOpen(false)}
-                          className="block py-2 text-[11px] uppercase tracking-[0.15em] font-light text-[#888] hover:text-[#333] transition-colors duration-200"
+                          className="block py-2 text-[11px] uppercase tracking-[0.15em] font-light text-[#cbae83] hover:text-[#b38041] transition-colors duration-200"
+                          style={{ fontFamily: "var(--font-accent)" }}
                         >
                           {sub.label}
                         </Link>

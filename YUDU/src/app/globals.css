@@ -3,17 +3,19 @@
 @theme inline {
   --color-background: #ffffff;
   --color-foreground: #1a1a1a;
-  --color-muted: #888888;
-  --color-accent: #999999;
-  --color-border: #e8e8e8;
-  --color-light-border: #f0f0f0;
+  --color-gold: #b38041;
+  --color-gold-light: #cbae83;
+  --color-warm-gray: #908d88;
+  --color-border: #e0dcd6;
+  --color-light-border: #ece8e2;
   --color-text: #333333;
   --color-text-light: #666666;
-  --color-text-muted: #888888;
+  --color-text-muted: #908d88;
   --color-text-faint: #aaaaaa;
-  --color-warm-gray: #999999;
-  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --color-cream: #faf8f5;
+  --font-heading: "Josefin Sans", "Champagne & Limousines", system-ui, sans-serif;
+  --font-accent: "Raleway", "ITC Eras Std Demi", system-ui, sans-serif;
+  --font-sans: "Raleway", system-ui, -apple-system, sans-serif;
 }
 
 html {
@@ -32,7 +34,7 @@ body {
 /* Thin scrollbar */
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #ccc; border-radius: 1px; }
+::-webkit-scrollbar-thumb { background: #cbae83; border-radius: 1px; }
 
 /* ─── Hero crossfade — cinematic ─── */
 @keyframes crossfade-in {
@@ -65,11 +67,11 @@ body {
 }
 .img-zoom:hover img { transform: scale(1.03); }
 
-/* ─── Thin divider ─── */
+/* ─── Brand divider — gold accent ─── */
 .divider {
   width: 40px;
   height: 1px;
-  background: #ccc;
+  background: #b38041;
 }
 
 /* ─── Parallax ─── */

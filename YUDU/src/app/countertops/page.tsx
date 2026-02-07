@@ -12,7 +12,7 @@ export default function CountertopsPage() {
       <ParallaxImage src={countertopImages.hero} alt="Countertops" height="80vh">
         <p
           className="text-sm uppercase tracking-[0.35em] text-white font-light"
-          style={{ fontFamily: "var(--font-serif)" }}
+          style={{ fontFamily: "var(--font-heading)" }}
         >
           COUNTERTOPS
         </p>
@@ -22,11 +22,11 @@ export default function CountertopsPage() {
         <ScrollReveal>
           <p
             className="text-lg font-light tracking-[0.15em] text-[#333]"
-            style={{ fontFamily: "var(--font-serif)" }}
+            style={{ fontFamily: "var(--font-heading)" }}
           >
             THE SURFACE OF DISTINCTION
           </p>
-          <p className="text-[#666] font-light max-w-xl mx-auto mt-6 text-sm leading-relaxed px-6">
+          <p className="text-[#908d88] font-light max-w-xl mx-auto mt-6 text-sm leading-relaxed px-6" style={{ fontFamily: "var(--font-accent)" }}>
             From the raw grandeur of natural granite to the precision-engineered
             brilliance of quartz. Each surface hand-selected for character and quality.
           </p>
@@ -50,7 +50,7 @@ export default function CountertopsPage() {
                   </span>
                 </div>
               </div>
-              <p className="text-[11px] uppercase tracking-[0.2em] text-[#666] font-light text-center mt-6 mb-12">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-[#908d88] font-light text-center mt-6 mb-12" style={{ fontFamily: "var(--font-accent)" }}>
                 Granite Collection
               </p>
             </Link>
@@ -70,7 +70,7 @@ export default function CountertopsPage() {
                   </span>
                 </div>
               </div>
-              <p className="text-[11px] uppercase tracking-[0.2em] text-[#666] font-light text-center mt-6 mb-12">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-[#908d88] font-light text-center mt-6 mb-12" style={{ fontFamily: "var(--font-accent)" }}>
                 Quartz Collection
               </p>
             </Link>
@@ -84,13 +84,13 @@ export default function CountertopsPage() {
         <ScrollReveal>
           <p
             className="text-lg font-light tracking-[0.15em] text-[#333]"
-            style={{ fontFamily: "var(--font-serif)" }}
+            style={{ fontFamily: "var(--font-heading)" }}
           >
             BEGIN YOUR PROJECT
           </p>
           <Link
             href="/contact"
-            className="text-[10px] uppercase tracking-[0.3em] text-[#666] border-b border-[#ccc] pb-1 mt-8 inline-block hover:text-[#333] transition-colors"
+            className="text-[10px] uppercase tracking-[0.3em] text-[#908d88] border-b border-[#b38041] pb-1 mt-8 inline-block hover:text-[#b38041] transition-colors"
           >
             REQUEST A CONSULTATION
           </Link>

@@ -25,7 +25,7 @@ export default function Home() {
       >
         <p
           className="text-sm uppercase tracking-[0.35em] text-white font-light"
-          style={{ fontFamily: "var(--font-serif)" }}
+          style={{ fontFamily: "var(--font-heading)" }}
         >
           COUNTERTOPS
         </p>
@@ -45,7 +45,7 @@ export default function Home() {
       >
         <p
           className="text-sm uppercase tracking-[0.35em] text-white font-light"
-          style={{ fontFamily: "var(--font-serif)" }}
+          style={{ fontFamily: "var(--font-heading)" }}
         >
           SINKS
         </p>
@@ -62,7 +62,7 @@ export default function Home() {
         <ScrollReveal>
           <p
             className="text-xl font-light tracking-[0.15em] text-[#333]"
-            style={{ fontFamily: "var(--font-serif)" }}
+            style={{ fontFamily: "var(--font-heading)" }}
           >
             The World of YUDU
           </p>
@@ -77,7 +77,7 @@ export default function Home() {
       >
         <p
           className="text-sm uppercase tracking-[0.35em] text-white font-light"
-          style={{ fontFamily: "var(--font-serif)" }}
+          style={{ fontFamily: "var(--font-heading)" }}
         >
           TILE
         </p>
@@ -97,7 +97,7 @@ export default function Home() {
       >
         <p
           className="text-sm uppercase tracking-[0.35em] text-white font-light"
-          style={{ fontFamily: "var(--font-serif)" }}
+          style={{ fontFamily: "var(--font-heading)" }}
         >
           FLOORING
         </p>
@@ -117,7 +117,7 @@ export default function Home() {
       >
         <p
           className="text-sm uppercase tracking-[0.35em] text-white font-light"
-          style={{ fontFamily: "var(--font-serif)" }}
+          style={{ fontFamily: "var(--font-heading)" }}
         >
           MIRRORS
         </p>
@@ -155,7 +155,7 @@ export default function Home() {
           <div className="text-center mt-12">
             <Link
               href="/gallery"
-              className="text-[10px] uppercase tracking-[0.3em] text-[#666] border-b border-[#999] pb-1 inline-block hover:text-[#333] transition-colors"
+              className="text-[10px] uppercase tracking-[0.3em] text-[#908d88] border-b border-[#b38041] pb-1 inline-block hover:text-[#b38041] transition-colors"
             >
               VIEW GALLERY
             </Link>
@@ -168,16 +168,16 @@ export default function Home() {
         <ScrollReveal>
           <p
             className="text-lg font-light tracking-[0.2em] text-[#333]"
-            style={{ fontFamily: "var(--font-serif)" }}
+            style={{ fontFamily: "var(--font-heading)" }}
           >
             EXPERIENCE THE WORLD OF YUDU
           </p>
-          <p className="text-[11px] text-[#888] font-light mt-3">
+          <p className="text-[11px] text-[#908d88] font-light mt-3" style={{ fontFamily: "var(--font-accent)" }}>
             Visit our Houston showroom
           </p>
           <Link
             href="/contact"
-            className="text-[10px] uppercase tracking-[0.3em] text-[#666] border-b border-[#999] pb-1 mt-8 inline-block hover:text-[#333] transition-colors"
+            className="text-[10px] uppercase tracking-[0.3em] text-[#908d88] border-b border-[#b38041] pb-1 mt-8 inline-block hover:text-[#b38041] transition-colors"
           >
             SCHEDULE A VISIT
           </Link>

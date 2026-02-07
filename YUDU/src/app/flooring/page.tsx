@@ -18,7 +18,7 @@ export default function FlooringPage() {
       <ParallaxImage src={flooringImages.hero} alt="Flooring" height="80vh">
         <p
           className="text-sm uppercase tracking-[0.35em] text-white font-light"
-          style={{ fontFamily: "var(--font-serif)" }}
+          style={{ fontFamily: "var(--font-heading)" }}
         >
           FLOORING
         </p>
@@ -28,11 +28,11 @@ export default function FlooringPage() {
         <ScrollReveal>
           <p
             className="text-lg font-light tracking-[0.15em] text-[#333]"
-            style={{ fontFamily: "var(--font-serif)" }}
+            style={{ fontFamily: "var(--font-heading)" }}
           >
             THE FOUNDATION
           </p>
-          <p className="text-[#666] font-light max-w-xl mx-auto mt-6 text-sm leading-relaxed px-6">
+          <p className="text-[#908d88] font-light max-w-xl mx-auto mt-6 text-sm leading-relaxed px-6" style={{ fontFamily: "var(--font-accent)" }}>
             The world&apos;s finest hardwoods, engineered innovations, and luxury vinyl &mdash;
             each selected for beauty, durability, and the ability to transform a room.
           </p>
@@ -48,7 +48,7 @@ export default function FlooringPage() {
                   <Image src={collection.image} alt={collection.title} fill className="object-cover" />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-700" />
                 </div>
-                <p className="text-[11px] uppercase tracking-[0.2em] text-[#666] font-light text-center mt-6 mb-12">
+                <p className="text-[11px] uppercase tracking-[0.2em] text-[#908d88] font-light text-center mt-6 mb-12" style={{ fontFamily: "var(--font-accent)" }}>
                   {collection.title}
                 </p>
               </Link>
@@ -61,7 +61,7 @@ export default function FlooringPage() {
         <ScrollReveal>
           <Link
             href="/contact"
-            className="text-[10px] uppercase tracking-[0.3em] text-[#666] border-b border-[#ccc] pb-1 inline-block hover:text-[#333] transition-colors"
+            className="text-[10px] uppercase tracking-[0.3em] text-[#908d88] border-b border-[#b38041] pb-1 inline-block hover:text-[#b38041] transition-colors"
           >
             GET IN TOUCH
           </Link>

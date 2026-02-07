@@ -21,7 +21,7 @@ export default function QuartzPage() {
       <ParallaxImage src={countertopImages.quartz[0]} alt="Quartz" height="70vh">
         <p
           className="text-sm uppercase tracking-[0.35em] text-white font-light"
-          style={{ fontFamily: "var(--font-serif)" }}
+          style={{ fontFamily: "var(--font-heading)" }}
         >
           QUARTZ COLLECTION
         </p>
@@ -29,7 +29,7 @@ export default function QuartzPage() {
 
       <section className="bg-white py-24 text-center">
         <ScrollReveal>
-          <p className="text-[#666] font-light max-w-xl mx-auto text-sm leading-relaxed px-6">
+          <p className="text-[#908d88] font-light max-w-xl mx-auto text-sm leading-relaxed px-6" style={{ fontFamily: "var(--font-accent)" }}>
             Where cutting-edge engineering meets the allure of natural stone.
             Non-porous, stain-resistant, and available in an extraordinary range of patterns.
           </p>
@@ -51,8 +51,8 @@ export default function QuartzPage() {
                 </div>
               </div>
               <div className="px-4 py-6">
-                <p className="text-[11px] uppercase tracking-[0.2em] text-[#333]">{product.name}</p>
-                <p className="text-[11px] text-[#888] mt-1">{product.spec}</p>
+                <p className="text-[11px] uppercase tracking-[0.2em] text-[#333]" style={{ fontFamily: "var(--font-accent)" }}>{product.name}</p>
+                <p className="text-[11px] text-[#908d88] mt-1" style={{ fontFamily: "var(--font-accent)" }}>{product.spec}</p>
               </div>
             </ScrollReveal>
           ))}
@@ -63,7 +63,7 @@ export default function QuartzPage() {
         <ScrollReveal>
           <Link
             href="/contact"
-            className="text-[10px] uppercase tracking-[0.3em] text-[#666] border-b border-[#ccc] pb-1 inline-block hover:text-[#333] transition-colors"
+            className="text-[10px] uppercase tracking-[0.3em] text-[#908d88] border-b border-[#b38041] pb-1 inline-block hover:text-[#b38041] transition-colors"
           >
             REQUEST A CONSULTATION
           </Link>

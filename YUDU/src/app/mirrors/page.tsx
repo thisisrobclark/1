@@ -21,7 +21,7 @@ export default function MirrorsPage() {
       <ParallaxImage src={mirrorImages.hero} alt="Mirrors" height="80vh">
         <p
           className="text-sm uppercase tracking-[0.35em] text-white font-light"
-          style={{ fontFamily: "var(--font-serif)" }}
+          style={{ fontFamily: "var(--font-heading)" }}
         >
           MIRRORS
         </p>
@@ -31,11 +31,11 @@ export default function MirrorsPage() {
         <ScrollReveal>
           <p
             className="text-lg font-light tracking-[0.15em] text-[#333]"
-            style={{ fontFamily: "var(--font-serif)" }}
+            style={{ fontFamily: "var(--font-heading)" }}
           >
             ILLUMINATE YOUR SPACE
           </p>
-          <p className="text-[#666] font-light max-w-xl mx-auto mt-6 text-sm leading-relaxed px-6">
+          <p className="text-[#908d88] font-light max-w-xl mx-auto mt-6 text-sm leading-relaxed px-6" style={{ fontFamily: "var(--font-accent)" }}>
             Back-lit mirrors that transform any bathroom or vanity into a luminous sanctuary.
             Energy-efficient LED illumination with adjustable color temperature.
           </p>
@@ -57,8 +57,8 @@ export default function MirrorsPage() {
                 </div>
               </div>
               <div className="px-4 py-6">
-                <p className="text-[11px] uppercase tracking-[0.2em] text-[#333]">{product.name}</p>
-                <p className="text-[11px] text-[#888] mt-1">{product.spec}</p>
+                <p className="text-[11px] uppercase tracking-[0.2em] text-[#333]" style={{ fontFamily: "var(--font-accent)" }}>{product.name}</p>
+                <p className="text-[11px] text-[#908d88] mt-1" style={{ fontFamily: "var(--font-accent)" }}>{product.spec}</p>
               </div>
             </ScrollReveal>
           ))}
@@ -69,13 +69,13 @@ export default function MirrorsPage() {
         <ScrollReveal>
           <p
             className="text-lg font-light tracking-[0.15em] text-[#333]"
-            style={{ fontFamily: "var(--font-serif)" }}
+            style={{ fontFamily: "var(--font-heading)" }}
           >
             TRANSFORM YOUR SPACE
           </p>
           <Link
             href="/contact"
-            className="text-[10px] uppercase tracking-[0.3em] text-[#666] border-b border-[#ccc] pb-1 mt-8 inline-block hover:text-[#333] transition-colors"
+            className="text-[10px] uppercase tracking-[0.3em] text-[#908d88] border-b border-[#b38041] pb-1 mt-8 inline-block hover:text-[#b38041] transition-colors"
           >
             REQUEST A CONSULTATION
           </Link>

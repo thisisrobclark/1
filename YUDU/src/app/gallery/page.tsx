@@ -19,7 +19,7 @@ export default function GalleryPage() {
       <ParallaxImage src={galleryImages[0]} alt="Gallery" height="70vh">
         <p
           className="text-sm uppercase tracking-[0.35em] text-white font-light"
-          style={{ fontFamily: "var(--font-serif)" }}
+          style={{ fontFamily: "var(--font-heading)" }}
         >
           GALLERY
         </p>
@@ -50,13 +50,13 @@ export default function GalleryPage() {
         <ScrollReveal>
           <p
             className="text-lg font-light tracking-[0.15em] text-[#333]"
-            style={{ fontFamily: "var(--font-serif)" }}
+            style={{ fontFamily: "var(--font-heading)" }}
           >
             READY TO BEGIN?
           </p>
           <Link
             href="/contact"
-            className="text-[10px] uppercase tracking-[0.3em] text-[#666] border-b border-[#ccc] pb-1 mt-8 inline-block hover:text-[#333] transition-colors"
+            className="text-[10px] uppercase tracking-[0.3em] text-[#908d88] border-b border-[#b38041] pb-1 mt-8 inline-block hover:text-[#b38041] transition-colors"
           >
             GET IN TOUCH
           </Link>

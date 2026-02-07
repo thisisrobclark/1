@@ -17,14 +17,14 @@ export default function ContactPage() {
   };
 
   const inputClasses =
-    "w-full border-b border-[#e8e8e8] py-5 bg-transparent outline-none text-sm text-[#333] placeholder:uppercase placeholder:tracking-[0.2em] placeholder:text-[11px] placeholder:text-[#aaa] focus:border-[#333] transition-colors duration-300";
+    "w-full border-b border-[#e8e8e8] py-5 bg-transparent outline-none text-sm text-[#333] placeholder:uppercase placeholder:tracking-[0.2em] placeholder:text-[11px] placeholder:text-[#cbae83] focus:border-[#333] transition-colors duration-300";
 
   return (
     <>
       <ParallaxImage src={galleryImages[5]} alt="Contact" height="60vh">
         <p
           className="text-sm uppercase tracking-[0.35em] text-white font-light"
-          style={{ fontFamily: "var(--font-serif)" }}
+          style={{ fontFamily: "var(--font-heading)" }}
         >
           CONTACT
         </p>
@@ -40,7 +40,7 @@ export default function ContactPage() {
               <select
                 value={subject}
                 onChange={(e) => setSubject(e.target.value)}
-                className={`${inputClasses} ${subject === "" ? "text-[#aaa] uppercase tracking-[0.2em] text-[11px]" : ""}`}
+                className={`${inputClasses} ${subject === "" ? "text-[#cbae83] uppercase tracking-[0.2em] text-[11px]" : ""}`}
               >
                 <option value="">SUBJECT</option>
                 <option value="countertops">Countertops</option>
@@ -59,18 +59,18 @@ export default function ContactPage() {
 
           <ScrollReveal delay={200}>
             <div>
-              <p className="text-[11px] uppercase tracking-[0.2em] text-[#888] mb-8">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-[#908d88] mb-8" style={{ fontFamily: "var(--font-accent)" }}>
                 VISIT OUR SHOWROOM
               </p>
-              <div className="text-[#666] text-sm leading-[2] font-light">
+              <div className="text-[#908d88] text-sm leading-[2] font-light" style={{ fontFamily: "var(--font-accent)" }}>
                 <p className="font-normal text-[#333]">YUDU Products</p>
                 <p>5310 Glenmont Dr</p>
                 <p>Houston, TX 77081</p>
               </div>
 
               <div className="mt-16">
-                <p className="text-[11px] uppercase tracking-[0.2em] text-[#888] mb-8">HOURS</p>
-                <div className="text-[#666] text-sm font-light leading-[2]">
+                <p className="text-[11px] uppercase tracking-[0.2em] text-[#908d88] mb-8" style={{ fontFamily: "var(--font-accent)" }}>HOURS</p>
+                <div className="text-[#908d88] text-sm font-light leading-[2]" style={{ fontFamily: "var(--font-accent)" }}>
                   <p>Monday &ndash; Friday: 9am &ndash; 6pm</p>
                   <p>Saturday: 10am &ndash; 4pm</p>
                   <p>Sunday: By Appointment</p>
@@ -78,8 +78,8 @@ export default function ContactPage() {
               </div>
 
               <div className="mt-16">
-                <p className="text-[11px] uppercase tracking-[0.2em] text-[#888] mb-8">GET IN TOUCH</p>
-                <div className="text-[#666] text-sm font-light leading-[2]">
+                <p className="text-[11px] uppercase tracking-[0.2em] text-[#908d88] mb-8" style={{ fontFamily: "var(--font-accent)" }}>GET IN TOUCH</p>
+                <div className="text-[#908d88] text-sm font-light leading-[2]" style={{ fontFamily: "var(--font-accent)" }}>
                   <p>(713) 555-0100</p>
                   <p>info@yuduprod.com</p>
                 </div>
