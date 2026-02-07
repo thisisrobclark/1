@@ -4,121 +4,71 @@ import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import ParallaxImage from "@/components/ParallaxImage";
-import { countertopImages, galleryImages } from "@/lib/images";
+import { countertopImages } from "@/lib/images";
 
-const groundZeroProducts = [
-  { name: "Absolute Black", image: countertopImages.granite[0] },
-  { name: "Bianco Antico", image: countertopImages.granite[1] },
-  { name: "Colonial White", image: countertopImages.granite[2] },
-];
-
-const levelOneProducts = [
-  { name: "Giallo Ornamental", image: countertopImages.granite[3] },
-  { name: "Steel Grey", image: countertopImages.granite[4] },
-  { name: "Typhoon Bordeaux", image: countertopImages.granite[5] },
+const products = [
+  { name: "Absolute Black", spec: 'Polished · 3cm · 126" × 63"' },
+  { name: "Colonial White", spec: 'Polished · 3cm · 120" × 60"' },
+  { name: "Giallo Ornamental", spec: 'Polished · 3cm · 118" × 64"' },
+  { name: "Steel Grey", spec: 'Leathered · 3cm · 124" × 62"' },
+  { name: "Bianco Antico", spec: 'Polished · 3cm · 122" × 66"' },
+  { name: "Typhoon Bordeaux", spec: 'Polished · 3cm · 120" × 63"' },
 ];
 
 export default function GranitePage() {
   return (
-    <div>
-      {/* Hero */}
-      <ParallaxImage src={countertopImages.hero} alt="Granite Collection" height="80vh">
-        <h1
-          className="text-5xl md:text-7xl text-white uppercase tracking-[0.2em] font-light"
+    <>
+      <ParallaxImage src={countertopImages.granite[0]} alt="Granite" height="70vh">
+        <p
+          className="text-sm uppercase tracking-[0.35em] text-white font-light"
           style={{ fontFamily: "var(--font-serif)" }}
         >
-          Granite Collection
-        </h1>
-        <p className="text-sm text-white/70 uppercase tracking-[0.2em] mt-4">
-          Timeless Elegance, Carved by Nature
+          GRANITE COLLECTION
         </p>
       </ParallaxImage>
 
-      {/* Intro */}
-      <section className="section-white py-[120px] px-6 text-center">
+      <section className="bg-white py-24 text-center">
         <ScrollReveal>
-          <div className="divider mx-auto mb-10 max-w-[60px]" />
-          <p className="font-light text-[#9a948a] max-w-2xl mx-auto leading-relaxed text-base">
-            Born deep within the earth over millions of years, granite is nature&apos;s
-            masterpiece of strength and beauty. Each slab tells a singular story
-            through its unique veining, crystalline depth, and rich mineral
-            character — an irreplaceable surface that elevates any space it graces.
+          <p className="text-[#666] font-light max-w-xl mx-auto text-sm leading-relaxed px-6">
+            Born deep within the earth, each granite slab carries millions of years of
+            geological artistry — singular veining, crystalline depth, and raw mineral beauty.
           </p>
         </ScrollReveal>
       </section>
 
-      {/* Ground Zero */}
-      <section className="fade-to-cream py-[100px] px-6 md:px-12 lg:px-24">
-        <ScrollReveal>
-          <p className="text-xs uppercase tracking-[0.3em] text-[#9a948a] mb-16 text-center">
-            Ground Zero
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-            {groundZeroProducts.map((product) => (
-              <div key={product.name}>
-                <div className="relative aspect-[4/3] img-zoom">
+      <section className="bg-white">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 max-w-[1400px] mx-auto">
+          {products.map((product, index) => (
+            <ScrollReveal key={product.name} delay={index * 80}>
+              <div className="img-zoom">
+                <div className="relative aspect-[3/4]">
                   <Image
-                    src={product.image}
+                    src={countertopImages.granite[index]}
                     alt={product.name}
                     fill
                     className="object-cover"
                   />
                 </div>
-                <p className="text-xs uppercase tracking-[0.2em] mt-6 font-light">
-                  {product.name}
-                </p>
               </div>
-            ))}
-          </div>
-        </ScrollReveal>
+              <div className="px-4 py-6">
+                <p className="text-[11px] uppercase tracking-[0.2em] text-[#333]">{product.name}</p>
+                <p className="text-[11px] text-[#888] mt-1">{product.spec}</p>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
       </section>
 
-      {/* Breather */}
-      <ParallaxImage src={galleryImages[7]} alt="Luxury interior" height="45vh" />
-
-      {/* Level 1 */}
-      <section className="section-cream py-[100px] px-6 md:px-12 lg:px-24">
+      <section className="bg-white py-24 text-center">
         <ScrollReveal>
-          <p className="text-xs uppercase tracking-[0.3em] text-[#9a948a] mb-16 text-center">
-            Level 1
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-            {levelOneProducts.map((product) => (
-              <div key={product.name}>
-                <div className="relative aspect-[4/3] img-zoom">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <p className="text-xs uppercase tracking-[0.2em] mt-6 font-light">
-                  {product.name}
-                </p>
-              </div>
-            ))}
-          </div>
-        </ScrollReveal>
-      </section>
-
-      {/* CTA */}
-      <section className="fade-cream-to-white py-[100px] px-6 text-center">
-        <ScrollReveal>
-          <p
-            className="text-2xl font-light mb-10"
-            style={{ fontFamily: "var(--font-serif)" }}
-          >
-            Begin Your Project
-          </p>
           <Link
             href="/contact"
-            className="inline-block text-xs uppercase tracking-[0.2em] border-b border-current pb-1 hover:opacity-60 transition-opacity"
+            className="text-[10px] uppercase tracking-[0.3em] text-[#666] border-b border-[#ccc] pb-1 inline-block hover:text-[#333] transition-colors"
           >
-            Request a Consultation
+            REQUEST A CONSULTATION
           </Link>
         </ScrollReveal>
       </section>
-    </div>
+    </>
   );
 }

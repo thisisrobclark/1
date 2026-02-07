@@ -54,18 +54,9 @@ const navItems: NavItem[] = [
 ];
 
 export default function Navigation() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -85,87 +76,118 @@ export default function Navigation() {
 
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
-          scrolled
-            ? "bg-white/95 backdrop-blur-sm shadow-[0_1px_0_0_rgba(0,0,0,0.05)]"
-            : "bg-transparent"
-        }`}
-      >
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-16">
-          <div className="flex items-center justify-between h-20 lg:h-24">
-            {/* Logo */}
-            <Link
-              href="/"
-              className={`font-[family-name:var(--font-playfair)] tracking-[0.3em] uppercase text-sm transition-colors duration-500 ${
-                scrolled ? "text-foreground" : "text-white"
-              }`}
-            >
-              YUDU
-            </Link>
+      <nav className="fixed top-0 left-0 right-0 z-50">
+        {/* Top Utility Bar */}
+        <div className="bg-[#f5f5f5] border-b border-[#e8e8e8]">
+          <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-16">
+            <div className="flex items-center justify-center h-[28px]">
+              <span className="text-[10px] uppercase tracking-[0.25em] font-light text-[#999] select-none">
+                Complimentary Design Consultation &nbsp;&mdash;&nbsp; Free
+                Shipping on All Orders
+              </span>
+            </div>
+          </div>
+        </div>
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-8 xl:gap-10">
+        {/* Main Nav Bar */}
+        <div className="bg-white border-b border-[#e8e8e8]">
+          <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-16">
+            {/* Logo Row */}
+            <div className="flex items-center justify-center h-[60px] relative">
+              {/* Mobile Hamburger — left side */}
+              <button
+                onClick={() => setMobileOpen(!mobileOpen)}
+                className="lg:hidden absolute left-0 top-1/2 -translate-y-1/2 w-6 h-4 flex flex-col justify-between"
+                aria-label="Toggle menu"
+              >
+                <span
+                  className={`block h-[0.5px] w-full bg-[#333] transition-all duration-400 ease-in-out origin-center ${
+                    mobileOpen ? "rotate-45 translate-y-[7.5px]" : ""
+                  }`}
+                />
+                <span
+                  className={`block h-[0.5px] w-full bg-[#333] transition-all duration-400 ease-in-out ${
+                    mobileOpen ? "opacity-0 scale-x-0" : "opacity-100"
+                  }`}
+                />
+                <span
+                  className={`block h-[0.5px] w-full bg-[#333] transition-all duration-400 ease-in-out origin-center ${
+                    mobileOpen ? "-rotate-45 -translate-y-[7.5px]" : ""
+                  }`}
+                />
+              </button>
+
+              {/* Centered Logo */}
+              <Link
+                href="/"
+                className="uppercase text-[16px] tracking-[0.4em] text-[#333]"
+                style={{ fontFamily: "var(--font-serif, 'Times New Roman', serif)", fontWeight: 300 }}
+              >
+                YUDU
+              </Link>
+            </div>
+
+            {/* Desktop Category Links Row */}
+            <div className="hidden lg:flex items-center justify-center gap-8 xl:gap-10 pb-4">
               {navItems.map((item) => (
-                <div key={item.label} className="relative group">
+                <div
+                  key={item.label}
+                  className="relative"
+                  onMouseEnter={() =>
+                    item.dropdown ? setActiveDropdown(item.label) : undefined
+                  }
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
                   <Link
                     href={item.href}
-                    className={`uppercase tracking-[0.2em] text-xs font-light transition-colors duration-300 hover:opacity-60 ${
-                      scrolled ? "text-foreground" : "text-white"
-                    }`}
+                    className="text-[11px] uppercase tracking-[0.2em] font-light text-[#666] transition-colors duration-200 hover:text-[#333]"
                   >
                     {item.label}
                   </Link>
-
-                  {/* Dropdown */}
-                  {item.dropdown && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out">
-                      <div className="bg-white shadow-[0_4px_20px_rgba(0,0,0,0.06)] min-w-[220px] py-5 px-6">
-                        {item.dropdown.map((sub) => (
-                          <Link
-                            key={sub.href}
-                            href={sub.href}
-                            className="block py-2 text-xs uppercase tracking-[0.15em] font-light text-muted hover:text-foreground transition-colors duration-300"
-                          >
-                            {sub.label}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
                 </div>
               ))}
             </div>
-
-            {/* Mobile Hamburger */}
-            <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden relative w-7 h-5 flex flex-col justify-between"
-              aria-label="Toggle menu"
-            >
-              <span
-                className={`block h-[1px] w-full transition-all duration-500 ease-in-out origin-center ${
-                  scrolled ? "bg-foreground" : "bg-white"
-                } ${mobileOpen ? "rotate-45 translate-y-[9px]" : ""}`}
-              />
-              <span
-                className={`block h-[1px] w-full transition-all duration-500 ease-in-out ${
-                  scrolled ? "bg-foreground" : "bg-white"
-                } ${mobileOpen ? "opacity-0 scale-x-0" : "opacity-100"}`}
-              />
-              <span
-                className={`block h-[1px] w-full transition-all duration-500 ease-in-out origin-center ${
-                  scrolled ? "bg-foreground" : "bg-white"
-                } ${mobileOpen ? "-rotate-45 -translate-y-[9px]" : ""}`}
-              />
-            </button>
           </div>
         </div>
+
+        {/* Desktop Mega-Menu Dropdown Panel */}
+        {navItems.map(
+          (item) =>
+            item.dropdown && (
+              <div
+                key={item.label}
+                className={`absolute left-0 right-0 bg-white border-t border-[#e8e8e8] transition-all duration-200 ease-in-out ${
+                  activeDropdown === item.label
+                    ? "opacity-100 visible"
+                    : "opacity-0 invisible pointer-events-none"
+                }`}
+                onMouseEnter={() => setActiveDropdown(item.label)}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-16 py-8">
+                  <div className="flex justify-center gap-16">
+                    {item.dropdown.map((sub) => (
+                      <Link
+                        key={sub.href}
+                        href={sub.href}
+                        className="text-[11px] uppercase tracking-[0.15em] font-light text-[#888] hover:text-[#333] transition-colors duration-200"
+                      >
+                        {sub.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )
+        )}
       </nav>
+
+      {/* Spacer to offset fixed nav height (utility bar 28px + main bar 60px + links row ~28px) */}
+      <div className="h-[88px] lg:h-[116px]" />
 
       {/* Mobile Fullscreen Overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-white transition-all duration-500 ease-in-out ${
+        className={`fixed inset-0 z-40 bg-white transition-all duration-400 ease-in-out ${
           mobileOpen
             ? "opacity-100 visible"
             : "opacity-0 invisible pointer-events-none"
@@ -176,7 +198,8 @@ export default function Navigation() {
           <Link
             href="/"
             onClick={() => setMobileOpen(false)}
-            className="font-[family-name:var(--font-playfair)] tracking-[0.3em] uppercase text-sm text-foreground mb-12"
+            className="uppercase text-[16px] tracking-[0.4em] text-[#333] mb-12"
+            style={{ fontFamily: "var(--font-serif, 'Times New Roman', serif)", fontWeight: 300 }}
           >
             YUDU
           </Link>
@@ -187,7 +210,7 @@ export default function Navigation() {
                 {item.dropdown ? (
                   <button
                     onClick={() => toggleMobileDropdown(item.label)}
-                    className="uppercase tracking-[0.2em] text-xs font-light text-foreground py-3 px-4 transition-opacity duration-300 hover:opacity-60"
+                    className="uppercase tracking-[0.2em] text-[11px] font-light text-[#666] py-3 px-4 transition-colors duration-200 hover:text-[#333]"
                   >
                     {item.label}
                     <span
@@ -196,16 +219,16 @@ export default function Navigation() {
                       }`}
                     >
                       <svg
-                        width="8"
-                        height="5"
-                        viewBox="0 0 8 5"
+                        width="7"
+                        height="4"
+                        viewBox="0 0 7 4"
                         fill="none"
                         className="inline"
                       >
                         <path
-                          d="M1 1L4 4L7 1"
+                          d="M0.5 0.5L3.5 3.5L6.5 0.5"
                           stroke="currentColor"
-                          strokeWidth="0.75"
+                          strokeWidth="0.5"
                         />
                       </svg>
                     </span>
@@ -214,7 +237,7 @@ export default function Navigation() {
                   <Link
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className="block uppercase tracking-[0.2em] text-xs font-light text-foreground py-3 px-4 transition-opacity duration-300 hover:opacity-60"
+                    className="block uppercase tracking-[0.2em] text-[11px] font-light text-[#666] py-3 px-4 transition-colors duration-200 hover:text-[#333]"
                   >
                     {item.label}
                   </Link>
@@ -229,13 +252,13 @@ export default function Navigation() {
                         : "max-h-0 opacity-0"
                     }`}
                   >
-                    <div className="pb-2">
+                    <div className="pb-2 pt-1">
                       {item.dropdown.map((sub) => (
                         <Link
                           key={sub.href}
                           href={sub.href}
                           onClick={() => setMobileOpen(false)}
-                          className="block py-2 text-[11px] uppercase tracking-[0.15em] font-light text-muted hover:text-foreground transition-colors duration-300"
+                          className="block py-2 text-[11px] uppercase tracking-[0.15em] font-light text-[#888] hover:text-[#333] transition-colors duration-200"
                         >
                           {sub.label}
                         </Link>

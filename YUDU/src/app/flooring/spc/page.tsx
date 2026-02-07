@@ -4,106 +4,64 @@ import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import ParallaxImage from "@/components/ParallaxImage";
-import { flooringImages, galleryImages } from "@/lib/images";
+import { flooringImages } from "@/lib/images";
 
 const products = [
-  { name: "Alabaster Stone", image: flooringImages.spc[0] },
-  { name: "Midnight Slate", image: flooringImages.spc[1] },
-  { name: "Coastal Driftwood", image: flooringImages.spc[2] },
-  { name: "Alpine Marble", image: flooringImages.spc[3] },
+  { name: "Alpine Oak SPC", spec: '7" × 48" · 6.5mm · Rigid Core' },
+  { name: "Pacific Walnut SPC", spec: '9" × 60" · 6.5mm · Attached Pad' },
+  { name: "Nordic Grey SPC", spec: '7" × 48" · 5.5mm · Waterproof' },
+  { name: "Sierra Stone SPC", spec: '12" × 24" · 6mm · Stone Polymer' },
 ];
 
-export default function SpcFlooringPage() {
+export default function SPCFlooringPage() {
   return (
-    <div>
-      {/* Hero */}
-      <ParallaxImage
-        src={flooringImages.hero}
-        alt="SPC Collection"
-        height="80vh"
-      >
-        <h1
-          className="text-5xl md:text-7xl text-white font-light uppercase tracking-[0.2em]"
+    <>
+      <ParallaxImage src={flooringImages.spc[0]} alt="SPC Flooring" height="70vh">
+        <p
+          className="text-sm uppercase tracking-[0.35em] text-white font-light"
           style={{ fontFamily: "var(--font-serif)" }}
         >
-          SPC Collection
-        </h1>
-        <p className="mt-4 text-sm text-white/70 uppercase tracking-[0.3em]">
-          Innovation Meets Design
+          SPC COLLECTION
         </p>
       </ParallaxImage>
 
-      {/* Intro */}
-      <section className="section-white py-[120px] px-6 text-center">
+      <section className="bg-white py-24 text-center">
         <ScrollReveal>
-          <div className="max-w-2xl mx-auto">
-            <div className="w-12 h-px bg-[#1a1a1a]/30 mx-auto mb-10" />
-            <p
-              className="font-light text-[#6b6b6b] leading-[1.9] text-base"
-              style={{ fontFamily: "var(--font-serif)" }}
-            >
-              Stone Polymer Composite represents the pinnacle of luxury vinyl
-              engineering &mdash; 100% waterproof, dimensionally stable, and
-              virtually indestructible. Our SPC Collection pairs this advanced
-              performance core with stunningly realistic surfaces that replicate
-              natural stone and hardwood with remarkable fidelity, delivering
-              beauty without compromise in kitchens, bathrooms, and every
-              space in between.
-            </p>
-          </div>
+          <p className="text-[#666] font-light max-w-xl mx-auto text-sm leading-relaxed px-6">
+            Stone polymer composite with the look of real hardwood.
+            100% waterproof, dimensionally stable, and built for modern living.
+          </p>
         </ScrollReveal>
       </section>
 
-      {/* Product Grid */}
-      <section className="fade-to-cream py-[100px] px-6 md:px-12 lg:px-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          {products.map((product, i) => (
-            <ScrollReveal key={product.name} delay={i * 150}>
-              <div>
-                <div className="relative aspect-[4/3] overflow-hidden img-zoom">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-cover"
-                  />
+      <section className="bg-white">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-1 max-w-[1400px] mx-auto">
+          {products.map((product, index) => (
+            <ScrollReveal key={product.name} delay={index * 80}>
+              <div className="img-zoom">
+                <div className="relative aspect-[4/3]">
+                  <Image src={flooringImages.spc[index]} alt={product.name} fill className="object-cover" />
                 </div>
-                <p
-                  className="text-xs uppercase tracking-[0.2em] font-light mt-6"
-                  style={{ fontFamily: "var(--font-serif)" }}
-                >
-                  {product.name}
-                </p>
+              </div>
+              <div className="px-4 py-6">
+                <p className="text-[11px] uppercase tracking-[0.2em] text-[#333]">{product.name}</p>
+                <p className="text-[11px] text-[#888] mt-1">{product.spec}</p>
               </div>
             </ScrollReveal>
           ))}
         </div>
       </section>
 
-      {/* Breather Image */}
-      <ParallaxImage
-        src={galleryImages[11]}
-        alt="Lifestyle interior"
-        height="45vh"
-      />
-
-      {/* CTA */}
-      <section className="fade-cream-to-white py-[100px] px-6 text-center">
+      <section className="bg-white py-24 text-center">
         <ScrollReveal>
-          <p
-            className="text-xs uppercase tracking-[0.25em] text-[#6b6b6b] mb-8"
-            style={{ fontFamily: "var(--font-serif)" }}
-          >
-            Begin Your Project
-          </p>
           <Link
             href="/contact"
-            className="inline-block border border-[#1a1a1a] px-12 py-5 text-xs uppercase tracking-[0.25em] hover:bg-[#1a1a1a] hover:text-white transition-all duration-500"
+            className="text-[10px] uppercase tracking-[0.3em] text-[#666] border-b border-[#ccc] pb-1 inline-block hover:text-[#333] transition-colors"
           >
-            Schedule a Consultation
+            REQUEST A CONSULTATION
           </Link>
         </ScrollReveal>
       </section>
-    </div>
+    </>
   );
 }

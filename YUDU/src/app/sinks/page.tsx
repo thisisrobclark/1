@@ -9,138 +9,74 @@ import { sinkImages } from "@/lib/images";
 export default function SinksPage() {
   return (
     <>
-      {/* Hero */}
-      <ParallaxImage src={sinkImages.hero} alt="YUDU luxury sinks collection" height="80vh">
-        <h1
-          className="text-5xl md:text-7xl text-white font-light uppercase tracking-[0.2em]"
+      <ParallaxImage src={sinkImages.hero} alt="Sinks" height="80vh">
+        <p
+          className="text-sm uppercase tracking-[0.35em] text-white font-light"
           style={{ fontFamily: "var(--font-serif)" }}
         >
-          Sinks
-        </h1>
+          SINKS
+        </p>
       </ParallaxImage>
 
-      {/* Intro */}
-      <section className="section-white py-[120px]">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <ScrollReveal>
-            <div className="divider mx-auto mb-10" />
-            <h2
-              className="text-3xl text-[#2a2a2a] uppercase tracking-[0.15em] mb-8"
-              style={{ fontFamily: "var(--font-serif)" }}
-            >
-              The Art of Water
-            </h2>
-            <p className="text-[#6b6b6b] leading-relaxed text-lg">
-              Each YUDU sink is selected for its exceptional craftsmanship and enduring beauty.
-              From hand-finished stainless steel to artisan-glazed ceramic, our collections
-              represent the pinnacle of functional luxury for the modern home.
-            </p>
-          </ScrollReveal>
-        </div>
+      <section className="bg-white py-24 text-center">
+        <ScrollReveal>
+          <p
+            className="text-lg font-light tracking-[0.15em] text-[#333]"
+            style={{ fontFamily: "var(--font-serif)" }}
+          >
+            THE ART OF WATER
+          </p>
+          <p className="text-[#666] font-light max-w-xl mx-auto mt-6 text-sm leading-relaxed px-6">
+            Each YUDU sink is selected for exceptional craftsmanship and enduring beauty.
+            From hand-finished stainless steel to artisan-glazed ceramic.
+          </p>
+        </ScrollReveal>
       </section>
 
-      {/* Split: Image Left / Text Right — Stainless Steel */}
-      <section className="fade-to-cream py-[100px]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
-            <ScrollReveal>
+      <section className="bg-white">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-1 max-w-[1400px] mx-auto">
+          <ScrollReveal>
+            <Link href="/sinks/stainless-steel" className="group block">
               <div className="relative aspect-[4/5] img-zoom">
-                <Image
-                  src={sinkImages.stainless[0]}
-                  alt="Stainless steel sink collection"
-                  fill
-                  className="object-cover"
-                />
+                <Image src={sinkImages.stainless[0]} alt="Stainless Steel" fill className="object-cover" />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-700 flex items-end justify-center pb-12">
+                  <span className="text-[11px] uppercase tracking-[0.25em] text-white font-light opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    Stainless Steel
+                  </span>
+                </div>
               </div>
-            </ScrollReveal>
-            <ScrollReveal delay={200}>
-              <p className="text-xs uppercase tracking-[0.2em] text-[#9a948a] mb-4">
-                Collection
-              </p>
-              <h3
-                className="text-3xl md:text-4xl text-[#2a2a2a] uppercase tracking-[0.12em] mb-6"
-                style={{ fontFamily: "var(--font-serif)" }}
-              >
+              <p className="text-[11px] uppercase tracking-[0.2em] text-[#666] font-light text-center mt-6 mb-12">
                 Stainless Steel
-              </h3>
-              <p className="text-[#6b6b6b] leading-relaxed mb-8">
-                Forged from premium-gauge stainless steel with brushed and satin finishes,
-                each sink balances industrial strength with refined aesthetics. Engineered
-                for superior sound dampening and equipped with commercial-grade drainage.
               </p>
-              <Link
-                href="/sinks/stainless-steel"
-                className="inline-block text-sm uppercase tracking-[0.2em] border-b border-[#2a2a2a] pb-1 hover:border-[#9a948a] transition-colors duration-500"
-              >
-                Explore Collection
-              </Link>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Split Reversed: Text Left / Image Right — Ceramic */}
-      <section className="section-cream py-[100px]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
-            <ScrollReveal className="order-2 md:order-1">
-              <p className="text-xs uppercase tracking-[0.2em] text-[#9a948a] mb-4">
-                Collection
-              </p>
-              <h3
-                className="text-3xl md:text-4xl text-[#2a2a2a] uppercase tracking-[0.12em] mb-6"
-                style={{ fontFamily: "var(--font-serif)" }}
-              >
-                Ceramic
-              </h3>
-              <p className="text-[#6b6b6b] leading-relaxed mb-8">
-                Born from centuries of ceramic tradition, each piece is individually crafted
-                and finished with exacting precision. Luminous glazes and sculpted forms bring
-                enduring warmth and organic elegance to every space.
-              </p>
-              <Link
-                href="/sinks/ceramic"
-                className="inline-block text-sm uppercase tracking-[0.2em] border-b border-[#2a2a2a] pb-1 hover:border-[#9a948a] transition-colors duration-500"
-              >
-                Explore Collection
-              </Link>
-            </ScrollReveal>
-            <ScrollReveal delay={200} className="order-1 md:order-2">
+            </Link>
+          </ScrollReveal>
+          <ScrollReveal delay={100}>
+            <Link href="/sinks/ceramic" className="group block">
               <div className="relative aspect-[4/5] img-zoom">
-                <Image
-                  src={sinkImages.ceramic[0]}
-                  alt="Ceramic sink collection"
-                  fill
-                  className="object-cover"
-                />
+                <Image src={sinkImages.ceramic[0]} alt="Ceramic" fill className="object-cover" />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-700 flex items-end justify-center pb-12">
+                  <span className="text-[11px] uppercase tracking-[0.25em] text-white font-light opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    Ceramic
+                  </span>
+                </div>
               </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="fade-cream-to-white py-[100px]">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <ScrollReveal>
-            <div className="divider mx-auto mb-10" />
-            <h3
-              className="text-xl md:text-2xl text-[#2a2a2a] uppercase tracking-[0.15em] mb-6"
-              style={{ fontFamily: "var(--font-serif)" }}
-            >
-              Begin Your Project
-            </h3>
-            <p className="text-[#6b6b6b] leading-relaxed mb-10">
-              Speak with our design consultants to find the perfect sink for your space.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-block border border-[#2a2a2a] px-10 py-4 text-sm tracking-widest uppercase hover:bg-[#2a2a2a] hover:text-white transition-colors duration-500"
-            >
-              Contact Us
+              <p className="text-[11px] uppercase tracking-[0.2em] text-[#666] font-light text-center mt-6 mb-12">
+                Ceramic
+              </p>
             </Link>
           </ScrollReveal>
         </div>
+      </section>
+
+      <section className="bg-white py-24 text-center">
+        <ScrollReveal>
+          <Link
+            href="/contact"
+            className="text-[10px] uppercase tracking-[0.3em] text-[#666] border-b border-[#ccc] pb-1 inline-block hover:text-[#333] transition-colors"
+          >
+            REQUEST A CONSULTATION
+          </Link>
+        </ScrollReveal>
       </section>
     </>
   );
