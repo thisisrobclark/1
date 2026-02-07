@@ -4,18 +4,18 @@ import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import ParallaxImage from "@/components/ParallaxImage";
-import { flooringImages } from "@/lib/images";
+import { classicVinyl, designerVinyl, flooringHeroImage } from "@/lib/images";
 
 const collections = [
-  { title: "Designer Collection", href: "/flooring/designer", image: flooringImages.designer[0] },
-  { title: "Classic Collection", href: "/flooring/classic", image: flooringImages.classic[0] },
-  { title: "SPC Collection", href: "/flooring/spc", image: flooringImages.spc[0] },
+  { title: "Designer Collection", href: "/flooring/designer", image: designerVinyl[0].image },
+  { title: "Classic Collection", href: "/flooring/classic", image: classicVinyl[0].image },
+  { title: "SPC Collection", href: "/flooring/spc", image: "/images/spc-products/page-01.jpg" },
 ];
 
 export default function FlooringPage() {
   return (
     <>
-      <ParallaxImage src={flooringImages.hero} alt="Flooring" height="80vh">
+      <ParallaxImage src={flooringHeroImage} alt="Flooring" height="80vh">
         <p
           className="text-sm uppercase tracking-[0.35em] text-white font-light"
           style={{ fontFamily: "var(--font-heading)" }}
@@ -33,7 +33,7 @@ export default function FlooringPage() {
             THE FOUNDATION
           </p>
           <p className="text-[#908d88] font-light max-w-xl mx-auto mt-6 text-sm leading-relaxed px-6" style={{ fontFamily: "var(--font-accent)" }}>
-            The world&apos;s finest hardwoods, engineered innovations, and luxury vinyl &mdash;
+            Luxury vinyl and SPC flooring in designer finishes &mdash;
             each selected for beauty, durability, and the ability to transform a room.
           </p>
         </ScrollReveal>

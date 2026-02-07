@@ -4,19 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import ParallaxImage from "@/components/ParallaxImage";
-import { flooringImages } from "@/lib/images";
-
-const products = [
-  { name: "Heritage Oak", spec: '3/4" Solid · 5" Plank · Natural' },
-  { name: "Estate Walnut", spec: '3/4" Solid · 4" Plank · Dark Stain' },
-  { name: "Manor Ash", spec: '3/4" Solid · 5" Plank · Light Finish' },
-  { name: "Cambridge Cherry", spec: '3/4" Solid · 3.25" Strip · Amber' },
-];
+import { classicVinyl, catalogs } from "@/lib/images";
 
 export default function ClassicFlooringPage() {
   return (
     <>
-      <ParallaxImage src={flooringImages.classic[0]} alt="Classic Flooring" height="70vh">
+      <ParallaxImage src={classicVinyl[0].image} alt="Classic Collection" height="70vh">
         <p
           className="text-sm uppercase tracking-[0.35em] text-white font-light"
           style={{ fontFamily: "var(--font-heading)" }}
@@ -25,27 +18,36 @@ export default function ClassicFlooringPage() {
         </p>
       </ParallaxImage>
 
-      <section className="bg-white py-24 text-center">
+      <section className="bg-white py-20 text-center">
         <ScrollReveal>
           <p className="text-[#908d88] font-light max-w-xl mx-auto text-sm leading-relaxed px-6" style={{ fontFamily: "var(--font-accent)" }}>
-            Time-honored solid hardwoods in traditional profiles.
-            The warmth and character that only real wood can deliver.
+            Time-honored wood and stone looks in durable luxury vinyl.
+            The warmth and character your space deserves.
           </p>
+          <a
+            href={catalogs.classicVinyl}
+            download
+            className="text-[10px] uppercase tracking-[0.3em] text-[#b38041] border-b border-[#b38041] pb-1 mt-8 inline-block hover:text-[#333] transition-colors"
+            style={{ fontFamily: "var(--font-accent)" }}
+          >
+            DOWNLOAD CATALOG (PDF)
+          </a>
         </ScrollReveal>
       </section>
 
       <section className="bg-white">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-1 max-w-[1400px] mx-auto">
-          {products.map((product, index) => (
-            <ScrollReveal key={product.name} delay={index * 80}>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 max-w-[1400px] mx-auto">
+          {classicVinyl.map((product, index) => (
+            <ScrollReveal key={product.name} delay={index * 40}>
               <div className="img-zoom">
-                <div className="relative aspect-[4/3]">
-                  <Image src={flooringImages.classic[index]} alt={product.name} fill className="object-cover" />
+                <div className="relative aspect-square">
+                  <Image src={product.image} alt={product.name} fill className="object-cover" sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw" />
                 </div>
               </div>
-              <div className="px-4 py-6">
-                <p className="text-[11px] uppercase tracking-[0.2em] text-[#333]" style={{ fontFamily: "var(--font-accent)" }}>{product.name}</p>
-                <p className="text-[11px] text-[#908d88] mt-1" style={{ fontFamily: "var(--font-accent)" }}>{product.spec}</p>
+              <div className="px-3 py-4 text-center">
+                <p className="text-[11px] uppercase tracking-[0.15em] text-[#333]" style={{ fontFamily: "var(--font-accent)" }}>
+                  {product.name}
+                </p>
               </div>
             </ScrollReveal>
           ))}

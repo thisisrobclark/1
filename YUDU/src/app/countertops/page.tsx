@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import ParallaxImage from "@/components/ParallaxImage";
-import { countertopImages, galleryImages } from "@/lib/images";
+import { countertopImages, graniteProducts, quartzLevel3 } from "@/lib/images";
 
 export default function CountertopsPage() {
   return (
@@ -39,14 +39,14 @@ export default function CountertopsPage() {
             <Link href="/countertops/granite" className="group block">
               <div className="relative aspect-[4/5] img-zoom">
                 <Image
-                  src={countertopImages.granite[0]}
+                  src={graniteProducts[4].image}
                   alt="Granite Collection"
                   fill
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-700 flex items-end justify-center pb-12">
                   <span className="text-[11px] uppercase tracking-[0.25em] text-white font-light opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    Granite Collection
+                    {graniteProducts.length} Selections
                   </span>
                 </div>
               </div>
@@ -59,14 +59,14 @@ export default function CountertopsPage() {
             <Link href="/countertops/quartz" className="group block">
               <div className="relative aspect-[4/5] img-zoom">
                 <Image
-                  src={countertopImages.quartz[0]}
+                  src={quartzLevel3[2].image}
                   alt="Quartz Collection"
                   fill
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-700 flex items-end justify-center pb-12">
                   <span className="text-[11px] uppercase tracking-[0.25em] text-white font-light opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    Quartz Collection
+                    4 Levels
                   </span>
                 </div>
               </div>
@@ -77,8 +77,6 @@ export default function CountertopsPage() {
           </ScrollReveal>
         </div>
       </section>
-
-      <ParallaxImage src={galleryImages[5]} alt="Interior" height="50vh" />
 
       <section className="bg-white py-24 text-center">
         <ScrollReveal>
