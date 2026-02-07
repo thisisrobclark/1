@@ -4,19 +4,21 @@ import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import ParallaxImage from "@/components/ParallaxImage";
-import { tileImages } from "@/lib/images";
+import { tileImages, catalogs } from "@/lib/images";
+
+const porcelainThumb = "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80";
 
 const products = [
-  { name: "Carrara Vein", spec: '24" \u00d7 48" \u00b7 Matte \u00b7 Rectified' },
-  { name: "Calacatta Gold", spec: '32" \u00d7 32" \u00b7 Polished \u00b7 Rectified' },
-  { name: "Pietra Grey", spec: '24" \u00d7 24" \u00b7 Honed \u00b7 Through-Body' },
-  { name: "Statuario White", spec: '12" \u00d7 24" \u00b7 Polished \u00b7 Rectified' },
+  { name: "Carrara Vein", spec: '24" \u00d7 48" \u00b7 Matte \u00b7 Rectified', image: porcelainThumb },
+  { name: "Calacatta Gold", spec: '32" \u00d7 32" \u00b7 Polished \u00b7 Rectified', image: "https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?w=800&q=80" },
+  { name: "Pietra Grey", spec: '24" \u00d7 24" \u00b7 Honed \u00b7 Through-Body', image: "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=800&q=80" },
+  { name: "Statuario White", spec: '12" \u00d7 24" \u00b7 Polished \u00b7 Rectified', image: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?w=800&q=80" },
 ];
 
 export default function PorcelainPage() {
   return (
     <>
-      <ParallaxImage src={tileImages.porcelain[0]} alt="Porcelain Tile" height="70vh">
+      <ParallaxImage src={tileImages.hero} alt="Porcelain Tile" height="70vh">
         <p
           className="text-sm uppercase tracking-[0.35em] text-white font-light"
           style={{ fontFamily: "var(--font-heading)" }}
@@ -31,6 +33,14 @@ export default function PorcelainPage() {
             Fired at extreme temperatures for exceptional density and durability.
             Impervious to moisture and virtually maintenance-free.
           </p>
+          <a
+            href={catalogs.porcelainTile}
+            download
+            className="text-[10px] uppercase tracking-[0.3em] text-[#b38041] border-b border-[#b38041] pb-1 mt-8 inline-block hover:text-[#333] transition-colors"
+            style={{ fontFamily: "var(--font-accent)" }}
+          >
+            DOWNLOAD CATALOG (PDF)
+          </a>
         </ScrollReveal>
       </section>
 
@@ -40,7 +50,7 @@ export default function PorcelainPage() {
             <ScrollReveal key={product.name} delay={index * 80}>
               <div className="img-zoom">
                 <div className="relative aspect-[4/3]">
-                  <Image src={tileImages.porcelain[index]} alt={product.name} fill className="object-cover" />
+                  <Image src={product.image} alt={product.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
                 </div>
               </div>
               <div className="px-4 py-6">

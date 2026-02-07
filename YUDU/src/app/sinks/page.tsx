@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import ParallaxImage from "@/components/ParallaxImage";
-import { sinkImages } from "@/lib/images";
+import { sinkImages, stainlessSinks, ceramicSinks } from "@/lib/images";
 
 export default function SinksPage() {
   return (
@@ -38,10 +38,10 @@ export default function SinksPage() {
           <ScrollReveal>
             <Link href="/sinks/stainless-steel" className="group block">
               <div className="relative aspect-[4/5] img-zoom">
-                <Image src={sinkImages.stainless[0]} alt="Stainless Steel" fill className="object-cover" />
+                <Image src={stainlessSinks[0].image} alt="Stainless Steel" fill className="object-cover" />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-700 flex items-end justify-center pb-12">
                   <span className="text-[11px] uppercase tracking-[0.25em] text-white font-light opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    Stainless Steel
+                    {stainlessSinks.length} Models
                   </span>
                 </div>
               </div>
@@ -53,10 +53,10 @@ export default function SinksPage() {
           <ScrollReveal delay={100}>
             <Link href="/sinks/ceramic" className="group block">
               <div className="relative aspect-[4/5] img-zoom">
-                <Image src={sinkImages.ceramic[0]} alt="Ceramic" fill className="object-cover" />
+                <Image src={ceramicSinks[0].image} alt="Ceramic" fill className="object-cover" />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-700 flex items-end justify-center pb-12">
                   <span className="text-[11px] uppercase tracking-[0.25em] text-white font-light opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    Ceramic
+                    {ceramicSinks.length} Models
                   </span>
                 </div>
               </div>

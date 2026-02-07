@@ -6,6 +6,9 @@ import ScrollReveal from "@/components/ScrollReveal";
 import ParallaxImage from "@/components/ParallaxImage";
 import { tileImages } from "@/lib/images";
 
+const porcelainThumb = "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80";
+const ceramicThumb = "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80";
+
 export default function TilePage() {
   return (
     <>
@@ -38,7 +41,7 @@ export default function TilePage() {
           <ScrollReveal>
             <Link href="/tile/porcelain" className="group block">
               <div className="relative aspect-[4/5] img-zoom">
-                <Image src={tileImages.porcelain[0]} alt="Porcelain" fill className="object-cover" />
+                <Image src={porcelainThumb} alt="Porcelain" fill className="object-cover" />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-700 flex items-end justify-center pb-12">
                   <span className="text-[11px] uppercase tracking-[0.25em] text-white font-light opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     Porcelain
@@ -53,7 +56,7 @@ export default function TilePage() {
           <ScrollReveal delay={100}>
             <Link href="/tile/ceramic" className="group block">
               <div className="relative aspect-[4/5] img-zoom">
-                <Image src={tileImages.ceramic[0]} alt="Ceramic" fill className="object-cover" />
+                <Image src={ceramicThumb} alt="Ceramic" fill className="object-cover" />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-700 flex items-end justify-center pb-12">
                   <span className="text-[11px] uppercase tracking-[0.25em] text-white font-light opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     Ceramic

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import YuduLogo from "@/components/YuduLogo";
 
@@ -58,6 +58,7 @@ export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     if (mobileOpen) {
@@ -69,6 +70,35 @@ export default function Navigation() {
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
+
+  const openDropdown = useCallback((label: string) => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+    setActiveDropdown(label);
+  }, []);
+
+  const scheduleClose = useCallback(() => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => {
+      setActiveDropdown(null);
+      closeTimer.current = null;
+    }, 300);
+  }, []);
+
+  const cancelClose = useCallback(() => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (closeTimer.current) clearTimeout(closeTimer.current);
+    };
+  }, []);
 
   const toggleMobileDropdown = (label: string) => {
     setMobileExpanded(mobileExpanded === label ? null : label);
@@ -131,11 +161,11 @@ export default function Navigation() {
               {navItems.map((item) => (
                 <div
                   key={item.label}
-                  className="relative"
+                  className="relative pb-4 -mb-4"
                   onMouseEnter={() =>
-                    item.dropdown ? setActiveDropdown(item.label) : undefined
+                    item.dropdown ? openDropdown(item.label) : undefined
                   }
-                  onMouseLeave={() => setActiveDropdown(null)}
+                  onMouseLeave={scheduleClose}
                 >
                   <Link
                     href={item.href}
@@ -161,8 +191,8 @@ export default function Navigation() {
                     ? "opacity-100 visible"
                     : "opacity-0 invisible pointer-events-none"
                 }`}
-                onMouseEnter={() => setActiveDropdown(item.label)}
-                onMouseLeave={() => setActiveDropdown(null)}
+                onMouseEnter={cancelClose}
+                onMouseLeave={scheduleClose}
               >
                 <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-16 py-8">
                   <div className="flex justify-center gap-16">

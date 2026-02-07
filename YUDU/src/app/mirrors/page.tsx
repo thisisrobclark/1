@@ -4,21 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import ParallaxImage from "@/components/ParallaxImage";
-import { mirrorImages } from "@/lib/images";
-
-const products = [
-  { name: 'Lumière Round 30"', spec: '30" Diameter · LED Backlit' },
-  { name: "Atelier Rectangle 36×28", spec: '36" × 28" · Dimmable' },
-  { name: "Provence Oval 24×36", spec: '24" × 36" · Anti-Fog' },
-  { name: "Monaco Arch 26×38", spec: '26" × 38" · Touch Sensor' },
-  { name: 'Riviera Square 28"', spec: '28" × 28" · RGB Color' },
-  { name: "Château Full Length 22×60", spec: '22" × 60" · Motion Activated' },
-];
+import { mirrorHeroImages, mirrorProducts } from "@/lib/images";
 
 export default function MirrorsPage() {
   return (
     <>
-      <ParallaxImage src={mirrorImages.hero} alt="Mirrors" height="80vh">
+      <ParallaxImage src={mirrorHeroImages.hero} alt="Mirrors" height="80vh">
         <p
           className="text-sm uppercase tracking-[0.35em] text-white font-light"
           style={{ fontFamily: "var(--font-heading)" }}
@@ -36,23 +27,27 @@ export default function MirrorsPage() {
             ILLUMINATE YOUR SPACE
           </p>
           <p className="text-[#908d88] font-light max-w-xl mx-auto mt-6 text-sm leading-relaxed px-6" style={{ fontFamily: "var(--font-accent)" }}>
-            Back-lit mirrors that transform any bathroom or vanity into a luminous sanctuary.
-            Energy-efficient LED illumination with adjustable color temperature.
+            Back-lit LED mirrors that transform any bathroom or vanity into a luminous sanctuary.
+            Energy-efficient illumination with adjustable color temperature.
+          </p>
+          <p className="text-[11px] text-[#908d88] mt-4" style={{ fontFamily: "var(--font-accent)" }}>
+            {mirrorProducts.length} models
           </p>
         </ScrollReveal>
       </section>
 
       <section className="bg-white">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 max-w-[1400px] mx-auto">
-          {products.map((product, index) => (
-            <ScrollReveal key={product.name} delay={index * 80}>
+          {mirrorProducts.map((product, index) => (
+            <ScrollReveal key={product.name} delay={index * 60}>
               <div className="img-zoom">
                 <div className="relative aspect-[3/4]">
                   <Image
-                    src={mirrorImages.products[index]}
+                    src={product.image}
                     alt={product.name}
                     fill
                     className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 </div>
               </div>

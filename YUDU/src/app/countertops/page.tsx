@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import ParallaxImage from "@/components/ParallaxImage";
-import { countertopImages, graniteProducts, quartzLevel3 } from "@/lib/images";
+import { countertopImages, allGraniteProducts, quartzLevel3 } from "@/lib/images";
 
 export default function CountertopsPage() {
   return (
@@ -39,14 +39,14 @@ export default function CountertopsPage() {
             <Link href="/countertops/granite" className="group block">
               <div className="relative aspect-[4/5] img-zoom">
                 <Image
-                  src={graniteProducts[4].image}
+                  src={allGraniteProducts[4].image}
                   alt="Granite Collection"
                   fill
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-700 flex items-end justify-center pb-12">
                   <span className="text-[11px] uppercase tracking-[0.25em] text-white font-light opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    {graniteProducts.length} Selections
+                    {allGraniteProducts.length} Selections
                   </span>
                 </div>
               </div>
