@@ -107,21 +107,6 @@ export default function Navigation() {
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50">
-        {/* Top Utility Bar */}
-        <div className="bg-[#faf8f5] border-b border-[#e0dcd6]">
-          <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-16">
-            <div className="flex items-center justify-center h-[28px]">
-              <span
-                className="text-[10px] uppercase tracking-[0.25em] font-light text-[#908d88] select-none"
-                style={{ fontFamily: "var(--font-accent)" }}
-              >
-                Complimentary Design Consultation &nbsp;&mdash;&nbsp; Free
-                Shipping on All Orders
-              </span>
-            </div>
-          </div>
-        </div>
-
         {/* Main Nav Bar */}
         <div className="bg-white border-b border-[#e0dcd6]">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-16">
@@ -152,7 +137,7 @@ export default function Navigation() {
 
               {/* Centered Logo */}
               <Link href="/" aria-label="YUDU Products Home">
-                <YuduLogo height={36} color="#333" />
+                <YuduLogo height={36} showTagline color="#333" />
               </Link>
             </div>
 
@@ -214,7 +199,7 @@ export default function Navigation() {
       </nav>
 
       {/* Spacer */}
-      <div className="h-[88px] lg:h-[116px]" />
+      <div className="h-[60px] lg:h-[88px]" />
 
       {/* Mobile Fullscreen Overlay */}
       <div
