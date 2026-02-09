@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronic Press Kit | Rob Clark - Speaker & Strategist</title>
+    <meta name="description" content="Electronic Press Kit for Rob Clark - Speaker, strategist, and founder of That Tall Family. Book Rob for your next event.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           CSS RESET & BASE STYLES
+           ======================================== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Dark palette */
+            --color-bg-dark: #0a0a0a;
+            --color-bg-dark-mid: #111111;
+            --color-bg-card-dark: #1a1a1a;
+            --color-border-dark: #2a2a2a;
+            --color-border-dark-light: #333333;
+            /* Light / cream palette */
+            --color-bg-cream: #f5f0e8;
+            --color-bg-cream-alt: #ece5d8;
+            --color-bg-card-light: #ebe4d6;
+            --color-border-cream: #d9d0c0;
+            /* Accent */
+            --color-accent: #d4a843;
+            --color-accent-hover: #e8bf5a;
+            --color-accent-dark: #b8912e;
+            /* Text on dark */
+            --color-text-on-dark: #ffffff;
+            --color-text-secondary-on-dark: #a0a0a0;
+            --color-text-muted-on-dark: #666666;
+            /* Text on light */
+            --color-text-on-light: #1a1a1a;
+            --color-text-secondary-on-light: #4a4a4a;
+            --color-text-muted-on-light: #888888;
+            /* Fonts */
+            --font-heading: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --max-width: 1200px;
+            --section-padding: 100px;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg-dark);
+            color: var(--color-text-on-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ========================================
+           SECTION BACKGROUNDS
+           ======================================== */
+        .section-dark {
+            background: linear-gradient(180deg, #0d0d0d 0%, #0a0a0a 40%, #0e0e0e 100%);
+            color: var(--color-text-on-dark);
+            padding: var(--section-padding) 0;
+        }
+
+        .section-dark-gradient {
+            background: linear-gradient(135deg, #0a0a0a 0%, #14120f 40%, #0d0b08 70%, #0a0a0a 100%);
+            color: var(--color-text-on-dark);
+            padding: var(--section-padding) 0;
+        }
+
+        .section-light {
+            background: var(--color-bg-cream);
+            color: var(--color-text-on-light);
+            padding: var(--section-padding) 0;
+        }
+
+        .section-light-warm {
+            background: linear-gradient(180deg, #f5f0e8 0%, #efe8db 50%, #f5f0e8 100%);
+            color: var(--color-text-on-light);
+            padding: var(--section-padding) 0;
+        }
+
+        /* ========================================
+           TYPOGRAPHY
+           ======================================== */
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--color-accent);
+            margin-bottom: 20px;
+        }
+
+        .section-label::before,
+        .section-label::after {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--color-accent);
+        }
+
+        .section-light .section-label,
+        .section-light-warm .section-label {
+            color: var(--color-accent-dark);
+        }
+
+        .section-light .section-label::before,
+        .section-light .section-label::after,
+        .section-light-warm .section-label::before,
+        .section-light-warm .section-label::after {
+            background: var(--color-accent-dark);
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 700px;
+        }
+
+        .section-light .section-subtitle,
+        .section-light-warm .section-subtitle {
+            color: var(--color-text-secondary-on-light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header .section-subtitle {
+            margin: 0 auto;
+        }
+
+        /* ========================================
+           BUTTONS
+           ======================================== */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: var(--color-accent);
+            color: var(--color-bg-dark);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212, 168, 67, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: transparent;
+            color: var(--color-text-on-dark);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border: 1px solid var(--color-border-dark-light);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+            transform: translateY(-2px);
+        }
+
+        .section-light .btn-secondary,
+        .section-light-warm .btn-secondary {
+            color: var(--color-text-on-light);
+            border-color: var(--color-border-cream);
+        }
+
+        .section-light .btn-secondary:hover,
+        .section-light-warm .btn-secondary:hover {
+            border-color: var(--color-accent-dark);
+            color: var(--color-accent-dark);
+        }
+
+        /* ========================================
+           NAVIGATION (MINIMAL FOR EPK)
+           ======================================== */
+        .epk-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--color-border-dark);
+        }
+
+        .epk-nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .epk-nav-logo {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--color-text-on-dark);
+        }
+
+        .epk-nav-logo span {
+            color: var(--color-accent);
+        }
+
+        .epk-nav-badge {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-accent);
+            padding: 6px 14px;
+            border: 1px solid var(--color-accent);
+            border-radius: 20px;
+        }
+
+        /* ========================================
+           HERO SECTION
+           ======================================== */
+        .epk-hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 120px;
+            padding-bottom: 80px;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .epk-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(212, 168, 67, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .epk-hero .container {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .epk-hero-content {
+            max-width: 600px;
+        }
+
+        .epk-hero-tagline {
+            font-size: 1.1rem;
+            color: var(--color-accent);
+            font-weight: 500;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        .epk-hero h1 {
+            font-family: var(--font-heading);
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .epk-hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--color-text-secondary-on-dark);
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .epk-hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .epk-hero-image img {
+            width: 400px;
+            height: 500px;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 8px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .epk-hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* ========================================
+           ABOUT SECTION
+           ======================================== */
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: var(--color-text-secondary-on-light);
+        }
+
+        /* ========================================
+           PHILOSOPHY SECTION
+           ======================================== */
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .philosophy-quotes {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .philosophy-quote {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 600;
+            line-height: 1.4;
+            color: var(--color-text-on-dark);
+            padding-left: 24px;
+            border-left: 3px solid var(--color-accent);
+        }
+
+        .philosophy-approach {
+            background: var(--color-bg-card-dark);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--color-border-dark);
+        }
+
+        .philosophy-approach h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            color: var(--color-accent);
+        }
+
+        .approach-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+
+        .approach-item span {
+            color: var(--color-accent);
+            font-weight: 700;
+        }
+
+        .philosophy-closing {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary-on-dark);
+            line-height: 1.8;
+            margin-top: 30px;
+            font-style: italic;
+        }
+
+        /* ========================================
+           KEYNOTES SECTION
+           ======================================== */
+        .keynotes-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .keynote-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+
+        .keynote-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .keynote-header {
+            padding: 30px 40px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--color-border-cream);
+        }
+
+        .keynote-header h3 {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--color-text-on-light);
+            flex: 1;
+        }
+
+        .keynote-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--color-bg-cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .keynote-toggle svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--color-accent-dark);
+            transition: var(--transition);
+        }
+
+        .keynote-card.active .keynote-toggle {
+            background: var(--color-accent);
+        }
+
+        .keynote-card.active .keynote-toggle svg {
+            stroke: #fff;
+            transform: rotate(180deg);
+        }
+
+        .keynote-body {
+            padding: 0 40px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .keynote-card.active .keynote-body {
+            padding: 30px 40px;
+            max-height: 500px;
+        }
+
+        .keynote-description {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--color-text-secondary-on-light);
+            margin-bottom: 24px;
+        }
+
+        .keynote-takeaways h4 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-accent-dark);
+            margin-bottom: 16px;
+        }
+
+        .keynote-takeaways ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .keynote-takeaways li {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary-on-light);
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .keynote-takeaways li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background: var(--color-accent-dark);
+            border-radius: 50%;
+        }
+
+        /* ========================================
+           CUSTOM TALKS SECTION
+           ======================================== */
+        .custom-talks-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .custom-talks-audiences h3,
+        .custom-talks-topics h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+        }
+
+        .custom-talks-audiences ul,
+        .custom-talks-topics ul {
+            list-style: none;
+        }
+
+        .custom-talks-audiences li,
+        .custom-talks-topics li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--color-border-dark);
+            font-size: 1.05rem;
+            color: var(--color-text-secondary-on-dark);
+        }
+
+        .custom-talks-audiences li:last-child,
+        .custom-talks-topics li:last-child {
+            border-bottom: none;
+        }
+
+        /* ========================================
+           TAGS SECTION
+           ======================================== */
+        .tags-section {
+            text-align: center;
+        }
+
+        .tags-group {
+            margin-bottom: 50px;
+        }
+
+        .tags-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .tags-group h3 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--color-accent-dark);
+            margin-bottom: 24px;
+        }
+
+        .tags-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .tag {
+            padding: 12px 24px;
+            background: #fff;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--color-text-on-light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+            transition: var(--transition);
+        }
+
+        .tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ========================================
+           TESTIMONIALS SECTION
+           ======================================== */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--color-bg-card-dark);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--color-border-dark);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-family: var(--font-heading);
+            font-size: 6rem;
+            color: var(--color-accent);
+            opacity: 0.2;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-text-secondary-on-dark);
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========================================
+           CREDENTIALS SECTION
+           ======================================== */
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .credential-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .credential-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            background: var(--color-bg-cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .credential-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--color-accent-dark);
+        }
+
+        .credential-value {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-accent-dark);
+            margin-bottom: 8px;
+        }
+
+        .credential-label {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary-on-light);
+        }
+
+        /* ========================================
+           TECH REQUIREMENTS SECTION
+           ======================================== */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .tech-item {
+            text-align: center;
+            padding: 30px;
+            background: var(--color-bg-card-dark);
+            border-radius: 8px;
+            border: 1px solid var(--color-border-dark);
+        }
+
+        .tech-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 16px;
+            background: rgba(212, 168, 67, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tech-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--color-accent);
+        }
+
+        .tech-item h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .tech-note {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--color-text-secondary-on-dark);
+            font-style: italic;
+        }
+
+        /* ========================================
+           BOOKING FORM SECTION
+           ======================================== */
+        .booking-section {
+            padding: 120px 0;
+        }
+
+        .booking-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .booking-form {
+            margin-top: 40px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            color: var(--color-text-on-light);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px 20px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            border: 2px solid var(--color-border-cream);
+            border-radius: 4px;
+            background: #fff;
+            color: var(--color-text-on-light);
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--color-accent-dark);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            background-size: 20px;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .form-actions .btn-primary {
+            flex: 1;
+            justify-content: center;
+            min-width: 200px;
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        .epk-footer {
+            padding: 40px 0;
+            background: #000;
+            border-top: 1px solid var(--color-border-dark);
+            text-align: center;
+        }
+
+        .epk-footer p {
+            font-size: 0.9rem;
+            color: var(--color-text-muted-on-dark);
+        }
+
+        .epk-footer a {
+            color: var(--color-accent);
+        }
+
+        .epk-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ========================================
+           SECTION DIVIDERS
+           ======================================== */
+        .section-divider {
+            position: relative;
+            width: 100%;
+            line-height: 0;
+            overflow: hidden;
+        }
+
+        .section-divider svg {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .divider-dark-to-light {
+            background: var(--color-bg-dark);
+        }
+
+        .divider-light-to-dark {
+            background: var(--color-bg-cream);
+        }
+
+        /* ========================================
+           ANIMATIONS
+           ======================================== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========================================
+           PRINT STYLES FOR PDF
+           ======================================== */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            body {
+                background: white !important;
+                color: #1a1a1a !important;
+                font-size: 11pt;
+                line-height: 1.5;
+            }
+
+            .epk-nav,
+            .section-divider,
+            .epk-footer,
+            .btn-primary,
+            .btn-secondary,
+            .booking-form,
+            .form-actions {
+                display: none !important;
+            }
+
+            .epk-hero {
+                min-height: auto !important;
+                padding: 40px 0 !important;
+                background: white !important;
+            }
+
+            .epk-hero::before {
+                display: none;
+            }
+
+            .epk-hero .container {
+                grid-template-columns: 200px 1fr !important;
+                gap: 40px !important;
+            }
+
+            .epk-hero-image img {
+                width: 180px !important;
+                height: 220px !important;
+            }
+
+            .epk-hero h1 {
+                font-size: 28pt !important;
+                color: #1a1a1a !important;
+            }
+
+            .epk-hero-tagline,
+            .epk-hero-subtitle {
+                color: #4a4a4a !important;
+            }
+
+            .section-dark,
+            .section-dark-gradient,
+            .section-light,
+            .section-light-warm {
+                background: white !important;
+                color: #1a1a1a !important;
+                padding: 30px 0 !important;
+                page-break-inside: avoid;
+            }
+
+            .section-title {
+                font-size: 18pt !important;
+                color: #1a1a1a !important;
+            }
+
+            .section-label {
+                color: #b8912e !important;
+            }
+
+            .section-subtitle,
+            .about-text,
+            .philosophy-quote,
+            .keynote-description,
+            .testimonial-text {
+                color: #4a4a4a !important;
+            }
+
+            .philosophy-grid,
+            .custom-talks-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .philosophy-approach,
+            .testimonial-card,
+            .tech-item {
+                background: #f5f5f5 !important;
+                border: 1px solid #ddd !important;
+            }
+
+            .keynote-card {
+                page-break-inside: avoid;
+            }
+
+            .keynote-card .keynote-body {
+                max-height: none !important;
+                padding: 20px !important;
+            }
+
+            .keynote-toggle {
+                display: none !important;
+            }
+
+            .testimonials-grid,
+            .credentials-grid,
+            .tech-grid {
+                grid-template-columns: 1fr 1fr 1fr !important;
+            }
+
+            .credential-card {
+                background: #f5f5f5 !important;
+                border: 1px solid #ddd !important;
+            }
+
+            .credential-value {
+                color: #b8912e !important;
+            }
+
+            .tags-list {
+                gap: 8px !important;
+            }
+
+            .tag {
+                background: #f0f0f0 !important;
+                padding: 6px 12px !important;
+                font-size: 9pt !important;
+            }
+
+            .booking-section {
+                padding: 30px 0 !important;
+            }
+
+            .booking-section .section-header {
+                text-align: center !important;
+            }
+
+            .booking-section::after {
+                content: "Contact: lookingup@thattallfamily.com";
+                display: block;
+                text-align: center;
+                font-size: 14pt;
+                font-weight: bold;
+                color: #b8912e;
+                margin-top: 20px;
+            }
+
+            h2, h3 {
+                page-break-after: avoid;
+            }
+
+            .container {
+                max-width: 100% !important;
+                padding: 0 20px !important;
+            }
+        }
+
+        /* ========================================
+           RESPONSIVE STYLES
+           ======================================== */
+        @media (max-width: 1024px) {
+            .epk-hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 50px;
+            }
+
+            .epk-hero-content {
+                max-width: 100%;
+            }
+
+            .epk-hero-buttons {
+                justify-content: center;
+            }
+
+            .epk-hero-image {
+                order: -1;
+            }
+
+            .epk-hero-image img {
+                width: 300px;
+                height: 380px;
+            }
+
+            .philosophy-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .custom-talks-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .credentials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 70px;
+            }
+
+            .epk-hero {
+                padding-top: 100px;
+                min-height: auto;
+            }
+
+            .epk-hero h1 {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .philosophy-quote {
+                font-size: 1.4rem;
+            }
+
+            .keynote-takeaways ul {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .credentials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .epk-nav-badge {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .epk-hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .epk-hero-image img {
+                width: 250px;
+                height: 320px;
+            }
+
+            .keynote-header {
+                padding: 20px 24px;
+            }
+
+            .keynote-card.active .keynote-body {
+                padding: 20px 24px;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .form-actions .btn-primary,
+            .form-actions .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="epk-nav">
+        <div class="container">
+            <a href="/" class="epk-nav-logo">Rob<span>.</span>Clark</a>
+            <span class="epk-nav-badge">Electronic Press Kit</span>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="epk-hero">
+        <div class="container">
+            <div class="epk-hero-content">
+                <p class="epk-hero-tagline">Speaker. Strategist. Builder of Attention.</p>
+                <h1>Rob Clark</h1>
+                <p class="epk-hero-subtitle">
+                    I help organizations, leaders, and institutions win attention in a distracted world and turn it into real growth.
+                </p>
+                <div class="epk-hero-buttons">
+                    <a href="#booking" class="btn-primary">
+                        Book Rob to Speak
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                    <button onclick="window.print()" class="btn-secondary">
+                        Download Press Kit
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="epk-hero-image">
+                <img src="../images/hero-portrait.png" alt="Rob Clark" onerror="this.style.background='linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%)'; this.style.display='flex'; this.alt='Photo Coming Soon';">
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider: Hero → About -->
+    <div class="section-divider divider-dark-to-light">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,40 Q360,70 720,45 Q1080,20 1440,50 L1440,0 Z" fill="#000"/>
+            <path d="M0,40 Q360,70 720,45 Q1080,20 1440,50 L1440,70 L0,70 Z" fill="#f5f0e8"/>
+        </svg>
+    </div>
+
+    <!-- ========== ABOUT SECTION ========== -->
+    <section class="section-light" id="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">About</div>
+                <h2 class="section-title fade-in">About Rob Clark</h2>
+            </div>
+            <div class="about-content fade-in">
+                <p class="about-text">
+                    Rob Clark is a speaker, strategist, author, and creator who has built one of the most successful organic social media brands in the world. As the founder of That Tall Family, Rob and his family have generated over 5 billion views and built a following of more than 4 million people across Instagram, TikTok, YouTube, Facebook, and LinkedIn without relying on paid ads.
+                </p>
+                <br>
+                <p class="about-text">
+                    His work sits at the intersection of attention, storytelling, leadership, and culture. Rob has worked with brands, universities, nonprofits, and entrepreneurs who know they need to be visible but lack a clear strategy for how attention actually works today.
+                </p>
+                <br>
+                <p class="about-text">
+                    His talks are practical, direct, and grounded in real world experience, not trends or tactics that expire in six months. Rob lives just south of Nashville, Tennessee, and speaks nationally.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider: About → Philosophy -->
+    <div class="section-divider divider-light-to-dark">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,30 Q360,60 720,35 Q1080,10 1440,45 L1440,0 Z" fill="#f5f0e8"/>
+            <path d="M0,30 Q360,60 720,35 Q1080,10 1440,45 L1440,70 L0,70 Z" fill="#0a0a0a"/>
+        </svg>
+    </div>
+
+    <!-- ========== PHILOSOPHY SECTION ========== -->
+    <section class="section-dark-gradient" id="philosophy">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Approach</div>
+                <h2 class="section-title fade-in">Speaking Philosophy</h2>
+            </div>
+            <div class="philosophy-grid">
+                <div class="philosophy-quotes fade-in">
+                    <p class="philosophy-quote">Attention has changed. Trust has changed. Influence has changed.</p>
+                    <p class="philosophy-quote">Most organizations know they need to show up online but very few understand how attention actually works or how to earn it without compromising their values.</p>
+                </div>
+                <div class="philosophy-approach fade-in">
+                    <h3>Rob's Approach</h3>
+                    <div class="approach-item">
+                        <span>Clarity</span> beats complexity.
+                    </div>
+                    <div class="approach-item">
+                        <span>Story</span> beats noise.
+                    </div>
+                    <div class="approach-item">
+                        <span>Consistency</span> beats virality.
+                    </div>
+                    <p class="philosophy-closing">
+                        "Every talk is designed to leave audiences with clarity, confidence, and practical next steps they can apply immediately."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider: Philosophy → Keynotes -->
+    <div class="section-divider divider-dark-to-light">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,35 Q360,5 720,40 Q1080,70 1440,30 L1440,0 Z" fill="#0a0a0a"/>
+            <path d="M0,35 Q360,5 720,40 Q1080,70 1440,30 L1440,70 L0,70 Z" fill="#f5f0e8"/>
+        </svg>
+    </div>
+
+    <!-- ========== KEYNOTES SECTION ========== -->
+    <section class="section-light-warm" id="keynotes">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Keynotes</div>
+                <h2 class="section-title fade-in">Signature Keynotes</h2>
+                <p class="section-subtitle fade-in">Each keynote is designed to inspire and equip your audience with actionable insights.</p>
+            </div>
+            <div class="keynotes-grid">
+                <!-- Keynote 1 -->
+                <div class="keynote-card fade-in">
+                    <div class="keynote-header" onclick="toggleKeynote(this)">
+                        <h3>The Most Important Skill Every Brand Needs Now: Earning Attention</h3>
+                        <div class="keynote-toggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </div>
+                    </div>
+                    <div class="keynote-body">
+                        <p class="keynote-description">
+                            Attention is no longer guaranteed. It must be earned. In this keynote, Rob breaks down how attention actually works today, why most organizations are invisible without realizing it, and how to build relevance without selling your soul or chasing trends.
+                        </p>
+                        <div class="keynote-takeaways">
+                            <h4>Key Takeaways</h4>
+                            <ul>
+                                <li>How attention has shifted and why traditional marketing is failing</li>
+                                <li>Why short form content drives long term trust</li>
+                                <li>How to communicate clearly in a noisy world</li>
+                                <li>What actually converts views into influence</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Keynote 2 -->
+                <div class="keynote-card fade-in">
+                    <div class="keynote-header" onclick="toggleKeynote(this)">
+                        <h3>From Views to Value: Turning Attention Into Real Growth</h3>
+                        <div class="keynote-toggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </div>
+                    </div>
+                    <div class="keynote-body">
+                        <p class="keynote-description">
+                            Millions of views mean nothing if they do not lead to action. Rob walks audiences through how to turn attention into trust, trust into momentum, and momentum into measurable outcomes.
+                        </p>
+                        <div class="keynote-takeaways">
+                            <h4>Key Takeaways</h4>
+                            <ul>
+                                <li>Why most content fails to convert</li>
+                                <li>How to build credibility at scale</li>
+                                <li>What real growth looks like beyond likes and followers</li>
+                                <li>How to move people from watching to acting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Keynote 3 -->
+                <div class="keynote-card fade-in">
+                    <div class="keynote-header" onclick="toggleKeynote(this)">
+                        <h3>Made for Influence: Showing Up Without Apology</h3>
+                        <div class="keynote-toggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </div>
+                    </div>
+                    <div class="keynote-body">
+                        <p class="keynote-description">
+                            This talk is for leaders, believers, and builders who feel called to influence culture but feel pressure to shrink back. Rob shares his personal journey and challenges audiences to stop waiting for permission to show up with clarity and courage.
+                        </p>
+                        <div class="keynote-takeaways">
+                            <h4>Key Takeaways</h4>
+                            <ul>
+                                <li>Why influence is a responsibility not an ego play</li>
+                                <li>How faith and visibility can coexist</li>
+                                <li>What obedience looks like in a public world</li>
+                                <li>How to lead with conviction instead of fear</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Keynote 4 -->
+                <div class="keynote-card fade-in">
+                    <div class="keynote-header" onclick="toggleKeynote(this)">
+                        <h3>Attention Gap: How Colleges and Institutions Win in a Distracted World</h3>
+                        <div class="keynote-toggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </div>
+                    </div>
+                    <div class="keynote-body">
+                        <p class="keynote-description">
+                            Higher education and nonprofits are facing an attention crisis. Rob helps institutions understand why posting more is not the answer and what actually creates relevance with the next generation.
+                        </p>
+                        <div class="keynote-takeaways">
+                            <h4>Key Takeaways</h4>
+                            <ul>
+                                <li>Why most institutional social media fails</li>
+                                <li>How to build trust with Gen Z and Millennials</li>
+                                <li>What content actually earns attention for colleges</li>
+                                <li>How to align mission with modern communication</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider: Keynotes → Custom Talks -->
+    <div class="section-divider divider-light-to-dark">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,25 Q360,55 720,30 Q1080,5 1440,40 L1440,0 Z" fill="#f5f0e8"/>
+            <path d="M0,25 Q360,55 720,30 Q1080,5 1440,40 L1440,70 L0,70 Z" fill="#0a0a0a"/>
+        </svg>
+    </div>
+
+    <!-- ========== CUSTOM TALKS SECTION ========== -->
+    <section class="section-dark" id="custom">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Customize</div>
+                <h2 class="section-title fade-in">Custom Talks & Workshops</h2>
+                <p class="section-subtitle fade-in" style="color: var(--color-text-secondary-on-dark);">Rob regularly creates custom keynotes, breakout sessions, and workshops tailored to your audience.</p>
+            </div>
+            <div class="custom-talks-grid">
+                <div class="custom-talks-audiences fade-in">
+                    <h3>Audiences</h3>
+                    <ul>
+                        <li>Universities and student leadership programs</li>
+                        <li>Faculty and staff professional development</li>
+                        <li>Nonprofit and ministry leadership teams</li>
+                        <li>Entrepreneur and business groups</li>
+                    </ul>
+                </div>
+                <div class="custom-talks-topics fade-in">
+                    <h3>Topics Can Be Tailored Around</h3>
+                    <ul>
+                        <li>Social Media Strategy</li>
+                        <li>Leadership and Culture</li>
+                        <li>Brand Clarity</li>
+                        <li>Content Systems</li>
+                        <li>Faith and Influence</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider: Custom Talks → Tags -->
+    <div class="section-divider divider-dark-to-light">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,40 Q360,10 720,45 Q1080,75 1440,35 L1440,0 Z" fill="#0a0a0a"/>
+            <path d="M0,40 Q360,10 720,45 Q1080,75 1440,35 L1440,70 L0,70 Z" fill="#f5f0e8"/>
+        </svg>
+    </div>
+
+    <!-- ========== TAGS SECTION ========== -->
+    <section class="section-light tags-section" id="topics">
+        <div class="container">
+            <div class="tags-group fade-in">
+                <h3>Popular Topics</h3>
+                <div class="tags-list">
+                    <span class="tag">Attention Economics</span>
+                    <span class="tag">Social Media Strategy</span>
+                    <span class="tag">Brand Building</span>
+                    <span class="tag">Leadership and Culture</span>
+                    <span class="tag">Faith and Influence</span>
+                    <span class="tag">Entrepreneurship</span>
+                    <span class="tag">Storytelling That Converts</span>
+                </div>
+            </div>
+            <div class="tags-group fade-in">
+                <h3>Primary Audiences</h3>
+                <div class="tags-list">
+                    <span class="tag">Universities and Colleges</span>
+                    <span class="tag">Nonprofits and Faith Based Organizations</span>
+                    <span class="tag">Businesses and Leadership Teams</span>
+                    <span class="tag">Conferences and Events</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider: Tags → Testimonials -->
+    <div class="section-divider divider-light-to-dark">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,30 Q360,65 720,35 Q1080,5 1440,45 L1440,0 Z" fill="#f5f0e8"/>
+            <path d="M0,30 Q360,65 720,35 Q1080,5 1440,45 L1440,70 L0,70 Z" fill="#0a0a0a"/>
+        </svg>
+    </div>
+
+    <!-- ========== TESTIMONIALS SECTION ========== -->
+    <section class="section-dark-gradient" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Feedback</div>
+                <h2 class="section-title fade-in">Audience Feedback</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">Rob didn't just inspire our audience. He gave us a framework we're actually using.</p>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">This was the most practical talk we've had all year.</p>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">He understands attention because he's lived it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider: Testimonials → Credentials -->
+    <div class="section-divider divider-dark-to-light">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,35 Q360,5 720,40 Q1080,70 1440,30 L1440,0 Z" fill="#0a0a0a"/>
+            <path d="M0,35 Q360,5 720,40 Q1080,70 1440,30 L1440,70 L0,70 Z" fill="#f5f0e8"/>
+        </svg>
+    </div>
+
+    <!-- ========== CREDENTIALS SECTION ========== -->
+    <section class="section-light" id="credentials">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Credentials</div>
+                <h2 class="section-title fade-in">Media & Credentials</h2>
+            </div>
+            <div class="credentials-grid">
+                <div class="credential-card fade-in">
+                    <div class="credential-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </div>
+                    <div class="credential-value">5B+</div>
+                    <div class="credential-label">Organic views across platforms</div>
+                </div>
+                <div class="credential-card fade-in">
+                    <div class="credential-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <div class="credential-value">4M+</div>
+                    <div class="credential-label">Followers</div>
+                </div>
+                <div class="credential-card fade-in">
+                    <div class="credential-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                    </div>
+                    <div class="credential-value">Author</div>
+                    <div class="credential-label">Growing Your Influence</div>
+                </div>
+                <div class="credential-card fade-in">
+                    <div class="credential-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                    </div>
+                    <div class="credential-value">Founder</div>
+                    <div class="credential-label">That Tall Family</div>
+                </div>
+                <div class="credential-card fade-in">
+                    <div class="credential-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+                    </div>
+                    <div class="credential-value">Speaker</div>
+                    <div class="credential-label">Universities, nonprofits, churches, brands</div>
+                </div>
+                <div class="credential-card fade-in">
+                    <div class="credential-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+                    </div>
+                    <div class="credential-value">Consultant</div>
+                    <div class="credential-label">Visibility and growth strategy</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider: Credentials → Tech -->
+    <div class="section-divider divider-light-to-dark">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,25 Q360,55 720,30 Q1080,5 1440,40 L1440,0 Z" fill="#f5f0e8"/>
+            <path d="M0,25 Q360,55 720,30 Q1080,5 1440,40 L1440,70 L0,70 Z" fill="#0a0a0a"/>
+        </svg>
+    </div>
+
+    <!-- ========== TECH REQUIREMENTS SECTION ========== -->
+    <section class="section-dark" id="tech">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Logistics</div>
+                <h2 class="section-title fade-in">Tech Requirements</h2>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item fade-in">
+                    <div class="tech-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+                    </div>
+                    <h4>Wireless Microphone</h4>
+                </div>
+                <div class="tech-item fade-in">
+                    <div class="tech-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="15" x="2" y="3" rx="2"/><polyline points="8 21 12 17 16 21"/></svg>
+                    </div>
+                    <h4>Large Screen or Projector</h4>
+                </div>
+                <div class="tech-item fade-in">
+                    <div class="tech-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a2 2 0 0 1 2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1a2 2 0 1 1 0-4V8a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v1a2 2 0 0 1-2 2Z"/></svg>
+                    </div>
+                    <h4>HDMI Connection</h4>
+                </div>
+            </div>
+            <p class="tech-note fade-in">"Rob can adapt to most environments."</p>
+        </div>
+    </section>
+
+    <!-- Divider: Tech → Booking -->
+    <div class="section-divider divider-dark-to-light">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,40 Q360,10 720,45 Q1080,75 1440,35 L1440,0 Z" fill="#0a0a0a"/>
+            <path d="M0,40 Q360,10 720,45 Q1080,75 1440,35 L1440,70 L0,70 Z" fill="#f5f0e8"/>
+        </svg>
+    </div>
+
+    <!-- ========== BOOKING FORM SECTION ========== -->
+    <section class="section-light-warm booking-section" id="booking">
+        <div class="container">
+            <div class="booking-content">
+                <div class="section-header" style="text-align: left; margin-bottom: 40px;">
+                    <div class="section-label" style="justify-content: flex-start;">
+                        <span style="display: none;"></span>
+                        Book Rob
+                    </div>
+                    <h2 class="section-title fade-in">Booking Contact</h2>
+                    <p class="section-subtitle fade-in">Fill out the form below to inquire about booking Rob for your event.</p>
+                </div>
+                <form class="booking-form fade-in" action="https://formspree.io/f/xnnqgkjw" method="POST">
+                    <input type="hidden" name="_subject" value="EPK Booking Inquiry">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="your@email.com">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="organization">Organization</label>
+                            <input type="text" id="organization" name="organization" placeholder="Company, university, church, etc.">
+                        </div>
+                        <div class="form-group">
+                            <label for="event-date">Event Date</label>
+                            <input type="text" id="event-date" name="event_date" placeholder="e.g., March 15, 2026">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-type">Event Type</label>
+                        <select id="event-type" name="event_type">
+                            <option value="">Select event type...</option>
+                            <option value="Conference">Conference</option>
+                            <option value="University">University</option>
+                            <option value="Church/Nonprofit">Church/Nonprofit</option>
+                            <option value="Corporate">Corporate</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required placeholder="Tell us about your event, audience, and what you're looking for..."></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">
+                            Send Inquiry
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </button>
+                        <button type="button" onclick="window.print()" class="btn-secondary">
+                            Download Press Kit
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="epk-footer">
+        <div class="container">
+            <p>&copy; 2025 Rob Clark. All rights reserved. <a href="/">Back to main site</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Keynote accordion toggle
+        function toggleKeynote(header) {
+            const card = header.parentElement;
+            const wasActive = card.classList.contains('active');
+
+            // Close all cards
+            document.querySelectorAll('.keynote-card').forEach(c => {
+                c.classList.remove('active');
+            });
+
+            // Open clicked card if it wasn't already open
+            if (!wasActive) {
+                card.classList.add('active');
+            }
+        }
+
+        // Open first keynote by default
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstKeynote = document.querySelector('.keynote-card');
+            if (firstKeynote) {
+                firstKeynote.classList.add('active');
+            }
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
