@@ -994,83 +994,50 @@
             margin-top: 32px;
         }
 
-        /* ---- Built for Attention Section ---- */
-        .social-proof-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .social-proof-stats {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
-
-        .social-proof-stat {
-            text-align: left;
-        }
-
-        .social-proof-stat-value {
-            font-family: var(--font-heading);
-            font-size: 4.5rem;
-            font-weight: 800;
-            color: var(--color-accent);
-            line-height: 1;
-            margin-bottom: 8px;
-        }
-
-        .social-proof-stat-label {
-            font-size: 1.1rem;
-            color: var(--color-text-secondary-on-dark);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .social-proof-image {
-            position: relative;
-        }
-
-        .social-proof-image img {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 12px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-        }
-
-        .social-proof-award {
+        /* ---- Built for Attention Section (Editorial Design) ---- */
+        .social-proof-content {
             text-align: center;
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: var(--color-text-secondary-on-dark);
-            font-style: italic;
-        }
-
-        /* ========================================
-           VIDEO EMBED SECTION
-           ======================================== */
-        .video-embed-wrapper {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        .video-embed-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        .social-proof-image {
+            margin-bottom: 60px;
         }
 
-        .video-embed-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .social-proof-image img {
+            max-width: 650px;
             width: 100%;
-            height: 100%;
-            border: none;
+            filter: drop-shadow(0 0 60px rgba(212, 168, 67, 0.4)) drop-shadow(0 0 120px rgba(212, 168, 67, 0.2));
+        }
+
+        .social-proof-statement {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .social-proof-statement p {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1.6;
+            color: var(--color-text-light);
+            letter-spacing: 0.02em;
+        }
+
+        .social-proof-statement .highlight {
+            color: var(--color-accent);
+            font-weight: 500;
+        }
+
+        .social-proof-statement .closing {
+            display: block;
+            margin-top: 24px;
+            font-style: normal;
+            font-weight: 500;
+            color: var(--color-text-secondary-on-dark);
         }
 
         .about-credentials {
@@ -2066,6 +2033,18 @@
                 width: 60px;
             }
 
+            .social-proof-image img {
+                max-width: 400px;
+            }
+
+            .social-proof-statement p {
+                font-size: 1.5rem;
+            }
+
+            .social-proof-image {
+                margin-bottom: 40px;
+            }
+
             .keynotes-grid-expandable {
                 grid-template-columns: 1fr;
                 gap: 16px;
@@ -2238,42 +2217,6 @@
         </div>
     </div>
 
-    <!-- Curved divider: Logos (cream) → Quote (dark) -->
-    <div class="section-divider divider-light-to-dark">
-        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,0 L0,30 Q360,70 720,40 Q1080,10 1440,50 L1440,0 Z" fill="#f5f0e8"/>
-            <path d="M0,30 Q360,70 720,40 Q1080,10 1440,50 L1440,70 L0,70 Z" fill="#0a0a0a"/>
-        </svg>
-    </div>
-
-    <!-- ========== VIDEO SECTION (DARK) ========== -->
-    <section class="section-dark-gradient" id="video-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title fade-in">The Power of Social Media</h2>
-            </div>
-            <div class="video-embed-wrapper fade-in">
-                <div class="video-embed-container">
-                    <iframe
-                        src="https://www.youtube.com/embed/7WEAW1RXGKA?start=0&end=14&rel=0&modestbranding=1"
-                        title="The Power of Social Media - Rob Clark"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Curved divider: Quote (dark) → About (cream) -->
-    <div class="section-divider divider-dark-to-light" style="background:#0a0a0a;">
-        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,0 L0,25 Q240,60 480,45 Q720,30 960,50 Q1200,70 1440,35 L1440,0 Z" fill="#0a0a0a"/>
-            <path d="M0,25 Q240,60 480,45 Q720,30 960,50 Q1200,70 1440,35 L1440,70 L0,70 Z" fill="#f5f0e8"/>
-        </svg>
-    </div>
-
     <!-- ========== ABOUT SECTION (LIGHT / CREAM) ========== -->
     <section class="section-light" id="about">
         <div class="container">
@@ -2316,27 +2259,16 @@
     <!-- ========== BUILT FOR ATTENTION (DARK) ========== -->
     <section class="section-dark-gradient" id="social-proof">
         <div class="container">
-            <div class="section-header">
-                <div class="section-label">Social Proof</div>
-                <h2 class="section-title fade-in">Built for Attention</h2>
-            </div>
-            <div class="social-proof-grid">
-                <div class="social-proof-stats">
-                    <div class="social-proof-stat fade-in">
-                        <div class="social-proof-stat-content">
-                            <div class="social-proof-stat-value count-up" data-target="5">5B+</div>
-                            <div class="social-proof-stat-label">Organic Views</div>
-                        </div>
-                    </div>
-                    <div class="social-proof-stat fade-in">
-                        <div class="social-proof-stat-content">
-                            <div class="social-proof-stat-value count-up" data-target="4">4M+</div>
-                            <div class="social-proof-stat-label">Followers</div>
-                        </div>
-                    </div>
-                </div>
+            <div class="social-proof-content">
                 <div class="social-proof-image fade-in">
                     <img src="images/playbuttons.png" alt="YouTube Gold and Silver Play Button Awards - That Tall Family">
+                </div>
+                <div class="social-proof-statement fade-in">
+                    <p>
+                        <span class="highlight">Over 4 million followers.</span>
+                        <span class="highlight">Over 5 billion organic views.</span>
+                        <span class="closing">Not built on theory. Built on experience.</span>
+                    </p>
                 </div>
             </div>
         </div>
