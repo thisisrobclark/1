@@ -1002,33 +1002,41 @@
             align-items: center;
         }
 
+        .social-proof-statement {
+            order: 1;
+        }
+
         .social-proof-image {
+            order: 2;
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
         }
 
         .social-proof-image img {
-            width: 500px;
+            width: 520px;
             max-width: 100%;
-            filter: drop-shadow(0 20px 60px rgba(212, 168, 67, 0.35)) drop-shadow(0 10px 30px rgba(212, 168, 67, 0.25));
+            filter: drop-shadow(0 20px 80px rgba(212, 168, 67, 0.4)) drop-shadow(0 10px 40px rgba(212, 168, 67, 0.3));
         }
 
-        .social-proof-statement h2 {
+        .social-proof-statement .stat-line {
             font-family: var(--font-heading);
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 800;
-            line-height: 1.2;
+            line-height: 1.25;
             color: var(--color-text-light);
+            display: block;
         }
 
-        .social-proof-statement .accent {
+        .social-proof-statement .stat-line .number {
             color: var(--color-accent);
         }
 
         .social-proof-statement .closing {
             display: block;
-            margin-top: 16px;
+            margin-top: 28px;
+            font-size: 1.15rem;
             color: var(--color-text-secondary-on-dark);
+            line-height: 1.8;
         }
 
         .about-credentials {
@@ -1841,17 +1849,22 @@
                 text-align: center;
             }
 
+            .social-proof-statement {
+                order: 2;
+            }
+
             .social-proof-image {
-                order: -1;
+                order: 1;
+                justify-content: center;
             }
 
             .social-proof-image img {
-                width: 400px;
+                width: 450px;
                 max-width: 100%;
             }
 
-            .social-proof-statement h2 {
-                font-size: 2.5rem;
+            .social-proof-statement .stat-line {
+                font-size: 2.6rem;
             }
 
             .about-video-wrapper {
@@ -2029,8 +2042,12 @@
                 max-width: 100%;
             }
 
-            .social-proof-statement h2 {
+            .social-proof-statement .stat-line {
                 font-size: 2rem;
+            }
+
+            .social-proof-statement .closing {
+                font-size: 1rem;
             }
 
             .keynotes-grid-expandable {
@@ -2248,15 +2265,13 @@
     <section class="section-dark-gradient" id="social-proof">
         <div class="container">
             <div class="social-proof-grid">
-                <div class="social-proof-image fade-in">
-                    <img src="images/playbuttons_transparent.png" alt="YouTube Gold and Silver Play Button Awards - That Tall Family">
-                </div>
                 <div class="social-proof-statement fade-in">
-                    <h2>
-                        <span class="accent">Over 4 million followers.</span>
-                        <span class="accent">Over 5 billion organic views.</span>
-                        <span class="closing">Not built on theory. Built on experience.</span>
-                    </h2>
+                    <span class="stat-line"><span class="number">4+ million</span> followers.</span>
+                    <span class="stat-line"><span class="number">5+ billion</span> organic views.</span>
+                    <span class="closing">Not built on theory. Built on experience.</span>
+                </div>
+                <div class="social-proof-image fade-in">
+                    <img src="images/playbuttons_clean.png" alt="YouTube Gold and Silver Play Button Awards - That Tall Family">
                 </div>
             </div>
         </div>
