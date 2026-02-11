@@ -995,10 +995,15 @@
         }
 
         /* ---- Built for Attention Section (Hero Style) ---- */
+        #social-proof {
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+
         .social-proof-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            gap: 60px;
             align-items: center;
         }
 
@@ -1017,32 +1022,45 @@
             width: 520px;
             max-width: 100%;
             background: transparent;
+            filter: drop-shadow(0 0 80px rgba(179, 128, 65, 0.4)) drop-shadow(0 0 160px rgba(179, 128, 65, 0.15));
         }
 
         .social-proof-headline {
             font-family: var(--font-heading);
-            font-size: 3.2rem;
+            font-size: 2.8rem;
             font-weight: 800;
             line-height: 1.2;
             color: var(--color-text-light);
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .social-proof-stats {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 32px;
         }
 
         .social-proof-stat {
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--color-text-light);
+            display: flex;
+            flex-direction: column;
         }
 
         .social-proof-stat .number {
+            font-family: var(--font-heading);
+            font-size: 5.5rem;
+            font-weight: 800;
+            line-height: 1;
             color: var(--color-accent);
+        }
+
+        .social-proof-stat .label {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--color-text-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 8px;
         }
 
         .about-credentials {
@@ -1870,12 +1888,16 @@
             }
 
             .social-proof-headline {
-                font-size: 2.6rem;
+                font-size: 2.4rem;
                 margin-bottom: 30px;
             }
 
+            .social-proof-stat .number {
+                font-size: 4.5rem;
+            }
+
             .social-proof-stats {
-                justify-content: center;
+                gap: 24px;
             }
 
             .about-video-wrapper {
@@ -2054,12 +2076,12 @@
             }
 
             .social-proof-headline {
-                font-size: 2rem;
-                margin-bottom: 24px;
+                font-size: 1.8rem;
+                margin-bottom: 20px;
             }
 
-            .social-proof-stat {
-                font-size: 1.2rem;
+            .social-proof-stat .number {
+                font-size: 3.5rem;
             }
 
             .keynotes-grid-expandable {
@@ -2280,8 +2302,14 @@
                 <div class="social-proof-statement fade-in">
                     <h2 class="social-proof-headline">Not built on theory.<br>Built on experience.</h2>
                     <div class="social-proof-stats">
-                        <div class="social-proof-stat"><span class="number">4+ Million</span> Followers</div>
-                        <div class="social-proof-stat"><span class="number">5+ Billion</span> Organic Views</div>
+                        <div class="social-proof-stat">
+                            <span class="number">4+ Million</span>
+                            <span class="label">Followers</span>
+                        </div>
+                        <div class="social-proof-stat">
+                            <span class="number">5+ Billion</span>
+                            <span class="label">Organic Views</span>
+                        </div>
                     </div>
                 </div>
                 <div class="social-proof-image fade-in">
@@ -2291,11 +2319,78 @@
         </div>
     </section>
 
-    <!-- Curved divider: Built for Attention (dark) → Speaking (dark) -->
-    <div class="section-divider" style="background: linear-gradient(135deg, #0a0a0a 0%, #14120f 40%, #0d0b08 70%, #0a0a0a 100%);">
+    <!-- Curved divider: Built for Attention (dark) → Books (cream) -->
+    <div class="section-divider divider-dark-to-light" style="background:#0a0a0a;">
         <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,0 L0,35 Q360,65 720,35 Q1080,5 1440,40 L1440,0 Z" fill="#0a0a0a"/>
-            <path d="M0,35 Q360,65 720,35 Q1080,5 1440,40 L1440,70 L0,70 Z" fill="#0a0a0a"/>
+            <path d="M0,0 L0,40 Q280,10 560,35 Q840,60 1120,30 Q1300,15 1440,45 L1440,0 Z" fill="#0a0a0a"/>
+            <path d="M0,40 Q280,10 560,35 Q840,60 1120,30 Q1300,15 1440,45 L1440,70 L0,70 Z" fill="#f5f0e8"/>
+        </svg>
+    </div>
+
+    <!-- ========== BOOKS SECTION (LIGHT / CREAM) ========== -->
+    <section class="section-light-warm" id="books">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Published Works</div>
+                <h2 class="section-title fade-in">Books by Rob Clark</h2>
+                <p class="section-subtitle fade-in">
+                    Rob's books explore influence, attention, leadership, and culture &mdash; blending real-world results with faith, ethics, and long-term thinking.
+                </p>
+            </div>
+            <div class="books-grid">
+                <!-- Book 1: Attention Gap -->
+                <div class="book-card fade-in fade-in-delay-1">
+                    <a href="https://a.co/d/0iEp2sgY" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <div class="book-cover">
+                            <img src="images/attention-gap.jpg" alt="Attention Gap: Why Great Schools Stay Invisible and How To Fix It by Chris Rapozo and Rob Clark">
+                        </div>
+                    </a>
+                    <h3 class="book-title">Attention Gap</h3>
+                    <p class="book-meta">Why Great Schools Stay Invisible &amp; How to Fix It</p>
+                    <a href="https://a.co/d/0iEp2sgY" target="_blank" rel="noopener noreferrer" class="book-buy-btn">
+                        Get the Book
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2"/><path d="M7 7h10v10"/></svg>
+                    </a>
+                </div>
+
+                <!-- Book 2: 4 Billion Views -->
+                <div class="book-card fade-in fade-in-delay-2">
+                    <a href="https://a.co/d/0ij4XFy8" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <div class="book-cover">
+                            <img src="images/4-billion-views.jpg" alt="4 Billion Views: How We Built a Social Media Brand from Scratch by Rob Clark">
+                        </div>
+                    </a>
+                    <h3 class="book-title">4 Billion Views</h3>
+                    <p class="book-meta">How We Built a Social Media Brand from Scratch</p>
+                    <a href="https://a.co/d/0ij4XFy8" target="_blank" rel="noopener noreferrer" class="book-buy-btn">
+                        Get the Book
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2"/><path d="M7 7h10v10"/></svg>
+                    </a>
+                </div>
+
+                <!-- Book 3: Growing Your Influence -->
+                <div class="book-card fade-in fade-in-delay-3">
+                    <a href="https://a.co/d/0gYqels0" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <div class="book-cover">
+                            <img src="images/growing-your-influence.jpg" alt="Growing Your Influence: Social Media Strategies for a New Generation by Rob Clark">
+                        </div>
+                    </a>
+                    <h3 class="book-title">Growing Your Influence</h3>
+                    <p class="book-meta">Social Media Strategies for a New Generation</p>
+                    <a href="https://a.co/d/0gYqels0" target="_blank" rel="noopener noreferrer" class="book-buy-btn">
+                        Get the Book
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2"/><path d="M7 7h10v10"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curved divider: Books (cream) → Speaking (dark) -->
+    <div class="section-divider divider-light-to-dark">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,30 Q360,70 720,40 Q1080,10 1440,50 L1440,0 Z" fill="#f5f0e8"/>
+            <path d="M0,30 Q360,70 720,40 Q1080,10 1440,50 L1440,70 L0,70 Z" fill="#0a0a0a"/>
         </svg>
     </div>
 
@@ -2437,72 +2532,13 @@
         </div>
     </section>
 
-    <!-- Curved divider: Speaking (dark) → Books (cream) -->
+    <!-- Curved divider: Speaking (dark) → CTA (cream) -->
     <div class="section-divider divider-dark-to-light" style="background:#0a0a0a;">
         <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0,0 L0,40 Q280,10 560,35 Q840,60 1120,30 Q1300,15 1440,45 L1440,0 Z" fill="#0a0a0a"/>
             <path d="M0,40 Q280,10 560,35 Q840,60 1120,30 Q1300,15 1440,45 L1440,70 L0,70 Z" fill="#f5f0e8"/>
         </svg>
     </div>
-
-    <!-- ========== BOOKS SECTION (LIGHT / CREAM) ========== -->
-    <section class="section-light-warm" id="books">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">Published Works</div>
-                <h2 class="section-title fade-in">Books by Rob Clark</h2>
-                <p class="section-subtitle fade-in">
-                    Rob's books explore influence, attention, leadership, and culture &mdash; blending real-world results with faith, ethics, and long-term thinking.
-                </p>
-            </div>
-            <div class="books-grid">
-                <!-- Book 1: Attention Gap -->
-                <div class="book-card fade-in fade-in-delay-1">
-                    <a href="https://a.co/d/0iEp2sgY" target="_blank" rel="noopener noreferrer" class="book-link">
-                        <div class="book-cover">
-                            <img src="images/attention-gap.jpg" alt="Attention Gap: Why Great Schools Stay Invisible and How To Fix It by Chris Rapozo and Rob Clark">
-                        </div>
-                    </a>
-                    <h3 class="book-title">Attention Gap</h3>
-                    <p class="book-meta">Why Great Schools Stay Invisible &amp; How to Fix It</p>
-                    <a href="https://a.co/d/0iEp2sgY" target="_blank" rel="noopener noreferrer" class="book-buy-btn">
-                        Get the Book
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2"/><path d="M7 7h10v10"/></svg>
-                    </a>
-                </div>
-
-                <!-- Book 2: 4 Billion Views -->
-                <div class="book-card fade-in fade-in-delay-2">
-                    <a href="https://a.co/d/0ij4XFy8" target="_blank" rel="noopener noreferrer" class="book-link">
-                        <div class="book-cover">
-                            <img src="images/4-billion-views.jpg" alt="4 Billion Views: How We Built a Social Media Brand from Scratch by Rob Clark">
-                        </div>
-                    </a>
-                    <h3 class="book-title">4 Billion Views</h3>
-                    <p class="book-meta">How We Built a Social Media Brand from Scratch</p>
-                    <a href="https://a.co/d/0ij4XFy8" target="_blank" rel="noopener noreferrer" class="book-buy-btn">
-                        Get the Book
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2"/><path d="M7 7h10v10"/></svg>
-                    </a>
-                </div>
-
-                <!-- Book 3: Growing Your Influence -->
-                <div class="book-card fade-in fade-in-delay-3">
-                    <a href="https://a.co/d/0gYqels0" target="_blank" rel="noopener noreferrer" class="book-link">
-                        <div class="book-cover">
-                            <img src="images/growing-your-influence.jpg" alt="Growing Your Influence: Social Media Strategies for a New Generation by Rob Clark">
-                        </div>
-                    </a>
-                    <h3 class="book-title">Growing Your Influence</h3>
-                    <p class="book-meta">Social Media Strategies for a New Generation</p>
-                    <a href="https://a.co/d/0gYqels0" target="_blank" rel="noopener noreferrer" class="book-buy-btn">
-                        Get the Book
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2"/><path d="M7 7h10v10"/></svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- ========== CTA SECTION (LIGHT / CREAM) ========== -->
     <section class="cta-section section-light-warm" id="contact">
