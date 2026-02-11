@@ -661,16 +661,6 @@
             line-height: 1.8;
         }
 
-        /* ========================================
-           LOGO CAROUSEL (LIGHT SECTION)
-           ======================================== */
-        .logos-section {
-            padding: 40px 0;
-            background: var(--color-bg-cream);
-            overflow: hidden;
-            margin-top: -1px;
-        }
-
         /* ---- As Featured In (press bar) ---- */
         .press-bar {
             padding: 36px 0 28px;
@@ -711,102 +701,6 @@
             height: 36px;
             width: auto;
             display: block;
-        }
-
-        .logos-label {
-            text-align: center;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--color-text-on-light);
-            margin-bottom: 40px;
-        }
-
-        .logo-carousel {
-            overflow: hidden;
-            position: relative;
-            width: 100%;
-        }
-
-        /* Fade edges of carousel */
-        .logo-carousel::before,
-        .logo-carousel::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 120px;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .logo-carousel::before {
-            left: 0;
-            background: linear-gradient(to right, var(--color-bg-cream), transparent);
-        }
-
-        .logo-carousel::after {
-            right: 0;
-            background: linear-gradient(to left, var(--color-bg-cream), transparent);
-        }
-
-        .logo-carousel-track {
-            display: flex;
-            align-items: center;
-            animation: logoScroll 60s linear infinite;
-            width: max-content;
-        }
-
-        .logo-carousel-track:hover {
-            animation-play-state: paused;
-        }
-
-        .logo-slide {
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 40px;
-            height: 60px;
-        }
-
-        .logo-slide img {
-            height: 36px;
-            width: auto;
-            max-width: 120px;
-            object-fit: contain;
-            filter: grayscale(100%);
-            opacity: 0.45;
-            transition: all 0.4s ease;
-        }
-
-        .logo-slide img:hover {
-            filter: grayscale(0%);
-            opacity: 0.85;
-        }
-
-        /* Text-based logo fallback */
-        .logo-slide .logo-text {
-            font-family: var(--font-heading);
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--color-text-on-light);
-            opacity: 0.3;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            white-space: nowrap;
-            transition: all 0.4s ease;
-        }
-
-        .logo-slide .logo-text:hover {
-            opacity: 0.6;
-            color: var(--color-accent-dark);
-        }
-
-        @keyframes logoScroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
         }
 
         /* ========================================
@@ -2057,19 +1951,6 @@
                 align-items: center;
             }
 
-            .logo-slide {
-                padding: 0 24px;
-            }
-
-            .logo-slide img {
-                height: 28px;
-            }
-
-            .logo-carousel::before,
-            .logo-carousel::after {
-                width: 60px;
-            }
-
             .social-proof-image img {
                 width: 420px;
                 max-width: 100%;
@@ -2129,10 +2010,38 @@
             }
 
             .btn-primary, .btn-secondary {
-                padding: 14px 28px;
-                font-size: 0.8rem;
+                padding: 12px 20px;
+                font-size: 0.85rem;
                 width: 100%;
+                max-width: 100%;
                 justify-content: center;
+                box-sizing: border-box;
+            }
+
+            .hero-buttons {
+                width: 100%;
+                padding: 0;
+            }
+
+            .hero-buttons .btn-primary {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .btn-primary, .btn-secondary {
+                padding: 12px 16px;
+                font-size: 0.8rem;
+            }
+
+            .btn-primary svg, .btn-secondary svg {
+                width: 14px;
+                height: 14px;
             }
         }
     </style>
@@ -2202,64 +2111,12 @@
         </div>
     </section>
 
-    <!-- Curved divider: Hero (dark) → Trusted By (cream) with gold accent -->
+    <!-- Curved divider: Hero (dark) → About (cream) with gold accent -->
     <div class="section-divider divider-hero">
         <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0,0 L0,45 Q360,85 720,60 Q1080,35 1440,65 L1440,0 Z" fill="#000"/>
             <path d="M0,45 Q360,85 720,60 Q1080,35 1440,65 L1440,50 Q1080,40 720,65 Q360,90 0,50 Z" fill="#b38041"/>
             <path d="M0,50 Q360,90 720,65 Q1080,40 1440,70 L1440,100 L0,100 Z" fill="#f5f0e8"/>
-        </svg>
-    </div>
-
-    <!-- ========== BRAND LOGOS CAROUSEL (LIGHT) ========== -->
-    <div class="logos-section">
-        <div class="container">
-            <p class="logos-label">Trusted By</p>
-        </div>
-        <div class="logo-carousel">
-            <div class="logo-carousel-track" id="logoTrack">
-                <!-- First set -->
-                <div class="logo-slide"><span class="logo-text">Walmart</span></div>
-                <div class="logo-slide"><span class="logo-text">Warner Bros</span></div>
-                <div class="logo-slide"><span class="logo-text">Capital One</span></div>
-                <div class="logo-slide"><span class="logo-text">Samsung</span></div>
-                <div class="logo-slide"><span class="logo-text">General Mills</span></div>
-                <div class="logo-slide"><span class="logo-text">Goalrilla</span></div>
-                <div class="logo-slide"><span class="logo-text">Sam's Club</span></div>
-                <div class="logo-slide"><span class="logo-text">Ad Council</span></div>
-                <div class="logo-slide"><span class="logo-text">Aloha</span></div>
-                <div class="logo-slide"><span class="logo-text">Tropicana</span></div>
-                <div class="logo-slide"><span class="logo-text">Hasbro</span></div>
-                <div class="logo-slide"><span class="logo-text">Nerf</span></div>
-                <div class="logo-slide"><span class="logo-text">Papa Murphy's</span></div>
-                <div class="logo-slide"><span class="logo-text">Pillsbury</span></div>
-                <div class="logo-slide"><span class="logo-text">Lincoln Library &amp; Museum</span></div>
-                <!-- Duplicate set for seamless loop -->
-                <div class="logo-slide"><span class="logo-text">Walmart</span></div>
-                <div class="logo-slide"><span class="logo-text">Warner Bros</span></div>
-                <div class="logo-slide"><span class="logo-text">Capital One</span></div>
-                <div class="logo-slide"><span class="logo-text">Samsung</span></div>
-                <div class="logo-slide"><span class="logo-text">General Mills</span></div>
-                <div class="logo-slide"><span class="logo-text">Goalrilla</span></div>
-                <div class="logo-slide"><span class="logo-text">Sam's Club</span></div>
-                <div class="logo-slide"><span class="logo-text">Ad Council</span></div>
-                <div class="logo-slide"><span class="logo-text">Aloha</span></div>
-                <div class="logo-slide"><span class="logo-text">Tropicana</span></div>
-                <div class="logo-slide"><span class="logo-text">Hasbro</span></div>
-                <div class="logo-slide"><span class="logo-text">Nerf</span></div>
-                <div class="logo-slide"><span class="logo-text">Papa Murphy's</span></div>
-                <div class="logo-slide"><span class="logo-text">Pillsbury</span></div>
-                <div class="logo-slide"><span class="logo-text">Lincoln Library &amp; Museum</span></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Curved divider: Trusted By (cream) → About (cream) with gold accent -->
-    <div class="section-divider divider-logos-to-about">
-        <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,0 L0,45 Q360,75 720,50 Q1080,25 1440,55 L1440,0 Z" fill="#f5f0e8"/>
-            <path d="M0,45 Q360,75 720,50 Q1080,25 1440,55 L1440,60 Q1080,30 720,55 Q360,80 0,50 Z" fill="#b38041"/>
-            <path d="M0,50 Q360,80 720,55 Q1080,30 1440,60 L1440,100 L0,100 Z" fill="#f5f0e8"/>
         </svg>
     </div>
 
