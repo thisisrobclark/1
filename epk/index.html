@@ -679,9 +679,9 @@
            ======================================== */
         .credentials-hero {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-bottom: 40px;
         }
 
         .credential-hero-card {
@@ -730,6 +730,25 @@
             color: var(--color-text-secondary-on-light);
             text-transform: uppercase;
             letter-spacing: 2px;
+        }
+
+        .credentials-awards {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .credentials-awards img {
+            max-width: 500px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .awards-caption {
+            margin-top: 20px;
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--color-text-secondary-on-light);
         }
 
         .credentials-grid {
@@ -1087,9 +1106,17 @@
             }
 
             .credentials-hero {
-                grid-template-columns: 1fr 1fr !important;
+                grid-template-columns: 1fr 1fr 1fr !important;
                 gap: 20px !important;
                 margin-bottom: 30px !important;
+            }
+
+            .credentials-awards {
+                margin-bottom: 30px !important;
+            }
+
+            .credentials-awards img {
+                max-width: 300px !important;
             }
 
             .credential-hero-card {
@@ -1259,6 +1286,14 @@
 
             .credential-hero-value {
                 font-size: 3.5rem;
+            }
+
+            .credentials-awards {
+                margin-bottom: 40px;
+            }
+
+            .credentials-awards img {
+                max-width: 100%;
             }
 
             .credentials-grid {
@@ -1667,6 +1702,20 @@
                     <div class="credential-hero-value" data-count="4">4M+</div>
                     <div class="credential-hero-label">Followers</div>
                 </div>
+                <div class="credential-hero-card fade-in">
+                    <div class="credential-hero-icon">
+                        <!-- Lucide: Youtube -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+                    </div>
+                    <div class="credential-hero-value" data-count="1">1M+</div>
+                    <div class="credential-hero-label">YouTube Subscribers</div>
+                </div>
+            </div>
+
+            <!-- YouTube Play Button Awards -->
+            <div class="credentials-awards fade-in">
+                <img src="../images/playbuttons.png" alt="YouTube Gold and Silver Play Button Awards - That Tall Family">
+                <p class="awards-caption">Gold &amp; Silver YouTube Creator Award Recipient</p>
             </div>
 
             <!-- Credential Cards -->

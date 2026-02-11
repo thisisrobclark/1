@@ -987,6 +987,116 @@
             color: var(--color-text-secondary-on-light);
         }
 
+        .about-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        /* ---- Built for Attention Section ---- */
+        .social-proof-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .social-proof-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .social-proof-stat {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .social-proof-stat-icon {
+            width: 60px;
+            height: 60px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(212, 168, 67, 0.1);
+            border-radius: 12px;
+        }
+
+        .social-proof-stat-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--color-accent);
+            stroke-width: 1.5;
+        }
+
+        .social-proof-stat-content {
+            flex: 1;
+        }
+
+        .social-proof-stat-value {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--color-accent);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .social-proof-stat-label {
+            font-size: 1rem;
+            color: var(--color-text-secondary-on-dark);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .social-proof-image {
+            position: relative;
+        }
+
+        .social-proof-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 12px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .social-proof-award {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--color-text-secondary-on-dark);
+            font-style: italic;
+        }
+
+        /* ========================================
+           VIDEO EMBED SECTION
+           ======================================== */
+        .video-embed-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .video-embed-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-embed-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
         .about-credentials {
             display: flex;
             flex-wrap: wrap;
@@ -1116,6 +1226,159 @@
             gap: 32px;
             max-width: 780px;
             margin: 32px auto 0;
+        }
+
+        /* ========================================
+           EXPANDABLE KEYNOTE CARDS
+           ======================================== */
+        .keynotes-grid-expandable {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .keynote-card-expandable {
+            background: var(--color-bg-card-dark);
+            border: 1px solid var(--color-border-dark);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .keynote-card-expandable:hover {
+            border-color: var(--color-accent);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .keynote-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 32px;
+        }
+
+        .keynote-card-expandable .keynote-number {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--color-accent);
+            opacity: 0.3;
+            line-height: 1;
+            margin: 0;
+            flex-shrink: 0;
+        }
+
+        .keynote-header-content {
+            flex: 1;
+        }
+
+        .keynote-category {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-accent);
+            margin-bottom: 8px;
+        }
+
+        .keynote-card-expandable .keynote-title {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--color-text-light);
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .keynote-expand-icon {
+            flex-shrink: 0;
+            color: var(--color-text-secondary-on-dark);
+            transition: transform 0.3s ease;
+        }
+
+        .keynote-card-expandable.expanded .keynote-expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .keynote-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 32px;
+        }
+
+        .keynote-card-expandable.expanded .keynote-body {
+            max-height: 500px;
+            padding: 0 32px 32px;
+        }
+
+        .keynote-card-expandable .keynote-description {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--color-text-secondary-on-dark);
+            margin-bottom: 24px;
+        }
+
+        .keynote-takeaways {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+        }
+
+        .takeaways-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-accent);
+            margin-bottom: 12px;
+        }
+
+        .takeaways-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .takeaways-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--color-text-secondary-on-dark);
+        }
+
+        .takeaways-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .takeaways-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            background: var(--color-accent);
+            border-radius: 50%;
+        }
+
+        .keynote-card-expandable .keynote-link {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .keynote-card-expandable .keynote-link:hover {
+            gap: 12px;
         }
 
         /* ========================================
@@ -1634,6 +1897,29 @@
                 gap: 40px;
             }
 
+            .about-buttons {
+                justify-content: center;
+            }
+
+            .social-proof-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .social-proof-image {
+                order: -1;
+                text-align: center;
+            }
+
+            .social-proof-image img {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .social-proof-stat-value {
+                font-size: 2.8rem;
+            }
+
             .about-video-wrapper {
                 border-radius: 12px;
             }
@@ -1803,6 +2089,36 @@
             .logo-carousel::after {
                 width: 60px;
             }
+
+            .keynotes-grid-expandable {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .keynote-header {
+                padding: 24px;
+                gap: 16px;
+            }
+
+            .keynote-card-expandable .keynote-number {
+                font-size: 2rem;
+            }
+
+            .keynote-card-expandable .keynote-title {
+                font-size: 1.1rem;
+            }
+
+            .keynote-body {
+                padding: 0 24px;
+            }
+
+            .keynote-card-expandable.expanded .keynote-body {
+                padding: 0 24px 24px;
+            }
+
+            .video-embed-wrapper {
+                max-width: 100%;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1866,13 +2182,12 @@
         <div class="hero-bg"></div>
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge">Speaker &amp; Strategist</div>
                 <h1>
-                    Master the Skill Every Brand Needs.
-                    <span class="accent">How to Earn Attention.</span>
+                    Speaker. Strategist.<br>
+                    <span class="accent">Builder of Attention.</span>
                 </h1>
                 <p class="hero-subtitle">
-                    I help creators, businesses, and institutions win on social media, built on earning over 5 billion organic views and millions of followers without spending a dollar on ads.
+                    I help organizations, leaders, and institutions win attention in a distracted world and turn it into real growth.
                 </p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn-primary">
@@ -1907,7 +2222,7 @@
     <!-- ========== BRAND LOGOS CAROUSEL (LIGHT) ========== -->
     <div class="logos-section">
         <div class="container">
-            <p class="logos-label">Brand Influencer for Leading Brands</p>
+            <p class="logos-label">Trusted By</p>
         </div>
         <div class="logo-carousel">
             <div class="logo-carousel-track" id="logoTrack">
@@ -1955,13 +2270,22 @@
         </svg>
     </div>
 
-    <!-- ========== QUOTE / MESSAGE (DARK) ========== -->
-    <section class="section-dark-gradient">
+    <!-- ========== VIDEO SECTION (DARK) ========== -->
+    <section class="section-dark-gradient" id="video-section">
         <div class="container">
-            <div class="message-content fade-in">
-                <p class="message-quote featured-quote">
-                    One video can change everything.
-                </p>
+            <div class="section-header">
+                <h2 class="section-title fade-in">The Power of Social Media</h2>
+            </div>
+            <div class="video-embed-wrapper fade-in">
+                <div class="video-embed-container">
+                    <iframe
+                        src="https://www.youtube.com/embed/7WEAW1RXGKA?start=0&end=14&rel=0&modestbranding=1"
+                        title="The Power of Social Media - Rob Clark"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
             </div>
         </div>
     </section>
@@ -1984,23 +2308,28 @@
                     </video>
                 </div>
                 <div class="about-content">
-                    <h2 class="section-title fade-in">Creator, Strategist<br>&amp; Entrepreneur</h2>
+                    <h2 class="section-title fade-in">Speaker, Strategist,<br>Author &amp; Creator</h2>
                     <p class="about-text fade-in">
-                        Rob Clark is a creator, strategist, and entrepreneur focused on attention, storytelling, and growth in a distracted world. He is best known as the founder and face of <a href="https://thatttallfamily.com" target="_blank" rel="noopener noreferrer" class="text-link"><strong>That Tall Family</strong></a>, one of the largest family-friendly brands on social media &mdash; generating over <strong>5 billion views</strong> and building an audience of more than <strong>4 million followers</strong> across TikTok, Instagram, YouTube, and Facebook through organic content only.
+                        Rob Clark is a speaker, strategist, author, and creator who has built one of the most successful organic social media brands in the world. As the founder of <a href="https://thattallfamily.com" target="_blank" rel="noopener noreferrer" class="text-link"><strong>That Tall Family</strong></a>, Rob and his family have generated over <strong>5 billion views</strong> and built a following of more than <strong>4 million people</strong> across Instagram, TikTok, YouTube, Facebook, and LinkedIn without relying on paid ads.
                     </p>
                     <p class="about-text fade-in">
-                        Professionally, Rob helps brands clarify their message and turn social media into real visibility, trust, and opportunity through consulting, speaking, content strategy, and hands-on execution.
+                        His work sits at the intersection of attention, storytelling, leadership, and culture. Rob has worked with brands, universities, nonprofits, and entrepreneurs who know they need to be visible but lack a clear strategy for how attention actually works today. His talks are practical, direct, and grounded in real world experience, not trends or tactics that expire in six months. Rob lives just south of Nashville, Tennessee, and speaks nationally.
                     </p>
-                    <a href="#contact" class="btn-primary fade-in">
-                        Work with Rob
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
+                    <div class="about-buttons fade-in">
+                        <a href="#contact" class="btn-primary">
+                            Book Rob to Speak
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
+                        <a href="#contact" class="btn-secondary">
+                            Consulting Inquiry
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Curved divider: About (cream) → Speaking (dark) -->
+    <!-- Curved divider: About (cream) → Built for Attention (dark) -->
     <div class="section-divider divider-light-to-dark">
         <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0,0 L0,35 Q360,5 720,40 Q1080,75 1440,30 L1440,0 Z" fill="#f5f0e8"/>
@@ -2008,49 +2337,195 @@
         </svg>
     </div>
 
+    <!-- ========== BUILT FOR ATTENTION (DARK) ========== -->
+    <section class="section-dark-gradient" id="social-proof">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Social Proof</div>
+                <h2 class="section-title fade-in">Built for Attention</h2>
+            </div>
+            <div class="social-proof-grid">
+                <div class="social-proof-stats">
+                    <div class="social-proof-stat fade-in">
+                        <div class="social-proof-stat-icon">
+                            <!-- Lucide: Eye -->
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+                        </div>
+                        <div class="social-proof-stat-content">
+                            <div class="social-proof-stat-value count-up" data-target="5">5B+</div>
+                            <div class="social-proof-stat-label">Organic Views</div>
+                        </div>
+                    </div>
+                    <div class="social-proof-stat fade-in">
+                        <div class="social-proof-stat-icon">
+                            <!-- Lucide: Users -->
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <div class="social-proof-stat-content">
+                            <div class="social-proof-stat-value count-up" data-target="4">4M+</div>
+                            <div class="social-proof-stat-label">Followers</div>
+                        </div>
+                    </div>
+                    <div class="social-proof-stat fade-in">
+                        <div class="social-proof-stat-icon">
+                            <!-- Lucide: Youtube -->
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+                        </div>
+                        <div class="social-proof-stat-content">
+                            <div class="social-proof-stat-value count-up" data-target="1">1M+</div>
+                            <div class="social-proof-stat-label">YouTube Subscribers</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-proof-image fade-in">
+                    <img src="images/playbuttons.png" alt="YouTube Gold and Silver Play Button Awards - That Tall Family">
+                    <p class="social-proof-award">Gold &amp; Silver YouTube Creator Award Recipient</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curved divider: Built for Attention (dark) → Speaking (dark) -->
+    <div class="section-divider" style="background: linear-gradient(135deg, #0a0a0a 0%, #14120f 40%, #0d0b08 70%, #0a0a0a 100%);">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,35 Q360,65 720,35 Q1080,5 1440,40 L1440,0 Z" fill="#0a0a0a"/>
+            <path d="M0,35 Q360,65 720,35 Q1080,5 1440,40 L1440,70 L0,70 Z" fill="#0a0a0a"/>
+        </svg>
+    </div>
+
     <!-- ========== SPEAKING TOPICS (DARK) ========== -->
     <section class="section-dark-gradient" id="speaking">
         <div class="container">
             <div class="section-header">
-                <div class="section-label">Speaking Topics</div>
+                <div class="section-label">Signature Keynotes</div>
                 <h2 class="section-title fade-in">What Rob Speaks About</h2>
                 <p class="section-subtitle fade-in">
                     Rob brings practical, proven strategies from building one of the largest family brands on social media. No theory &mdash; just what actually works.
                 </p>
             </div>
-            <div class="keynotes-grid">
-                <div class="keynote-card fade-in fade-in-delay-1">
-                    <div class="keynote-number">01</div>
-                    <h3 class="keynote-title">Higher Education</h3>
-                    <p class="keynote-description">
-                        How colleges and universities can stop being invisible and win the attention of prospective students through organic content and storytelling.
-                    </p>
-                    <a href="#contact" class="keynote-link">
-                        Book This Topic
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
+            <div class="keynotes-grid-expandable">
+                <!-- Keynote 1: Attention Economy -->
+                <div class="keynote-card-expandable fade-in fade-in-delay-1" onclick="toggleKeynote(this)">
+                    <div class="keynote-header">
+                        <div class="keynote-number">01</div>
+                        <div class="keynote-header-content">
+                            <div class="keynote-category">Attention Economy</div>
+                            <h3 class="keynote-title">Winning Attention in a Noisy World</h3>
+                        </div>
+                        <div class="keynote-expand-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </div>
+                    </div>
+                    <div class="keynote-body">
+                        <p class="keynote-description">
+                            We live in an attention economy where visibility is survival. In this keynote, Rob shares how he built one of the most-watched family brands in the world without spending a dime on advertising&mdash;and how your organization can do the same. This talk cuts through the noise about algorithms and trends and delivers a clear framework for earning real attention.
+                        </p>
+                        <div class="keynote-takeaways">
+                            <h4 class="takeaways-title">Key Takeaways:</h4>
+                            <ul class="takeaways-list">
+                                <li>Why attention is the new currency and how to earn it organically</li>
+                                <li>The framework Rob uses to create content that resonates with millions</li>
+                                <li>How to stop chasing trends and start building lasting visibility</li>
+                            </ul>
+                        </div>
+                        <a href="#contact" class="keynote-link">
+                            Book This Keynote
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
+                    </div>
                 </div>
-                <div class="keynote-card fade-in fade-in-delay-2">
-                    <div class="keynote-number">02</div>
-                    <h3 class="keynote-title">Faith-Based Organizations</h3>
-                    <p class="keynote-description">
-                        How churches, ministries, and faith-based nonprofits can engage the modern world with clarity, conviction, and compelling content.
-                    </p>
-                    <a href="#contact" class="keynote-link">
-                        Book This Topic
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
+
+                <!-- Keynote 2: Higher Ed & Nonprofits -->
+                <div class="keynote-card-expandable fade-in fade-in-delay-2" onclick="toggleKeynote(this)">
+                    <div class="keynote-header">
+                        <div class="keynote-number">02</div>
+                        <div class="keynote-header-content">
+                            <div class="keynote-category">Higher Ed &amp; Nonprofits</div>
+                            <h3 class="keynote-title">Closing the Attention Gap</h3>
+                        </div>
+                        <div class="keynote-expand-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </div>
+                    </div>
+                    <div class="keynote-body">
+                        <p class="keynote-description">
+                            Great institutions often have an attention problem. They do incredible work but struggle to be seen in a crowded digital landscape. This keynote is designed for colleges, universities, and nonprofits who want to stop being invisible and start winning the attention they deserve. Rob shares a practical roadmap for building visibility without compromising values.
+                        </p>
+                        <div class="keynote-takeaways">
+                            <h4 class="takeaways-title">Key Takeaways:</h4>
+                            <ul class="takeaways-list">
+                                <li>Why traditional marketing no longer reaches prospective students and donors</li>
+                                <li>How to tell your institution's story in a way that cuts through the noise</li>
+                                <li>A content strategy that works without a massive budget or team</li>
+                            </ul>
+                        </div>
+                        <a href="#contact" class="keynote-link">
+                            Book This Keynote
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
+                    </div>
                 </div>
-                <div class="keynote-card fade-in fade-in-delay-3">
-                    <div class="keynote-number">03</div>
-                    <h3 class="keynote-title">Disrupting with Social Media</h3>
-                    <p class="keynote-description">
-                        How businesses of any size can use social media to disrupt even the biggest competitors in their industry without spending a dollar on ads.
-                    </p>
-                    <a href="#contact" class="keynote-link">
-                        Book This Topic
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
+
+                <!-- Keynote 3: Faith & Culture -->
+                <div class="keynote-card-expandable fade-in fade-in-delay-3" onclick="toggleKeynote(this)">
+                    <div class="keynote-header">
+                        <div class="keynote-number">03</div>
+                        <div class="keynote-header-content">
+                            <div class="keynote-category">Faith &amp; Culture</div>
+                            <h3 class="keynote-title">Faith, Media &amp; the Modern World</h3>
+                        </div>
+                        <div class="keynote-expand-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </div>
+                    </div>
+                    <div class="keynote-body">
+                        <p class="keynote-description">
+                            Churches, ministries, and faith-based organizations face a unique challenge: how do you engage a rapidly changing culture without losing your convictions? Rob shares how he integrates faith and family into a brand seen by billions&mdash;and offers a practical framework for faith-based organizations to engage the modern world with clarity and conviction.
+                        </p>
+                        <div class="keynote-takeaways">
+                            <h4 class="takeaways-title">Key Takeaways:</h4>
+                            <ul class="takeaways-list">
+                                <li>How to engage culture authentically without compromising your message</li>
+                                <li>The role of storytelling in sharing faith in a skeptical age</li>
+                                <li>Practical steps for building a digital presence that reflects your mission</li>
+                            </ul>
+                        </div>
+                        <a href="#contact" class="keynote-link">
+                            Book This Keynote
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Keynote 4: Leadership & Storytelling -->
+                <div class="keynote-card-expandable fade-in fade-in-delay-4" onclick="toggleKeynote(this)">
+                    <div class="keynote-header">
+                        <div class="keynote-number">04</div>
+                        <div class="keynote-header-content">
+                            <div class="keynote-category">Leadership &amp; Storytelling</div>
+                            <h3 class="keynote-title">Leading with Story</h3>
+                        </div>
+                        <div class="keynote-expand-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </div>
+                    </div>
+                    <div class="keynote-body">
+                        <p class="keynote-description">
+                            The best leaders know that data informs, but stories move people. In this keynote, Rob unpacks the power of narrative in leadership and shows how the principles of attention and storytelling apply far beyond social media. Whether you're leading a team, a company, or a movement, this talk will transform how you communicate and connect.
+                        </p>
+                        <div class="keynote-takeaways">
+                            <h4 class="takeaways-title">Key Takeaways:</h4>
+                            <ul class="takeaways-list">
+                                <li>Why story is the most powerful leadership tool you have</li>
+                                <li>How to craft a narrative that inspires action and loyalty</li>
+                                <li>The connection between personal brand and organizational impact</li>
+                            </ul>
+                        </div>
+                        <a href="#contact" class="keynote-link">
+                            Book This Keynote
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2341,6 +2816,52 @@
             if (hero && scrolled < window.innerHeight) {
                 hero.style.transform = 'translateY(' + (scrolled * 0.3) + 'px)';
             }
+        });
+
+        // Expandable keynote cards toggle
+        function toggleKeynote(card) {
+            // Close all other cards
+            document.querySelectorAll('.keynote-card-expandable').forEach(c => {
+                if (c !== card) {
+                    c.classList.remove('expanded');
+                }
+            });
+            // Toggle clicked card
+            card.classList.toggle('expanded');
+        }
+
+        // Count-up animation for stats
+        function animateCountUp(element) {
+            const target = parseInt(element.dataset.target);
+            const suffix = element.textContent.replace(/[0-9]/g, '');
+            let current = 0;
+            const increment = target / 40;
+            const duration = 1500;
+            const stepTime = duration / 40;
+
+            const counter = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + suffix;
+                    clearInterval(counter);
+                } else {
+                    element.textContent = Math.floor(current) + suffix;
+                }
+            }, stepTime);
+        }
+
+        // Observe count-up elements
+        const countUpObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCountUp(entry.target);
+                    countUpObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.count-up').forEach(el => {
+            countUpObserver.observe(el);
         });
     </script>
 
