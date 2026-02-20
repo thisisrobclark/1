@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rob Clark | Speaker, Strategist &amp; Creator</title>
-    <meta name="description" content="Rob Clark is a speaker, strategist, and creator. Founder of That Tall Family with 5 billion+ views and 4 million+ followers. Author and consultant.">
+    <title>Rob Clark | Strategist, Creator, Author &amp; Speaker</title>
+    <meta name="description" content="Rob Clark is a strategist, creator, author, and speaker. Founder of That Tall Family with 5 billion+ views and 4 million+ followers. Helping organizations win attention and turn it into growth.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -1089,6 +1089,84 @@
         }
 
         /* ========================================
+           SERVICES SECTION
+           ======================================== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .service-card {
+            background: var(--color-bg-card-light);
+            border: 1px solid var(--color-border-cream);
+            border-radius: 12px;
+            padding: 36px 32px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-card-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .service-card-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: #fff;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--color-text-on-light);
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--color-text-secondary-on-light);
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .service-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-accent-dark);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .service-card-link:hover {
+            color: var(--color-accent);
+            gap: 12px;
+        }
+
+        .service-card-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ========================================
            EXPANDABLE KEYNOTE CARDS
            ======================================== */
         .keynotes-grid-expandable {
@@ -1870,6 +1948,15 @@
                 --section-padding: 48px;
             }
 
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .service-card {
+                padding: 28px 24px;
+            }
+
             .nav-links {
                 display: none;
                 position: fixed;
@@ -2079,9 +2166,10 @@
             <a href="#" class="nav-logo">ROB <span>CLARK</span></a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
-                <li><a href="#speaking">Speaking</a></li>
+                <li><a href="#services">Services</a></li>
                 <li><a href="#books">Books</a></li>
-                <li><a href="#contact" class="nav-cta">Book Rob</a></li>
+                <li><a href="#speaking">Speaking</a></li>
+                <li><a href="#contact" class="nav-cta">Contact</a></li>
             </ul>
             <div class="nav-social">
                 <a href="https://www.instagram.com/thattallfamily/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
@@ -2111,16 +2199,19 @@
         <div class="container">
             <div class="hero-content">
                 <h1>
-                    Speaker. Strategist.<br>
+                    Strategist. Creator.<br>
                     <span class="accent">Builder of Attention.</span>
                 </h1>
                 <p class="hero-subtitle">
-                    I help organizations, leaders, and institutions win attention in a distracted world and turn it into real growth.
+                    I help organizations, brands, and leaders grow through organic attention &mdash; via consulting, content, and keynotes.
                 </p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn-primary">
-                        Book Rob to Speak
+                        Let's Work Together
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                    <a href="#services" class="btn-secondary">
+                        View Services
                     </a>
                 </div>
             </div>
@@ -2155,16 +2246,16 @@
                     </video>
                 </div>
                 <div class="about-content">
-                    <h2 class="section-title fade-in">Speaker, Strategist,<br>Author &amp; Creator</h2>
+                    <h2 class="section-title fade-in">Strategist, Creator,<br>Author &amp; Speaker</h2>
                     <p class="about-text fade-in">
-                        Rob Clark is a speaker, strategist, author, and creator who has built one of the most successful organic social media brands in the world. As the founder of <a href="https://thattallfamily.com" target="_blank" rel="noopener noreferrer" class="text-link"><strong>That Tall Family</strong></a>, Rob and his family have generated over <strong>5 billion views</strong> and built a following of more than <strong>4 million people</strong> across Instagram, TikTok, YouTube, Facebook, and LinkedIn without relying on paid ads.
+                        Rob Clark is a strategist, creator, author, and speaker who has built one of the most successful organic social media brands in the world. As the founder of <a href="https://thattallfamily.com" target="_blank" rel="noopener noreferrer" class="text-link"><strong>That Tall Family</strong></a>, Rob and his family have generated over <strong>5 billion views</strong> and built a following of more than <strong>4 million people</strong> across Instagram, TikTok, YouTube, Facebook, and LinkedIn without relying on paid ads.
                     </p>
                     <p class="about-text fade-in">
-                        His work sits at the intersection of attention, storytelling, leadership, and culture. Rob has worked with brands, universities, nonprofits, and entrepreneurs who know they need to be visible but lack a clear strategy for how attention actually works today. His talks are practical, direct, and grounded in real world experience, not trends or tactics that expire in six months. Rob lives just south of Nashville, Tennessee, and speaks nationally.
+                        His work sits at the intersection of attention, storytelling, leadership, and culture. Rob helps brands, universities, nonprofits, and entrepreneurs win attention and turn it into real growth &mdash; through consulting, content creation, digital development, and keynote speaking. His approach is practical, direct, and grounded in real world experience. Rob lives just south of Nashville, Tennessee.
                     </p>
                     <div class="about-buttons fade-in">
-                        <a href="#contact" class="btn-primary">
-                            Book Rob to Speak
+                        <a href="#services" class="btn-primary">
+                            View Services
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                         </a>
                     </div>
@@ -2206,12 +2297,87 @@
         </div>
     </section>
 
-    <!-- Curved divider: Built for Attention (dark) → Books (cream) -->
+    <!-- Curved divider: Built for Attention (dark) → Services (cream) -->
     <div class="section-divider divider-dark-to-light" style="background:#0a0a0a;">
         <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0,0 L0,45 Q280,15 560,40 Q840,65 1120,35 Q1300,20 1440,50 L1440,0 Z" fill="#0a0a0a"/>
             <path d="M0,45 Q280,15 560,40 Q840,65 1120,35 Q1300,20 1440,50 L1440,55 Q1300,25 1120,40 Q840,70 560,45 Q280,20 0,50 Z" fill="#b38041"/>
             <path d="M0,50 Q280,20 560,45 Q840,70 1120,40 Q1300,25 1440,55 L1440,100 L0,100 Z" fill="#f5f0e8"/>
+        </svg>
+    </div>
+
+    <!-- ========== SERVICES SECTION (LIGHT / CREAM) ========== -->
+    <section class="section-light-warm" id="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">What I Do</div>
+                <h2 class="section-title fade-in">Services</h2>
+                <p class="section-subtitle fade-in">
+                    I help people and organizations win attention and turn it into growth &mdash; through strategy, content, technology, and speaking.
+                </p>
+            </div>
+            <div class="services-grid">
+                <!-- Service 1: Social Media Strategy -->
+                <div class="service-card fade-in fade-in-delay-1">
+                    <div class="service-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    </div>
+                    <h3>Social Media Strategy &amp; Consulting</h3>
+                    <p>I help brands, universities, and organizations build organic content systems that drive real growth. No ad spend required.</p>
+                    <a href="#contact" class="service-card-link">
+                        Get Started
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <!-- Service 2: Content Creation -->
+                <div class="service-card fade-in fade-in-delay-2">
+                    <div class="service-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                    </div>
+                    <h3>Content Creation</h3>
+                    <p>From short-form video to full production, I create scroll-stopping content built on the frameworks behind 5 billion views.</p>
+                    <a href="#contact" class="service-card-link">
+                        Get Started
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <!-- Service 3: Website & App Development -->
+                <div class="service-card fade-in fade-in-delay-3">
+                    <div class="service-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <h3>Website &amp; App Development</h3>
+                    <p>I design and build modern websites and apps for brands, authors, and businesses that need a professional digital presence.</p>
+                    <a href="#contact" class="service-card-link">
+                        Get Started
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <!-- Service 4: Video Editing & Production -->
+                <div class="service-card fade-in fade-in-delay-4">
+                    <div class="service-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                    </div>
+                    <h3>Video Editing &amp; Production</h3>
+                    <p>Professional editing for social content, brand videos, and long-form projects.</p>
+                    <a href="#contact" class="service-card-link">
+                        Get Started
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subtle divider: Services (cream) → Books (cream) -->
+    <div class="section-divider" style="background: var(--color-bg-cream);">
+        <svg viewBox="0 0 1440 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,18 Q360,38 720,20 Q1080,2 1440,22 L1440,0 Z" fill="#f5f0e8"/>
+            <path d="M0,18 Q360,38 720,20 Q1080,2 1440,22 L1440,24 Q1080,4 720,22 Q360,40 0,20 Z" fill="#b38041" opacity="0.5"/>
+            <path d="M0,20 Q360,40 720,22 Q1080,4 1440,24 L1440,40 L0,40 Z" fill="#f5f0e8"/>
         </svg>
     </div>
 
@@ -2343,10 +2509,10 @@
     <section class="cta-section section-light-warm" id="contact">
         <div class="container">
             <div class="cta-content">
-                <div class="section-label">Let's Work Together</div>
-                <h2 class="section-title fade-in">Tired of Being the Best Kept Secret?</h2>
+                <div class="section-label">Get in Touch</div>
+                <h2 class="section-title fade-in">Let's Work Together</h2>
                 <p class="section-subtitle fade-in">
-                    Whether you need a keynote speaker who has built something real at scale, or a strategist to help your organization stop being invisible &mdash; Rob delivers practical, proven results.
+                    Whether you need a strategist, a content creator, a keynote speaker, or a digital partner &mdash; let's talk about how to help you win attention and turn it into growth.
                 </p>
                 <form class="contact-form fade-in" action="https://formspree.io/f/xnjbqjva" method="POST">
                     <div class="form-row">
@@ -2365,7 +2531,7 @@
                     </div>
                     <div class="form-group">
                         <label for="contact-message">Message</label>
-                        <textarea id="contact-message" name="message" rows="4" placeholder="Tell us about your event or project..." required></textarea>
+                        <textarea id="contact-message" name="message" rows="4" placeholder="Tell me about your project, event, or what you're looking for..." required></textarea>
                     </div>
                     <button type="submit" class="btn-primary">
                         Send Message
@@ -2412,7 +2578,7 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <a href="#" class="nav-logo">ROB <span>CLARK</span></a>
-                    <p>Creator, strategist, speaker, and author. Founder of <a href="https://thattallfamily.com" target="_blank" rel="noopener noreferrer">That Tall Family</a>. Helping people and organizations capture attention and turn it into lasting impact.</p>
+                    <p>Strategist, creator, author, and speaker. Founder of <a href="https://thattallfamily.com" target="_blank" rel="noopener noreferrer">That Tall Family</a>. I help people and organizations win attention and turn it into growth &mdash; through consulting, content, digital development, and keynotes.</p>
                     <div class="footer-social">
                         <a href="https://www.instagram.com/thattallfamily/" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="0.5"/></svg>
@@ -2435,9 +2601,10 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#about">About</a></li>
-                        <li><a href="#speaking">Speaking</a></li>
+                        <li><a href="#services">Services</a></li>
                         <li><a href="#books">Books</a></li>
-                        <li><a href="#contact">Book Rob</a></li>
+                        <li><a href="#speaking">Speaking</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
