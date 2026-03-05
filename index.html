@@ -427,6 +427,29 @@
             transform: translateY(-2px);
         }
 
+        .btn-tertiary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: transparent;
+            color: #c94a4a;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border: 2px solid #c94a4a;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-tertiary:hover {
+            background: #c94a4a;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
         .section-light .btn-secondary,
         .section-light-alt .btn-secondary,
         .section-light-warm .btn-secondary {
@@ -513,6 +536,28 @@
             background: radial-gradient(ellipse at center 40%, rgba(212,168,67,0.06) 0%, transparent 65%);
             pointer-events: none;
             z-index: -1;
+        }
+
+        /* Hero book cover overlay */
+        .hero-book-cover {
+            position: absolute;
+            bottom: 15%;
+            left: -25%;
+            width: 200px;
+            z-index: 10;
+            transform: rotate(-5deg);
+            transition: var(--transition);
+        }
+
+        .hero-book-cover img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(255,255,255,0.1);
+        }
+
+        .hero-book-cover:hover {
+            transform: rotate(-3deg) scale(1.05);
         }
 
         /* Fallback placeholder if image hasn't been added yet */
@@ -1254,6 +1299,35 @@
             padding: 0 32px 32px;
         }
 
+        .keynote-content-wrapper {
+            display: flex;
+            gap: 32px;
+            align-items: flex-start;
+        }
+
+        .keynote-book-image {
+            flex: 0 0 120px;
+        }
+
+        .keynote-book-image img {
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .keynote-text {
+            flex: 1;
+        }
+
+        .keynote-book-line {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+        }
+
         .keynote-card-expandable .keynote-description {
             font-size: 0.95rem;
             line-height: 1.8;
@@ -1325,10 +1399,98 @@
         /* ========================================
            BOOKS SECTION
            ======================================== */
+        .books-featured {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 60px;
+            align-items: flex-start;
+        }
+
+        .book-card-featured {
+            text-align: center;
+            transition: var(--transition);
+            flex: 0 0 280px;
+        }
+
+        .book-card-featured.primary {
+            flex: 0 0 320px;
+        }
+
+        .book-card-featured:hover {
+            transform: translateY(-8px);
+        }
+
+        .book-card-featured .book-cover {
+            width: 100%;
+            aspect-ratio: 2/3;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            position: relative;
+            transition: var(--transition);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .book-card-featured.primary .book-cover {
+            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.25), 0 0 0 3px rgba(179, 128, 65, 0.3);
+        }
+
+        .book-card-featured:hover .book-cover {
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+            transform: scale(1.02);
+        }
+
+        .previous-books {
+            border-top: 1px solid var(--color-border-cream);
+            padding-top: 48px;
+            margin-top: 20px;
+        }
+
+        .previous-books-label {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--color-text-muted-on-light);
+            margin-bottom: 32px;
+        }
+
         .books-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 48px;
+        }
+
+        .books-grid-small {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .books-grid-small .book-card {
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        .books-grid-small .book-cover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .books-grid-small .book-title {
+            font-size: 1rem;
+        }
+
+        .books-grid-small .book-meta {
+            font-size: 0.8rem;
+        }
+
+        .books-grid-small .book-buy-btn {
+            padding: 8px 16px;
+            font-size: 0.75rem;
         }
 
         .book-card {
@@ -1958,6 +2120,35 @@
                 padding: 28px 24px;
             }
 
+            .books-featured {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+
+            .book-card-featured,
+            .book-card-featured.primary {
+                flex: 0 0 auto;
+                width: 240px;
+            }
+
+            .books-grid-small {
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
+                max-width: 360px;
+            }
+
+            .hero-book-cover {
+                width: 140px;
+                left: -15%;
+                bottom: 10%;
+            }
+
+            .btn-tertiary {
+                padding: 14px 28px;
+                font-size: 0.8rem;
+            }
+
             .nav-links {
                 display: none;
                 position: fixed;
@@ -2104,6 +2295,17 @@
                 padding: 0 24px 24px;
             }
 
+            .keynote-content-wrapper {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .keynote-book-image {
+                flex: 0 0 auto;
+                width: 100px;
+                margin: 0 auto;
+            }
+
             .video-embed-wrapper {
                 max-width: 100%;
             }
@@ -2122,13 +2324,24 @@
                 font-size: 1.6rem;
             }
 
-            .btn-primary, .btn-secondary {
+            .btn-primary, .btn-secondary, .btn-tertiary {
                 padding: 12px 20px;
                 font-size: 0.85rem;
                 width: 100%;
                 max-width: 100%;
                 justify-content: center;
                 box-sizing: border-box;
+            }
+
+            .hero-book-cover {
+                width: 100px;
+                left: -10%;
+                bottom: 5%;
+            }
+
+            .books-grid-small {
+                grid-template-columns: 1fr;
+                max-width: 200px;
             }
 
             .hero-buttons {
@@ -2204,7 +2417,7 @@
                     <span class="accent">Best Kept Secret.</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Most organizations are great at what they do and invisible where it matters. Rob Clark fixes that through keynotes, consulting, and content systems that turn expertise into organic attention.
+                    Most organizations are great at what they do and invisible where it matters. Rob Clark fixes that through keynotes, consulting, and content systems that turn expertise into organic attention. Author of <em>Stop Being the Best Kept Secret</em>.
                 </p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn-primary">
@@ -2213,6 +2426,9 @@
                     </a>
                     <a href="#contact" class="btn-secondary">
                         Work With Rob
+                    </a>
+                    <a href="#books" class="btn-tertiary">
+                        Get the Book
                     </a>
                 </div>
                 <div class="hero-stats">
@@ -2233,6 +2449,9 @@
                         <div class="initials">RC</div>
                         <div class="photo-label">Your Photo Here</div>
                     </div>
+                    <a href="#books" class="hero-book-cover">
+                        <img src="images/best-kept-secret.png" alt="Stop Being the Best Kept Secret by Rob Clark">
+                    </a>
                 </div>
             </div>
         </div>
@@ -2259,7 +2478,7 @@
                 <div class="about-content">
                     <h2 class="section-title fade-in">Strategist, Creator,<br>Author &amp; Speaker</h2>
                     <p class="about-text fade-in">
-                        Rob Clark is a strategist, creator, author, and speaker who has built one of the most successful organic social media brands in the world. As the founder of <a href="https://thattallfamily.com" target="_blank" rel="noopener noreferrer" class="text-link"><strong>That Tall Family</strong></a>, Rob and his family have generated over <strong>5 billion views</strong> and built a following of more than <strong>4 million people</strong> across Instagram, TikTok, YouTube, Facebook, and LinkedIn without relying on paid ads.
+                        Rob Clark is a strategist, creator, author, and speaker who has built one of the most successful organic social media brands in the world. As the founder of <a href="https://thattallfamily.com" target="_blank" rel="noopener noreferrer" class="text-link"><strong>That Tall Family</strong></a>, Rob and his family have generated over <strong>5 billion views</strong> and built a following of more than <strong>4 million people</strong> across Instagram, TikTok, YouTube, Facebook, and LinkedIn without relying on paid ads. He is the author of <a href="#books" class="text-link"><strong><em>Stop Being the Best Kept Secret</em></strong></a>.
                     </p>
                     <p class="about-text fade-in">
                         His work sits at the intersection of attention, storytelling, leadership, and culture. Rob helps brands, universities, nonprofits, and entrepreneurs win attention and turn it into real growth &mdash; through consulting, content creation, digital development, and keynote speaking. His approach is practical, direct, and grounded in real world experience. Rob lives just south of Nashville, Tennessee.
@@ -2402,9 +2621,26 @@
                     Rob's books explore influence, attention, leadership, and culture &mdash; blending real-world results with faith, ethics, and long-term thinking.
                 </p>
             </div>
-            <div class="books-grid">
-                <!-- Book 1: Attention Gap -->
-                <div class="book-card fade-in fade-in-delay-1">
+
+            <!-- Featured Books -->
+            <div class="books-featured">
+                <!-- NEW BOOK: Stop Being the Best Kept Secret -->
+                <div class="book-card-featured primary fade-in fade-in-delay-1">
+                    <a href="#" class="book-link">
+                        <div class="book-cover">
+                            <img src="images/best-kept-secret.png" alt="Stop Being the Best Kept Secret: Earn the Attention Your Work Deserves by Rob Clark">
+                        </div>
+                    </a>
+                    <h3 class="book-title">Stop Being the Best Kept Secret</h3>
+                    <p class="book-meta">Earn the Attention Your Work Deserves</p>
+                    <a href="#" class="book-buy-btn">
+                        Get the Book
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2"/><path d="M7 7h10v10"/></svg>
+                    </a>
+                </div>
+
+                <!-- Attention Gap -->
+                <div class="book-card-featured fade-in fade-in-delay-2">
                     <a href="https://a.co/d/0iEp2sgY" target="_blank" rel="noopener noreferrer" class="book-link">
                         <div class="book-cover">
                             <img src="images/attention-gap.jpg" alt="Attention Gap: Why Great Schools Stay Invisible and How To Fix It by Chris Rapozo and Rob Clark">
@@ -2417,35 +2653,41 @@
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2"/><path d="M7 7h10v10"/></svg>
                     </a>
                 </div>
+            </div>
 
-                <!-- Book 2: 4 Billion Views -->
-                <div class="book-card fade-in fade-in-delay-2">
-                    <a href="https://a.co/d/0ij4XFy8" target="_blank" rel="noopener noreferrer" class="book-link">
-                        <div class="book-cover">
-                            <img src="images/4-billion-views.jpg" alt="4 Billion Views: How We Built a Social Media Brand from Scratch by Rob Clark">
-                        </div>
-                    </a>
-                    <h3 class="book-title">4 Billion Views</h3>
-                    <p class="book-meta">How We Built a Social Media Brand from Scratch</p>
-                    <a href="https://a.co/d/0ij4XFy8" target="_blank" rel="noopener noreferrer" class="book-buy-btn">
-                        Get the Book
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2"/><path d="M7 7h10v10"/></svg>
-                    </a>
-                </div>
+            <!-- Previous Books -->
+            <div class="previous-books">
+                <p class="previous-books-label">Previous Books</p>
+                <div class="books-grid-small">
+                    <!-- 4 Billion Views -->
+                    <div class="book-card fade-in fade-in-delay-3">
+                        <a href="https://a.co/d/0ij4XFy8" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <div class="book-cover">
+                                <img src="images/4-billion-views.jpg" alt="4 Billion Views: How We Built a Social Media Brand from Scratch by Rob Clark">
+                            </div>
+                        </a>
+                        <h3 class="book-title">4 Billion Views</h3>
+                        <p class="book-meta">How We Built a Social Media Brand from Scratch</p>
+                        <a href="https://a.co/d/0ij4XFy8" target="_blank" rel="noopener noreferrer" class="book-buy-btn">
+                            Get the Book
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2"/><path d="M7 7h10v10"/></svg>
+                        </a>
+                    </div>
 
-                <!-- Book 3: Growing Your Influence -->
-                <div class="book-card fade-in fade-in-delay-3">
-                    <a href="https://a.co/d/0gYqels0" target="_blank" rel="noopener noreferrer" class="book-link">
-                        <div class="book-cover">
-                            <img src="images/growing-your-influence.jpg" alt="Growing Your Influence: Social Media Strategies for a New Generation by Rob Clark">
-                        </div>
-                    </a>
-                    <h3 class="book-title">Growing Your Influence</h3>
-                    <p class="book-meta">Social Media Strategies for a New Generation</p>
-                    <a href="https://a.co/d/0gYqels0" target="_blank" rel="noopener noreferrer" class="book-buy-btn">
-                        Get the Book
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2"/><path d="M7 7h10v10"/></svg>
-                    </a>
+                    <!-- Growing Your Influence -->
+                    <div class="book-card fade-in fade-in-delay-4">
+                        <a href="https://a.co/d/0gYqels0" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <div class="book-cover">
+                                <img src="images/growing-your-influence.jpg" alt="Growing Your Influence: Social Media Strategies for a New Generation by Rob Clark">
+                            </div>
+                        </a>
+                        <h3 class="book-title">Growing Your Influence</h3>
+                        <p class="book-meta">Social Media Strategies for a New Generation</p>
+                        <a href="https://a.co/d/0gYqels0" target="_blank" rel="noopener noreferrer" class="book-buy-btn">
+                            Get the Book
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2"/><path d="M7 7h10v10"/></svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2468,39 +2710,47 @@
                 <h2 class="section-title fade-in">What Rob Speaks About</h2>
             </div>
             <div class="keynotes-grid-expandable">
-                <!-- Keynote: 5 Billion Views -->
+                <!-- Keynote: Stop Being the Best Kept Secret -->
                 <div class="keynote-card-expandable expanded fade-in">
                     <div class="keynote-header">
                         <div class="keynote-header-content">
                             <div class="keynote-category">Signature Keynote</div>
-                            <h3 class="keynote-title">5 Billion Views: Stop Being the Best Kept Secret</h3>
+                            <h3 class="keynote-title">Stop Being the Best Kept Secret</h3>
                         </div>
                     </div>
                     <div class="keynote-body">
-                        <p class="keynote-description">
-                            You&rsquo;re great at what you do. Your clients love you. Your work speaks for itself. And yet somehow, the people who are less talented, less experienced, and less qualified are getting the attention, the clients, and the opportunities that should be yours.
-                        </p>
-                        <p class="keynote-description">
-                            That&rsquo;s because the best don&rsquo;t win. The known win.
-                        </p>
-                        <p class="keynote-description">
-                            Rob Clark built That Tall Family from a single 11 second video into a brand with over 5 billion organic views and more than 4 million followers across every major platform. In this talk, he shares the exact framework he uses to help businesses, universities, and professionals stop being invisible and start being the name everyone knows. No ad spend. No dance trends. No pretending to be someone you&rsquo;re not. Just a proven system for turning what makes you different into the reason people choose you.
-                        </p>
-                        <div class="keynote-takeaways">
-                            <h4 class="takeaways-title">Your audience will walk away with:</h4>
-                            <ul class="takeaways-list">
-                                <li>The <strong>One of One</strong> framework for finding what makes them the only choice in their market</li>
-                                <li>The <strong>hook strategy</strong> that turns two seconds of attention into lasting trust</li>
-                                <li>The <strong>mindset shift</strong> that transforms social media from something they dread into the most powerful tool in their business</li>
-                            </ul>
+                        <div class="keynote-content-wrapper">
+                            <div class="keynote-book-image">
+                                <img src="images/best-kept-secret.png" alt="Stop Being the Best Kept Secret by Rob Clark">
+                            </div>
+                            <div class="keynote-text">
+                                <p class="keynote-book-line">Based on the book <em>Stop Being the Best Kept Secret</em></p>
+                                <p class="keynote-description">
+                                    You&rsquo;re great at what you do. Your clients love you. Your work speaks for itself. And yet somehow, the people who are less talented, less experienced, and less qualified are getting the attention, the clients, and the opportunities that should be yours.
+                                </p>
+                                <p class="keynote-description">
+                                    That&rsquo;s because secrets lose. Attention wins.
+                                </p>
+                                <p class="keynote-description">
+                                    Rob Clark built That Tall Family from a single 11 second video into a brand with over 5 billion organic views and more than 4 million followers across every major platform. In this talk, he shares the exact framework he uses to help businesses, universities, and professionals stop being invisible and start being the name everyone knows. No ad spend. No dance trends. No pretending to be someone you&rsquo;re not. Just a proven system for turning what makes you different into the reason people choose you.
+                                </p>
+                                <div class="keynote-takeaways">
+                                    <h4 class="takeaways-title">Your audience will walk away with:</h4>
+                                    <ul class="takeaways-list">
+                                        <li>The <strong>One of One</strong> framework for finding what makes them the only choice in their market</li>
+                                        <li>The <strong>hook strategy</strong> that turns two seconds of attention into lasting trust</li>
+                                        <li>The <strong>mindset shift</strong> that transforms social media from something they dread into the most powerful tool in their business</li>
+                                    </ul>
+                                </div>
+                                <p class="keynote-description" style="margin-top: 24px; opacity: 0.85; font-style: italic;">
+                                    This talk is for any organization tired of being the best kept secret in their industry.
+                                </p>
+                                <a href="#contact" class="keynote-link">
+                                    Book This Keynote
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                </a>
+                            </div>
                         </div>
-                        <p class="keynote-description" style="margin-top: 24px; opacity: 0.85; font-style: italic;">
-                            This talk is for any organization tired of being the best kept secret in their industry.
-                        </p>
-                        <a href="#contact" class="keynote-link">
-                            Book This Keynote
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                        </a>
                     </div>
                 </div>
             </div>
