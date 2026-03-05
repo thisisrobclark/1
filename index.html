@@ -1488,6 +1488,32 @@
             font-size: 0.8rem;
         }
 
+        .books-grid-three {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .books-grid-three .book-card {
+            max-width: 220px;
+            margin: 0 auto;
+        }
+
+        .coming-soon-badge {
+            display: inline-block;
+            background: var(--color-accent-gold);
+            color: #000;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 8px;
+        }
+
         .books-grid-small .book-buy-btn {
             padding: 8px 16px;
             font-size: 0.75rem;
@@ -2138,10 +2164,10 @@
                 max-width: 360px;
             }
 
-            .hero-book-cover {
-                width: 140px;
-                left: -15%;
-                bottom: 10%;
+            .books-grid-three {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                max-width: 240px;
             }
 
             .btn-tertiary {
@@ -2421,14 +2447,8 @@
                 </p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn-primary">
-                        Book Rob to Speak
+                        Stop Being the Best Kept Secret
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
-                    <a href="#contact" class="btn-secondary">
-                        Work With Rob
-                    </a>
-                    <a href="#books" class="btn-tertiary">
-                        Get the Book
                     </a>
                 </div>
                 <div class="hero-stats">
@@ -2449,9 +2469,6 @@
                         <div class="initials">RC</div>
                         <div class="photo-label">Your Photo Here</div>
                     </div>
-                    <a href="#books" class="hero-book-cover">
-                        <img src="images/best-kept-secret.png" alt="Stop Being the Best Kept Secret by Rob Clark">
-                    </a>
                 </div>
             </div>
         </div>
@@ -2622,43 +2639,37 @@
                 </p>
             </div>
 
-            <!-- Featured Books -->
-            <div class="books-featured">
-                <!-- NEW BOOK: Stop Being the Best Kept Secret -->
+            <!-- Coming Soon: New Book -->
+            <div class="books-featured" style="margin-bottom: 60px;">
                 <div class="book-card-featured primary fade-in fade-in-delay-1">
-                    <a href="#" class="book-link">
-                        <div class="book-cover">
-                            <img src="images/best-kept-secret.png" alt="Stop Being the Best Kept Secret: Earn the Attention Your Work Deserves by Rob Clark">
-                        </div>
-                    </a>
+                    <div class="book-cover">
+                        <img src="images/best-kept-secret.png" alt="Stop Being the Best Kept Secret: Earn the Attention Your Work Deserves by Rob Clark">
+                    </div>
                     <h3 class="book-title">Stop Being the Best Kept Secret</h3>
                     <p class="book-meta">Earn the Attention Your Work Deserves</p>
-                    <a href="#" class="book-buy-btn">
-                        Get the Book
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2"/><path d="M7 7h10v10"/></svg>
-                    </a>
-                </div>
-
-                <!-- Attention Gap -->
-                <div class="book-card-featured fade-in fade-in-delay-2">
-                    <a href="https://a.co/d/0iEp2sgY" target="_blank" rel="noopener noreferrer" class="book-link">
-                        <div class="book-cover">
-                            <img src="images/attention-gap.jpg" alt="Attention Gap: Why Great Schools Stay Invisible and How To Fix It by Chris Rapozo and Rob Clark">
-                        </div>
-                    </a>
-                    <h3 class="book-title">Attention Gap</h3>
-                    <p class="book-meta">Why Great Schools Stay Invisible &amp; How to Fix It</p>
-                    <a href="https://a.co/d/0iEp2sgY" target="_blank" rel="noopener noreferrer" class="book-buy-btn">
-                        Get the Book
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2"/><path d="M7 7h10v10"/></svg>
-                    </a>
+                    <span class="coming-soon-badge">Coming Soon</span>
                 </div>
             </div>
 
-            <!-- Previous Books -->
-            <div class="previous-books">
-                <p class="previous-books-label">Previous Books</p>
-                <div class="books-grid-small">
+            <!-- Published Books -->
+            <div class="previous-books" style="border-top: none; padding-top: 0; margin-top: 0;">
+                <p class="previous-books-label">Available Now</p>
+                <div class="books-grid-three">
+                    <!-- Attention Gap -->
+                    <div class="book-card fade-in fade-in-delay-2">
+                        <a href="https://a.co/d/0iEp2sgY" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <div class="book-cover">
+                                <img src="images/attention-gap.jpg" alt="Attention Gap: Why Great Schools Stay Invisible and How To Fix It by Chris Rapozo and Rob Clark">
+                            </div>
+                        </a>
+                        <h3 class="book-title">Attention Gap</h3>
+                        <p class="book-meta">Why Great Schools Stay Invisible &amp; How to Fix It</p>
+                        <a href="https://a.co/d/0iEp2sgY" target="_blank" rel="noopener noreferrer" class="book-buy-btn">
+                            Get the Book
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2"/><path d="M7 7h10v10"/></svg>
+                        </a>
+                    </div>
+
                     <!-- 4 Billion Views -->
                     <div class="book-card fade-in fade-in-delay-3">
                         <a href="https://a.co/d/0ij4XFy8" target="_blank" rel="noopener noreferrer" class="book-link">
