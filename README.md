@@ -56,3 +56,4 @@ Works in all modern browsers: Chrome, Firefox, Safari, Edge.
 ## License
 
 Free to use and modify for personal and commercial purposes.
+# Trigger redeploy

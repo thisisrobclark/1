@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rob Clark | Speaker, Strategist &amp; Creator</title>
-    <meta name="description" content="Rob Clark is a speaker, strategist, and creator. Founder of That Tall Family with 5 billion+ views and 4 million+ followers. Author, consultant, and founder of TTF Media.">
+    <title>Rob Clark | Strategist, Creator, Author &amp; Speaker</title>
+    <meta name="description" content="Rob Clark is a strategist, creator, author, and speaker. Founder of That Tall Family with 5 billion+ views and 4 million+ followers. Helping organizations win attention and turn it into growth.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -19,25 +19,34 @@
         }
 
         :root {
+            /* Dark palette */
             --color-bg-dark: #0a0a0a;
-            --color-bg-medium: #111111;
-            --color-bg-light: #171717;
-            --color-bg-warm: #14120f;
-            --color-bg-accent-tint: #13110e;
-            --color-bg-card: #1a1a1a;
-            --color-bg-card-light: #1e1e1e;
+            --color-bg-dark-mid: #111111;
+            --color-bg-card-dark: #1a1a1a;
+            --color-border-dark: #2a2a2a;
+            --color-border-dark-light: #333333;
+            /* Light / cream palette */
+            --color-bg-cream: #f5f0e8;
+            --color-bg-cream-alt: #ece5d8;
+            --color-bg-card-light: #ebe4d6;
+            --color-border-cream: #d9d0c0;
+            /* Accent */
             --color-accent: #d4a843;
             --color-accent-hover: #e8bf5a;
             --color-accent-dark: #b8912e;
-            --color-text: #ffffff;
-            --color-text-secondary: #a0a0a0;
-            --color-text-muted: #666666;
-            --color-border: #2a2a2a;
-            --color-border-light: #333333;
+            /* Text on dark */
+            --color-text-on-dark: #ffffff;
+            --color-text-secondary-on-dark: #a0a0a0;
+            --color-text-muted-on-dark: #666666;
+            /* Text on light */
+            --color-text-on-light: #1a1a1a;
+            --color-text-secondary-on-light: #4a4a4a;
+            --color-text-muted-on-light: #888888;
+            /* Fonts */
             --font-heading: 'Playfair Display', Georgia, serif;
             --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --max-width: 1200px;
-            --section-padding: 120px;
+            --section-padding: 80px;
             --transition: all 0.3s ease;
         }
 
@@ -49,7 +58,7 @@
         body {
             font-family: var(--font-body);
             background-color: var(--color-bg-dark);
-            color: var(--color-text);
+            color: var(--color-text-on-dark);
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -75,30 +84,57 @@
         }
 
         /* ========================================
-           ALTERNATING SECTION BACKGROUNDS
+           SECTION BACKGROUND SYSTEM
            ======================================== */
-        .bg-dark {
-            background: var(--color-bg-dark);
+        .section-dark {
+            background: linear-gradient(180deg, #0d0d0d 0%, #0a0a0a 40%, #0e0e0e 100%);
+            color: var(--color-text-on-dark);
         }
 
-        .bg-medium {
-            background: var(--color-bg-medium);
-            border-top: 1px solid var(--color-border);
-            border-bottom: 1px solid var(--color-border);
+        .section-dark-gradient {
+            background: linear-gradient(135deg, #0a0a0a 0%, #14120f 40%, #0d0b08 70%, #0a0a0a 100%);
+            color: var(--color-text-on-dark);
         }
 
-        .bg-light {
-            background: var(--color-bg-light);
+        .section-dark-warm {
+            background: linear-gradient(180deg, #100e0a 0%, #0a0a0a 50%, #0f0d09 100%);
+            color: var(--color-text-on-dark);
         }
 
-        .bg-warm {
-            background: linear-gradient(135deg, var(--color-bg-warm) 0%, var(--color-bg-dark) 50%, var(--color-bg-warm) 100%);
+        .section-light {
+            background: var(--color-bg-cream);
+            color: var(--color-text-on-light);
         }
 
-        .bg-accent-subtle {
-            background: linear-gradient(180deg, var(--color-bg-accent-tint) 0%, var(--color-bg-dark) 100%);
-            border-top: 1px solid rgba(212, 168, 67, 0.08);
-            border-bottom: 1px solid rgba(212, 168, 67, 0.08);
+        .section-light-alt {
+            background: var(--color-bg-cream-alt);
+            color: var(--color-text-on-light);
+        }
+
+        .section-light-warm {
+            background: linear-gradient(180deg, #f5f0e8 0%, #efe8db 50%, #f5f0e8 100%);
+            color: var(--color-text-on-light);
+        }
+
+        .section-light .section-subtitle,
+        .section-light-alt .section-subtitle,
+        .section-light-warm .section-subtitle {
+            color: var(--color-text-secondary-on-light);
+        }
+
+        .section-light .section-label,
+        .section-light-alt .section-label,
+        .section-light-warm .section-label {
+            color: var(--color-accent-dark);
+        }
+
+        .section-light .section-label::before,
+        .section-light .section-label::after,
+        .section-light-alt .section-label::before,
+        .section-light-alt .section-label::after,
+        .section-light-warm .section-label::before,
+        .section-light-warm .section-label::after {
+            background: var(--color-accent-dark);
         }
 
         /* ========================================
@@ -120,7 +156,7 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             padding: 14px 0;
-            border-bottom: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border-dark);
         }
 
         .nav .container {
@@ -134,7 +170,7 @@
             font-size: 1.5rem;
             font-weight: 700;
             letter-spacing: 1px;
-            color: var(--color-text);
+            color: var(--color-text-on-dark);
         }
 
         .nav-logo span {
@@ -153,7 +189,7 @@
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: var(--color-text-secondary);
+            color: var(--color-text-secondary-on-dark);
             position: relative;
         }
 
@@ -194,7 +230,32 @@
             display: none !important;
         }
 
-        /* Mobile Nav */
+        .nav-social {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-left: 24px;
+            padding-left: 24px;
+            border-left: 1px solid var(--color-border-dark);
+        }
+
+        .nav-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-secondary-on-dark);
+            transition: var(--transition);
+        }
+
+        .nav-social a:hover {
+            color: var(--color-accent);
+        }
+
+        .nav-social svg {
+            width: 18px;
+            height: 18px;
+        }
+
         .nav-toggle {
             display: none;
             flex-direction: column;
@@ -206,7 +267,7 @@
         .nav-toggle span {
             width: 24px;
             height: 2px;
-            background: var(--color-text);
+            background: var(--color-text-on-dark);
             transition: var(--transition);
         }
 
@@ -232,12 +293,14 @@
             position: relative;
             overflow: hidden;
             padding-top: 80px;
+            padding-bottom: 0;
+            background: #000;
         }
 
         .hero-bg {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1510 50%, #0a0a0a 100%);
+            background: #000;
             z-index: 0;
         }
 
@@ -291,21 +354,22 @@
 
         .hero h1 {
             font-family: var(--font-heading);
-            font-size: 3.8rem;
+            font-size: 3.5rem;
             font-weight: 800;
-            line-height: 1.1;
+            line-height: 1.15;
             margin-bottom: 24px;
-            color: var(--color-text);
+            color: var(--color-text-on-dark);
         }
 
         .hero h1 .accent {
             color: var(--color-accent);
             display: block;
+            margin-top: 8px;
         }
 
         .hero-subtitle {
             font-size: 1.15rem;
-            color: var(--color-text-secondary);
+            color: var(--color-text-secondary-on-dark);
             line-height: 1.8;
             margin-bottom: 40px;
             max-width: 500px;
@@ -346,12 +410,12 @@
             gap: 10px;
             padding: 16px 36px;
             background: transparent;
-            color: var(--color-text);
+            color: var(--color-text-on-dark);
             font-size: 0.85rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            border: 1px solid var(--color-border-light);
+            border: 1px solid var(--color-border-dark-light);
             border-radius: 4px;
             cursor: pointer;
             transition: var(--transition);
@@ -363,35 +427,151 @@
             transform: translateY(-2px);
         }
 
+        .btn-tertiary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: transparent;
+            color: #c94a4a;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border: 2px solid #c94a4a;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-tertiary:hover {
+            background: #c94a4a;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .section-light .btn-secondary,
+        .section-light-alt .btn-secondary,
+        .section-light-warm .btn-secondary {
+            color: var(--color-text-on-light);
+            border-color: var(--color-border-cream);
+        }
+
+        .section-light .btn-secondary:hover,
+        .section-light-alt .btn-secondary:hover,
+        .section-light-warm .btn-secondary:hover {
+            border-color: var(--color-accent-dark);
+            color: var(--color-accent-dark);
+        }
+
+        /* ---- Text Links ---- */
+        .text-link {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: var(--color-accent);
+            text-underline-offset: 3px;
+            transition: var(--transition);
+        }
+
+        .text-link:hover {
+            color: var(--color-accent);
+        }
+
+        .section-light .text-link:hover,
+        .section-light-warm .text-link:hover {
+            color: var(--color-accent-dark);
+        }
+
+        /* ========================================
+           HERO HEADSHOT
+           ======================================== */
         .hero-image {
             position: relative;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-end;
+            z-index: 1;
         }
 
-        .hero-image-wrapper {
+        .hero-headshot-container {
             position: relative;
-            width: 450px;
-            height: 550px;
-            border-radius: 8px;
-            overflow: hidden;
-            background: var(--color-bg-light);
-            border: 1px solid var(--color-border);
+            width: 585px;
+            max-width: 100%;
+            height: 730px;
+            overflow: visible;
+            background: transparent;
         }
 
-        .hero-image-placeholder {
+        .hero-headshot-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Bottom gradient fade — dissolves into the dark page */
+        .hero-headshot-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -20%;
+            right: -20%;
+            height: 40%;
+            background: linear-gradient(to top, #000 0%, rgba(0,0,0,0.8) 30%, transparent 100%);
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        /* Subtle warm glow behind the figure */
+        .hero-headshot-container::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: -30%;
+            right: -30%;
+            bottom: -10%;
+            background: radial-gradient(ellipse at center 40%, rgba(212,168,67,0.06) 0%, transparent 65%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Hero book cover overlay */
+        .hero-book-cover {
+            position: absolute;
+            bottom: 10%;
+            right: -15%;
+            width: 180px;
+            z-index: 10;
+            transform: rotate(5deg);
+            transition: var(--transition);
+        }
+
+        .hero-book-cover img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(255,255,255,0.1);
+        }
+
+        .hero-book-cover:hover {
+            transform: rotate(-3deg) scale(1.05);
+        }
+
+        /* Fallback placeholder if image hasn't been added yet */
+        .hero-headshot-fallback {
             width: 100%;
             height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--color-bg-light) 0%, #1f1a14 100%);
-            position: relative;
+            background: transparent;
         }
 
-        .hero-image-placeholder .initials {
+        .hero-headshot-fallback .initials {
             font-family: var(--font-heading);
             font-size: 6rem;
             font-weight: 800;
@@ -399,33 +579,21 @@
             opacity: 0.3;
         }
 
-        .hero-image-placeholder .photo-label {
+        .hero-headshot-fallback .photo-label {
             font-size: 0.75rem;
-            color: var(--color-text-muted);
+            color: var(--color-text-muted-on-dark);
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-top: 16px;
         }
 
-        .hero-image-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: -12px;
-            bottom: -12px;
-            border: 1px solid var(--color-accent);
-            border-radius: 8px;
-            z-index: -1;
-            opacity: 0.3;
-        }
-
+        /* Floating social media icons — halo arc above head */
         .hero-stats {
             display: flex;
             gap: 40px;
             margin-top: 60px;
             padding-top: 40px;
-            border-top: 1px solid var(--color-border);
+            border-top: 1px solid var(--color-border-dark);
         }
 
         .hero-stat {
@@ -442,10 +610,51 @@
 
         .hero-stat .label {
             font-size: 0.75rem;
-            color: var(--color-text-muted);
+            color: var(--color-text-muted-on-dark);
             text-transform: uppercase;
             letter-spacing: 1.5px;
             margin-top: 8px;
+        }
+
+        /* ========================================
+           CURVED SECTION DIVIDERS
+           ======================================== */
+        .section-divider {
+            position: relative;
+            width: 100%;
+            line-height: 0;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .section-divider svg {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /* Dark → Light (gold curve on cream fill) */
+        .divider-dark-to-light {
+            margin-top: -1px;
+            background: var(--color-bg-dark);
+        }
+
+        /* Light → Dark (gold curve on dark fill) */
+        .divider-light-to-dark {
+            margin-top: -1px;
+        }
+
+        /* Hero-specific divider: overlaps with hero and transitions to light */
+        .divider-hero {
+            position: relative;
+            z-index: 3;
+            margin-top: -60px;
+            background: #f5f0e8;
+        }
+
+        .divider-hero svg {
+            position: relative;
+            z-index: 1;
         }
 
         /* ========================================
@@ -453,11 +662,12 @@
            ======================================== */
         section {
             padding: var(--section-padding) 0;
+            position: relative;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 56px;
         }
 
         .section-label {
@@ -491,10 +701,52 @@
 
         .section-subtitle {
             font-size: 1.1rem;
-            color: var(--color-text-secondary);
+            color: var(--color-text-secondary-on-dark);
             max-width: 600px;
             margin: 0 auto;
             line-height: 1.8;
+        }
+
+        /* ---- As Featured In (press bar) ---- */
+        .press-bar {
+            padding: 36px 0 28px;
+            background: var(--color-bg-cream);
+            position: relative;
+            z-index: 2;
+        }
+
+        .press-bar-label {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--color-text-on-light);
+            margin-bottom: 28px;
+        }
+
+        .press-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 48px;
+        }
+
+        .press-logo-link {
+            display: block;
+            opacity: 0.75;
+            transition: opacity 0.3s ease;
+        }
+
+        .press-logo-link:hover {
+            opacity: 1;
+        }
+
+        .press-logo-link img {
+            height: 36px;
+            width: auto;
+            display: block;
         }
 
         /* ========================================
@@ -511,33 +763,51 @@
             font-size: 2.4rem;
             font-weight: 600;
             line-height: 1.4;
-            color: var(--color-text);
             margin-bottom: 24px;
             position: relative;
+        }
+
+        .message-quote.featured-quote {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #ffffff 0%, var(--color-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .message-quote .highlight {
             color: var(--color-accent);
         }
 
+        .section-light .message-quote .highlight,
+        .section-light-warm .message-quote .highlight {
+            color: var(--color-accent-dark);
+        }
+
         .message-quote::before {
-            content: '\201C';
-            font-family: var(--font-heading);
-            font-size: 6rem;
-            color: var(--color-accent);
-            opacity: 0.2;
-            position: absolute;
-            top: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            line-height: 1;
+            display: none;
         }
 
         .message-attribution {
             font-size: 0.85rem;
-            color: var(--color-text-muted);
             text-transform: uppercase;
             letter-spacing: 2px;
+        }
+
+        .section-dark .message-attribution,
+        .section-dark-gradient .message-attribution {
+            color: var(--color-text-muted-on-dark);
+        }
+
+        .section-light .message-attribution,
+        .section-light-warm .message-attribution {
+            color: var(--color-text-muted-on-light);
         }
 
         /* ========================================
@@ -550,14 +820,70 @@
             align-items: center;
         }
 
+        .about-video-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.12),
+                0 2px 8px rgba(0, 0, 0, 0.08);
+            border: 2px solid rgba(212, 168, 67, 0.3);
+            background: linear-gradient(135deg, #e8e0d2 0%, #d9d0c0 100%);
+        }
+
+        .about-video-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 18px;
+            padding: 2px;
+            background: linear-gradient(135deg, rgba(212,168,67,0.4) 0%, rgba(212,168,67,0.1) 50%, rgba(212,168,67,0.3) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .about-video {
+            width: 100%;
+            display: block;
+            border-radius: 14px;
+        }
+
         .about-image-wrapper {
             position: relative;
             width: 100%;
             height: 500px;
             border-radius: 8px;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--color-bg-light) 0%, #1f1a14 100%);
-            border: 1px solid var(--color-border);
+        }
+
+        .section-light .about-image-wrapper {
+            background: linear-gradient(135deg, #e8e0d2 0%, #d9d0c0 100%);
+            border: 1px solid var(--color-border-cream);
+        }
+
+        .about-headshot {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 15%;
+        }
+
+        /* Gradient overlay to blend headshot into cream bg */
+        .section-light .about-image-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(to top, var(--color-bg-cream) 0%, rgba(245,240,232,0.5) 10%, transparent 35%),
+                linear-gradient(to right, var(--color-bg-cream) 0%, transparent 10%),
+                linear-gradient(to left, var(--color-bg-cream) 0%, transparent 10%),
+                radial-gradient(ellipse at center 30%, transparent 60%, rgba(245,240,232,0.6) 100%);
+            pointer-events: none;
+            z-index: 1;
         }
 
         .about-image-placeholder {
@@ -573,8 +899,8 @@
             font-family: var(--font-heading);
             font-size: 5rem;
             font-weight: 800;
-            color: var(--color-accent);
-            opacity: 0.2;
+            color: var(--color-accent-dark);
+            opacity: 0.25;
         }
 
         .about-content .section-label {
@@ -592,9 +918,89 @@
 
         .about-text {
             font-size: 1.05rem;
-            color: var(--color-text-secondary);
             line-height: 1.9;
             margin-bottom: 20px;
+        }
+
+        .section-light .about-text,
+        .section-light-warm .about-text {
+            color: var(--color-text-secondary-on-light);
+        }
+
+        .about-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        /* ---- Built for Attention Section (Hero Style) ---- */
+        #social-proof {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+        .social-proof-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .social-proof-statement {
+            order: 1;
+        }
+
+        .social-proof-image {
+            order: 2;
+            display: flex;
+            justify-content: flex-end;
+            background: transparent;
+        }
+
+        .social-proof-image img {
+            width: 624px;
+            max-width: 100%;
+            background: transparent;
+            filter: drop-shadow(0 0 80px rgba(179, 128, 65, 0.4)) drop-shadow(0 0 160px rgba(179, 128, 65, 0.15));
+        }
+
+        .social-proof-headline {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--color-text-light);
+            margin-bottom: 50px;
+        }
+
+        .social-proof-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .social-proof-stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .social-proof-stat .number {
+            font-family: var(--font-heading);
+            font-size: 5.5rem;
+            font-weight: 800;
+            line-height: 1;
+            color: var(--color-accent);
+        }
+
+        .social-proof-stat .label {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--color-text-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 8px;
         }
 
         .about-credentials {
@@ -607,17 +1013,21 @@
 
         .credential-tag {
             padding: 8px 18px;
-            background: rgba(212, 168, 67, 0.08);
-            border: 1px solid rgba(212, 168, 67, 0.15);
             border-radius: 50px;
             font-size: 0.8rem;
             font-weight: 500;
-            color: var(--color-accent);
             letter-spacing: 0.5px;
         }
 
+        .section-light .credential-tag,
+        .section-light-warm .credential-tag {
+            background: rgba(184, 145, 46, 0.1);
+            border: 1px solid rgba(184, 145, 46, 0.2);
+            color: var(--color-accent-dark);
+        }
+
         /* ========================================
-           KEYNOTES SECTION
+           KEYNOTES / SPEAKING SECTION
            ======================================== */
         .keynotes-grid {
             display: grid;
@@ -626,13 +1036,7 @@
             justify-items: center;
         }
 
-        .keynotes-grid .keynote-card:nth-child(n+4) {
-            max-width: 100%;
-        }
-
         .keynote-card {
-            background: var(--color-bg-card);
-            border: 1px solid var(--color-border);
             border-radius: 8px;
             padding: 48px 36px;
             transition: var(--transition);
@@ -640,9 +1044,19 @@
             overflow: hidden;
         }
 
+        .section-dark .keynote-card,
+        .section-dark-gradient .keynote-card {
+            background: var(--color-bg-card-dark);
+            border: 1px solid var(--color-border-dark);
+        }
+
         .keynote-card:hover {
-            border-color: var(--color-accent);
             transform: translateY(-4px);
+        }
+
+        .section-dark .keynote-card:hover,
+        .section-dark-gradient .keynote-card:hover {
+            border-color: var(--color-accent);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
@@ -682,9 +1096,13 @@
 
         .keynote-description {
             font-size: 0.95rem;
-            color: var(--color-text-secondary);
             line-height: 1.8;
             margin-bottom: 24px;
+        }
+
+        .section-dark .keynote-description,
+        .section-dark-gradient .keynote-description {
+            color: var(--color-text-secondary-on-dark);
         }
 
         .keynote-link {
@@ -708,7 +1126,6 @@
             transition: var(--transition);
         }
 
-        /* Bottom row centered for 5-item grid */
         .keynotes-bottom-row {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -718,12 +1135,388 @@
         }
 
         /* ========================================
+           SERVICES SECTION
+           ======================================== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .service-card {
+            background: var(--color-bg-card-light);
+            border: 1px solid var(--color-border-cream);
+            border-radius: 12px;
+            padding: 36px 32px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-card-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .service-card-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: #fff;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--color-text-on-light);
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--color-text-secondary-on-light);
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .service-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-accent-dark);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .service-card-link:hover {
+            color: var(--color-accent);
+            gap: 12px;
+        }
+
+        .service-card-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ========================================
+           EXPANDABLE KEYNOTE CARDS
+           ======================================== */
+        .keynotes-grid-expandable {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .keynote-card-expandable {
+            background: var(--color-bg-card-dark);
+            border: 1px solid var(--color-border-dark);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .keynote-card-expandable:hover {
+            border-color: var(--color-accent);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .keynote-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 32px;
+        }
+
+        .keynote-card-expandable .keynote-number {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--color-accent);
+            opacity: 0.3;
+            line-height: 1;
+            margin: 0;
+            flex-shrink: 0;
+        }
+
+        .keynote-header-content {
+            flex: 1;
+        }
+
+        .keynote-category {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-accent);
+            margin-bottom: 8px;
+        }
+
+        .keynote-card-expandable .keynote-title {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--color-text-light);
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .keynote-expand-icon {
+            flex-shrink: 0;
+            color: var(--color-text-secondary-on-dark);
+            transition: transform 0.3s ease;
+        }
+
+        .keynote-card-expandable.expanded .keynote-expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .keynote-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 32px;
+        }
+
+        .keynote-card-expandable.expanded .keynote-body {
+            max-height: 2000px;
+            padding: 0 32px 32px;
+        }
+
+        .keynote-content-wrapper {
+            display: flex;
+            gap: 32px;
+            align-items: flex-start;
+        }
+
+        .keynote-book-image {
+            flex: 0 0 120px;
+        }
+
+        .keynote-book-image img {
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .keynote-text {
+            flex: 1;
+        }
+
+        .keynote-book-line {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+        }
+
+        .keynote-card-expandable .keynote-description {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--color-text-secondary-on-dark);
+            margin-bottom: 24px;
+        }
+
+        .keynote-takeaways {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+        }
+
+        .takeaways-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-accent);
+            margin-bottom: 12px;
+        }
+
+        .takeaways-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .takeaways-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--color-text-secondary-on-dark);
+        }
+
+        .takeaways-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .takeaways-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            background: var(--color-accent);
+            border-radius: 50%;
+        }
+
+        .keynote-card-expandable .keynote-link {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .keynote-card-expandable .keynote-link:hover {
+            gap: 12px;
+        }
+
+        /* ========================================
            BOOKS SECTION
            ======================================== */
+        .books-featured {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 60px;
+            align-items: flex-start;
+        }
+
+        .book-card-featured {
+            text-align: center;
+            transition: var(--transition);
+            flex: 0 0 280px;
+        }
+
+        .book-card-featured.primary {
+            flex: 0 0 280px;
+        }
+
+        .book-card-featured:hover {
+            transform: translateY(-8px);
+        }
+
+        .book-card-featured .book-cover {
+            width: 100%;
+            aspect-ratio: 2/3;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            position: relative;
+            transition: var(--transition);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .book-card-featured.primary .book-cover {
+            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.25), 0 0 0 3px rgba(179, 128, 65, 0.3);
+        }
+
+        .book-card-featured:hover .book-cover {
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+            transform: scale(1.02);
+        }
+
+        .previous-books {
+            border-top: 1px solid var(--color-border-cream);
+            padding-top: 48px;
+            margin-top: 20px;
+        }
+
+        .previous-books-label {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--color-text-muted-on-light);
+            margin-bottom: 32px;
+        }
+
         .books-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
+            gap: 48px;
+        }
+
+        .books-grid-small {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .books-grid-small .book-card {
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        .books-grid-small .book-cover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .books-grid-small .book-title {
+            font-size: 1rem;
+        }
+
+        .books-grid-small .book-meta {
+            font-size: 0.8rem;
+        }
+
+        .books-grid-three {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .books-grid-three .book-card {
+            max-width: 220px;
+            margin: 0 auto;
+        }
+
+        .coming-soon-badge {
+            display: inline-block;
+            background: var(--color-accent-gold);
+            color: #000;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 8px;
+        }
+
+        .books-grid-small .book-buy-btn {
+            padding: 8px 16px;
+            font-size: 0.75rem;
         }
 
         .book-card {
@@ -737,61 +1530,75 @@
 
         .book-cover {
             width: 100%;
-            height: 320px;
-            background: linear-gradient(135deg, var(--color-bg-light) 0%, #1c1815 100%);
+            aspect-ratio: 2/3;
             border-radius: 6px;
-            border: 1px solid var(--color-border);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-            margin-bottom: 20px;
-            position: relative;
             overflow: hidden;
+            margin-bottom: 24px;
+            position: relative;
             transition: var(--transition);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
         }
 
         .book-card:hover .book-cover {
-            border-color: var(--color-accent);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+            transform: scale(1.02);
         }
 
-        .book-cover .book-icon {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 16px;
-            color: var(--color-accent);
-            opacity: 0.6;
-        }
-
-        .book-cover-title {
-            font-family: var(--font-heading);
-            font-size: 1.1rem;
-            font-weight: 700;
-            line-height: 1.3;
-            color: var(--color-text);
-            text-align: center;
-        }
-
-        .book-cover-subtitle {
-            font-size: 0.75rem;
-            color: var(--color-accent);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-top: 8px;
+        .book-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .book-title {
             font-family: var(--font-heading);
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 600;
             margin-bottom: 6px;
         }
 
         .book-meta {
-            font-size: 0.8rem;
-            color: var(--color-text-muted);
+            font-size: 0.85rem;
+        }
+
+        .section-light .book-meta,
+        .section-light-warm .book-meta {
+            color: var(--color-text-muted-on-light);
+        }
+
+        .book-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .book-buy-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 16px;
+            padding: 10px 22px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--color-bg-dark);
+            background: var(--color-accent);
+            border-radius: 6px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .book-buy-btn:hover {
+            background: var(--color-accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(212, 168, 67, 0.35);
+        }
+
+        .book-buy-btn svg {
+            width: 14px;
+            height: 14px;
         }
 
         /* ========================================
@@ -804,22 +1611,28 @@
         }
 
         .testimonials-placeholder-box {
-            background: var(--color-bg-card);
-            border: 1px dashed var(--color-border-light);
             border-radius: 12px;
             padding: 60px 40px;
+        }
+
+        .section-dark .testimonials-placeholder-box {
+            background: var(--color-bg-card-dark);
+            border: 1px dashed var(--color-border-dark-light);
         }
 
         .testimonials-placeholder-box .placeholder-icon {
             width: 60px;
             height: 60px;
-            background: rgba(212, 168, 67, 0.1);
-            border: 1px solid rgba(212, 168, 67, 0.2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 24px;
+        }
+
+        .section-dark .testimonials-placeholder-box .placeholder-icon {
+            background: rgba(212, 168, 67, 0.1);
+            border: 1px solid rgba(212, 168, 67, 0.2);
         }
 
         .testimonials-placeholder-box .placeholder-icon svg {
@@ -833,88 +1646,23 @@
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 12px;
-            color: var(--color-text);
         }
 
         .testimonials-placeholder-box p {
             font-size: 1rem;
-            color: var(--color-text-muted);
             line-height: 1.8;
         }
 
-        /* ========================================
-           AS SEEN / LOGOS SECTION
-           ======================================== */
-        .logos-section {
-            padding: 60px 0;
-            background: var(--color-bg-medium);
-            border-top: 1px solid var(--color-border);
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .logos-label {
-            text-align: center;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--color-text-muted);
-            margin-bottom: 40px;
-        }
-
-        .logos-grid {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 60px;
-            flex-wrap: wrap;
-        }
-
-        .logo-item {
-            font-family: var(--font-heading);
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--color-text-muted);
-            opacity: 0.4;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: var(--transition);
-        }
-
-        .logo-item:hover {
-            opacity: 0.7;
-            color: var(--color-accent);
+        .section-dark .testimonials-placeholder-box p {
+            color: var(--color-text-muted-on-dark);
         }
 
         /* ========================================
            CTA SECTION
            ======================================== */
         .cta-section {
-            background: linear-gradient(135deg, #1a1510 0%, #0a0a0a 50%, #1a1510 100%);
             position: relative;
             overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(212, 168, 67, 0.05) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .cta-section::after {
-            content: '';
-            position: absolute;
-            bottom: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(212, 168, 67, 0.05) 0%, transparent 70%);
-            border-radius: 50%;
         }
 
         .cta-content {
@@ -960,9 +1708,13 @@
         }
 
         .newsletter-content p {
-            color: var(--color-text-secondary);
             margin-bottom: 32px;
             font-size: 1rem;
+        }
+
+        .section-dark .newsletter-content p,
+        .section-dark-gradient .newsletter-content p {
+            color: var(--color-text-secondary-on-dark);
         }
 
         .newsletter-form {
@@ -975,18 +1727,22 @@
         .newsletter-form input {
             flex: 1;
             padding: 14px 20px;
-            background: var(--color-bg-card);
-            border: 1px solid var(--color-border);
             border-radius: 4px;
-            color: var(--color-text);
             font-family: var(--font-body);
             font-size: 0.9rem;
             outline: none;
             transition: var(--transition);
         }
 
-        .newsletter-form input::placeholder {
-            color: var(--color-text-muted);
+        .section-dark .newsletter-form input,
+        .section-dark-gradient .newsletter-form input {
+            background: var(--color-bg-card-dark);
+            border: 1px solid var(--color-border-dark);
+            color: var(--color-text-on-dark);
+        }
+
+        .section-dark .newsletter-form input::placeholder {
+            color: var(--color-text-muted-on-dark);
         }
 
         .newsletter-form input:focus {
@@ -1013,13 +1769,80 @@
             background: var(--color-accent-hover);
         }
 
+        /* ---- Contact Form ---- */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            color: var(--color-text-on-light);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            border: 2px solid var(--color-border-light);
+            border-radius: 4px;
+            background: #fff;
+            color: var(--color-text-on-light);
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--color-accent-dark);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--color-text-muted-on-light);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form .btn-primary {
+            width: 100%;
+            justify-content: center;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* ========================================
            FOOTER
            ======================================== */
         .footer {
             padding: 80px 0 40px;
             background: var(--color-bg-dark);
-            border-top: 1px solid var(--color-border);
+            color: var(--color-text-on-dark);
         }
 
         .footer-top {
@@ -1027,7 +1850,7 @@
             grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 60px;
             padding-bottom: 60px;
-            border-bottom: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border-dark);
         }
 
         .footer-brand {
@@ -1041,7 +1864,7 @@
 
         .footer-brand p {
             font-size: 0.9rem;
-            color: var(--color-text-secondary);
+            color: var(--color-text-secondary-on-dark);
             line-height: 1.8;
         }
 
@@ -1050,7 +1873,7 @@
             font-size: 1rem;
             font-weight: 700;
             margin-bottom: 20px;
-            color: var(--color-text);
+            color: var(--color-text-on-dark);
         }
 
         .footer-column ul {
@@ -1062,7 +1885,7 @@
 
         .footer-column a {
             font-size: 0.9rem;
-            color: var(--color-text-secondary);
+            color: var(--color-text-secondary-on-dark);
         }
 
         .footer-column a:hover {
@@ -1078,7 +1901,7 @@
         .social-link {
             width: 40px;
             height: 40px;
-            border: 1px solid var(--color-border);
+            border: 1px solid var(--color-border-dark);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1094,7 +1917,7 @@
         .social-link svg {
             width: 16px;
             height: 16px;
-            color: var(--color-text-secondary);
+            color: var(--color-text-secondary-on-dark);
             transition: var(--transition);
         }
 
@@ -1111,7 +1934,7 @@
 
         .footer-bottom p {
             font-size: 0.8rem;
-            color: var(--color-text-muted);
+            color: var(--color-text-muted-on-dark);
         }
 
         .footer-bottom-links {
@@ -1121,7 +1944,7 @@
 
         .footer-bottom-links a {
             font-size: 0.8rem;
-            color: var(--color-text-muted);
+            color: var(--color-text-muted-on-dark);
         }
 
         .footer-bottom-links a:hover {
@@ -1153,13 +1976,17 @@
            ======================================== */
         @media (max-width: 1024px) {
             :root {
-                --section-padding: 80px;
+                --section-padding: 60px;
             }
 
             .hero .container {
                 grid-template-columns: 1fr;
                 gap: 60px;
                 text-align: center;
+            }
+
+            .hero-image {
+                order: -1;
             }
 
             .hero-content {
@@ -1180,10 +2007,14 @@
                 justify-content: center;
             }
 
-            .hero-image-wrapper {
-                width: 350px;
-                height: 430px;
+            .hero-headshot-container {
+                width: 430px;
+                height: 540px;
                 margin: 0 auto;
+            }
+
+            .divider-hero {
+                margin-top: -50px;
             }
 
             .hero-stats {
@@ -1192,7 +2023,66 @@
 
             .about-grid {
                 grid-template-columns: 1fr;
-                gap: 60px;
+                gap: 40px;
+            }
+
+            .about-buttons {
+                justify-content: center;
+            }
+
+            .social-proof-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .social-proof-statement {
+                order: 2;
+                padding-top: 0;
+            }
+
+            .social-proof-image {
+                order: 1;
+                justify-content: center;
+                padding-bottom: 0;
+                margin-bottom: 0;
+            }
+
+            .social-proof-image img {
+                width: 400px;
+                max-width: 85%;
+                margin-bottom: 0;
+            }
+
+            .social-proof-headline {
+                font-size: 2.2rem;
+                margin-bottom: 24px;
+                margin-top: 0;
+            }
+
+            .social-proof-stat .number {
+                font-size: 4rem;
+            }
+
+            .social-proof-stats {
+                gap: 20px;
+            }
+
+            #social-proof {
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+
+            .about-video-wrapper {
+                border-radius: 12px;
+            }
+
+            .about-video-wrapper::before {
+                border-radius: 14px;
+            }
+
+            .about-video {
+                border-radius: 10px;
             }
 
             .about-content .section-title,
@@ -1233,6 +2123,7 @@
 
             .books-grid {
                 grid-template-columns: repeat(3, 1fr);
+                gap: 24px;
             }
 
             .footer-top {
@@ -1243,7 +2134,45 @@
 
         @media (max-width: 768px) {
             :root {
-                --section-padding: 60px;
+                --section-padding: 48px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .service-card {
+                padding: 28px 24px;
+            }
+
+            .books-featured {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+
+            .book-card-featured,
+            .book-card-featured.primary {
+                flex: 0 0 auto;
+                width: 240px;
+            }
+
+            .books-grid-small {
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
+                max-width: 360px;
+            }
+
+            .books-grid-three {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                max-width: 240px;
+            }
+
+            .btn-tertiary {
+                padding: 14px 28px;
+                font-size: 0.8rem;
             }
 
             .nav-links {
@@ -1261,6 +2190,10 @@
                 z-index: 999;
             }
 
+            .nav-social {
+                display: none;
+            }
+
             .nav-links.active {
                 display: flex;
             }
@@ -1269,13 +2202,27 @@
                 display: flex;
             }
 
+            .hero {
+                min-height: auto;
+                overflow: visible;
+                padding-bottom: 60px;
+            }
+
             .hero h1 {
                 font-size: 2.4rem;
             }
 
-            .hero-image-wrapper {
-                width: 280px;
-                height: 350px;
+            .hero-headshot-container {
+                width: 340px;
+                height: 450px;
+            }
+
+            .divider-hero {
+                margin-top: -40px;
+            }
+
+            .section-divider svg {
+                height: 50px;
             }
 
             .hero-stats {
@@ -1296,15 +2243,15 @@
                 font-size: 1.8rem;
             }
 
-            .books-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                max-width: 300px;
-                margin: 0 auto;
+            .message-quote.featured-quote {
+                font-size: 2.5rem;
             }
 
-            .book-cover {
-                height: 280px;
+            .books-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                max-width: 280px;
+                margin: 0 auto;
             }
 
             .newsletter-form {
@@ -1327,8 +2274,72 @@
                 align-items: center;
             }
 
-            .logos-grid {
-                gap: 30px;
+            .social-proof-grid {
+                gap: 16px;
+            }
+
+            .social-proof-image img {
+                width: 320px;
+                max-width: 80%;
+            }
+
+            .social-proof-headline {
+                font-size: 1.6rem;
+                margin-bottom: 16px;
+            }
+
+            .social-proof-stat .number {
+                font-size: 3rem;
+            }
+
+            .social-proof-stats {
+                gap: 16px;
+            }
+
+            #social-proof {
+                padding-top: 16px;
+                padding-bottom: 16px;
+            }
+
+            .keynotes-grid-expandable {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .keynote-header {
+                padding: 24px;
+                gap: 16px;
+            }
+
+            .keynote-card-expandable .keynote-number {
+                font-size: 2rem;
+            }
+
+            .keynote-card-expandable .keynote-title {
+                font-size: 1.1rem;
+            }
+
+            .keynote-body {
+                padding: 0 24px;
+            }
+
+            .keynote-card-expandable.expanded .keynote-body {
+                padding: 0 24px 24px;
+            }
+
+            .keynote-content-wrapper {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .keynote-book-image {
+                flex: 0 0 auto;
+                width: 100px;
+                margin: 0 auto;
+            }
+
+            .video-embed-wrapper {
+                max-width: 100%;
             }
         }
 
@@ -1345,11 +2356,50 @@
                 font-size: 1.6rem;
             }
 
-            .btn-primary, .btn-secondary {
-                padding: 14px 28px;
-                font-size: 0.8rem;
+            .btn-primary, .btn-secondary, .btn-tertiary {
+                padding: 12px 20px;
+                font-size: 0.85rem;
                 width: 100%;
+                max-width: 100%;
                 justify-content: center;
+                box-sizing: border-box;
+            }
+
+            .hero-book-cover {
+                width: 100px;
+                left: -10%;
+                bottom: 5%;
+            }
+
+            .books-grid-small {
+                grid-template-columns: 1fr;
+                max-width: 200px;
+            }
+
+            .hero-buttons {
+                width: 100%;
+                padding: 0;
+            }
+
+            .hero-buttons .btn-primary {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .btn-primary, .btn-secondary {
+                padding: 12px 16px;
+                font-size: 0.8rem;
+            }
+
+            .btn-primary svg, .btn-secondary svg {
+                width: 14px;
+                height: 14px;
             }
         }
     </style>
@@ -1362,11 +2412,25 @@
             <a href="#" class="nav-logo">ROB <span>CLARK</span></a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
-                <li><a href="#speaking">Speaking</a></li>
+                <li><a href="#services">Services</a></li>
                 <li><a href="#books">Books</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact" class="nav-cta">Book Rob</a></li>
+                <li><a href="#speaking">Speaking</a></li>
+                <li><a href="#contact" class="nav-cta">Contact</a></li>
             </ul>
+            <div class="nav-social">
+                <a href="https://www.instagram.com/thattallfamily/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="0.5"/></svg>
+                </a>
+                <a href="https://www.tiktok.com/@tallfamily" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@ThatTallFamily" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/robclark/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+            </div>
             <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
@@ -1375,46 +2439,39 @@
         </div>
     </nav>
 
-    <!-- ========== HERO SECTION (dark bg) ========== -->
+    <!-- ========== HERO SECTION (DARK) ========== -->
     <section class="hero" id="hero">
         <div class="hero-bg"></div>
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge">Speaker &amp; Strategist</div>
                 <h1>
-                    Attention Is the
-                    <span class="accent">New Currency</span>
+                    Stop Being the<br>
+                    <span class="accent">Best Kept Secret.</span>
                 </h1>
                 <p class="hero-subtitle">
-                    In a distracted world, visibility is everything. Rob Clark helps creators, businesses, and institutions clarify their message, capture attention, and turn content into real growth.
+                    Most organizations are great at what they do and invisible where it matters. Rob Clark fixes that through keynotes, consulting, and content systems that turn expertise into organic attention. Author of <em>Stop Being the Best Kept Secret</em>.
                 </p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn-primary">
-                        Book Rob to Speak
+                        Stop Being the Best Kept Secret
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
-                    <a href="#speaking" class="btn-secondary">
-                        Speaking Topics
                     </a>
                 </div>
                 <div class="hero-stats">
                     <div class="hero-stat">
-                        <div class="number">5B+</div>
-                        <div class="label">Views Generated</div>
+                        <div class="number">5 Billion+</div>
+                        <div class="label">Views</div>
                     </div>
                     <div class="hero-stat">
-                        <div class="number">4M+</div>
+                        <div class="number">4 Million+</div>
                         <div class="label">Followers</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="number">3</div>
-                        <div class="label">Books Published</div>
                     </div>
                 </div>
             </div>
             <div class="hero-image">
-                <div class="hero-image-wrapper">
-                    <div class="hero-image-placeholder">
+                <div class="hero-headshot-container">
+                    <img src="images/hero-portrait.png" alt="Rob Clark" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="hero-headshot-fallback" style="display:none;">
                         <div class="initials">RC</div>
                         <div class="photo-label">Your Photo Here</div>
                     </div>
@@ -1423,144 +2480,162 @@
         </div>
     </section>
 
-    <!-- ========== LOGOS / WORKED WITH (medium bg) ========== -->
-    <div class="logos-section">
-        <div class="container">
-            <p class="logos-label">Worked with Leading Brands</p>
-            <div class="logos-grid">
-                <span class="logo-item">Walmart</span>
-                <span class="logo-item">Warner Bros</span>
-                <span class="logo-item">Capital One</span>
-                <span class="logo-item">Samsung</span>
-                <span class="logo-item">General Mills</span>
-            </div>
-        </div>
+    <!-- Curved divider: Hero (dark) → About (cream) with gold accent -->
+    <div class="section-divider divider-hero">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,45 Q360,85 720,60 Q1080,35 1440,65 L1440,0 Z" fill="#000"/>
+            <path d="M0,45 Q360,85 720,60 Q1080,35 1440,65 L1440,50 Q1080,40 720,65 Q360,90 0,50 Z" fill="#b38041"/>
+            <path d="M0,50 Q360,90 720,65 Q1080,40 1440,70 L1440,100 L0,100 Z" fill="#f5f0e8"/>
+        </svg>
     </div>
 
-    <!-- ========== QUOTE / MESSAGE (light bg) ========== -->
-    <section class="bg-light">
-        <div class="container">
-            <div class="message-content fade-in">
-                <p class="message-quote">
-                    Attention is <span class="highlight">stewardship.</span> Influence is <span class="highlight">responsibility.</span> And excellence is the entry point to <span class="highlight">impact.</span>
-                </p>
-                <p class="message-attribution">&mdash; Rob Clark</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== ABOUT SECTION (dark bg) ========== -->
-    <section class="bg-dark" id="about">
+    <!-- ========== ABOUT SECTION (LIGHT / CREAM) ========== -->
+    <section class="section-light" id="about">
         <div class="container">
             <div class="about-grid">
-                <div class="about-image-wrapper fade-in">
-                    <div class="about-image-placeholder">
-                        <div class="initials">RC</div>
-                    </div>
+                <div class="about-video-wrapper fade-in">
+                    <video class="about-video" autoplay muted loop playsinline>
+                        <source src="robweb.mp4" type="video/mp4">
+                    </video>
                 </div>
                 <div class="about-content">
-                    <div class="section-label">About Rob</div>
-                    <h2 class="section-title fade-in">Creator, Strategist<br>&amp; Entrepreneur</h2>
+                    <h2 class="section-title fade-in">Strategist, Creator,<br>Author &amp; Speaker</h2>
                     <p class="about-text fade-in">
-                        Rob Clark is a creator, strategist, and entrepreneur focused on attention, storytelling, and growth in a distracted world. He is best known as the founder and face of <strong>That Tall Family</strong>, one of the largest family-friendly brands on social media &mdash; generating over <strong>5 billion views</strong> and building an audience of more than <strong>4 million followers</strong> across TikTok, Instagram, YouTube, and Facebook through organic content only.
+                        Rob Clark is a strategist, creator, author, and speaker who has built one of the most successful organic social media brands in the world. As the founder of <a href="https://thattallfamily.com" target="_blank" rel="noopener noreferrer" class="text-link"><strong>That Tall Family</strong></a>, Rob and his family have generated over <strong>5 billion views</strong> and built a following of more than <strong>4 million people</strong> across Instagram, TikTok, YouTube, Facebook, and LinkedIn without relying on paid ads. He is the author of <a href="#books" class="text-link"><strong><em>Stop Being the Best Kept Secret</em></strong></a>.
                     </p>
                     <p class="about-text fade-in">
-                        Professionally, Rob helps creators, businesses, colleges, churches, and nonprofits clarify their message and turn social media into real visibility, trust, and opportunity through consulting, speaking, content strategy, and hands-on execution under <strong>TTF Media</strong>.
+                        His work sits at the intersection of attention, storytelling, leadership, and culture. Rob helps brands, universities, nonprofits, and entrepreneurs win attention and turn it into real growth &mdash; through consulting, content creation, digital development, and keynote speaking. His approach is practical, direct, and grounded in real world experience. Rob lives just south of Nashville, Tennessee.
                     </p>
-                    <p class="about-text fade-in">
-                        Rob is also an author. His books focus on influence, attention, leadership, and culture &mdash; especially how Christians and institutions can engage the modern world with clarity and conviction. His work blends real-world results with faith, ethics, and long-term thinking.
-                    </p>
-                    <div class="about-credentials fade-in">
-                        <span class="credential-tag">Founder, That Tall Family</span>
-                        <span class="credential-tag">TTF Media</span>
-                        <span class="credential-tag">5B+ Views</span>
-                        <span class="credential-tag">Author</span>
-                        <span class="credential-tag">Speaker</span>
-                        <span class="credential-tag">Content Strategist</span>
+                    <div class="about-buttons fade-in">
+                        <a href="#services" class="btn-primary">
+                            View Services
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
                     </div>
-                    <a href="#contact" class="btn-primary fade-in">
-                        Work with Rob
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== SPEAKING TOPICS (medium bg) ========== -->
-    <section class="bg-medium" id="speaking">
+    <!-- Curved divider: About (cream) → Built for Attention (dark) with gold accent -->
+    <div class="section-divider divider-light-to-dark">
+        <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,40 Q360,10 720,45 Q1080,80 1440,35 L1440,0 Z" fill="#f5f0e8"/>
+            <path d="M0,40 Q360,10 720,45 Q1080,80 1440,35 L1440,45 Q1080,90 720,55 Q360,20 0,50 Z" fill="#b38041"/>
+            <path d="M0,50 Q360,20 720,55 Q1080,90 1440,45 L1440,90 L0,90 Z" fill="#0a0a0a"/>
+        </svg>
+    </div>
+
+    <!-- ========== BUILT FOR ATTENTION (DARK) ========== -->
+    <section class="section-dark-gradient" id="social-proof">
+        <div class="container">
+            <div class="social-proof-grid">
+                <div class="social-proof-statement fade-in">
+                    <h2 class="social-proof-headline">Not built on theory.<br>Built on experience.</h2>
+                    <div class="social-proof-stats">
+                        <div class="social-proof-stat">
+                            <span class="number">4+ Million</span>
+                            <span class="label">Followers</span>
+                        </div>
+                        <div class="social-proof-stat">
+                            <span class="number">5+ Billion</span>
+                            <span class="label">Organic Views</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-proof-image fade-in">
+                    <img src="playbuttons_clean.png" alt="YouTube Gold and Silver Play Button Awards - That Tall Family">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curved divider: Built for Attention (dark) → Services (cream) -->
+    <div class="section-divider divider-dark-to-light" style="background:#0a0a0a;">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,45 Q280,15 560,40 Q840,65 1120,35 Q1300,20 1440,50 L1440,0 Z" fill="#0a0a0a"/>
+            <path d="M0,45 Q280,15 560,40 Q840,65 1120,35 Q1300,20 1440,50 L1440,55 Q1300,25 1120,40 Q840,70 560,45 Q280,20 0,50 Z" fill="#b38041"/>
+            <path d="M0,50 Q280,20 560,45 Q840,70 1120,40 Q1300,25 1440,55 L1440,100 L0,100 Z" fill="#f5f0e8"/>
+        </svg>
+    </div>
+
+    <!-- ========== SERVICES SECTION (LIGHT / CREAM) ========== -->
+    <section class="section-light-warm" id="services">
         <div class="container">
             <div class="section-header">
-                <div class="section-label">Speaking Topics</div>
-                <h2 class="section-title fade-in">What Rob Speaks About</h2>
+                <div class="section-label">What I Do</div>
+                <h2 class="section-title fade-in">Services</h2>
                 <p class="section-subtitle fade-in">
-                    Rob brings practical, proven strategies from building one of the largest family brands on social media. No theory &mdash; just what actually works.
+                    I help people and organizations win attention and turn it into growth &mdash; through strategy, content, technology, and speaking.
                 </p>
             </div>
-            <div class="keynotes-grid">
-                <div class="keynote-card fade-in fade-in-delay-1">
-                    <div class="keynote-number">01</div>
-                    <h3 class="keynote-title">Attention &amp; Visibility in a Distracted World</h3>
-                    <p class="keynote-description">
-                        The world is noisier than ever. Rob breaks down how modern attention works, why most organizations are invisible, and the practical shifts that create real visibility &mdash; without gaming algorithms or chasing trends.
-                    </p>
-                    <a href="#contact" class="keynote-link">
-                        Book This Topic
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            <div class="services-grid">
+                <!-- Service 1: Social Media Strategy -->
+                <div class="service-card fade-in fade-in-delay-1">
+                    <div class="service-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    </div>
+                    <h3>Social Media Strategy &amp; Consulting</h3>
+                    <p>I help brands, universities, and organizations build organic content systems that drive real growth. No ad spend required.</p>
+                    <a href="#contact" class="service-card-link">
+                        Get Started
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </a>
                 </div>
-                <div class="keynote-card fade-in fade-in-delay-2">
-                    <div class="keynote-number">02</div>
-                    <h3 class="keynote-title">Organic Social Media Growth &amp; Storytelling</h3>
-                    <p class="keynote-description">
-                        With 5 billion views from purely organic content, Rob shares the storytelling principles and content strategies that actually drive growth. What to post, how to tell the story, and how to make content work.
-                    </p>
-                    <a href="#contact" class="keynote-link">
-                        Book This Topic
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+
+                <!-- Service 2: Content Creation -->
+                <div class="service-card fade-in fade-in-delay-2">
+                    <div class="service-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                    </div>
+                    <h3>Content Creation</h3>
+                    <p>From short-form video to full production, I create scroll-stopping content built on the frameworks behind 5 billion views.</p>
+                    <a href="#contact" class="service-card-link">
+                        Get Started
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </a>
                 </div>
-                <div class="keynote-card fade-in fade-in-delay-3">
-                    <div class="keynote-number">03</div>
-                    <h3 class="keynote-title">Building Trust &amp; Influence Through Content</h3>
-                    <p class="keynote-description">
-                        Trust is the real currency of the internet. Rob shows how to build genuine influence through content that connects, converts, and lasts &mdash; moving beyond vanity metrics to real-world impact.
-                    </p>
-                    <a href="#contact" class="keynote-link">
-                        Book This Topic
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+
+                <!-- Service 3: Website & App Development -->
+                <div class="service-card fade-in fade-in-delay-3">
+                    <div class="service-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <h3>Website &amp; App Development</h3>
+                    <p>I design and build modern websites and apps for brands, authors, and businesses that need a professional digital presence.</p>
+                    <a href="#contact" class="service-card-link">
+                        Get Started
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </a>
                 </div>
-            </div>
-            <div class="keynotes-bottom-row">
-                <div class="keynote-card fade-in fade-in-delay-4">
-                    <div class="keynote-number">04</div>
-                    <h3 class="keynote-title">How Institutions Can Stop Being Invisible</h3>
-                    <p class="keynote-description">
-                        Colleges, churches, and nonprofits are often doing incredible work that nobody sees. Rob delivers a roadmap for institutions to clarify their message, show up where people actually are, and become impossible to ignore.
-                    </p>
-                    <a href="#contact" class="keynote-link">
-                        Book This Topic
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
-                </div>
-                <div class="keynote-card fade-in fade-in-delay-5">
-                    <div class="keynote-number">05</div>
-                    <h3 class="keynote-title">Faith, Ethics &amp; Stewardship of Influence</h3>
-                    <p class="keynote-description">
-                        Rob speaks on how Christians and leaders of faith can engage the modern world with clarity and conviction. A talk about why influence is responsibility, how excellence is the entry point to impact, and what it means to steward attention well.
-                    </p>
-                    <a href="#contact" class="keynote-link">
-                        Book This Topic
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+
+                <!-- Service 4: Video Editing & Production -->
+                <div class="service-card fade-in fade-in-delay-4">
+                    <div class="service-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                    </div>
+                    <h3>Video Editing &amp; Production</h3>
+                    <p>Professional editing for social content, brand videos, and long-form projects.</p>
+                    <a href="#contact" class="service-card-link">
+                        Get Started
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== BOOKS SECTION (accent-subtle bg) ========== -->
-    <section class="bg-accent-subtle" id="books">
+    <!-- Subtle divider: Services (cream) → Books (cream) -->
+    <div class="section-divider" style="background: var(--color-bg-cream);">
+        <svg viewBox="0 0 1440 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,18 Q360,38 720,20 Q1080,2 1440,22 L1440,0 Z" fill="#f5f0e8"/>
+            <path d="M0,18 Q360,38 720,20 Q1080,2 1440,22 L1440,24 Q1080,4 720,22 Q360,40 0,20 Z" fill="#b38041" opacity="0.5"/>
+            <path d="M0,20 Q360,40 720,22 Q1080,4 1440,24 L1440,40 L0,40 Z" fill="#f5f0e8"/>
+        </svg>
+    </div>
+
+    <!-- ========== BOOKS SECTION (LIGHT / CREAM) ========== -->
+    <section class="section-light-warm" id="books">
         <div class="container">
             <div class="section-header">
                 <div class="section-label">Published Works</div>
@@ -1569,113 +2644,239 @@
                     Rob's books explore influence, attention, leadership, and culture &mdash; blending real-world results with faith, ethics, and long-term thinking.
                 </p>
             </div>
-            <div class="books-grid">
-                <div class="book-card fade-in fade-in-delay-1">
-                    <div class="book-cover">
-                        <svg class="book-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                        <div class="book-cover-title">Attention Gap</div>
-                        <div class="book-cover-subtitle">Co-authored with Chris Rapozo</div>
-                    </div>
-                    <h3 class="book-title">Attention Gap</h3>
-                    <p class="book-meta">Why Great Schools Stay Invisible &amp; How to Fix It</p>
+
+            <!-- Featured Book -->
+            <div class="books-featured" style="margin-bottom: 60px;">
+                <div class="book-card-featured primary fade-in fade-in-delay-1">
+                    <a href="https://a.co/d/07MgimOp" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <div class="book-cover">
+                            <img src="images/best-kept-secret.png" alt="Stop Being the Best Kept Secret: Earn the Attention Your Work Deserves by Rob Clark">
+                        </div>
+                    </a>
+                    <h3 class="book-title">Stop Being the Best Kept Secret</h3>
+                    <p class="book-meta">Earn the Attention Your Work Deserves</p>
+                    <a href="https://a.co/d/07MgimOp" target="_blank" rel="noopener noreferrer" class="book-buy-btn">
+                        Get the Book
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2"/><path d="M7 7h10v10"/></svg>
+                    </a>
                 </div>
-                <div class="book-card fade-in fade-in-delay-2">
-                    <div class="book-cover">
-                        <svg class="book-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                        <div class="book-cover-title">4 Billion Views</div>
-                        <div class="book-cover-subtitle">Rob Clark</div>
+            </div>
+
+            <!-- Published Books -->
+            <div class="previous-books" style="border-top: none; padding-top: 0; margin-top: 0;">
+                <p class="previous-books-label">Available Now</p>
+                <div class="books-grid-three">
+                    <!-- Attention Gap -->
+                    <div class="book-card fade-in fade-in-delay-2">
+                        <a href="https://a.co/d/0iEp2sgY" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <div class="book-cover">
+                                <img src="images/attention-gap.jpg" alt="Attention Gap: Why Great Schools Stay Invisible and How To Fix It by Chris Rapozo and Rob Clark">
+                            </div>
+                        </a>
+                        <h3 class="book-title">Attention Gap</h3>
+                        <p class="book-meta">Why Great Schools Stay Invisible &amp; How to Fix It</p>
+                        <a href="https://a.co/d/0iEp2sgY" target="_blank" rel="noopener noreferrer" class="book-buy-btn">
+                            Get the Book
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2"/><path d="M7 7h10v10"/></svg>
+                        </a>
                     </div>
-                    <h3 class="book-title">4 Billion Views</h3>
-                    <p class="book-meta">Rob Clark</p>
-                </div>
-                <div class="book-card fade-in fade-in-delay-3">
-                    <div class="book-cover">
-                        <svg class="book-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                        <div class="book-cover-title">Growing Your Influence</div>
-                        <div class="book-cover-subtitle">Rob Clark</div>
+
+                    <!-- 4 Billion Views -->
+                    <div class="book-card fade-in fade-in-delay-3">
+                        <a href="https://a.co/d/0ij4XFy8" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <div class="book-cover">
+                                <img src="images/4-billion-views.jpg" alt="4 Billion Views: How We Built a Social Media Brand from Scratch by Rob Clark">
+                            </div>
+                        </a>
+                        <h3 class="book-title">4 Billion Views</h3>
+                        <p class="book-meta">How We Built a Social Media Brand from Scratch</p>
+                        <a href="https://a.co/d/0ij4XFy8" target="_blank" rel="noopener noreferrer" class="book-buy-btn">
+                            Get the Book
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2"/><path d="M7 7h10v10"/></svg>
+                        </a>
                     </div>
-                    <h3 class="book-title">Growing Your Influence</h3>
-                    <p class="book-meta">Rob Clark</p>
+
+                    <!-- Growing Your Influence -->
+                    <div class="book-card fade-in fade-in-delay-4">
+                        <a href="https://a.co/d/0gYqels0" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <div class="book-cover">
+                                <img src="images/growing-your-influence.jpg" alt="Growing Your Influence: Social Media Strategies for a New Generation by Rob Clark">
+                            </div>
+                        </a>
+                        <h3 class="book-title">Growing Your Influence</h3>
+                        <p class="book-meta">Social Media Strategies for a New Generation</p>
+                        <a href="https://a.co/d/0gYqels0" target="_blank" rel="noopener noreferrer" class="book-buy-btn">
+                            Get the Book
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2"/><path d="M7 7h10v10"/></svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== TESTIMONIALS (medium bg) ========== -->
-    <section class="bg-medium" id="testimonials">
+    <!-- Curved divider: Books (cream) → Speaking (dark) -->
+    <div class="section-divider divider-light-to-dark">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,45 Q360,85 720,55 Q1080,25 1440,65 L1440,0 Z" fill="#f5f0e8"/>
+            <path d="M0,45 Q360,85 720,55 Q1080,25 1440,65 L1440,70 Q1080,30 720,60 Q360,90 0,50 Z" fill="#b38041"/>
+            <path d="M0,50 Q360,90 720,60 Q1080,30 1440,70 L1440,100 L0,100 Z" fill="#0a0a0a"/>
+        </svg>
+    </div>
+
+    <!-- ========== SPEAKING TOPICS (DARK) ========== -->
+    <section class="section-dark-gradient" id="speaking">
         <div class="container">
             <div class="section-header">
-                <div class="section-label">What People Say</div>
-                <h2 class="section-title fade-in">Testimonials</h2>
-                <p class="section-subtitle fade-in">
-                    Rob is brought in by organizations not because he knows theory, but because he has built something visible at scale &mdash; in public.
-                </p>
+                <div class="section-label">Signature Keynote</div>
+                <h2 class="section-title fade-in">What Rob Speaks About</h2>
             </div>
-            <div class="testimonials-placeholder fade-in">
-                <div class="testimonials-placeholder-box">
-                    <div class="placeholder-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <div class="keynotes-grid-expandable">
+                <!-- Keynote: Stop Being the Best Kept Secret -->
+                <div class="keynote-card-expandable expanded fade-in">
+                    <div class="keynote-header">
+                        <div class="keynote-header-content">
+                            <div class="keynote-category">Signature Keynote</div>
+                            <h3 class="keynote-title">Stop Being the Best Kept Secret</h3>
+                        </div>
                     </div>
-                    <h3>Testimonials Coming Soon</h3>
-                    <p>Real feedback from event organizers, college presidents, church leaders, and brand partners. Check back soon for stories from organizations Rob has worked with.</p>
+                    <div class="keynote-body">
+                        <div class="keynote-content-wrapper">
+                            <div class="keynote-book-image">
+                                <img src="images/best-kept-secret.png" alt="Stop Being the Best Kept Secret by Rob Clark">
+                            </div>
+                            <div class="keynote-text">
+                                <p class="keynote-book-line">Based on the book <em>Stop Being the Best Kept Secret</em></p>
+                                <p class="keynote-description">
+                                    You&rsquo;re great at what you do. Your clients love you. Your work speaks for itself. And yet somehow, the people who are less talented, less experienced, and less qualified are getting the attention, the clients, and the opportunities that should be yours.
+                                </p>
+                                <p class="keynote-description">
+                                    That&rsquo;s because secrets lose. Attention wins.
+                                </p>
+                                <p class="keynote-description">
+                                    Rob Clark built That Tall Family from a single 11 second video into a brand with over 5 billion organic views and more than 4 million followers across every major platform. In this talk, he shares the exact framework he uses to help businesses, universities, and professionals stop being invisible and start being the name everyone knows. No ad spend. No dance trends. No pretending to be someone you&rsquo;re not. Just a proven system for turning what makes you different into the reason people choose you.
+                                </p>
+                                <div class="keynote-takeaways">
+                                    <h4 class="takeaways-title">Your audience will walk away with:</h4>
+                                    <ul class="takeaways-list">
+                                        <li>The <strong>One of One</strong> framework for finding what makes them the only choice in their market</li>
+                                        <li>The <strong>hook strategy</strong> that turns two seconds of attention into lasting trust</li>
+                                        <li>The <strong>mindset shift</strong> that transforms social media from something they dread into the most powerful tool in their business</li>
+                                    </ul>
+                                </div>
+                                <p class="keynote-description" style="margin-top: 24px; opacity: 0.85; font-style: italic;">
+                                    This talk is for any organization tired of being the best kept secret in their industry.
+                                </p>
+                                <a href="#contact" class="keynote-link">
+                                    Book This Keynote
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== CTA SECTION (warm gradient bg) ========== -->
-    <section class="cta-section" id="contact">
+    <!-- Curved divider: Speaking (dark) → CTA (cream) -->
+    <div class="section-divider divider-dark-to-light" style="background:#0a0a0a;">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,45 Q280,15 560,40 Q840,65 1120,35 Q1300,20 1440,50 L1440,0 Z" fill="#0a0a0a"/>
+            <path d="M0,45 Q280,15 560,40 Q840,65 1120,35 Q1300,20 1440,50 L1440,55 Q1300,25 1120,40 Q840,70 560,45 Q280,20 0,50 Z" fill="#b38041"/>
+            <path d="M0,50 Q280,20 560,45 Q840,70 1120,40 Q1300,25 1440,55 L1440,100 L0,100 Z" fill="#f5f0e8"/>
+        </svg>
+    </div>
+
+    <!-- ========== CTA SECTION (LIGHT / CREAM) ========== -->
+    <section class="cta-section section-light-warm" id="contact">
         <div class="container">
             <div class="cta-content">
-                <div class="section-label">Let's Work Together</div>
-                <h2 class="section-title fade-in">Book Rob for Speaking<br>or Consulting</h2>
+                <div class="section-label">Get in Touch</div>
+                <h2 class="section-title fade-in">Let's Work Together</h2>
                 <p class="section-subtitle fade-in">
-                    Whether you need a keynote speaker who has built something real at scale, or a strategist to help your organization stop being invisible &mdash; Rob delivers practical, proven results.
+                    Whether you need a strategist, a content creator, a keynote speaker, or a digital partner &mdash; let's talk about how to help you win attention and turn it into growth.
                 </p>
-                <div class="cta-buttons fade-in">
-                    <a href="#" class="btn-primary">
-                        Book Rob to Speak
+                <form class="contact-form fade-in" action="https://formspree.io/f/xnjbqjva" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact-name">Name</label>
+                            <input type="text" id="contact-name" name="name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email</label>
+                            <input type="email" id="contact-email" name="email" placeholder="your@email.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-organization">Organization</label>
+                        <input type="text" id="contact-organization" name="organization" placeholder="Company, university, church, etc.">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" name="message" rows="4" placeholder="Tell me about your project, event, or what you're looking for..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        Send Message
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
-                    <a href="#" class="btn-secondary">TTF Media</a>
-                </div>
+                    </button>
+                </form>
             </div>
         </div>
     </section>
 
-    <!-- ========== NEWSLETTER (light bg) ========== -->
-    <section class="newsletter-section bg-light">
+    <!-- Curved divider: CTA (cream) → Newsletter (dark) -->
+    <div class="section-divider divider-light-to-dark">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,45 Q240,80 480,55 Q720,30 960,60 Q1200,85 1440,50 L1440,0 Z" fill="#f5f0e8"/>
+            <path d="M0,45 Q240,80 480,55 Q720,30 960,60 Q1200,85 1440,50 L1440,55 Q1200,90 960,65 Q720,35 480,60 Q240,85 0,50 Z" fill="#b38041"/>
+            <path d="M0,50 Q240,85 480,60 Q720,35 960,65 Q1200,90 1440,55 L1440,100 L0,100 Z" fill="#0a0a0a"/>
+        </svg>
+    </div>
+
+    <!-- ========== NEWSLETTER (DARK) ========== -->
+    <section class="newsletter-section section-dark-gradient">
         <div class="container">
             <div class="newsletter-content fade-in">
                 <h3>Stay Connected</h3>
                 <p>Get insights on attention, storytelling, content strategy, and building influence from Rob Clark.</p>
-                <form class="newsletter-form" onsubmit="handleNewsletter(event)">
-                    <input type="email" placeholder="Enter your email" required>
+                <form class="newsletter-form" action="https://formspree.io/f/mlgwegnb" method="POST">
+                    <input type="email" name="email" placeholder="Enter your email" required>
                     <button type="submit">Subscribe</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- ========== FOOTER (dark bg) ========== -->
+    <!-- Subtle gold line divider: Newsletter → Footer -->
+    <div class="section-divider" style="background:#0a0a0a;">
+        <svg viewBox="0 0 1440 30" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="1440" height="30" fill="#0a0a0a"/>
+        </svg>
+    </div>
+
+    <!-- ========== FOOTER (DARK) ========== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-top">
                 <div class="footer-brand">
                     <a href="#" class="nav-logo">ROB <span>CLARK</span></a>
-                    <p>Creator, strategist, speaker, and author. Founder of That Tall Family and TTF Media. Helping people and organizations capture attention and turn it into lasting impact.</p>
+                    <p>Strategist, creator, author, and speaker. Founder of <a href="https://thattallfamily.com" target="_blank" rel="noopener noreferrer">That Tall Family</a>. I help people and organizations win attention and turn it into growth &mdash; through consulting, content, digital development, and keynotes.</p>
                     <div class="footer-social">
-                        <a href="#" class="social-link" aria-label="TikTok">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Instagram">
+                        <a href="https://www.instagram.com/thattallfamily/" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="0.5"/></svg>
                         </a>
-                        <a href="#" class="social-link" aria-label="YouTube">
+                        <a href="https://www.facebook.com/thattallfamily" class="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="https://www.tiktok.com/@tallfamily" class="social-link" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@ThatTallFamily" class="social-link" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
                         </a>
-                        <a href="#" class="social-link" aria-label="Facebook">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        <a href="https://www.linkedin.com/in/robclark/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                         </a>
                     </div>
                 </div>
@@ -1683,16 +2884,16 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#about">About</a></li>
-                        <li><a href="#speaking">Speaking</a></li>
+                        <li><a href="#services">Services</a></li>
                         <li><a href="#books">Books</a></li>
-                        <li><a href="#contact">Book Rob</a></li>
+                        <li><a href="#speaking">Speaking</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h4>Brands</h4>
                     <ul>
-                        <li><a href="#">That Tall Family</a></li>
-                        <li><a href="#">TTF Media</a></li>
+                        <li><a href="https://thattallfamily.com" target="_blank" rel="noopener noreferrer">That Tall Family</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -1739,7 +2940,6 @@
             document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
         });
 
-        // Close mobile nav on link click
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navToggle.classList.remove('active');
@@ -1808,6 +3008,52 @@
             if (hero && scrolled < window.innerHeight) {
                 hero.style.transform = 'translateY(' + (scrolled * 0.3) + 'px)';
             }
+        });
+
+        // Expandable keynote cards toggle
+        function toggleKeynote(card) {
+            // Close all other cards
+            document.querySelectorAll('.keynote-card-expandable').forEach(c => {
+                if (c !== card) {
+                    c.classList.remove('expanded');
+                }
+            });
+            // Toggle clicked card
+            card.classList.toggle('expanded');
+        }
+
+        // Count-up animation for stats
+        function animateCountUp(element) {
+            const target = parseInt(element.dataset.target);
+            const suffix = element.textContent.replace(/[0-9]/g, '');
+            let current = 0;
+            const increment = target / 40;
+            const duration = 1500;
+            const stepTime = duration / 40;
+
+            const counter = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + suffix;
+                    clearInterval(counter);
+                } else {
+                    element.textContent = Math.floor(current) + suffix;
+                }
+            }, stepTime);
+        }
+
+        // Observe count-up elements
+        const countUpObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCountUp(entry.target);
+                    countUpObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.count-up').forEach(el => {
+            countUpObserver.observe(el);
         });
     </script>
 
